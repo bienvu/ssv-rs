@@ -1,0 +1,46 @@
+.banner {
+  position: relative;
+
+  &__image {
+    line-height: 0;
+  }
+
+  &__wrap {
+    position: absolute;
+    top: calc(50% + 17px);
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+  }
+
+  &__body {
+    max-width: 360px;
+
+    .best-advice {
+      a {
+        border: 0;
+        font-size: 19.5px;
+        padding: 10px 5px 10px 31px;
+      }
+    }
+  }
+  
+  &__content {
+    @extend .bg--white;
+    padding: 21px 18px 22px 30px;
+    margin-bottom: 24px;
+    min-height: 295px;
+    position: relative;
+  }
+
+  &__description {
+    p:last-of-type {
+      margin: 0;
+    }
+  }
+
+  &__link {
+    position: absolute;
+    bottom: -21px;
+  }
+}
