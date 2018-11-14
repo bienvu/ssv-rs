@@ -3,42 +3,60 @@
 
 var gulp = require('gulp'),
   autoprefixer = require('gulp-autoprefixer'),
-  browserSync = require('browser-sync'),
-  filter = require('gulp-filter'),
-  twig = require('gulp-twig'),
   sass = require('gulp-sass'),
   sourcemaps = require('gulp-sourcemaps'),
-  prettify = require('gulp-html-prettify'),
-  data = require('gulp-data'),
-  path = require('path'),
-  reload = browserSync.reload,
   scsslint = require('gulp-scss-lint'),
   jshint = require('gulp-jshint'),
+  shell = require('gulp-shell'),
+  browserSync = require('browser-sync'),
+  reload = browserSync.reload,
   src = {
     scss: '../scss/**/*.scss',
     css: '../css',
-    html_components: '../styleguide/components/*.twig',
-    html_layouts: '../styleguide/layouts/*.twig',
-    html_pages: '../styleguide/pages/*.twig',
-    dataJson: '../styleguide/data/*.json',
-    javascript: '../js/*.js'
+    twigFile: '../pattern-lab/source/_**/**/*.twig',
+    jsonFile: '../pattern-lab/source/_**/**/*.json',
+    mdFile: '../pattern-lab/source/_**/**/*.md',
+    latestChangeFile: '../pattern-lab/public/latest-change.txt',
+    javascript: '../js/*.js',
+    cssFile: '../css/*.css',
   };
 
+// Build pattern-lab
+gulp.task('build-pattern-lab', shell.task([
+ 'cd ../pattern-lab/; M | composer install --no-dev; cd ../.npm/;'
+]));
+
 // Task for local, static development.
-gulp.task('local-development', ['sass-dev', 'styleguide'], function () {
+gulp.task('local-development', ['sass-dev', 'pl-generate'], function () {
   browserSync({
     server: {
-      baseDir: "../"
-    },
-    files: ["css/styles.css", src.html]
+      baseDir: "../",
+    }
   });
 
   gulp.watch(src.scss, ['sass-dev']);
-  gulp.watch([src.html_components, src.html_layouts, src.html_pages], ['styleguide']);
   gulp.watch(src.javascript, reload);
-  gulp.watch(src.dataJson, ['styleguide']);
+  gulp.watch(src.cssFile, reload);
+  gulp.watch(src.twigFile, ['pl-generate']);
+  gulp.watch(src.jsonFile, ['pl-generate']);
+  gulp.watch(src.mdFile, ['pl-generate']);
+  gulp.watch(src.latestChangeFile).on('change', reload);
 });
 
+// Sass watch, compile css when sass is changed.
+gulp.task('sass-watch', ['sass-dev'], function () {
+  gulp.watch(src.scss, ['sass-dev']);
+});
+
+// SCSS Lint.
+gulp.task('scss-lint', function () {
+  return gulp.src(src.scss)
+    .pipe(
+      scsslint({
+        'config': 'scss-lint.yml',
+      })
+    );
+});
 
 // Task for compiling sass in development mode with all features enabled.
 gulp.task('sass-dev', function () {
@@ -53,84 +71,18 @@ gulp.task('sass-dev', function () {
     .pipe(autoprefixer({browsers: ['safari >= 8', 'last 3 versions', '> 2%']}))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(src.css))
-    .pipe(filter("**/*.css"))
-    .pipe(reload({
-      stream: true
-    }));
 });
 
-// Task for compiling sass in production mode. No sourcemaps.
-gulp.task('sass-prod', function () {
-  gulp.src('../scss/{,*/}*.{scss,sass}')
-    .pipe(sass({
-      errLogToConsole: true
-    }))
-    .on('error', function (err) {
-      console.error('Error!', err.message);
-    })
-    .pipe(autoprefixer({browsers: ['safari >= 8', 'last 3 versions', '> 2%']}))
-    .pipe(gulp.dest(src.css))
-    .pipe(filter("**/*.css"))
-    .pipe(reload({
-      stream: true
-    }));
-});
+// Generate pattern-lab.
+gulp.task('pl-generate', shell.task([
+ 'php ../pattern-lab/core/console --generate'
+]));
 
-/**
- * Uncache data.
- */
-function requireUncached( $module ) {
-  delete require.cache[require.resolve( $module )];
-  return require( $module );
-}
-
-/**
- * Generate styleguide.
- */
-gulp.task('styleguide', function () {
-  return gulp.src(src.html_pages)
-    .pipe(data(function (file) {
-      return requireUncached('../styleguide/data/global.json');
-      //return require('../data/' + path.basename(file.path, '.twig') + '.json');
-    }))
-    .pipe(twig())
-    .pipe(prettify({indent_char: ' ', indent_size: 2}))
-    .pipe(gulp.dest('../styleguide/'))
-    .on("end", reload);
-});
-
-// SCSS Lint
-gulp.task('scss-lint', function () {
-  return gulp.src(src.scss)
-    .pipe(
-      scsslint({
-        'config': 'scss-lint.yml',
-      })
-    );
-});
-
-// Javascript Lint
+// Javascript Lint.
 gulp.task('js-lint', function () {
   return gulp.src(src.javascript)
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
-});
-
-
-// Gulp Task for development mode.
-// SASS compile, template generation, SCSS/JS linter
-gulp.task('dev', ['sass-dev', 'styleguide'], function () {
-  browserSync({
-    server: {
-      baseDir: "../"
-    },
-    files: ["../css/styles.css", src.html]
-  });
-
-  gulp.watch(src.scss, ['sass-dev', 'scss-lint']);
-  gulp.watch([src.html_components, src.html_layouts, src.html_pages], ['styleguide']);
-  gulp.watch(src.javascript, ['js-lint', reload]);
-  gulp.watch(src.dataJson, ['styleguide']);
 });
 
 // Default task.
