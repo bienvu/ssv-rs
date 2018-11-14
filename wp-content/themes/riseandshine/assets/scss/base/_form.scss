@@ -1,0 +1,386 @@
+button,
+input[type='submit'] {
+  @extend .btn;
+}
+
+.form,
+%form-text {
+  @include niramit;
+  appearance: none;
+  background: $gray;
+  border-radius: 0;
+  border: 0;
+  box-shadow: inherit;
+  box-sizing: border-box;
+  color: $blue;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  padding: 8px 14px 11px;
+  transition: all .3s ease-in-out;
+  width: 100%;
+  line-height: 1.5;
+  letter-spacing: 0;
+
+  &::-ms-clear {
+    display: none;
+  }
+
+  &::-webkit-input-placeholder {
+    color: $blue;
+    opacity: 1;
+  }
+
+  &::-moz-placeholder {
+    color: $blue;
+    opacity: 1;
+  }
+
+  &:-ms-input-placeholder {
+    color: $blue;
+    opacity: 1;
+  }
+
+  &:-moz-placeholder {
+    color: $blue;
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: 0 none;
+  }
+
+  &.error {
+    border-color: $red;
+    color: $red;
+
+    &::-webkit-input-placeholder {
+      color: $red;
+    }
+
+    &::-moz-placeholder {
+      color: $red;
+    }
+
+    &:-ms-input-placeholder {
+      color: $red;
+    }
+
+    &:-moz-placeholder {
+      color: $red;
+    }
+
+    &:focus {
+      outline: 0 none;
+    }
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
+  &--small {
+    font-size: 12px;
+    line-height: 1;
+    padding: 6px 5px 6px 32px;
+  }
+
+  &--smallest {
+    font-size: 12px;
+    line-height: normal;
+    padding: 16px 14px;
+
+    @media only screen and (min-width: 768px) {
+      padding: 7px 12px 8px 15px;
+    }
+  }
+}
+
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="email"],
+input[type="hidden"] {
+  @extend %form-text;
+}
+
+input[type="search"] {
+  @extend %form-text;
+  @extend %form-text--small;
+
+  @media only screen and (min-width: 768px) {
+    width: 120px;
+  }
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.number-wrap {
+  overflow: hidden;
+  width: 100%;
+
+  input {
+    width: calc(100% + 30px);
+    padding-right: 30px;
+  }
+}
+
+textarea {
+  @extend %form-text;
+  height: auto;
+  min-height: 100px;
+  padding: 15px;
+}
+
+.form-item,
+.form-actions {
+  margin: 0 0 10px;
+
+  &:last-child {
+    margin: 0;
+  }
+
+  &.form-type-checkbox,
+  &.form-type-radio {
+    margin-bottom: 8px;
+  }
+}
+
+.form-type-checkbox,
+.form-type-radio {
+  label {
+    font-weight: 400;
+  }
+}
+
+.fieldset-legend {
+  display: inline-block;
+  font-weight: 700;
+  margin-bottom: rem(8px);
+}
+
+select {
+  outline: none;
+  box-shadow: none;
+  padding: 13px 38px 16px 16px;
+  font-size: 12px;
+  text-align-last: center;
+  color: $text-color;
+  background: $white;
+  appearance: none;
+  text-indent: 0.01px;
+  text-overflow: "---";
+  border: 0;
+
+  &::-ms-expand{
+    display: none;
+  }
+
+  option {
+    @include niramit;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+    line-height: normal;
+    letter-spacing: 0;
+    color: $blue;
+  }
+}
+
+%invisible,
+.invisible {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: rem(1px);
+  margin: rem(-1px);
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: rem(1px);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  @extend %invisible;
+
+  + label{
+    @include niramit;
+    font-weight: 400;
+    font-style: normal;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    padding: 2px 0 2px 23px;
+    font-size: 14px;
+    line-height: normal;
+    letter-spacing: 0;
+    color: $blue;
+
+    &:focus,
+    &:hover,
+    &:active{
+      border-color: $blue;
+    }
+
+    &:before{
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      border: 1px solid $blue;
+      margin-top: -4px;
+      border-radius: 3px;
+    }
+
+    &:after {
+      content: "";
+      opacity: 0;
+      position: absolute;
+      top: 45%;
+      transform: translateY(-50%);
+      transition: opacity .3s ease;
+      left: 0;
+    }
+  }
+
+  &:checked {
+    & + label {
+      &:before {
+        border-color: $primary-color;
+      }
+    }
+  }
+}
+
+// Checkbox and radio button.
+input[type="radio"] {
+  + label {
+    &:before {
+      border-radius: 50%;
+    }
+  }
+
+  &:checked {
+    & + label {
+      &:after {
+        width: 10px;
+        height: 10px;
+        opacity: 1;
+        background: $blue;
+        border-radius: 100%;
+      }
+    }
+  }
+}
+
+input[type="checkbox"] {
+  &:checked {
+    & + label {
+      &:before {
+        border-color: $blue;
+      }
+
+      &:after {
+        opacity: 1;
+        @extend %icons;
+        @extend .icon-checkmark:before;
+        color: $blue;
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+.form-search {
+  position: relative;
+
+  @media only screen and (max-width: 1023px) {
+    display: none;
+    position: absolute;
+    right: 100%;
+  }
+
+  input[type="search"] {
+    @media only screen and (max-width: 1023px) {
+      width: 0;
+      padding-right: 0;
+      background: none;
+      padding: 6px 5px 6px 16px;
+    }
+  }
+
+  &__submit {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0;
+    background: transparent;
+    left: 11px;
+
+    @media only screen and (max-width: 1023px) {
+      left: 19px;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    @media only screen and (max-width: 374px) {
+      left: 11px;
+    }
+
+    &:hover {
+      background: transparent;
+    }
+
+    i {
+      position: static;
+      transform: none;
+
+      &:before {
+        font-size: 12px;
+        color: $blue;
+
+        @media only screen and (max-width: 1023px) {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  &:hover {
+    background: $gray;
+  }
+
+  &--mobile {
+    display: block;
+    padding: 13.5px 16.5px;
+
+    @media only screen and (min-width: 1024px) {
+      display: none;
+    }
+
+    @media only screen and (max-width: 374px) {
+      padding: 6.5px 9.5px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.active {
+      z-index: 9;
+      background: $gray;
+      left: -54px;
+      width: calc(100% + 54px);
+
+      .form-search__input {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+// Style table
+
+table {
+  margin-bottom: rem(15px);
+
+  thead {
+    background: #97c5e8;
+
+    th {
+      color: $white;
+    }
+  }
+
+  tbody {
+    tr:nth-of-type(2n+1) {
+      background: #f2f6f5;
+    }
+  }
+}
+
+td,
+th {
+  border-right: 1px solid #d9d9d9;
+  min-width: 149px;
+  padding: 8px 5px 11px 14px;
+  vertical-align: top;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  font-weight: 400;
+
+  &:last-of-type {
+    border: 0;
+  }
+}
+
+.table-responsive {
+  margin-bottom: rem(15px);
+  overflow-x: auto;
+  width: 100%;
+
+  table {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,12 @@
+<ul class="sg-colors">
+  {% for item in colors %}
+    <li>
+      <span class="sg-swatch {{ item.class }}" {% if item.code %} style="background: {{ item.code }};"{% endif %}></span>
+      <span class="sg-label">Name: {{ item.variable }}</span>
+      {% if item.code %}
+        <br />
+        <span class="sg-label">Code: {{ item.code }}</span>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

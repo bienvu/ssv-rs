@@ -1,0 +1,73 @@
+.box-intro {
+  padding: 50px 0;
+
+  &__wrap {
+    @media only screen and (min-width: 768px) {
+      position: relative;
+    }
+  }
+
+  &__image {
+    display: none;
+
+    @media only screen and (min-width: 768px) {
+      margin-left: -125px;
+      display: block;
+    }
+  }
+
+  &__content {
+    @media only screen and (min-width: 768px) {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &__top {
+    padding: 0;
+
+    @media only screen and (min-width: 768px) {
+      display: flex;
+      justify-content: center;
+      padding-left: 32px;
+      padding-top: 25px;
+    }
+  }
+
+  &__title {
+    width: 100%;
+    margin-bottom: 20px;
+
+    @media only screen and (min-width: 768px) {
+      width: 20%;
+    }
+  }
+
+  &__body {
+    width: 100%;
+    padding: 0;
+
+    @media only screen and (min-width: 768px) {
+      padding-left: 90px;
+      width: 80%;
+    }
+  }
+
+  &__multilink {
+    padding: 0;
+
+    @media only screen and (min-width: 768px) {
+      padding: 53px 0 0 570px;
+
+    }
+  }
+
+  .btn {
+    margin-bottom: 15px;
+
+    @media only screen and (min-width: 768px) {
+      margin-bottom: 25px;
+    }
+  }
+}

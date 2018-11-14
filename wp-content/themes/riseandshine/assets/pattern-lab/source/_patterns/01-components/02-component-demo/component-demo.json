@@ -1,0 +1,31 @@
+{
+  "componentDemo": {
+    "title": "Component Demo",
+    "items": [
+      {
+        "include()": {
+          "pattern": "components-component-demo-item",
+          "with": {
+            "componentDemoItem": {
+              "title": "Component demo item 1",
+              "body": "<p>This is body 1</p>"
+            }
+          },
+          "only": true
+        }
+      },
+      {
+        "include()": {
+          "pattern": "components-component-demo-item",
+          "with": {
+            "componentDemoItem": {
+              "title": "Component demo 2",
+              "body": "<p>This is body 2</p>"
+            }
+          },
+          "only": true
+        }
+      }
+    ]
+  }
+}

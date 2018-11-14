@@ -1,0 +1,13 @@
+// FONTS
+// Import all webfonts here
+//https://gist.github.com/jonathantneal/d0460e5c2d5d7f9bc5e6
+
+// For example:
+@include font-face("Niramit", fonts/Niramit-Regular, 400, normal);
+@include font-face("Niramit", fonts/Niramit-Italic, 400, italic);
+@include font-face("Niramit", fonts/Niramit-Light, 300, normal);
+@include font-face("Niramit", fonts/Niramit-Medium, 500, normal);
+@include font-face("riseandshine",fonts/riseandshine, 400, normal);
+// @include font-face(SourceSansPro, fonts/SourceSansPro-BoldItalic, 700, italic);
+// @include font-face(SourceSansPro, fonts/SourceSansPro-Regular, 400, normal);
+// @include font-face(SourceSansPro, fonts/SourceSansPro-Italic, 400, italic);

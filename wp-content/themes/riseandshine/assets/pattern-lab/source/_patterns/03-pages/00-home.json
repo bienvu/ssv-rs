@@ -1,0 +1,35 @@
+{
+  "pageclass" : "",
+  "headerRegion": {
+    "include()": {
+      "pattern": "components-header"
+    }
+  },
+  "footerRegion": {
+    "include()": {
+      "pattern": "components-footer"
+    }
+  },
+  "mainRegion": {
+    "include()": {
+      "pattern": "templates-content-layout",
+      "with": {
+        "contentLayout": {
+          "items": [
+            {
+              "include()": {
+                "pattern": "base-elements-headings"
+              }
+            },
+            {
+              "include()": {
+                "pattern": "base-elements-paragraph"
+              }
+            }
+          ]
+        }
+      },
+      "only": true
+    }
+  }
+}

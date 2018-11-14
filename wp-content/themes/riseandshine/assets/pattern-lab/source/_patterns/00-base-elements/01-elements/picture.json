@@ -1,0 +1,8 @@
+{
+  "picture": {
+    "srcDesktop": "https://dummyimage.com/1440x900/000/fff.jpg",
+    "srcTablet": "https://dummyimage.com/1024x768/000/fff.jpg",
+    "src": "https://dummyimage.com/768x576/000/fff.jpg",
+    "alt": "FCL image"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "bgLists": [
+    {
+      "label": "Light backgrounds",
+      "type": "normal",
+      "items": [
+        {
+          "label": "bg--white text--dark",
+          "code": "#ffffff"
+        }
+      ]
+    },
+    {
+      "label": "Dark backgrounds",
+      "type": "normal",
+      "items": [
+        {
+          "label": "bg--primary text--white",
+          "code": "#112146"
+        }
+      ]
+    }
+  ]
+}

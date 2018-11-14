@@ -1,0 +1,71 @@
+{
+  "brandColors": {
+    "items": [
+      {
+        "include()": {
+          "pattern": "base-elements-colors",
+          "with": {
+            "colors": [
+              {
+                "variable": "$primary-color",
+                "code": "#243d50"
+              },
+              {
+                "variable": "$black",
+                "code": "#000"
+              },
+              {
+                "variable": "$white",
+                "code": "#fff"
+              },
+              {
+                "variable": "$red",
+                "code": "#b41433"
+              },
+              {
+                "variable": "$blue",
+                "code": "#243d50"
+              },
+              {
+                "variable": "$cyan",
+                "code": "#62baa2"
+              },
+              {
+                "variable": "$orange",
+                "code": "#f3af86"
+              },
+              {
+                "variable": "$dark-red",
+                "code": "#ba6262"
+              },
+              {
+                "variable": "$light-indigo",
+                "code": "#97c5e8"
+              },
+              {
+                "variable": "$light-crown",
+                "code": "#d1c5c5"
+              },
+              {
+                "variable": "$crown",
+                "code": "#bdaaa4"
+              },
+              {
+                "variable": "$dark-blue",
+                "code": "#253e51"
+              },
+              {
+                "variable": "$light-blue",
+                "code": "#396682"
+              },
+              {
+                "variable": "$dark-cyan",
+                "code": "#182936"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

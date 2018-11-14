@@ -1,0 +1,27 @@
+.box-icon {
+  padding: 50px 0;
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  &__item {
+    width: calc(100% / 3);
+    margin-bottom: 20px;
+
+    @media only screen and (min-width: 768px) {
+      width: 20%;
+    }
+  }
+
+  &__image {
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  &__title {
+    text-align: center;
+  }
+}

@@ -1,0 +1,40 @@
+.box-video {
+  text-align: center;
+  padding: 35px 0;
+
+  &__wrap {
+    display: flex;
+    flex-direction: column-reverse;
+
+    @media only screen and (min-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  &__video {
+    padding: 0;
+
+    @media only screen and (min-width: 768px) {
+      margin-bottom: 30px;
+      padding: 0 80px;
+    }
+
+    video {
+      height: auto;
+      width: 100%;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    width: 100%;
+    margin-bottom: 30px;
+
+    @media only screen and (min-width: 768px) {
+      width: 209px;
+    }
+  }
+}

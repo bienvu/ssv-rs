@@ -1,0 +1,102 @@
+%btn,
+.btn {
+  @include niramit;
+  line-height: normal;
+  letter-spacing: 0;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  color: $white;
+  appearance: none;
+  background-image: none;
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
+  text-transform: lowercase;
+  display: inline-block;
+  outline: none;
+  padding: 11px 38px 14px 16px;
+  text-align: center;
+  text-shadow: none;
+  transition: all .3s ease;
+  cursor: pointer;
+  outline: 0;
+  text-decoration: none;
+  background: $btn-bg;
+
+  span {
+    position: relative;
+  }
+
+  i {
+    position: absolute;
+    right: -23px;
+    top: calc( 50% + 1px );
+    transform: translateY(-50%);
+  }
+
+  &--only-icon {
+    padding: 0;
+    width: 61px;
+    height: 61px;
+
+    @media only screen and (min-width: 768px) {
+      width: 39px;
+      height: 39px;
+    }
+
+    i {
+      position: static;
+    }
+  }
+  
+  &:active,
+  &:hover {
+    background: lighten($btn-bg, 5%);
+  }
+
+  &--blue {
+    background: $blue;
+
+    &:active,
+    &:hover {
+      background: lighten($blue, 5%);
+    }
+  }
+
+  &--orange {
+    background: $orange;
+
+    &:active,
+    &:hover {
+      background: lighten($orange, 5%);
+    }
+  }
+
+  &--red {
+    background: $red;
+
+    &:active,
+    &:hover {
+      background: lighten($red, 5%);
+    }
+  }
+
+  &--light-indigo {
+    background: $light-indigo;
+
+    &:active,
+    &:hover {
+      background: lighten($light-indigo, 5%);
+    }
+  }
+
+  // modifier size
+  &--full {
+    width: 100%;
+  }
+
+  &--large {
+    min-width: 209px;
+  }
+}

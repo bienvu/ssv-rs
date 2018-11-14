@@ -1,0 +1,60 @@
+.box-feature {
+  padding: 40px 0;
+  text-align: center;
+  color: #fff;
+  background: #6eb0b5;
+
+  &__title {
+    margin-bottom: 10px;
+  }
+
+  &__sub-title {
+    margin-bottom: 30px;
+  }
+  
+  &__content {
+    text-align: center;
+
+    @media only screen and (min-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    &__left {
+      width: 100%;
+      margin-bottom: 30px;
+
+      @media only screen and (min-width: 768px) {
+        width: 50%;
+      }
+    }
+
+    &__right {
+      width: 100%;
+
+      @media only screen and (min-width: 768px) {
+        width: 50%;
+      }
+    }
+  }
+
+  .break {
+    display: block;
+
+    @media only screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  .btn {
+    width: 100%;
+
+    @media only screen and (min-width: 768px) {
+      width: 209px;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+.DS_Store
+.idea
+export/*
+public/*
+vendor/*
+config/*.json

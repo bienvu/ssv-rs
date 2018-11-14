@@ -1,0 +1,309 @@
+// Navigation.
+.second-menu {
+  @media only screen and (max-width: 1023px) {
+    width: 100%;
+  }
+
+  >ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @media only screen and (min-width: 1023px) {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0 10px;
+    }
+
+    > li {
+      position: relative;
+      width: 50%;
+
+      @media only screen and (min-width: 1024px) {
+        width: auto;
+      }
+      
+
+      a {
+        @extend %link--small;
+        
+        color: $white;
+        padding: 10px 10px 10px 12px;
+        display: block;
+
+        @media only screen and (max-width: 1023px) {
+          padding: 8px 19px 12px;
+        }
+      }
+
+      > a {
+        @extend %link--large-mobile;
+
+        @media only screen and (max-width: 1023px) {
+          border-bottom: 2px solid $gray;
+          border-right: 2px solid $gray;
+          position: relative;
+        }
+      }
+
+      &:nth-of-type(2n) {
+        a {
+          border-right: 0;
+        }
+      }
+
+      .sub-menu {
+        background: $light-blue;
+        border-bottom: 2px solid $gray;
+        display: none;
+        padding: 5px 0 13px;
+
+        @media only screen and (min-width: 1024px) {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          min-width: 130px;
+          z-index: 9;
+          padding: 14px 5px 16px 21px;
+        }
+
+        li {
+          a {
+            padding: 2px 0 3px;
+
+            @media only screen and (max-width: 1023px) {
+              font-size: 14px;
+              padding: 5px 19px;
+            }
+          }
+        }
+      }
+
+      &.active {
+        .sub-menu {
+          display: block;
+        }
+
+        > a {
+          border-bottom: 2px solid $light-blue;
+          background: $light-blue;
+        }
+      } 
+
+      &:nth-of-type(2n) {
+        .sub-menu {
+          @media only screen and (max-width: 1023px) {
+            margin-left: -100%;
+          }
+
+          li {
+            a {
+              @media only screen and (max-width: 1023px) {
+                width: 50%;
+                margin-left: auto;
+              }
+            }
+          }
+        }
+      }
+
+      &:nth-of-type(2n + 1) {
+        .sub-menu {
+          @media only screen and (max-width: 1023px) {
+            margin-right: -100%;
+          }
+        }
+      }
+      
+      @media only screen and (min-width: 1024px) {
+        &:hover {
+          a {
+            background: $light-blue;
+          }
+        }
+
+        &:hover .sub-menu {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.primary-menu {
+  padding: 0 23px 0 0;
+
+  @media only screen and (max-width: 1023px) {
+    width: 100%;
+    padding: 0;
+  }
+
+  > ul {
+    @media only screen and (min-width: 1024px) {
+      display: flex;
+    }
+
+    > li {
+      position: relative;
+
+      @media only screen and (max-width: 1023px) {
+        margin-top: 2px;
+        background: $white;
+      }
+
+      &:first-of-type {
+        margin: 0;
+      }
+
+      > a {
+        @extend %link--largest-mobile;
+        position: relative;
+        padding: 8px 0 13px 19px;
+        display: block;
+
+        @media only screen and (min-width: 1024px) {
+          padding: 35px 14.5px 40px;
+        }
+      }
+
+      span {
+        padding: 5px 19px;
+        display: block;
+      }
+
+      > .sub-menu {
+        background: $gray;
+        display: none;
+        padding: 8px 0 12px;
+
+        @media only screen and (min-width: 1024px) {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          display: none;
+          padding: 26px 2px 23px 3px;
+          box-shadow: 0px 5px 7px 0px rgba($black, .35);
+          z-index: 9;
+        }
+
+        > li {
+          width: 50%;
+
+          @media only screen and (min-width: 1024px) {
+            min-width: 191px;
+            padding: 0 0 0 27px;
+          }
+
+          span {
+            @extend .text--small;
+
+            @media only screen and (min-width: 1024px) {
+              padding: 0;
+              color: $light-blue;
+            }
+          }
+
+          a {
+            @extend .text--normal;
+            padding: 5px 19px;
+
+            @media only screen and (min-width: 1024px) {
+              padding: 3px 0 4px;
+            }
+          }
+
+          .sub-menu {
+            @media only screen and (min-width: 1024px) {
+              flex-wrap: wrap;
+              padding: 5px 0 0 0;
+              box-shadow: none;
+            }
+          }
+        }
+      }
+
+      &.active > .sub-menu {
+        display: flex;
+      }
+
+      @media only screen and (min-width: 1024px) {
+        &:hover a {
+          background: $gray;
+        }
+
+        &:hover > .sub-menu {
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+.second-menu,
+.primary-menu {
+  > ul {
+    > li {
+      > a {
+        i {
+          position: absolute;
+          right: 9%;
+          top: 50%;
+          font-size: 13px;
+          transform: translateY(-50%) rotate(90deg);
+
+          @media only screen and (min-width: 1024px) {
+            display: none;
+          }
+        }
+      }
+
+      &.active {
+        > a {
+          i {
+            transform: translateY(-50%) rotate(270deg);
+          }
+        }
+      }
+    }
+  }
+}
+
+.menu-basic {
+  padding: 22px 0 18px;
+
+  @media only screen and (min-width: 768px) {
+    padding: 0;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    li {
+      width: 50%;
+
+      a {
+        @extend %link--small;
+        display: block;
+        padding: 5px 0 6px;
+
+        @media only screen and (min-width: 768px) {
+          padding: 6px;
+        }
+      }
+
+      &:nth-of-type(2n) {
+        a {
+          padding: 5px 0 6px 10px;
+
+          @media only screen and (min-width: 768px) {
+            padding: 6px;
+          }
+        }
+      }
+    }
+  }
+}

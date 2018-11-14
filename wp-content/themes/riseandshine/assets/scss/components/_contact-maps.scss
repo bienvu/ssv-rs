@@ -1,0 +1,34 @@
+.contact-maps {
+  display: none;
+
+  @media only screen and (min-width: 768px) {
+    padding: 70px 0;
+    display: block;
+
+    &__item {
+      @media only screen and (min-width: 768px) {
+        display: flex;
+        margin-bottom: 30px;
+      }
+    }
+
+    &__image {
+      @media only screen and (min-width: 768px) {
+        width: 70%;
+      }
+
+      iframe {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &__content {
+      @media only screen and (min-width: 768px) {
+        background: #f2f6f5;
+        width: 30%;
+        padding: 30px;
+      }
+    }
+  }
+}

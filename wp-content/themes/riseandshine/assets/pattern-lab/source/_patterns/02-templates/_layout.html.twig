@@ -1,0 +1,12 @@
+<div class="page-wrapper {{ pageclass }}">
+  {% block header %}
+    {{ headerRegion }}
+  {% endblock %}
+  <main id="main" class="main">
+    {% block content %}
+    {% endblock %}
+  </main>
+  {% block footer %}
+    {{ footerRegion }}
+  {% endblock %}
+</div>

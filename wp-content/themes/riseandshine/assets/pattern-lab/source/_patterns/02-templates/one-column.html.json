@@ -1,0 +1,13 @@
+{
+  "headerRegion": {
+    "include()": {
+      "pattern": "components-header"
+    }
+  },
+  "footerRegion": {
+    "include()": {
+      "pattern": "components-footer"
+    }
+  },
+   "mainRegion": "<div class=\"text--center\"><h2 style=\"padding: 100px 0; margin: 0\">Main Region</h2></div>"
+}

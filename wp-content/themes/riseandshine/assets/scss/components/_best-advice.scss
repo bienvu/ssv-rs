@@ -1,0 +1,29 @@
+.best-advice {
+  @media only screen and (max-width: 1023px) {
+    display: none;
+  }
+
+  a {
+    @extend %link--small;
+    @extend .text--italic;
+    color: $white;
+    padding: 0 22px 0 21px;
+    border-left: 1px solid $light-gray;
+
+    @media only screen and (max-width: 1023px) {
+      font-size: inherit;
+      padding: 8px 0 9px 0;
+      border: 0;
+    }
+  }
+
+  &--mobile {
+    display: block;
+    background: $dark-blue;
+    text-align: center;
+
+    @media only screen and (min-width: 1024px) {
+      display: none;
+    }
+  }
+}

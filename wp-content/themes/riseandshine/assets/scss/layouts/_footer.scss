@@ -1,0 +1,134 @@
+.footer {
+  @extend .text--tiny;
+
+  &__icons {
+    margin-bottom: 26px;
+
+    @media only screen and (min-width: 768px) {
+      margin-bottom: 0;
+      width: 24%;
+      padding: 7px 0 0 1px;
+    }
+
+    .list-icons {
+      margin-left: -8px;
+    }
+  }
+
+  &__form {
+    @media only screen and (min-width: 768px) {
+      width: 23%;
+      padding: 7px 0 0 8px;
+
+      .footer__title {
+        margin-bottom: 16px;
+      }
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 800px) {
+      padding-left: 0;
+    }
+
+    .form-item {
+      position: relative;
+
+      button[type="submit"] {
+        @extend %btn--only-icon;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+
+      input[type="text"],
+      input[type="email"] {
+        @extend %form-text--smallest;
+      }
+
+      &:last-of-type {
+        input {
+          padding-right: 61px;
+        }
+      }
+    }
+  }
+
+  &__content {
+    margin-bottom: 19px;
+    text-align: center;
+
+    @media only screen and (min-width: 768px) {
+      margin: 3px 0 0;
+    }
+
+    a {
+      line-height: 0;
+      vertical-align: middle;
+      margin-right: 11px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+
+    span {
+      margin-right: 8px;
+    }
+  }
+
+  &__top {
+    margin-bottom: 31px;
+
+    @media only screen and (min-width: 768px) {
+      padding: 41px 0 51px;
+      margin: 0;
+    }
+  }
+
+  &__copyright {
+    text-align: center;
+    margin-bottom: 4px;
+
+    @media only screen and (min-width: 768px) {
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__text {
+    text-align: center;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__bottom {
+    background: $gray;
+    padding: 15px 0 18px;
+
+    @media only screen and (min-width: 768px) {
+      padding: 12px 0 17px;
+
+      .footer__wrap {
+        align-items: center;
+      }
+    }
+  }
+
+  &__wrap {
+    @media only screen and (min-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .menu-basic {
+      @media only screen and (min-width: 768px) {
+        width: calc(51% + 3px);
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+.request-form {
+  background: $dark-blue;
+  padding: 50px 0;
+
+  &__title {
+    margin-bottom: 30px;
+    text-align: center;
+    color: $white;
+
+    @media only screen and (min-width: 768px) {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+  }
+
+  .form-list {
+    flex-wrap: wrap;
+    margin: 0;
+
+    @media only screen and (min-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 -10px;
+      flex-wrap: nowrap;
+    }
+  }
+
+  .form-item {
+    margin: 0 0 15px;
+
+    @media only screen and (min-width: 768px) {
+      width: 100%;
+      padding: 0 10px;      
+    }
+
+    &--submit {
+      width: 100%;
+
+      @media only screen and (min-width: 768px) {
+        width: auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,194 @@
+// TYPOGRAPHY
+// Define all typographic styles in this file.
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include niramit;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-bottom: 20px;
+
+  @media only screen and (min-width: 768px) {
+    margin-bottom: 25px;
+  }
+}
+
+h1,
+.h1 {
+  font-size: 28px;
+  line-height: 1.785;
+  margin: 0;
+
+  @media only screen and (min-width: 768px){
+    font-size: 50px;
+    line-height: 1;
+    margin-bottom: 17px;
+  }
+}
+
+h2,
+.h2 {
+  font-size: 28px;
+  line-height: 1.071;
+  margin: 0;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 37px;
+    line-height: 1.081;
+    margin-bottom: 28px;
+  }
+}
+
+h3,
+.h3 {
+  font-size: 21px;
+  line-height: 1;
+  margin: 0;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 28px;
+    line-height: 0.857;
+    margin-bottom: 18px;
+  }
+}
+
+h4,
+.h4 {
+  font-size: 14px;
+  line-height: normal;
+  margin-bottom: 0;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 21px;
+    line-height: 1.333;
+    margin-bottom: 7px;
+  }
+}
+
+h5,
+.h5 {
+  font-size: 14px;
+}
+
+h6,
+.h6 {
+  font-size: 12px;
+  margin-bottom: 8px;
+
+  @media only screen and (min-width: 768px) {
+    margin-bottom: 24px;
+  }
+}
+
+%link,
+.link {
+  color: $link-color;
+  text-decoration: none;
+  transition: all .3s ease;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: normal;
+  letter-spacing: 0;
+  display: inline-block;
+
+  &--small {
+    font-size: 12px;
+  }
+
+  &--large-mobile {
+    @media only screen and (max-width: 768px) {
+      font-size: 16px;
+    }
+  }
+
+  &--largest-mobile {
+    @media only screen and (max-width: 768px) {
+      font-size: 21px;
+    }
+  }
+
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+em {
+  font-style: italic;
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+
+sup {
+  vertical-align: super;
+}
+
+small {
+  font-size: smaller;
+}
+
+abbr {
+  border-bottom: 1px dotted $text-color;
+  cursor: help;
+}
+
+tt,
+code,
+kbd,
+samp {
+  font-family: monospace;
+}
+
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  @extend %link;
+}
+
+label {
+  font-weight: 700;
+}
+
+blockquote {
+  p {
+    display: inline;
+  }
+
+  &:before {
+    content: '\201c';
+  }
+
+  &:after {
+    content: '\201d';
+  }
+}
+
+iframe {
+  max-width: 100%;
+}
+
+figure {
+  line-height: 0;
+}

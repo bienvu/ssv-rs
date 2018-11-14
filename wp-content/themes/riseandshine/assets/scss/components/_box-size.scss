@@ -1,0 +1,31 @@
+.box-size {
+  padding: 70px 0;
+
+  &__wrap {
+    @media only screen and (min-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__content {
+    width: 100%;
+
+    @media only screen and (min-width: 768px) {
+      width: 50%;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__table {
+    width: 100%;
+
+    @media only screen and (min-width: 768px) {
+      width: 50%;
+      padding-left: 32px;
+    }
+  }
+}

@@ -1,0 +1,135 @@
+.header {
+  box-shadow: 1px 1px black;
+
+  &.active {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__image {
+    @media only screen and (min-width: 1024px) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 9;
+    }
+
+    a {
+      line-height: 0;
+
+      img {
+        width: 61px;
+
+        @media only screen and (min-width: 768px) {
+          width: 80px;
+        }
+
+        @media only screen and (min-width: 1024px) {
+          width: 100px;
+        }
+      }
+    }
+  }
+
+  &__logo {
+    padding: 10px 0 5px;
+    position: relative;
+
+    @media only screen and (min-width: 1024px) {
+      padding: 0;
+    }
+
+    .best-advice--mobile {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+    }
+  }
+
+  &__right {
+    display: flex;
+    position: relative;
+    align-items: center;
+
+    @media only screen and (min-width: 1024px) {
+      display: none;
+    }
+
+    .list-icons {
+      margin-bottom: 6px;
+
+      @media only screen and (max-width: 374px) {
+        margin: 0;
+      }
+
+      li a {
+        width: 54px;
+        height: 54px;
+        position: relative;
+        right: 4px;
+
+        @media only screen and (max-width: 374px) {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    @media only screen and (min-width: 1024px) {
+      justify-content: flex-end;
+      position: relative;
+    }
+  }
+
+  &__bottom {
+    background: $dark-blue;
+
+    .container {
+      @media only screen and (max-width: 1023px) {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+
+  &__top {
+    @media only screen and (max-width: 1023px) {
+      position: relative;
+      background: $gray;
+      padding: 2px 0;
+    }
+
+    .container {
+      @media only screen and (max-width: 1023px) {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+
+  &__body {
+    position: relative;
+    display: none;
+
+    &.active {
+      max-height: 100%;
+      overflow-y: auto;
+    }
+
+    @media only screen and (min-width: 1024px) {
+      display: flex !important;
+      flex-direction: column-reverse;
+    }
+  }
+}

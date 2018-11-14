@@ -1,0 +1,31 @@
+.box-image-text {
+  padding: 50px 0;
+  background: url('../../../../images/image1-bib.jpg') no-repeat center;
+
+  &__title {
+    background: #6eb0b5;
+    width: 61%;
+
+    h2 {
+      font-size: 37px;
+      line-height: 1.351;
+      letter-spacing: 0;
+      padding: 15px 30px;
+    }
+  }
+
+  &__content-left {
+    width: 50%;
+  }
+
+  &__content {
+    background: #fff;
+    padding: 30px;
+    margin-right: 30px;
+  }
+
+  &__link {
+    margin-top: -30px;
+    padding-left: 30px;
+  }
+}

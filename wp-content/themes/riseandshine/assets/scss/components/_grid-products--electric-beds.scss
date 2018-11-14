@@ -1,0 +1,54 @@
+.grid-products--electric-beds {
+  padding: 50px 0;
+  background: #f2f6f5;
+
+  .grid-products__list {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    margin: 0 -10px;
+  }
+
+  .grid-products__item {
+    width: calc((100% - 60px) / 3) ;
+    background: #fff;
+    margin: 10px;
+
+    img {
+      width: 100%;
+    }
+
+    &--img {
+      background: url('../../../../images/grid-products-6.jpg') no-repeat;
+      background-size: 100% 380px;
+      padding: 0;
+    }
+  }
+
+  .grid-products__title {
+    padding: 0 20px;
+  }
+
+  .grid-products__sub-title {
+    padding: 0 20px;
+  }
+
+  .grid-products__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .btn {
+    display: none;
+  }
+
+  .line-through {
+    text-decoration: line-through;
+  }
+
+  .color {
+    color: red;
+  }
+}
