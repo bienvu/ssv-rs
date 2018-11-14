@@ -84,6 +84,5 @@ gulp.task('js-lint', function () {
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
-
 // Default task.
 gulp.task('default', ['local-development']);
