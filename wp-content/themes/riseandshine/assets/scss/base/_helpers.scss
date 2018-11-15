@@ -22,6 +22,10 @@
     color: $white;
   }
 
+  &--purple {
+    color: $purple;
+  }
+
   &--light-gray {
     color: $light-gray;
   }
@@ -149,6 +153,21 @@
 
   &--orange {
     background: $orange;
+    color: $white;
+  }
+
+  &--crown {
+    background: $crown;
+    color: $white;
+  }
+
+  &--purple {
+    background: $purple;
+    color: $white;
+  }
+
+  &--dark-red {
+    background: $dark-red;
     color: $white;
   }
 }

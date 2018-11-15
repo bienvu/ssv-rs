@@ -1,0 +1,70 @@
+.slick-prev,
+.slick-next {
+  @extend %icons;
+  @extend .icon-arrow;
+  min-width: 43px;
+  min-height: 43px;
+  position: absolute;
+  display: inline-block;
+  background: rgba($dark-blue, .5);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9;
+
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $white;
+  }
+}
+
+.slick-prev {
+  transform: rotate(180deg) translateY(50%);
+  left: 0;
+}
+
+.slick-next {
+  right: 0;
+}
+
+.slick-dots {
+  display: flex;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+   li {
+    cursor: pointer;
+    
+    button {
+      font-size: 0;
+      background: $dark-blue;
+      width: 18px;
+      height: 2px;
+      padding: 0;
+      display: block;
+    }
+
+    &.slick-active{
+      button{
+        background: $white;
+      }
+    }
+
+    &:nth-of-type(1) {
+      margin-right: 8px;
+    }
+
+    &:nth-of-type(2) {
+      margin-right: 10px;
+    }
+
+    &:nth-of-type(3) {
+      margin-right: 9px;
+    }
+  }
+}
+

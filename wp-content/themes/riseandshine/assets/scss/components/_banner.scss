@@ -1,20 +1,65 @@
 .banner {
   position: relative;
+  height: 230px;
 
+  @media only screen and (min-width: 768px) {
+    height: 487px;
+  }
+  
   &__image {
     line-height: 0;
+    overflow: hidden;
+    height: 230px;
+    position: relative;
+    margin-bottom: 10px;
+
+    @media only screen and (min-width: 768px) {
+      margin: 0;
+      height: 100%;
+    }
+
+    img {
+      max-width: inherit;
+      height: 100%;
+      width: auto;
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      @media only screen and (min-width: 646px) {
+        width: 100%;
+        height: auto;
+      }
+
+      @media only screen and (min-width: 768px) {
+        height: 100%;
+        width: auto;
+      }
+
+      @media only screen and (min-width: 1366px) {
+        width: 100%;
+        height: auto;
+      }
+    }
   }
 
   &__wrap {
-    position: absolute;
-    top: calc(50% + 17px);
-    left: 0;
-    width: 100%;
-    transform: translateY(-50%);
+    @media only screen and (min-width: 768px) {
+      position: absolute;
+      top: calc(50% + 17px);
+      left: 0;
+      width: 100%;
+      transform: translateY(-50%);
+      padding: 0;
+    }
   }
 
   &__body {
-    max-width: 360px;
+    position: relative;
+
+    @media only screen and (min-width: 768px) {
+      max-width: 360px;
+    }
 
     .best-advice {
       a {
@@ -22,25 +67,131 @@
         font-size: 19.5px;
         padding: 10px 5px 10px 31px;
       }
+
+      @media only screen and (min-width: 768px) {
+        display: block;
+      }
     }
   }
   
   &__content {
     @extend .bg--white;
-    padding: 21px 18px 22px 30px;
+    padding: 21px 18px 56px 30px;
     margin-bottom: 24px;
-    min-height: 295px;
     position: relative;
+
+    @media only screen and (max-width: 767px) {
+      padding: 0;
+      margin: 0;
+      min-height: inherit;
+      color: $dark-blue;
+    }
   }
 
   &__description {
+    margin-bottom: 21px;
+
+    @media only screen and (min-width: 768px) {
+      margin: 0;
+    }
+
     p:last-of-type {
       margin: 0;
     }
   }
 
   &__link {
-    position: absolute;
     bottom: -21px;
+    position: relative;
+
+    @media only screen and (min-width: 768px) {
+      position: absolute;
+      bottom: -21px;
+    }
+  }
+
+  &__subtitle {
+    padding: 21px 34px 28px 30px;
+    display: inline-block;
+    margin-bottom: 10px;
+
+    @media only screen and (max-width: 767px) {
+      position: absolute;
+      z-index: 9;
+      top: -31px;
+      left: -1px;
+      padding: 13px 19px 19px 19px;
+    }
+  }
+
+  &__item {
+    position: relative;
+
+    @media only screen and (min-width: 768px) {
+      height: 487px;
+    }
+  }
+
+  &__image-title {
+    margin: -14px 0 25px;
+
+    img {
+      width: 406px;
+      height: auto;
+    }
+  }
+
+  &--lost-link {
+    .banner__image {
+      margin: 0;
+    }
+
+    .banner__content {
+      @media only screen and (min-width: 768px) {
+        padding: 21px 18px 27px 30px;
+        margin-bottom: 14px;
+      }
+    }
+
+    .banner__body {
+      padding: 34px 0 0;
+
+      @media only screen and (min-width: 768px) {
+        max-width: 383px;       
+      }
+      
+      .best-advice {
+        a {
+          @extend .text--large;
+          padding: 10px 5px 10px 30px;
+        }
+      }
+    }
+  }
+
+  &--only-link {
+    .banner__image {
+      margin: 0;
+
+      img {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  &--width-slide {
+    .banner__content {
+      @media only screen and (min-width: 768px) {
+        min-height: 295px;
+      }
+    }
+
+    .slick-list {
+      @media only screen and (max-width: 767px) {
+        overflow: auto;
+      }
+    }
   }
 }

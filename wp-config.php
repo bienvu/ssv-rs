@@ -1,160 +1,79 @@
 <?php
 /**
- * This config file is yours to hack on. It will work out of the box on Pantheon
- * but you may find there are a lot of neat tricks to be used here.
+ * The base configuration for WordPress
  *
- * See our documentation for more details:
+ * The wp-config.php creation script uses this file during the
+ * installation. You don't have to use the web site, you can
+ * copy this file to "wp-config.php" and fill in the values.
  *
- * https://pantheon.io/docs
+ * This file contains the following configurations:
+ *
+ * * MySQL settings
+ * * Secret keys
+ * * Database table prefix
+ * * ABSPATH
+ *
+ * @link https://codex.wordpress.org/Editing_wp-config.php
+ *
+ * @package WordPress
  */
+
+// ** MySQL settings ** //
+/** The name of the database for WordPress */
+define( 'DB_NAME', 'default' );
+
+/** MySQL database username */
+define( 'DB_USER', 'user' );
+
+/** MySQL database password */
+define( 'DB_PASSWORD', 'user' );
+
+/** MySQL hostname */
+define( 'DB_HOST', 'db' );
+
+/** Database Charset to use in creating database tables. */
+define( 'DB_CHARSET', 'utf8' );
+
+/** The Database Collate type. Don't change this if in doubt. */
+define( 'DB_COLLATE', '' );
+
+define( 'WP_HOME', 'http://riseandshine.docksal' );
+define( 'WP_SITEURL', 'http://riseandshine.docksal' );
 
 /**
- * Local configuration information.
+ * Authentication Unique Keys and Salts.
  *
- * If you are working in a local/desktop development environment and want to
- * keep your config separate, we recommend using a 'wp-config-local.php' file,
- * which you should also make sure you .gitignore.
+ * Change these to different unique phrases!
+ * You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
+ * You can change these at any point in time to invalidate all existing cookies. This will force all users to have to log in again.
+ *
+ * @since 2.6.0
  */
-if (file_exists(dirname(__FILE__) . '/wp-config-local.php') && !isset($_ENV['PANTHEON_ENVIRONMENT'])):
-  # IMPORTANT: ensure your local config does not include wp-settings.php
-  require_once(dirname(__FILE__) . '/wp-config-local.php');
-
-/**
- * Pantheon platform settings. Everything you need should already be set.
- */
-else:
-  if (isset($_ENV['PANTHEON_ENVIRONMENT'])):
-    // ** MySQL settings - included in the Pantheon Environment ** //
-    /** The name of the database for WordPress */
-    define('DB_NAME', $_ENV['DB_NAME']);
-
-    /** MySQL database username */
-    define('DB_USER', $_ENV['DB_USER']);
-
-    /** MySQL database password */
-    define('DB_PASSWORD', $_ENV['DB_PASSWORD']);
-
-    /** MySQL hostname; on Pantheon this includes a specific port number. */
-    define('DB_HOST', $_ENV['DB_HOST'] . ':' . $_ENV['DB_PORT']);
-
-    /** Database Charset to use in creating database tables. */
-    define('DB_CHARSET', 'utf8');
-
-    /** The Database Collate type. Don't change this if in doubt. */
-    define('DB_COLLATE', '');
-
-    /**#@+
-     * Authentication Unique Keys and Salts.
-     *
-     * Change these to different unique phrases!
-     * You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
-     * You can change these at any point in time to invalidate all existing cookies. This will force all users to have to log in again.
-     *
-     * Pantheon sets these values for you also. If you want to shuffle them you
-     * must contact support: https://pantheon.io/docs/getting-support 
-     *
-     * @since 2.6.0
-     */
-    define('AUTH_KEY',         $_ENV['AUTH_KEY']);
-    define('SECURE_AUTH_KEY',  $_ENV['SECURE_AUTH_KEY']);
-    define('LOGGED_IN_KEY',    $_ENV['LOGGED_IN_KEY']);
-    define('NONCE_KEY',        $_ENV['NONCE_KEY']);
-    define('AUTH_SALT',        $_ENV['AUTH_SALT']);
-    define('SECURE_AUTH_SALT', $_ENV['SECURE_AUTH_SALT']);
-    define('LOGGED_IN_SALT',   $_ENV['LOGGED_IN_SALT']);
-    define('NONCE_SALT',       $_ENV['NONCE_SALT']);
-    /**#@-*/
-
-    /** A couple extra tweaks to help things run well on Pantheon. **/
-    if (isset($_SERVER['HTTP_HOST'])) {
-        // HTTP is still the default scheme for now. 
-        $scheme = 'http';
-        // If we have detected that the end use is HTTPS, make sure we pass that
-        // through here, so <img> tags and the like don't generate mixed-mode
-        // content warnings.
-        if (isset($_SERVER['HTTP_USER_AGENT_HTTPS']) && $_SERVER['HTTP_USER_AGENT_HTTPS'] == 'ON') {
-            $scheme = 'https';
-            $_SERVER['HTTPS'] = 'on';
-        }
-        define('WP_HOME', $scheme . '://' . $_SERVER['HTTP_HOST']);
-        define('WP_SITEURL', $scheme . '://' . $_SERVER['HTTP_HOST']);
-    }
-    // Don't show deprecations; useful under PHP 5.5
-    error_reporting(E_ALL ^ E_DEPRECATED);
-    /** Define appropriate location for default tmp directory on Pantheon */
-    define('WP_TEMP_DIR', $_SERVER['HOME'] .'/tmp');
-
-    // FS writes aren't permitted in test or live, so we should let WordPress know to disable relevant UI
-    if ( in_array( $_ENV['PANTHEON_ENVIRONMENT'], array( 'test', 'live' ) ) && ! defined( 'DISALLOW_FILE_MODS' ) ) :
-        define( 'DISALLOW_FILE_MODS', true );
-    endif;
-
-  else:
-    /**
-     * This block will be executed if you have NO wp-config-local.php and you
-     * are NOT running on Pantheon. Insert alternate config here if necessary.
-     *
-     * If you are only running on Pantheon, you can ignore this block.
-     */
-    define('DB_NAME',          'database_name');
-    define('DB_USER',          'database_username');
-    define('DB_PASSWORD',      'database_password');
-    define('DB_HOST',          'database_host');
-    define('DB_CHARSET',       'utf8');
-    define('DB_COLLATE',       '');
-    define('AUTH_KEY',         'put your unique phrase here');
-    define('SECURE_AUTH_KEY',  'put your unique phrase here');
-    define('LOGGED_IN_KEY',    'put your unique phrase here');
-    define('NONCE_KEY',        'put your unique phrase here');
-    define('AUTH_SALT',        'put your unique phrase here');
-    define('SECURE_AUTH_SALT', 'put your unique phrase here');
-    define('LOGGED_IN_SALT',   'put your unique phrase here');
-    define('NONCE_SALT',       'put your unique phrase here');
-  endif;
-endif;
-
-/** Standard wp-config.php stuff from here on down. **/
+define( 'AUTH_KEY',         'l(fj_;Szqa[i%vm#NxUS}1-@Z[eR}fSEO4}|=QXYE|5%APvD~:{b!$PjAmagPBPn' );
+define( 'SECURE_AUTH_KEY',  'C1wQvb*R70Bs06E;@?^2Fb#(_5Uongpv}LBiDP6U,tHJR<Nzv7jhX>=NFR}p$M^@' );
+define( 'LOGGED_IN_KEY',    'yf*bsl.?Ku_s>c@ie.W)b.DGYOn/wfIL(yIKk,;Anu|ocMLDyG^K`t_Q(>vHA~*s' );
+define( 'NONCE_KEY',        '~Q-Ec-v1G>CntX{_%[iW:zN29EIdAqz_7qSs(QCn%IG4o_O4_^bx D_IFQt3Ck>@' );
+define( 'AUTH_SALT',        'UIqc}up,(vWfe[&%eDzU1OPprOh{[3j(!,s^?(jqss@!1yg<D;U_Xsrd@nD5t-}a' );
+define( 'SECURE_AUTH_SALT', 'JhR6v2P_M;oABV?=J`.RFZKM6LIsvMOdq/6sq0lAgT:kF(KWH<K*;FL4iI1$ Dmq' );
+define( 'LOGGED_IN_SALT',   '-H<3(hm[bOyjnWM}%%mx!IywDbEKhAjl.bg3NRhA>9l)Hm2.szXpj:`jD:24mC7f' );
+define( 'NONCE_SALT',       'pA2kK#4%MKj 4$zUD-Bm,l*GT[1(Csq/oD0)qcxo4.e$o@Lk^:!v3i(Q93]BO{bW' );
 
 /**
  * WordPress Database Table prefix.
  *
- * You can have multiple installations in one database if you give each a unique
- * prefix. Only numbers, letters, and underscores please!
+ * You can have multiple installations in one database if you give each
+ * a unique prefix. Only numbers, letters, and underscores please!
  */
 $table_prefix = 'wp_';
 
-/**
- * WordPress Localized Language, defaults to English.
- *
- * Change this to localize WordPress. A corresponding MO file for the chosen
- * language must be installed to wp-content/languages. For example, install
- * de_DE.mo to wp-content/languages and set WPLANG to 'de_DE' to enable German
- * language support.
- */
-define('WPLANG', '');
-
-/**
- * For developers: WordPress debugging mode.
- *
- * Change this to true to enable the display of notices during development.
- * It is strongly recommended that plugin and theme developers use WP_DEBUG
- * in their development environments.
- *
- * You may want to examine $_ENV['PANTHEON_ENVIRONMENT'] to set this to be
- * "true" in dev, but false in test and live.
- */
-if ( ! defined( 'WP_DEBUG' ) ) {
-    define('WP_DEBUG', false);
-}
-
-/* That's all, stop editing! Happy Pressing. */
 
 
 
+/* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
-if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . '/');
+if ( ! defined( 'ABSPATH' ) )
+  define( 'ABSPATH', dirname( __FILE__ ) . '/' );
 
 /** Sets up WordPress vars and included files. */
-require_once(ABSPATH . 'wp-settings.php');
+require_once ABSPATH . 'wp-settings.php';
