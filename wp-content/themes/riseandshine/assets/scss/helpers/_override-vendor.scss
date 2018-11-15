@@ -6,10 +6,13 @@
   min-height: 43px;
   position: absolute;
   display: inline-block;
-  background: rgba($dark-blue, .5);
   top: 50%;
   transform: translateY(-50%);
   z-index: 9;
+
+  @media only screen and (min-width: 768px) {
+    background: rgba($dark-blue, .5);
+  }
 
   &:before {
     position: absolute;
@@ -32,9 +35,13 @@
 .slick-dots {
   display: flex;
   position: absolute;
-  bottom: 20px;
+  bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
+
+  @media only screen and (min-width: 768px) {
+    bottom: 20px;
+  }
 
    li {
     cursor: pointer;

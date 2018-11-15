@@ -26,13 +26,14 @@
 
   span {
     position: relative;
-  }
+    @extend .icon-arrow;
 
-  i {
-    position: absolute;
-    right: -23px;
-    top: calc( 50% + 1px );
-    transform: translateY(-50%);
+    &:before {
+      @extend %icons;
+      position: absolute;
+      right: -21px;
+      top: 5px;
+    }
   }
 
   &--only-icon {
@@ -43,10 +44,6 @@
     @media only screen and (min-width: 768px) {
       width: 39px;
       height: 39px;
-    }
-
-    i {
-      position: static;
     }
   }
   

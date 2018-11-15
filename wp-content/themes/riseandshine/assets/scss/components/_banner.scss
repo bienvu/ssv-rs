@@ -1,20 +1,16 @@
 .banner {
   position: relative;
-  height: 230px;
 
   @media only screen and (min-width: 768px) {
     height: 487px;
   }
   
   &__image {
-    line-height: 0;
     overflow: hidden;
     height: 230px;
     position: relative;
-    margin-bottom: 10px;
 
     @media only screen and (min-width: 768px) {
-      margin: 0;
       height: 100%;
     }
 
@@ -55,8 +51,6 @@
   }
 
   &__body {
-    position: relative;
-
     @media only screen and (min-width: 768px) {
       max-width: 360px;
     }
@@ -76,33 +70,29 @@
   
   &__content {
     @extend .bg--white;
-    padding: 21px 18px 56px 30px;
+    padding: 21px 20px 0 30px;
     margin-bottom: 24px;
     position: relative;
+    min-height: 295px;
 
     @media only screen and (max-width: 767px) {
-      padding: 0;
+      padding: 10px 0 0 0;
       margin: 0;
-      min-height: inherit;
       color: $dark-blue;
+      display: flex;
+      flex-direction: column;
+      min-height: 181px;
     }
   }
 
   &__description {
-    margin-bottom: 21px;
-
-    @media only screen and (min-width: 768px) {
-      margin: 0;
-    }
-
     p:last-of-type {
       margin: 0;
     }
   }
 
   &__link {
-    bottom: -21px;
-    position: relative;
+    margin-top: auto;
 
     @media only screen and (min-width: 768px) {
       position: absolute;
@@ -113,13 +103,9 @@
   &__subtitle {
     padding: 21px 34px 28px 30px;
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: 9px;
 
     @media only screen and (max-width: 767px) {
-      position: absolute;
-      z-index: 9;
-      top: -31px;
-      left: -1px;
       padding: 13px 19px 19px 19px;
     }
   }
@@ -147,17 +133,22 @@
     }
 
     .banner__content {
+      min-height: inherit;
+      padding: 4px 0 0;
+
       @media only screen and (min-width: 768px) {
-        padding: 21px 18px 27px 30px;
+        padding: 21px 26px 27px 30px;
         margin-bottom: 14px;
       }
     }
 
     .banner__body {
-      padding: 34px 0 0;
+      max-width: 383px; 
 
-      @media only screen and (min-width: 768px) {
-        max-width: 383px;       
+      @media only screen and (max-width: 767px) {
+        position: relative;
+        top: -31px;
+        max-width: inherit;
       }
       
       .best-advice {
@@ -165,6 +156,12 @@
           @extend .text--large;
           padding: 10px 5px 10px 30px;
         }
+      }
+    }
+
+    .banner__wrap {
+      @media only screen and (min-width: 768px) {
+        top: calc(50% + 2px);
       }
     }
   }
@@ -181,16 +178,54 @@
     }
   }
 
-  &--width-slide {
-    .banner__content {
-      @media only screen and (min-width: 768px) {
-        min-height: 295px;
+  &--width-content {
+    .banner__description {
+      @extend .text--small;
+
+      p {
+        margin-bottom: 12px;
+
+        &:last-child {
+          margin: 0;
+        }
       }
     }
 
-    .slick-list {
+    .banner__body {
       @media only screen and (max-width: 767px) {
-        overflow: auto;
+        position: relative;
+        top: -31px;
+      }
+
+      .best-advice a{
+        @extend .text--large;
+      }
+
+      @media only screen and (min-width: 768px) {
+        max-width: 465px;
+      }
+    }
+
+    .banner__subtitle {
+      padding: 21px 28px 28px 30px;
+
+      @media only screen and (max-width: 767px) {
+        padding: 13px 21px 19px 19px;
+        margin-bottom: 4px;
+      }
+    }
+
+    .banner__content {
+      @media only screen and (min-width: 768px) {
+        padding: 25px 20px 26px 30px;
+        min-height: inherit;
+        margin-bottom: 12px;
+      }
+    }
+
+    .banner__wrap {
+      @media only screen and (min-width: 768px) {
+        top: calc(50% + 19px);
       }
     }
   }
