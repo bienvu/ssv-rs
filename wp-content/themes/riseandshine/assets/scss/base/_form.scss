@@ -131,8 +131,7 @@ input[type="number"]::-webkit-inner-spin-button {
 textarea {
   @extend %form-text;
   height: auto;
-  min-height: 100px;
-  padding: 15px;
+  min-height: 80px;
 }
 
 .form-item,
