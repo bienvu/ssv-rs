@@ -19,6 +19,8 @@
     // Remove attr title.
     $('a').removeAttr('title');
 
+    // console.log($('.box-icon__title').matchHeight());
+
     // Add placeholder to quiz.
     $('.wpcf7-quiz').attr('placeholder', 'text here');
 
