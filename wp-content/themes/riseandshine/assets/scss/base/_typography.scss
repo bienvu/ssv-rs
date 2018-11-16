@@ -21,9 +21,13 @@ h6 {
 
 h1,
 .h1 {
-  font-size: 28px;
+  font-size: 24px;
   line-height: 1.785;
-  margin: 0;
+  margin-bottom: -1px;
+
+  @media only screen and (min-width: 346px) {
+    font-size: 28px;
+  }
 
   @media only screen and (min-width: 768px){
     font-size: 50px;
