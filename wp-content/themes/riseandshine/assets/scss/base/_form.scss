@@ -310,7 +310,7 @@ input[type="checkbox"] {
       width: 0;
       padding-right: 0;
       background: none;
-      padding: 6px 5px 6px 16px;
+      padding: 6px 5px 6px 30px;
     }
   }
 
@@ -357,7 +357,7 @@ input[type="checkbox"] {
 
   &--mobile {
     display: block;
-    padding: 13.5px 16.5px;
+    padding: 13.5px 9.5px;
 
     @media only screen and (min-width: 1024px) {
       display: none;

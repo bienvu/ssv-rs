@@ -250,12 +250,13 @@
   }
 }
 
-.btn {
-  display: block;
-  width: 45%;
-  margin-bottom: 20px;
+// not allowed edit base in components
+// .btn {
+//   display: block;
+//   width: 45%;
+//   margin-bottom: 20px;
 
-  @media only screen and (min-width: 768px) {
-    display: none
-  }
-}
+//   @media only screen and (min-width: 768px) {
+//     display: none
+//   }
+// }
