@@ -21,29 +21,63 @@
 
 		<!-- wrapper -->
 		<div class="wrapper">
+			<!-- <?php rs_nav($class,'Main Menu'); ?> -->
 			<header class="header">
-				<div class="container">
-					<div class="header__wrap">
-				    <div class="header__logo">
-				      <a href="<?php echo home_url(); ?>" class="logo">
-				        <img src="<?php echo get_template_directory_uri(); ?>/brand/logo.svg" alt="Logo" class="logo-img">
-				      </a>
-							<span class="menu-bars">
-			          <span class="menu-bars__row"></span>
-			          <span class="menu-bars__row"></span>
-			          <span class="menu-bars__row"></span>
-			        </span>
-				    </div>
+			  <div class="header__logo">
+			    <div class="container">
+			      <div class="header__wrap">
+			        <div class="header__image">
+			          <a href="/"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo_image.svg" alt="Rise and Shine" class="logo-img"></a>
+			        </div>
 
-				    <div class="header__menu ">
-								<?php $class = 'main-menu main-menu--has-child' ?>
-								<?php french_table_nav($class,'Main Menu'); ?>
+			        <div class="header__right">
+								<?php get_template_part('searchform'); ?>
 
-								<div class="box-search">
-			            <?php get_template_part('searchform'); ?>
-			            <div class="item-icon"><i href="#" class="icon-search"></i></div>
+			          <ul class="list-icons">
+			            <li><a href="#" class="icon-location"></a></li>
+			            <li><a href="#" class="icon-cart"></a></li>
+			          </ul>
+
+			          <div class="menu-bars">
+			            <span class="menu-bars__row"></span>
+			            <span class="menu-bars__row"></span>
+			            <span class="menu-bars__row"></span>
 			          </div>
-				    </div>
+			        </div>
+
+			        <div class="best-advice best-advice--mobile">
+			          <div class="container">
+			            <a href="#"><?php $sitewideData = get_field('sitewide','option'); print $sitewideData['header_text']; ?></a>
+			          </div>
+			        </div>
+			      </div>
 			    </div>
-		    </div>
-		  </header>
+			  </div>
+
+			  <div class="header__body">
+			    <div class="header__top">
+			      <div class="container">
+			        <div class="header__wrap">
+								<div class="primary-menu">
+									<?php rs_nav('primary-menu','Main Menu'); ?>
+								</div>
+			          <?php get_template_part('searchform'); ?>
+			        </div>
+			      </div>
+			    </div>
+
+			    <div class="header__bottom">
+			      <div class="container">
+			        <div class="header__wrap">
+			          <div class="second-menu">
+									<?php rs_nav('header-top','Header Top'); ?>
+			          </div>
+			          <div class="best-advice"><?php $sitewideData = get_field('sitewide','option'); print $sitewideData['header_text']; ?></div>
+			          <div class="my-account">
+			            <a href="/my-account"><?php _e( 'my account', 'ssvtheme' ); ?> <i class="icon-cart"></i></a>
+			          </div>
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+			</header>
