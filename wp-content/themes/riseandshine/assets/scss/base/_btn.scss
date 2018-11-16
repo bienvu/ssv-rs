@@ -46,6 +46,14 @@
       height: 39px;
     }
   }
+
+  &--lost-icon {
+    span {
+      &:before {
+        display: none;
+      }
+    }
+  }
   
   &:active,
   &:hover {
@@ -88,6 +96,15 @@
     }
   }
 
+  &--dark-blue {
+    background: $dark-blue;
+
+    &:active,
+    &:hover {
+      background: lighten($dark-blue, 5%);
+    }
+  }
+
   // modifier size
   &--full {
     width: 100%;
@@ -99,5 +116,15 @@
 
   &--small {
     padding: 11px 33px 14px 16px;
+  }
+
+  &--depend {
+    width: 100%;
+    text-align: left;
+
+    span {
+      width: 100%;
+      display: inline-block;
+    }
   }
 }
