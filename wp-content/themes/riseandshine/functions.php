@@ -5,6 +5,8 @@
  *  Custom functions, support, custom post types and more.
  */
 
+require get_template_directory() . '/inc/init.php';
+
 // Add theme options.
 if( function_exists('acf_add_options_page') ) {
 	acf_add_options_page(array(
@@ -40,6 +42,13 @@ if (function_exists('add_theme_support')) {
 /*------------------------------------*\
 	Functions
 \*------------------------------------*/
+
+// Allow SVG through WordPress Media Uploader
+function cc_mime_types($mimes) {
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter('upload_mimes', 'cc_mime_types');
 
 // Register sentius Blank Navigation
 function register_rs_menu()
@@ -100,8 +109,13 @@ function wp_add_styles() {
 function wp_add_scripts() {
     global $wp_query;
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
-        // Script.
-        wp_register_script('script', get_template_directory_uri() . '/assets/js/script.js', array('jquery', 'masonry', 'slick'), 'asdsad'); // Custom scripts
+			// Slick js.
+			wp_register_script('slick', get_template_directory_uri() . '/assets/js/lib/slick.min.js', array(), '1.0.0');
+			wp_enqueue_script('slick');
+
+      // Script.
+      wp_register_script('script', get_template_directory_uri() . '/assets/js/script.js', array(), '1.0.0'); // Custom scripts
+			wp_enqueue_script('script');
     }
 }
 

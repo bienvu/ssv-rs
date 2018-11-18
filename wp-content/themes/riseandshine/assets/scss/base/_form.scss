@@ -1,5 +1,6 @@
 button,
-input[type='submit'] {
+input[type='submit'],
+.woocommerce button.button {
   @extend .btn;
 }
 
@@ -101,6 +102,7 @@ input[type="number"],
 input[type="tel"],
 input[type="url"],
 input[type="email"],
+input[type="password"],
 input[type="hidden"] {
   @extend %form-text;
 }

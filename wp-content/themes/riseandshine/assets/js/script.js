@@ -70,9 +70,7 @@
       prevArrow: '<span class="slick-prev"></span>',
       nextArrow: '<span class="slick-next"></span>',
       dots: true,
-      adaptiveHeight: true,
-      appendArrows: $('.js-slide img').parent(),
-      appendDots: $('.js-slide img').parent()
+      adaptiveHeight: true
     });
   });
 

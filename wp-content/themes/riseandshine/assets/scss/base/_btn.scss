@@ -54,10 +54,11 @@
       }
     }
   }
-  
+
   &:active,
   &:hover {
     background: lighten($btn-bg, 5%);
+    color: $white;
   }
 
   &--blue {

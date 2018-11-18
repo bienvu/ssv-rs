@@ -1,11 +1,10 @@
 <?php get_header(); ?>
-
 	<main role="main" class="main">
+		<?php if( have_rows('components') ): ?>
+			<?php get_template_part('components'); ?>
+		<?php else: ?>
 		<div class="container">
-			<!-- section -->
-			<section>
-
-				<h1><?php the_title(); ?></h1>
+			<h1><?php the_title(); ?></h1>
 
 			<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
@@ -29,19 +28,14 @@
 
 				<!-- article -->
 				<article>
-
-					<h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
-
+					<div class="container">
+						<h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
+					</div>
 				</article>
 				<!-- /article -->
 
 			<?php endif; ?>
-
-			</section>
-			<!-- /section -->
 		</div>
+	<?php endif; ?>
 	</main>
-
-<?php get_sidebar(); ?>
-
 <?php get_footer(); ?>
