@@ -83,7 +83,7 @@ h5,
 h6,
 .h6 {
   font-size: 12px;
-  margin-bottom: 8px;
+  margin-bottom: 9px;
 
   @media only screen and (min-width: 768px) {
     margin-bottom: 24px;
@@ -96,23 +96,34 @@ h6,
   text-decoration: none;
   transition: all .3s ease;
   cursor: pointer;
-  font-size: 14px;
-  line-height: normal;
-  letter-spacing: 0;
   display: inline-block;
+
+  &--normal {
+    font-size: 14px;
+  }
 
   &--small {
     font-size: 12px;
   }
 
+  &--small-desktop {
+    @media only screen and (min-width: 1024px) {
+      font-size: 12px;
+    }
+  }
+
+  &--large {
+    font-size: 16px;
+  }
+
   &--large-mobile {
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 1024px) {
       font-size: 16px;
     }
   }
 
   &--largest-mobile {
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 1024px) {
       font-size: 21px;
     }
   }

@@ -4,15 +4,16 @@
   }
 
   a {
-    @extend %link--small;
+    @extend %link--normal;
+    @extend %link--small-desktop;
     @extend .text--italic;
     color: $white;
-    padding: 0 22px 0 21px;
+    padding: 0 22px 0 25px;
     border-left: 1px solid $light-gray;
+    margin-bottom: 4px;
 
     @media only screen and (max-width: 1023px) {
-      font-size: inherit;
-      padding: 8px 0 9px 0;
+      padding: 6px 0 8px 0;
       border: 0;
     }
   }
