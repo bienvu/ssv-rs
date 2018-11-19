@@ -17,6 +17,14 @@ h6 {
   @media only screen and (min-width: 768px) {
     margin-bottom: 25px;
   }
+
+  .base & {
+    margin-bottom: 20px;
+
+    @media only screen and (min-width: 768px) {
+      margin-bottom: 25px;
+    }
+  }
 }
 
 h1,
@@ -42,10 +50,18 @@ h2,
   line-height: 1.071;
   margin-bottom: 12px;
 
+  &--small {
+    @media only screen and (max-width: 767px) {
+      font-size: 21px;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+  }
+
   @media only screen and (min-width: 768px) {
     font-size: 37px;
     line-height: 1.0811;
-    margin-bottom: 28px;
+    margin-bottom: 15px;
   }
 }
 
