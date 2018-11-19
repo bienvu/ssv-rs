@@ -26,13 +26,14 @@
 
   span {
     position: relative;
-  }
+    @extend .icon-arrow;
 
-  i {
-    position: absolute;
-    right: -23px;
-    top: calc( 50% + 1px );
-    transform: translateY(-50%);
+    &:before {
+      @extend %icons;
+      position: absolute;
+      right: -21px;
+      top: 5px;
+    }
   }
 
   &--only-icon {
@@ -44,15 +45,20 @@
       width: 39px;
       height: 39px;
     }
+  }
 
-    i {
-      position: static;
+  &--lost-icon {
+    span {
+      &:before {
+        display: none;
+      }
     }
   }
-  
+
   &:active,
   &:hover {
     background: lighten($btn-bg, 5%);
+    color: $white;
   }
 
   &--blue {
@@ -91,6 +97,15 @@
     }
   }
 
+  &--dark-blue {
+    background: $dark-blue;
+
+    &:active,
+    &:hover {
+      background: lighten($dark-blue, 5%);
+    }
+  }
+
   // modifier size
   &--full {
     width: 100%;
@@ -98,5 +113,19 @@
 
   &--large {
     min-width: 209px;
+  }
+
+  &--small {
+    padding: 11px 33px 14px 16px;
+  }
+
+  &--depend {
+    width: 100%;
+    text-align: left;
+
+    span {
+      width: 100%;
+      display: inline-block;
+    }
   }
 }
