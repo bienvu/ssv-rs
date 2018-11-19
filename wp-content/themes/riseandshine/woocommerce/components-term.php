@@ -1,7 +1,8 @@
 <?php
-if( have_rows('components') ):
+$term = get_queried_object();
+if( have_rows('components', $term) ):
      // loop through the rows of data
-     while ( have_rows('components') ) : the_row();
+     while ( have_rows('components', $term) ) : the_row();
       if( get_row_layout() == 'banner' ):
         $count = count(get_sub_field("banner_item"));
         $bannerLabel = get_sub_field("label");
@@ -177,12 +178,10 @@ if( have_rows('components') ):
         </div>
       <!-- Box Form -->
       <?php elseif( get_row_layout() == 'box_form' ):
-        $boxForm = get_sub_field("select_form");
-      ?>
+        $boxForm = get_sub_field("select_form"); ?>
         <div class="box-form">
           <?php echo do_shortcode('[contact-form-7 id="' . $boxForm->ID . '" title="' . $boxForm->post_title . '"]')?>
         </div>
-
       <!-- Box Image -->
       <?php elseif( get_row_layout() == 'box_image' ):
         $count = count(get_sub_field("box_image_item")); ?>
@@ -269,19 +268,6 @@ if( have_rows('components') ):
           </div>
         </div>
 
-      <!-- Box Image Text -->
-      <?php elseif( get_row_layout() == 'box_image_text' ):
-        $body = get_sub_field("body");
-        $image = get_sub_field("image");
-        $type = get_sub_field("type"); ?>
-        <div class="box-image-text <?php print $type; ?>">
-          <div class="container">
-            <div class="box-image-text__wrap">
-              <div class="box-image-text__body"><?php print $body; ?></div>
-              <div class="box-image-text__image"><?php echo wp_get_attachment_image( $image['ID'], 'full' ); ?></div>
-            </div>
-          </div>
-        </div>
       <?php endif; ?>
     <?php endwhile;?>
     </div>
