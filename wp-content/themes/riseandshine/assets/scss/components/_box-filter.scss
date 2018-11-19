@@ -1,5 +1,6 @@
 .box-filter {
   overflow: hidden;
+  @extend .bg--gray;
 
   &__aside {
     position: absolute;
@@ -34,10 +35,15 @@
     margin-bottom: 10px;
 
     ul {
-      display: flex;
+      display: none;
+
+      &.active {
+        display: flex;
+      }
 
       li {
         margin-right: 5px;
+        margin-bottom: 10px;
 
         &:last-child {
           margin: 0;
