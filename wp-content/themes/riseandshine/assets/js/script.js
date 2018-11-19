@@ -19,6 +19,8 @@
     // Remove attr title.
     $('a').removeAttr('title');
 
+    // console.log($('.box-icon__title').matchHeight());
+
     // Add placeholder to quiz.
     $('.wpcf7-quiz').attr('placeholder', 'text here');
 
@@ -68,9 +70,7 @@
       prevArrow: '<span class="slick-prev"></span>',
       nextArrow: '<span class="slick-next"></span>',
       dots: true,
-      adaptiveHeight: true,
-      appendArrows: $('.js-slide img').parent(),
-      appendDots: $('.js-slide img').parent()
+      adaptiveHeight: true
     });
   });
 

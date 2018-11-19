@@ -3,7 +3,7 @@
 		<!-- section -->
 		<section>
 
-			<h1><?php _e( 'Latest Posts', 'sentiustheme' ); ?></h1>
+			<h1><?php _e( 'Latest Posts', 'ssvtheme' ); ?></h1>
 
 			<?php get_template_part('loop'); ?>
 
