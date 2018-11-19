@@ -22,6 +22,10 @@
     color: $white;
   }
 
+  &--purple {
+    color: $purple;
+  }
+
   &--light-gray {
     color: $light-gray;
   }
@@ -88,7 +92,7 @@
 
   &--small {
     font-size: 14px;
-    line-height: normal;
+    line-height: 1.5;
   }
 
   &--tiny {
@@ -151,16 +155,31 @@
     background: $orange;
     color: $white;
   }
+
+  &--crown {
+    background: $crown;
+    color: $white;
+  }
+
+  &--purple {
+    background: $purple;
+    color: $white;
+  }
+
+  &--dark-red {
+    background: $dark-red;
+    color: $white;
+  }
 }
 
 .hidden-on-desktop {
-  @media only screen and (min-width: 1024px) {
+  @media only screen and (max-width: 1024px) {
     display: none;
   }
 }
 
 .hidden-on-tablet {
-  @media only screen and (min-width: 768px) {
+  @media only screen and (max-width: 1023px) {
     display: none;
   }
 }

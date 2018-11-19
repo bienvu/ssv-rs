@@ -5,16 +5,24 @@
  *  Custom functions, support, custom post types and more.
  */
 
- // Add theme options.
- if( function_exists('acf_add_options_page') ) {
- 	acf_add_options_page(array(
- 		'page_title' 	=> 'Theme General Settings',
- 		'menu_title'	=> 'Theme Options',
- 		'menu_slug' 	=> 'theme-general-settings',
- 		'capability'	=> 'edit_posts',
- 		'redirect'		=> false
- 	));
- }
+require get_template_directory() . '/inc/init.php';
+
+// Add theme options.
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page(array(
+		'page_title' 	=> 'Theme General Settings',
+		'menu_title'	=> 'Theme Settings',
+		'menu_slug' 	=> 'theme-general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Sitewide Settings',
+		'menu_title'	=> 'Sitewide',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+}
 
 /*------------------------------------*\
 	Theme Support
@@ -35,8 +43,15 @@ if (function_exists('add_theme_support')) {
 	Functions
 \*------------------------------------*/
 
+// Allow SVG through WordPress Media Uploader
+function cc_mime_types($mimes) {
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter('upload_mimes', 'cc_mime_types');
+
 // Register sentius Blank Navigation
-function register_french_table_menu()
+function register_rs_menu()
 {
     register_nav_menus(array( // Using array to specify more menus if needed
         'header-menu' => __('Header Menu', 'sentiustheme'), // Main Navigation
@@ -44,26 +59,26 @@ function register_french_table_menu()
         'extra-menu' => __('Extra Menu', 'sentiustheme') // Extra Navigation if needed (duplicate as many as you need!)
   ));
 }
-add_action('init', 'register_french_table_menu');
+add_action('init', 'register_rs_menu');
 
 // Navigation
-function french_table_nav($menuclass, $name) {
+function rs_nav($menuclass, $name) {
 	wp_nav_menu(
 	array(
 		'theme_location'  => 'header-menu',
 		'menu'            => $name,
 		'container'       => '',
-		'container_class' => '',
+		'container_class' => '$menuclass',
 		'container_id'    => '',
-		'menu_class'      => '',
+		'menu_class'      => $menuclass,
 		'menu_id'         => '',
 		'echo'            => true,
 		'fallback_cb'     => 'wp_page_menu',
 		'before'          => '',
 		'after'           => '',
-		'link_before'     => '<span>',
-		'link_after'      => '</span>',
-		'items_wrap'      => '<ul class="'.$menuclass.'">%3$s</ul>',
+		'link_before'     => '',
+		'link_after'      => '',
+		'items_wrap'      => '<ul>%3$s</ul>',
 		'depth'           => 0,
 		'walker'          => ''
 		)
@@ -94,8 +109,13 @@ function wp_add_styles() {
 function wp_add_scripts() {
     global $wp_query;
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
-        // Script.
-        wp_register_script('script', get_template_directory_uri() . '/assets/js/script.js', array('jquery', 'masonry', 'slick'), 'asdsad'); // Custom scripts
+			// Slick js.
+			wp_register_script('slick', get_template_directory_uri() . '/assets/js/lib/slick.min.js', array(), '1.0.0');
+			wp_enqueue_script('slick');
+
+      // Script.
+      wp_register_script('script', get_template_directory_uri() . '/assets/js/script.js', array(), '1.0.0'); // Custom scripts
+			wp_enqueue_script('script');
     }
 }
 

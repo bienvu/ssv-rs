@@ -1,38 +1,43 @@
 
 			<?php
-			$footerData = get_field('footer','option');
+				$sitewideData = get_field('sitewide','option');
+				$socialData = $sitewideData['social'];
+				$footer_bottom = $sitewideData['footer_bottom'];
+				$footer_form = $sitewideData['footer_form'];
+			?>
+			<footer class="footer">
+			  <div class="footer__top">
+			    <div class="container">
+			      <div class="footer__wrap">
+			        <div class="menu-basic">
+			          <?php rs_nav('footer-menu','Footer menu'); ?>
+			        </div>
 
-			if( $footerData ): ?>
-			<div class="box-feature">
-		    <div class="container">
-		      <div class="box-feature__wrap">
-		        <div class="box-feature__left "><?php print $footerData['footer_top_left']; ?></div>
-		        <div class="box-feature__right"><?php print $footerData['footer_top_right']; ?></div>
-		      </div>
-		    </div>
-		  </div>
-			<?php endif; ?>
-			<footer class="footer text--small">
-		    <div class="container">
-		      <div class="footer__top">
-		        <div class="scroll-up">
-		          <a class="icon-arrow-up text--small js-scroll-top" href="#">BACK TO TOP</a>
-		        </div>
+			        <div class="footer__icons">
+			          <h6 class="footer__title"><?php _e( 'follow us', 'ssvtheme' ); ?></h6>
 
-						<nav class="nav" role="navigation">
-							<?php french_table_nav('main-menu','Main Menu'); ?>
-						</nav>
-		      </div>
-					<?php if( $footerData ): ?>
-			      <div class="footer__bottom">
-			        <?php print $footerData['footer_bottom']; ?>
+			          <ul class="list-icons">
+									<?php foreach ( $socialData as $value ) : ?>
+										<li><a href="<?php print $value['link']['url']; ?>" class="<?php print $value['class']; ?>" target="<?php print $value['link']['target']; ?>"><?php print $value['link']['title']; ?></a></li>
+									<?php endforeach; ?>
+			          </ul>
+			        </div>
+
+			        <div class="footer__form">
+			          <?php echo do_shortcode('[contact-form-7 id="' . $footer_form->ID . '" title="' . $footer_form->post_title . '"]')?>
+			        </div>
 			      </div>
-					<?php endif; ?>
-		    </div>
-				<div class="footer-sticky">
-					<a href="/contact">BOOK A CONSULTATION</a>
-				</div>
-		  </footer>
+			    </div>
+			  </div>
+
+			  <div class="footer__bottom">
+			    <div class="container">
+			      <div class="footer__wrap">
+			        <?php print $footer_bottom; ?>
+			      </div>
+			    </div>
+			  </div>
+			</footer>
 		</div>
 		<!-- /wrapper -->
 

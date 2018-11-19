@@ -17,13 +17,25 @@ h6 {
   @media only screen and (min-width: 768px) {
     margin-bottom: 25px;
   }
+
+  .base & {
+    margin-bottom: 20px;
+
+    @media only screen and (min-width: 768px) {
+      margin-bottom: 25px;
+    }
+  }
 }
 
 h1,
 .h1 {
-  font-size: 28px;
+  font-size: 24px;
   line-height: 1.785;
-  margin: 0;
+  margin-bottom: -1px;
+
+  @media only screen and (min-width: 346px) {
+    font-size: 28px;
+  }
 
   @media only screen and (min-width: 768px){
     font-size: 50px;
@@ -36,12 +48,20 @@ h2,
 .h2 {
   font-size: 28px;
   line-height: 1.071;
-  margin: 0;
+  margin-bottom: 12px;
+
+  &--small {
+    @media only screen and (max-width: 767px) {
+      font-size: 21px;
+      line-height: 1.4286;
+      margin-bottom: 5px;
+    }
+  }
 
   @media only screen and (min-width: 768px) {
     font-size: 37px;
-    line-height: 1.081;
-    margin-bottom: 28px;
+    line-height: 1.0811;
+    margin-bottom: 15px;
   }
 }
 
@@ -116,7 +136,11 @@ h6,
 }
 
 p {
-  margin-bottom: 20px;
+  margin-bottom: 12px;
+
+  &:last-of-type {
+    margin: 0;
+  }
 }
 
 em {

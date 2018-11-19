@@ -64,6 +64,14 @@
          $('.js-detect').addClass('active');
       }
     });
+
+    $('.js-slide').slick({
+      fade: true,
+      prevArrow: '<span class="slick-prev"></span>',
+      nextArrow: '<span class="slick-next"></span>',
+      dots: true,
+      adaptiveHeight: true
+    });
   });
 
 }(this, this.document, this.jQuery));
