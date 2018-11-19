@@ -10,7 +10,6 @@ logs
 .npm/.sass-cache/
 .npm/node_modules
 .npm/bower_components/
-css/styles.css
 
 # Ignore Vendor folder
 vendor/
