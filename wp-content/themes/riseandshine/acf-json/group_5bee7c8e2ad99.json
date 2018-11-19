@@ -1274,6 +1274,38 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_5bf28aca0a74f": {
+                    "key": "layout_5bf28aca0a74f",
+                    "name": "product_category",
+                    "label": "Product category",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5bf28ad60a750",
+                            "label": "Category",
+                            "name": "category",
+                            "type": "taxonomy",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "taxonomy": "product_cat",
+                            "field_type": "multi_select",
+                            "allow_null": 0,
+                            "add_term": 1,
+                            "save_terms": 0,
+                            "load_terms": 0,
+                            "return_format": "object",
+                            "multiple": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add component",
@@ -1305,5 +1337,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1542617936
+    "modified": 1542624006
 }

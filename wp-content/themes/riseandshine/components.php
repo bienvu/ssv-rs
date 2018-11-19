@@ -282,6 +282,38 @@ if( have_rows('components') ):
             </div>
           </div>
         </div>
+
+      <!-- Box Category -->
+      <?php elseif( get_row_layout() == 'product_category' ):
+        $categoryData = get_sub_field('category');
+          if( $categoryData ): ?>
+            <div class="grid-image">
+              <div class="container">
+                <div class="grid-image__wrap">
+                  <?php foreach( $categoryData as $term ): ?>
+                    <?php
+
+                    $termId = $term->term_id;
+                    $catName = $term->name;
+                    $catUrl = $term->slug;
+                    $catDescription = $term->description;
+                    $catImage = get_field('banner_image', 'product_cat_' . $termId);
+                    $thumb_id = get_woocommerce_term_meta( $term->term_id, 'thumbnail_id', true );
+                    $catImg = wp_get_attachment_image( $thumb_id, 'full', true );?>
+                      <div class="grid-image__item">
+                        <div class="grid-image__content">
+                          <a href="<?php print $catUrl; ?>">
+                            <h3 class="grid-image__title"><?php print $catName; ?></h3>
+                            <div class="grid-image__body"><?php print $catDescription; ?></div>
+                          </a>
+                        </div>
+                        <div class="grid-image__image"><?php echo $catImg; ?></div>
+                      </div>
+                  <?php endforeach; ?>
+                </div>
+              </div>
+            </div>
+          <?php endif; ?>
       <?php endif; ?>
     <?php endwhile;?>
     </div>
