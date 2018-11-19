@@ -25,17 +25,17 @@
 
 			<!-- post details -->
 			<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-			<span class="author"><?php _e( 'Published by', 'sentiustheme' ); ?> <?php the_author_posts_link(); ?></span>
-			<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'sentiustheme' ), __( '1 Comment', 'sentiustheme' ), __( '% Comments', 'sentiustheme' )); ?></span>
+			<span class="author"><?php _e( 'Published by', 'ssvtheme' ); ?> <?php the_author_posts_link(); ?></span>
+			<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'ssvtheme' ), __( '1 Comment', 'ssvtheme' ), __( '% Comments', 'ssvtheme' )); ?></span>
 			<!-- /post details -->
 
 			<?php the_content(); // Dynamic Content ?>
 
-			<?php the_tags( __( 'Tags: ', 'sentiustheme' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
+			<?php the_tags( __( 'Tags: ', 'ssvtheme' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
 
-			<p><?php _e( 'Categorised in: ', 'sentiustheme' ); the_category(', '); // Separated by commas ?></p>
+			<p><?php _e( 'Categorised in: ', 'ssvtheme' ); the_category(', '); // Separated by commas ?></p>
 
-			<p><?php _e( 'This post was written by ', 'sentiustheme' ); the_author(); ?></p>
+			<p><?php _e( 'This post was written by ', 'ssvtheme' ); the_author(); ?></p>
 
 			<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
 
@@ -51,7 +51,7 @@
 		<!-- article -->
 		<article>
 
-			<h1><?php _e( 'Sorry, nothing to display.', 'sentiustheme' ); ?></h1>
+			<h1><?php _e( 'Sorry, nothing to display.', 'ssvtheme' ); ?></h1>
 
 		</article>
 		<!-- /article -->
