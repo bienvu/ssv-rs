@@ -350,6 +350,8 @@ input[type="checkbox"] {
     padding: 0;
     background: transparent;
     left: 11px;
+    font-size: 0;
+    color: transparent;
 
     @media only screen and (max-width: 1023px) {
       left: 19px;
@@ -381,7 +383,9 @@ input[type="checkbox"] {
   }
 
   &:hover {
-    background: $gray;
+    @media only screen and (max-width: 767px) {
+      background: $gray;
+    }
   }
 
   &--mobile {

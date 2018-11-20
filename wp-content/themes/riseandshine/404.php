@@ -1,5 +1,5 @@
 <?php get_header();?>
-  <main rol="main" class="main text--center base">
+  <main rol="main" class="main text--center base box-html">
     <div class="container">
       <h2>404</h2>
       <h1>Sorry...</h1>
