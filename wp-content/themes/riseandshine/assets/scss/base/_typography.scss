@@ -188,7 +188,12 @@ li {
 }
 
 a {
-  @extend %link;
+  // @extend %link;
+
+  color: $link-color;
+  text-decoration: none;
+  transition: all .3s ease;
+  cursor: pointer;
 }
 
 label {
@@ -215,4 +220,8 @@ iframe {
 
 figure {
   line-height: 0;
+}
+
+.main-space {
+  padding: 50px 0;
 }
