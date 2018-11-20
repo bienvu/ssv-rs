@@ -72,6 +72,11 @@
       dots: true,
       adaptiveHeight: true
     });
+
+    $('.is-show').click(function(){
+      $('.is-show').next('.show').removeClass('active');
+      $(this).next('.show').addClass('active');
+    });
   });
 
 }(this, this.document, this.jQuery));

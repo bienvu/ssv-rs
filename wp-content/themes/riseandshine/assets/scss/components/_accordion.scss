@@ -1,0 +1,45 @@
+.accordion {
+  padding: 70px 0;
+
+  &__title {
+    margin-bottom: 25px;
+    border-top: 1px solid #e6ebe9;
+    padding: 20px 0 0 0;
+    position: relative;
+
+    &.active {
+      display: block;
+      transform: rotate(10deg);
+    }
+
+    a {
+      font-size: 21px;
+    }
+
+    // &:last-of-type {
+    //   border-bottom: 1px solid #e6ebe9;
+    //   padding-bottom: 20px;
+    // }
+
+    &:before {
+      @extend %icons;
+      @extend .icon-arrow;
+      font-size: 20px;
+      transform: rotate(89deg);
+      right: 0;
+      top: 30px;
+      position: absolute;
+    }
+  }
+
+  &__content {
+    margin-bottom: 25px;
+    display: none;
+
+    &.active{
+      display: block;
+      border-top: 1px solid #e6ebe9;
+      padding: 20px 0;
+    }
+  }
+}
