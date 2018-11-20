@@ -127,6 +127,21 @@
     }
   }
 
+  &--white {
+    background: $white;
+    color: $blue;
+  }
+
+  &--cyan {
+    background: $cyan;
+    color: $white;
+
+    &:active,
+    &:hover {
+      background: lighten($cyan, 5%);
+    }
+  }
+
   // modifier size
   &--full {
     width: 100%;
@@ -147,6 +162,18 @@
     span {
       width: 100%;
       display: inline-block;
+    }
+  }
+
+  &--depend-mobile {
+    @media only screen and (max-width: 767px) {
+      width: 100%;
+      text-align: left;
+
+      span {
+        width: 100%;
+        display: inline-block;
+      }
     }
   }
 }
