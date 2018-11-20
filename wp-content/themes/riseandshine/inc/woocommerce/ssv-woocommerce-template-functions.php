@@ -30,12 +30,7 @@ if ( ! function_exists( 'ssv_after_content' ) ) {
 	 */
 	function ssv_after_content() {
 		?>
-			<?php
-				$contentBottom = get_field('content_bottom','option');
-				if($contentBottom) {
-					print do_shortcode($contentBottom);
-				}
-			?>
+
 			</main><!-- #main -->
 		<?php
 	}
@@ -53,6 +48,25 @@ if ( ! function_exists( 'ssv_content_middle' ) ) {
 		?>
 		<?php
 			$contentBottom = get_field('content_top','option');
+			if($contentBottom) {
+				print do_shortcode($contentBottom);
+			}
+		?>
+		<?php
+	}
+}
+if ( ! function_exists( 'ssv_content_bottom' ) ) {
+	/**
+	 * Before Content
+	 * Wraps all WooCommerce content in wrappers which match the theme markup
+	 *
+	 * @since   1.0.0
+	 * @return  void
+	 */
+	function ssv_content_bottom() {
+		?>
+		<?php
+			$contentBottom = get_field('content_bottom','option');
 			if($contentBottom) {
 				print do_shortcode($contentBottom);
 			}

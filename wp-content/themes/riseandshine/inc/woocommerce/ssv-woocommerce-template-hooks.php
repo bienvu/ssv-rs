@@ -24,3 +24,4 @@ remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_r
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
 add_action( 'woocommerce_after_single_product_summary', 'ssv_content_middle', 15 );
 add_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 20 );
+add_action( 'woocommerce_after_single_product_summary', 'ssv_content_bottom', 25 );
