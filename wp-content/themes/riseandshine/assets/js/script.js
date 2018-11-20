@@ -73,6 +73,46 @@
       adaptiveHeight: true
     });
 
+    $('.js-product').slick({
+      prevArrow: '<span class="slick-prev"></span>',
+      nextArrow: '<span class="slick-next"></span>',
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      mobileFirst: true,
+      rows: 2,
+      slidesPerRow: 2,
+      arrows: false,
+      responsive: [
+        {
+          breakpoint: 767,
+          settings: {
+            slidesToScroll: 4,
+            slidesToShow: 4,
+            rows: 1,
+            slidesPerRow: 1,
+            arrows: true
+          }
+        }
+      ]
+    });
+
+    // Arrow slider
+    function autoHeight(object) {
+      var $heightSlide = object.find('img').height();
+      object.find('.slick-arrow').css('top', $heightSlide/2);
+    }
+
+    $(window).load(function() {
+      autoHeight($('.grid-products--width-slide'));
+
+      $(window).resize(function() {
+        autoHeight($('.grid-products--width-slide'));
+      });
+    });
+
+    // matchHeight
+    $('.grid-products__title').matchHeight();
+
     // js show
     $('.js-show').click(function(){
       $(this).next('.show').toggleClass('active');
@@ -81,42 +121,7 @@
     $('.js-back').click(function(){
       $(this).parents('.show')[0].classList.remove('active');
     });
-    // js show
-    $('.js-show').click(function(e) {
-      $(this).parents('.is-hidden').children('.is-hidden').addClass('active');
-    });
 
-    $('.js-type').click(function(e) {
-      $('.come-back').removeClass('active');
-      $('.is-type').addClass('active');
-    });
-
-    $('.js-size').click(function(e) {
-      $('.come-back').removeClass('active');
-      $('.is-size').addClass('active');
-    });
-
-    $('.js-comfort').click(function(e) {
-      $('.come-back').removeClass('active');
-      $('.is-comfort').addClass('active');
-    });
-
-    $('.js-colour').click(function(e) {
-      $('.come-back').removeClass('active');
-      $('.is-colour').addClass('active');
-    });
-
-    $('.js-back').click(function(e) {
-      $('.come-back').removeClass('active');
-    });
-
-    $('.js-back-home').click(function(e) {
-      $(this).parents('.is-hidden').removeClass('active');
-    });
-
-    $('.js-sort').click(function(e) {
-      $(this).next().addClass('active');
-    });
   });
 
 }(this, this.document, this.jQuery));
