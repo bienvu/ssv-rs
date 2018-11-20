@@ -118,6 +118,7 @@
 // Backgrounds
 .bg {
   // Dark backgrounds
+
   &--primary {
     background-color: $primary-color;
   }
@@ -169,6 +170,10 @@
   &--dark-red {
     background: $dark-red;
     color: $white;
+  }
+
+  &--none {
+    background: none;
   }
 }
 
