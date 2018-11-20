@@ -61,7 +61,7 @@
 								<div class="primary-menu">
 									<?php rs_nav('primary-menu','Main Menu'); ?>
 								</div>
-			          <?php get_template_part('searchform'); ?>
+			          <?php get_template_part('templates/searchform'); ?>
 			        </div>
 			      </div>
 			    </div>
@@ -73,8 +73,9 @@
 									<?php rs_nav('header-top','Header Top'); ?>
 			          </div>
 			          <div class="best-advice"><?php $sitewideData = get_field('sitewide','option'); print $sitewideData['header_text']; ?></div>
-			          <div class="my-account">
-			            <a href="/my-account"><?php _e( 'my account', 'ssvtheme' ); ?> <i class="icon-cart"></i></a>
+			          <div class="my-login">
+			            <a href="/my-account" class="account"><?php _e( 'my account', 'ssvtheme' ); ?></a>
+			            <a href="/cart" class="cart"><i class="icon-cart"></i></a>
 			          </div>
 			        </div>
 			      </div>

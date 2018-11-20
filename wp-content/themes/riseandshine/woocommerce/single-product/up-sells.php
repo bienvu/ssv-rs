@@ -22,12 +22,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( $upsells ) : ?>
 
-	<section class="up-sells upsells products">
+	<section class="grid-products grid-products--width-slide">
 		<div class="container">
-			<h2><?php esc_html_e( 'You may also like&hellip;', 'woocommerce' ) ?></h2>
+			<h2 class="h2--no-change text--center"><?php esc_html_e( 'you might also like', 'woocommerce' ) ?></h2>
 
-			<?php woocommerce_product_loop_start(); ?>
-
+			<div class="grid-products__list js-product">
 				<?php foreach ( $upsells as $upsell ) : ?>
 
 					<?php
@@ -38,8 +37,7 @@ if ( $upsells ) : ?>
 						wc_get_template_part( 'content', 'product' ); ?>
 
 				<?php endforeach; ?>
-
-			<?php woocommerce_product_loop_end(); ?>
+ 			</div>
 		</div>
 	</section>
 

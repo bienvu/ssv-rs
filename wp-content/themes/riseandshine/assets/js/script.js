@@ -19,10 +19,25 @@
     // Remove attr title.
     $('a').removeAttr('title');
 
-    // console.log($('.box-icon__title').matchHeight());
-
     // Add placeholder to quiz.
     $('.wpcf7-quiz').attr('placeholder', 'text here');
+
+    // Faq Accordion.
+    // Color accordion
+    $('.box-faq__question').each(function() {
+      $(this).on('click', function (e) {
+        if ($(this).hasClass('is-show')) {
+          $('.box-faq__question').removeClass('is-show');
+          $('.box-faq__answer').slideUp();
+          $(this).next().slideUp();
+        } else {
+          $('.box-faq__question').removeClass('is-show');
+          $(this).addClass('is-show');
+          $('.box-faq__answer').slideUp();
+          $(this).next().slideDown();
+        }
+    });
+  });
 
     //toggle class
     $('.menu-bars').click(function(event) {
@@ -84,8 +99,8 @@
       slidesToShow: 1,
       slidesToScroll: 1,
       mobileFirst: true,
-      rows: 2,
-      slidesPerRow: 2,
+      // rows: 2,
+      // slidesPerRow: 2,
       arrows: false,
       responsive: [
         {
@@ -93,13 +108,18 @@
           settings: {
             slidesToScroll: 4,
             slidesToShow: 4,
-            rows: 1,
-            slidesPerRow: 1,
+            // rows: 1,
+            // slidesPerRow: 1,
             arrows: true
           }
         }
       ]
     });
+
+    // $('.js-product').slick({
+    //   slidesToScroll: 4,
+    //   slidesToShow: 4
+    // });
 
     // Arrow slider
     function autoHeight(object) {

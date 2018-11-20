@@ -186,9 +186,11 @@ if( get_row_layout() == 'banner' ):
 
 <!-- Box Image -->
 <?php elseif( get_row_layout() == 'box_image' ):
-  $count = count(get_sub_field("box_image_item")); ?>
+  $bgImage = get_sub_field("background_image");
+  $count = count(get_sub_field("box_image_item"));
+  ?>
 
-  <div class="box-image <?php if($count > 1):?>box-image--width-2cols<?php endif; ?>">
+  <div class="box-image <?php if($count > 1):?>box-image--width-2cols<?php endif; ?><?php if($bgImage): ?>box-image--width-bg<?php endif; ?>" style="background-image: url(<?php if($bgImage){ print $bgImage; } ?>)">
     <div class="container">
       <div class="box-image__wrap">
         <?php if( have_rows('box_image_item') ):
@@ -198,8 +200,9 @@ if( get_row_layout() == 'banner' ):
             $title = get_sub_field("title");
             $subtitle = get_sub_field("subtitle");
             $link = get_sub_field("link");
+            $color = get_sub_field("color");
           ?>
-            <div class="box-image__item">
+            <div class="box-image__item <?php print $color; ?>">
               <div class="box-image__content">
                 <h2 class="box-image__title"><?php print $title; ?></h2>
                 <?php if($subtitle): ?>
