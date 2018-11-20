@@ -1,11 +1,14 @@
 <?php
 /*
  *  Author: Sentius Group
- *  URL: sentiustdigital.com | @sentiustheme
+ *  URL: sentiustdigital.com | @ssvtheme
  *  Custom functions, support, custom post types and more.
  */
 
 require get_template_directory() . '/inc/init.php';
+
+// Woocommerce support theme.
+add_theme_support( 'woocommerce' );
 
 // Add theme options.
 if( function_exists('acf_add_options_page') ) {
@@ -18,8 +21,8 @@ if( function_exists('acf_add_options_page') ) {
 	));
 
 	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Sitewide Settings',
-		'menu_title'	=> 'Sitewide',
+		'page_title' 	=> 'Product Single Setting',
+		'menu_title'	=> 'Product Single',
 		'parent_slug'	=> 'theme-general-settings',
 	));
 }
@@ -54,9 +57,9 @@ add_filter('upload_mimes', 'cc_mime_types');
 function register_rs_menu()
 {
     register_nav_menus(array( // Using array to specify more menus if needed
-        'header-menu' => __('Header Menu', 'sentiustheme'), // Main Navigation
-        'sidebar-menu' => __('Sidebar Menu', 'sentiustheme'), // Sidebar Navigation
-        'extra-menu' => __('Extra Menu', 'sentiustheme') // Extra Navigation if needed (duplicate as many as you need!)
+        'header-menu' => __('Header Menu', 'ssvtheme'), // Main Navigation
+        'sidebar-menu' => __('Sidebar Menu', 'ssvtheme'), // Sidebar Navigation
+        'extra-menu' => __('Extra Menu', 'ssvtheme') // Extra Navigation if needed (duplicate as many as you need!)
   ));
 }
 add_action('init', 'register_rs_menu');

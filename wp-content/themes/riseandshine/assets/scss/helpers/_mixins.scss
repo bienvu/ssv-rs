@@ -101,3 +101,24 @@
   box-shadow: 0 0 rem(5px) rgba($color, 1);
   outline: 0 none;
 }
+
+// Color.
+@mixin color($color: $black) {
+  .banner__title {
+    color: $color;
+  }
+
+  .banner__subtitle,
+  .grid-image__item:hover .grid-image__content {
+    background-color: $color;
+  }
+
+  .btn {
+    background-color: $color;
+
+    &:active,
+    &:hover {
+      background-color: lighten($color, 5%);
+    }
+  }
+}

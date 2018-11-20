@@ -44,7 +44,7 @@
 
       $('.header').toggleClass('active');
     });;
-
+    // show menu
     $('.js-show-menu').click(function(event) {
       var that = $(this).parent().parent();
       var sums = $('.js-show-menu').parent().parent();
@@ -56,7 +56,7 @@
         that.addClass('active');
       }
     });
-
+    // detect click outside element
     $(window).click(function(e) {
       if($('.js-detect').has(e.target).length == 0 && !$('.js-detect').is(e.target)) {
         $('.js-detect').removeClass('active');
@@ -64,11 +64,11 @@
          $('.js-detect').addClass('active');
       }
     });
-
+    // slick
     $('.js-slide').slick({
       fade: true,
-      prevArrow: '<span class="slick-prev"></span>',
-      nextArrow: '<span class="slick-next"></span>',
+      prevArrow: '<span class="slick-prev">prev</span>',
+      nextArrow: '<span class="slick-next">next</span>',
       dots: true,
       adaptiveHeight: true
     });
@@ -112,6 +112,16 @@
 
     // matchHeight
     $('.grid-products__title').matchHeight();
+
+    // js show
+    $('.js-show').click(function(){
+      $(this).next('.show').toggleClass('active');
+    });
+
+    $('.js-back').click(function(){
+      $(this).parents('.show')[0].classList.remove('active');
+    });
+
   });
 
 }(this, this.document, this.jQuery));
