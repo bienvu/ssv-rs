@@ -72,6 +72,51 @@
       dots: true,
       adaptiveHeight: true
     });
+
+    $('.js-product').slick({
+      prevArrow: '<span class="slick-prev"></span>',
+      nextArrow: '<span class="slick-next"></span>',
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      rows: 1,
+      slidesPerRow: 1,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToScroll: 2,
+            slidesToShow: 2
+          }
+        }
+      ]
+    });
+
+    // Arrow slider
+    function autoHeight(object) {
+      var $heightSlide = object.find('img').height();
+      object.find('.slick-arrow').css('top', $heightSlide/2);
+    }
+
+    $(window).load(function() {
+      autoHeight($('.grid-products--width-slide'));
+      // if($(window)[0].outerWidth < 768) {
+      //   $('.js-product').slick({
+      //     rows: 2,
+      //     slidesPerRow: 2,
+      //     slidesToShow: 2,
+      //     slidesToScroll: 2,
+      //     arrows: false
+      //   });
+      // } else {
+        
+      // }
+
+      $(window).resize(function() {
+        autoHeight($('.grid-products--width-slide'));
+
+
+      });
+    });
   });
 
 }(this, this.document, this.jQuery));

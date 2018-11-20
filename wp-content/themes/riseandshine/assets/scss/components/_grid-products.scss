@@ -2,17 +2,21 @@
   padding: 50px 0;
   background: #f2f6f5;
 
+  &__image {
+    line-height: 0;
+  }
+
   &__list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     overflow: hidden;
-    margin: 0 -10px;
   }
 
   &__item {
     width: calc((100% - 60px) / 3) ;
-    background: #fff;
-    margin: 10px;
+    background: $white;
+    margin-bottom: 30px;
 
     img {
       width: 100%;
@@ -26,7 +30,12 @@
   }
 
   &__title {
-    padding: 0 20px;
+    padding: 3px 0 4px 0;
+    @extend .text--bold;
+
+    @media only screen and (min-width: 768px) {
+      padding: 4px 0 0px 5px;
+    }
   }
 
   &__sub-title {
@@ -37,10 +46,284 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
   }
 
   .btn {
     display: none;
+  }
+
+  &--sale {
+    padding: 50px 0;
+    background: #f2f6f5;
+
+    .grid-products__list {
+      display: flex;
+      flex-wrap: wrap;
+      overflow: hidden;
+      margin: 0 -10px;
+    }
+
+    .grid-products__item {
+      width: calc((100% - 60px) / 3) ;
+      background: #fff;
+      margin: 10px;
+
+      img {
+        width: 100%;
+      }
+
+      &--img {
+        background: url('../../../../images/grid-products-6.jpg') no-repeat;
+        background-size: 100% 360px;
+        padding: 0;
+      }
+    }
+
+    .grid-products__title {
+      padding: 0 20px;
+    }
+
+    .grid-products__sub-title {
+      padding: 0 20px;
+    }
+
+    .grid-products__content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .btn {
+      display: none;
+    }
+
+    .color {
+      color: red;
+    }
+
+    .line-through {
+      text-decoration: line-through;
+    }
+  }
+
+  &--electric-beds {
+    padding: 50px 0;
+    background: #f2f6f5;
+
+    .grid-products__list {
+      display: flex;
+      flex-wrap: wrap;
+      overflow: hidden;
+      margin: 0 -10px;
+    }
+
+    .grid-products__item {
+      width: calc((100% - 60px) / 3) ;
+      background: #fff;
+      margin: 10px;
+
+      img {
+        width: 100%;
+      }
+
+      &--img {
+        background: url('../../../../images/grid-products-6.jpg') no-repeat;
+        background-size: 100% 380px;
+        padding: 0;
+      }
+    }
+
+    .grid-products__title {
+      padding: 0 20px;
+    }
+
+    .grid-products__sub-title {
+      padding: 0 20px;
+    }
+
+    .grid-products__content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .btn {
+      display: none;
+    }
+
+    .line-through {
+      text-decoration: line-through;
+    }
+
+    .color {
+      color: red;
+    }
+  }
+
+  &--bedroom-suites {
+    padding: 50px 0;
+    background: #f2f6f5;
+
+    .grid-products__list {
+      display: flex;
+      flex-wrap: wrap;
+      overflow: hidden;
+      margin: 0 -10px;
+    }
+
+    .grid-products__item {
+      width: calc((100% - 60px) / 3) ;
+      background: #fff;
+      margin: 10px;
+
+      img {
+        width: 100%;
+      }
+
+      &--img {
+        background: url('../../../../images/grid-products-6.jpg') no-repeat;
+        background-size: 100% 360px;
+        padding: 0;
+      }
+    }
+
+    .grid-products__title {
+      padding: 0 20px;
+    }
+
+    .grid-products__sub-title {
+      padding: 0 20px;
+    }
+
+    .grid-products__content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .btn {
+      display: none;
+    }
+  }
+  
+  &--bedding-essential {
+    padding: 50px 0;
+    background: #f2f6f5;
+
+    .grid-products__list {
+      display: flex;
+      flex-wrap: wrap;
+      overflow: hidden;
+      margin: 0 -10px;
+    }
+
+    .grid-products__item {
+      width: calc((100% - 60px) / 3) ;
+      background: #fff;
+      margin: 10px;
+
+      img {
+        width: 100%;
+      }
+
+      &--img {
+        background: url('../../../../images/grid-products-6.jpg') no-repeat;
+        background-size: 100% 366px;
+        padding: 0;
+      }
+    }
+
+    .grid-products__image {
+      overflow: hidden;
+    }
+    
+    .grid-products__title {
+      padding-left: 20px;
+    }
+    .grid-products__content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .btn {
+      display: none;
+    }
+
+    .line-through {
+      text-decoration: line-through;
+    }
+
+    .color {
+      color: red;
+    }
+  }
+
+  &--width-slide {
+    @extend .bg--gray;
+    padding: 45px 0 19px;
+    
+    .grid-products__list {
+      overflow: hidden;
+    }
+
+    .slick-list {
+      margin: 0 -10px;
+
+      @media only screen and (min-width: 768px) {
+        margin: 0 -14.5px;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      background: $white;
+      padding: 42px 0 19px;
+    }
+
+    .grid-products__item {
+      padding: 0 10px;
+      width: auto;
+      background: none;
+
+      @media only screen and (min-width: 1024px) {
+        padding: 0 14.5px;
+        background: $white;
+      }
+    }
+
+    .grid-products__body {
+      @extend .text--tiny;
+
+      @media only screen and (min-width: 768px) {
+        font-size: 14px;
+      }
+    }
+
+    .grid-products__title {
+      @extend .h4--small;
+    }
+
+    .grid-products__content {
+      @media only screen and (min-width: 768px) {
+        padding: 0 0 0 6px;
+      }
+    }
+
+    .slick-prev,
+    .slick-next {
+      background: rgba($gray, .75);
+
+      &:before {
+        color: $blue;
+      }
+    }
+
+    .slick-next {
+      right: -1px;
+    }
   }
 }

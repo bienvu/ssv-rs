@@ -58,6 +58,15 @@ h2,
     }
   }
 
+  &--no-change {
+    margin-bottom: 32px;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 28px;
+      margin-bottom: 28px;
+    }
+  }
+
   @media only screen and (min-width: 768px) {
     font-size: 37px;
     line-height: 1.0811;
@@ -83,6 +92,13 @@ h4,
   font-size: 14px;
   line-height: normal;
   margin-bottom: 0;
+
+  &--small {
+    @media only screen and (min-width: 768px) {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+  }
 
   @media only screen and (min-width: 768px) {
     font-size: 21px;
