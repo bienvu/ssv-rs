@@ -1,24 +1,61 @@
 .box-image-text {
   padding: 50px 0;
 
-  &__top {
-    margin-bottom: 35px;
+  h2 {
+    margin-bottom: 6px;
 
     @media only screen and (min-width: 768px) {
-      margin-bottom: 30px; 
+      margin-bottom: 28px;
     }
+  }
 
-    &__wrap {
-      display: flex;
-      flex-direction: column-reverse;
+  &__wrap {
+    display: flex;
+    flex-direction: column-reverse;
+
+    @media only screen and (min-width: 768px) {
+      align-items: center;
+      flex-direction: row;
+    }
+  }
+  
+  &__body {
+    width: 100%;
+    font-size: 16px;
+    line-height: normal;
+
+    p{
+      margin-bottom: 8px;
+
       @media only screen and (min-width: 768px) {
-        display: flex;
-        align-items: center;
-        flex-direction: row;
+        margin-bottom: 12px;
       }
     }
 
-    .box-image-text__content {
+    @media only screen and (min-width: 768px) {
+      width: 50%;
+      padding-right: 20px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    margin-bottom: 15px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    @media only screen and (min-width: 768px) {
+      width: 50%;
+      padding-left: 15px;
+      margin-top: 18px;
+    }
+  }
+
+  &--70-30 {
+    .box-image-text__body {
       width: 100%;
       line-height: 1.25;
 
@@ -26,6 +63,12 @@
         width: 75%;
         padding-right: 30px;
         margin-top: -12px;
+      }
+
+      @media only screen and (min-width: 769px) and (max-width: 1279px) {
+        padding: 0;
+        margin: 0;
+        width: 40%;
       }
     }
 
@@ -41,12 +84,6 @@
           max-width: inherit;
           height: 100%;
           width: auto;
-        }
-
-        @media only screen and (min-width: 769px) and (max-width: 1279px) {
-          max-width: 100%;
-          height: auto;
-          width: 100%;
         }
       }
 
@@ -65,75 +102,62 @@
     }
   }
 
-  &__bottom {
+  &--image-left {
     padding-top: 35px;
 
     @media only screen and (min-width: 768px) {
       padding: 30px 0 0 0;
     }
 
-    &__wrap {
+    .box-image-text__wrap {
       display: flex;
-      flex-direction: column-reverse;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
 
       @media only screen and (min-width: 768px) {
         display: flex;
+        flex-direction: row-reverse;
         align-items: center;
-        flex-direction: row;
       }
     }
 
-    .box-image-text__content {
-      width: 100%;
+    .box-image-text__body {
+        width: 100%;
 
-      @media only screen and (min-width: 768px) {
-        width: 35%;
-        position: relative;
-        left: 58px;
-        top: -15px;
-      }
+        @media only screen and (min-width: 768px) {
+          width: 37%;
+          position: relative;
+          left: 58px;
+          top: -15px;
+        }
     }
 
     .box-image-text__image {
-      width: 100%;
-      margin: 10px 0 20px -7px;
-
-      img {
         width: 100%;
-        height: 100%;
+
+        img {
+          width: 100%;
+          height: 100%;
+
+          @media only screen and (min-width: 768px) {
+            max-width: inherit;
+            height: 100%;
+            line-height: 0;
+          }
+        }
 
         @media only screen and (min-width: 768px) {
-          max-width: inherit;
-          height: 100%;
-          line-height: 0;
+          width: 63%;
+          margin-left: -22px;
+          margin-top: -6px;
         }
-      }
 
-      @media only screen and (min-width: 768px) {
-        width: 65%;
-        margin-left: -22px;
-        margin-top: -6px;
-      }
-
-      @media only screen and (min-width: 769px) and (max-width: 1279px) {
-        margin-left: -20px;
-      }
+        @media only screen and (min-width: 769px) and (max-width: 1279px) {
+          margin-left: -20px;
+        }
     }
-  }
 
-  &__title {
-    line-height: normal;
-
-    @media only screen and (min-width: 768px) {
-      line-height: 1.081;
-    }
-  }
-
-  &__link {
-    margin-top: 20px;
-
-    @media only screen and (min-width: 768px) {
+    .box-image-text__link {
       margin-top: 20px;
     }
   }

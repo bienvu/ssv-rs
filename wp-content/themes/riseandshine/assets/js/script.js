@@ -44,7 +44,7 @@
 
       $('.header').toggleClass('active');
     });;
-
+    // show menu
     $('.js-show-menu').click(function(event) {
       var that = $(this).parent().parent();
       var sums = $('.js-show-menu').parent().parent();
@@ -56,7 +56,7 @@
         that.addClass('active');
       }
     });
-
+    // detect click outside element
     $(window).click(function(e) {
       if($('.js-detect').has(e.target).length == 0 && !$('.js-detect').is(e.target)) {
         $('.js-detect').removeClass('active');
@@ -64,11 +64,11 @@
          $('.js-detect').addClass('active');
       }
     });
-
+    // slick
     $('.js-slide').slick({
       fade: true,
-      prevArrow: '<span class="slick-prev"></span>',
-      nextArrow: '<span class="slick-next"></span>',
+      prevArrow: '<span class="slick-prev">prev</span>',
+      nextArrow: '<span class="slick-next">next</span>',
       dots: true,
       adaptiveHeight: true
     });
@@ -77,6 +77,57 @@
       $('.is-show').next('.show').removeClass('active');
       $(this).next('.show').addClass('active');
     });
+
+    $('.js-product').slick({
+      prevArrow: '<span class="slick-prev"></span>',
+      nextArrow: '<span class="slick-next"></span>',
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      mobileFirst: true,
+      rows: 2,
+      slidesPerRow: 2,
+      arrows: false,
+      responsive: [
+        {
+          breakpoint: 767,
+          settings: {
+            slidesToScroll: 4,
+            slidesToShow: 4,
+            rows: 1,
+            slidesPerRow: 1,
+            arrows: true
+          }
+        }
+      ]
+    });
+
+    // Arrow slider
+    function autoHeight(object) {
+      var $heightSlide = object.find('img').height();
+      object.find('.slick-arrow').css('top', $heightSlide/2);
+    }
+
+    $(window).load(function() {
+      autoHeight($('.grid-products--width-slide'));
+
+      $(window).resize(function() {
+        autoHeight($('.grid-products--width-slide'));
+      });
+    });
+
+    // matchHeight
+    $('.grid-products__title').matchHeight();
+
+    // js show
+    $('.js-show').click(function(){
+      $(this).next('.show').toggleClass('active');
+    });
+
+    $('.js-back').click(function(){
+      $(this).parents('.show')[0].classList.remove('active');
+    });
+
+>>>>>>> master
   });
 
 }(this, this.document, this.jQuery));

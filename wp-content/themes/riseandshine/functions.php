@@ -21,8 +21,8 @@ if( function_exists('acf_add_options_page') ) {
 	));
 
 	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Sitewide Settings',
-		'menu_title'	=> 'Sitewide',
+		'page_title' 	=> 'Product Single Setting',
+		'menu_title'	=> 'Product Single',
 		'parent_slug'	=> 'theme-general-settings',
 	));
 }

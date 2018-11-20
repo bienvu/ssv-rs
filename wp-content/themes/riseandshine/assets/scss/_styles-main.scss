@@ -41,14 +41,10 @@
 @import 'components/contact-maps';
 @import 'components/contact-form';
 @import 'components/best-advice';
-@import 'components/my-account';
+@import 'components/my-login';
 @import 'components/banner';
 @import 'components/box-image-text--50-50';
 @import 'components/request-form';
-@import 'components/grid-products--sale';
-@import 'components/grid-products--bedding-essential';
-@import 'components/grid-products--electric-beds';
-@import 'components/grid-products--bedroom-suites';
 @import 'components/grid-products';
 @import 'components/box-video';
 @import 'components/box-trial';
@@ -58,9 +54,11 @@
 @import 'components/box-intro';
 @import 'components/grid-image';
 @import 'components/box-icon';
+@import 'components/box-filter';
 @import 'components/box-image';
 @import 'components/box-text';
 @import 'components/accordion';
+@import 'components/thank-you';
 
 // Layouts
 @import 'layouts/layout';

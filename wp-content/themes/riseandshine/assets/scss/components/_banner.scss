@@ -4,7 +4,7 @@
   @media only screen and (min-width: 768px) {
     height: 487px;
   }
-  
+
   &__image {
     overflow: hidden;
     height: 230px;
@@ -56,18 +56,16 @@
     }
 
     .best-advice {
-      a {
-        border: 0;
-        font-size: 19.5px;
-        padding: 10px 5px 10px 31px;
-      }
+      border: 0;
+      font-size: 19.5px;
+      padding: 10px 5px 10px 31px;
 
       @media only screen and (min-width: 768px) {
         display: block;
       }
     }
   }
-  
+
   &__content {
     @extend .bg--white;
     padding: 21px 20px 0 30px;
@@ -104,6 +102,7 @@
     padding: 21px 34px 28px 30px;
     display: inline-block;
     margin-bottom: 9px;
+    color: $white;
 
     @media only screen and (max-width: 767px) {
       padding: 13px 19px 19px 19px;
@@ -143,14 +142,14 @@
     }
 
     .banner__body {
-      max-width: 383px; 
+      max-width: 383px;
 
       @media only screen and (max-width: 767px) {
         position: relative;
         top: -31px;
         max-width: inherit;
       }
-      
+
       .best-advice {
         a {
           @extend .text--large;

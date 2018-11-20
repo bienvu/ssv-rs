@@ -1,7 +1,9 @@
 // Navigation.
 .second-menu {
+  padding: 0 3px 0 0;
   @media only screen and (max-width: 1023px) {
     width: 100%;
+    padding: 0;
   }
 
   >ul {
@@ -23,27 +25,19 @@
       @media only screen and (min-width: 1024px) {
         width: auto;
       }
-      
-
-      a {
-        @extend %link--small;
-        
-        color: $white;
-        padding: 10px 10px 10px 12px;
-        display: block;
-
-        @media only screen and (max-width: 1023px) {
-          padding: 8px 19px 12px;
-        }
-      }
 
       > a {
+        @extend %link--small;
         @extend %link--large-mobile;
+        color: $white;
+        padding: 9px 10px 8px 12px;
+        display: block;
 
         @media only screen and (max-width: 1023px) {
           border-bottom: 2px solid $gray;
           border-right: 2px solid $gray;
           position: relative;
+          padding: 7px 19px 10px;
         }
       }
 
@@ -70,11 +64,15 @@
 
         li {
           a {
-            padding: 2px 0 3px;
+            @extend %link--small-desktop;
+            @extend %link--normal;
+            padding: 1px 0 1px;
+            color: $white;
+            display: block;
 
             @media only screen and (max-width: 1023px) {
               font-size: 14px;
-              padding: 5px 19px;
+              padding: 5px 19px 3px;
             }
           }
         }
@@ -157,13 +155,14 @@
       }
 
       > a {
+        @extend %link--normal;
         @extend %link--largest-mobile;
         position: relative;
-        padding: 8px 0 13px 19px;
+        padding: 6px 0 11px 19px;
         display: block;
 
         @media only screen and (min-width: 1024px) {
-          padding: 35px 14.5px 40px;
+          padding: 34px 14.5px 38px;
         }
       }
 
@@ -175,14 +174,14 @@
       > .sub-menu {
         background: $gray;
         display: none;
-        padding: 8px 0 12px;
+        padding: 8px 0 10px;
 
         @media only screen and (min-width: 1024px) {
           position: absolute;
           top: 100%;
           left: 0;
           display: none;
-          padding: 26px 2px 23px 3px;
+          padding: 26px 2px 20px 3px;
           box-shadow: 0px 5px 7px 0px rgba($black, .35);
           z-index: 9;
         }
@@ -196,8 +195,7 @@
           }
 
           span {
-            @extend .text--small;
-            line-height: normal;
+            @extend %link--normal;
 
             @media only screen and (min-width: 1024px) {
               padding: 0;
@@ -206,11 +204,11 @@
           }
 
           a {
-            @extend .text--normal;
-            padding: 5px 19px;
+            @extend %link--large;
+            padding: 2px 19px 5px;
 
             @media only screen and (min-width: 1024px) {
-              padding: 3px 0 4px;
+              padding: 0px 0 4px;
             }
           }
 
