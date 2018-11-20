@@ -94,10 +94,19 @@ h4,
   margin-bottom: 0;
 
   &--small {
+    font-size: 14px;
+    line-height: normal;
+    margin-bottom: 0;
+    
     @media only screen and (min-width: 768px) {
       font-size: 16px;
       margin-bottom: 5px;
     }
+  }
+
+  &--no-change {
+    font-size: 21px;
+    line-height: 1.333;
   }
 
   @media only screen and (min-width: 768px) {
@@ -110,6 +119,7 @@ h4,
 h5,
 .h5 {
   font-size: 14px;
+  margin-bottom: 0;
 }
 
 h6,

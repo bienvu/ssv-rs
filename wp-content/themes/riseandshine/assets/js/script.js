@@ -109,6 +109,9 @@
         autoHeight($('.grid-products--width-slide'));
       });
     });
+
+    // matchHeight
+    $('.grid-products__title').matchHeight();
   });
 
 }(this, this.document, this.jQuery));

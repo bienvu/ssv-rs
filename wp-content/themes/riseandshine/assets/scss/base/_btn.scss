@@ -106,6 +106,16 @@
     }
   }
 
+  &--no-bg {
+    background: none;
+    color: $blue;
+
+    &:active,
+    &:hover {
+      background: none;
+    }
+  }
+
   // modifier size
   &--full {
     width: 100%;

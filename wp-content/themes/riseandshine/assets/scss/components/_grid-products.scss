@@ -1,274 +1,180 @@
 .grid-products {
-  padding: 50px 0;
+  padding: 30px 0;
   background: #f2f6f5;
+
+  @media only screen and (min-width: 768px) {
+    padding: 55px 0 50px;
+  }
 
   &__image {
     line-height: 0;
+    text-align: center;
+
+    @media only screen and (min-width: 1440px) {
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
   }
 
   &__list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     overflow: hidden;
+    padding: 0 17px;
+
+    @media only screen and (min-width: 480px) {
+      margin: 0 -10px;
+      padding: 0;
+    }
+
+    @media only screen and (min-width: 768px) {
+      margin: 0 -15px;
+    }
   }
 
   &__item {
-    width: calc((100% - 60px) / 3) ;
     background: $white;
-    margin-bottom: 30px;
+    margin: 0 0 20px 0;
+    padding: 0 0 13px;
+    width: 100%;
+    min-height: 315px;
+    display: flex;
+    flex-direction: column;
 
-    img {
-      width: 100%;
+    @media only screen and (min-width: 1440px) {
+      min-height: 420px;
     }
 
-    &--img {
-      background: url('../../../../images/grid-products-6.jpg') no-repeat;
-      background-size: 306px 346px;
+    &:last-child {
+      @media only screen and (max-width: 479px) {
+        margin: 0;       
+      }
+
+    }
+
+    &--only-image {
       padding: 0;
+
+      .grid-products__image {
+        overflow: hidden;
+        position: relative;
+        height: 100%;
+
+        img {
+          height: 100%;
+          width: auto;
+          max-width: inherit;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+
+          @media only screen and (min-width: 375px) {
+            width: 100%;
+            height: auto;
+          }
+
+          @media only screen and (min-width: 480px) {
+            height: 100%;
+            width: auto;
+          }
+
+          @media only screen and (min-width: 660px) {
+            width: 100%;
+            height: auto;
+          }
+
+          @media only screen and (min-width: 768px) {
+            height: 100%;
+            width: auto;
+          }
+
+          @media only screen and (min-width: 1440px) {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+
+    @media only screen and (min-width: 480px) {
+      margin: 10px;
+      width: calc((100% - 40px) / 2);
+    }
+
+    @media only screen and (min-width: 768px) {
+      margin: 15px;
+      width: calc((100% - 90px) / 3);
     }
   }
 
   &__title {
-    padding: 3px 0 4px 0;
     @extend .text--bold;
+    @extend .h4--no-change;
+    padding: 10px 0 0 16px;
 
     @media only screen and (min-width: 768px) {
-      padding: 4px 0 0px 5px;
+      padding: 8px 0px 0px 17px;
     }
   }
 
   &__sub-title {
-    padding: 0 20px;
+    padding: 6px 0 0 16px;
+    @extend .text--tall;
+
+    @media only screen and (min-width: 768px) {
+      padding: 0 0 0 16px;
+    }
+  }
+
+  &__body {
+    @extend .text--tiny;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 14px;
+    }
   }
 
   &__content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    padding: 0 17px;
+    margin-top: auto;
+
+    .btn {
+      @extend .btn--no-bg;
+      padding: 0 12px 0 0;
+      margin-top: 2px;
+
+      span {
+        &:before {
+          right: -12px;
+        }
+      }
+    }
   }
 
-  .btn {
-    display: none;
+  &__price {
+    @extend .text--normal;
   }
 
   &--sale {
-    padding: 50px 0;
-    background: #f2f6f5;
-
-    .grid-products__list {
-      display: flex;
-      flex-wrap: wrap;
-      overflow: hidden;
-      margin: 0 -10px;
-    }
-
-    .grid-products__item {
-      width: calc((100% - 60px) / 3) ;
-      background: #fff;
-      margin: 10px;
-
-      img {
-        width: 100%;
-      }
-
-      &--img {
-        background: url('../../../../images/grid-products-6.jpg') no-repeat;
-        background-size: 100% 360px;
-        padding: 0;
-      }
-    }
-
-    .grid-products__title {
-      padding: 0 20px;
-    }
-
-    .grid-products__sub-title {
-      padding: 0 20px;
-    }
-
-    .grid-products__content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 20px;
-    }
-
-    .btn {
-      display: none;
-    }
-
-    .color {
-      color: red;
-    }
-
-    .line-through {
-      text-decoration: line-through;
-    }
-  }
-
-  &--electric-beds {
-    padding: 50px 0;
-    background: #f2f6f5;
-
-    .grid-products__list {
-      display: flex;
-      flex-wrap: wrap;
-      overflow: hidden;
-      margin: 0 -10px;
-    }
-
-    .grid-products__item {
-      width: calc((100% - 60px) / 3) ;
-      background: #fff;
-      margin: 10px;
-
-      img {
-        width: 100%;
-      }
-
-      &--img {
-        background: url('../../../../images/grid-products-6.jpg') no-repeat;
-        background-size: 100% 380px;
-        padding: 0;
-      }
-    }
-
-    .grid-products__title {
-      padding: 0 20px;
-    }
-
-    .grid-products__sub-title {
-      padding: 0 20px;
-    }
-
-    .grid-products__content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 20px;
-    }
-
-    .btn {
-      display: none;
-    }
-
-    .line-through {
-      text-decoration: line-through;
-    }
-
-    .color {
-      color: red;
-    }
-  }
-
-  &--bedroom-suites {
-    padding: 50px 0;
-    background: #f2f6f5;
-
-    .grid-products__list {
-      display: flex;
-      flex-wrap: wrap;
-      overflow: hidden;
-      margin: 0 -10px;
-    }
-
-    .grid-products__item {
-      width: calc((100% - 60px) / 3) ;
-      background: #fff;
-      margin: 10px;
-
-      img {
-        width: 100%;
-      }
-
-      &--img {
-        background: url('../../../../images/grid-products-6.jpg') no-repeat;
-        background-size: 100% 360px;
-        padding: 0;
-      }
-    }
-
-    .grid-products__title {
-      padding: 0 20px;
-    }
-
-    .grid-products__sub-title {
-      padding: 0 20px;
-    }
-
-    .grid-products__content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 20px;
-    }
-
-    .btn {
-      display: none;
-    }
-  }
-  
-  &--bedding-essential {
-    padding: 50px 0;
-    background: #f2f6f5;
-
-    .grid-products__list {
-      display: flex;
-      flex-wrap: wrap;
-      overflow: hidden;
-      margin: 0 -10px;
-    }
-
-    .grid-products__item {
-      width: calc((100% - 60px) / 3) ;
-      background: #fff;
-      margin: 10px;
-
-      img {
-        width: 100%;
-      }
-
-      &--img {
-        background: url('../../../../images/grid-products-6.jpg') no-repeat;
-        background-size: 100% 366px;
-        padding: 0;
-      }
-    }
-
-    .grid-products__image {
-      overflow: hidden;
-    }
-    
-    .grid-products__title {
-      padding-left: 20px;
-    }
-    .grid-products__content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 20px;
-    }
-
-    .btn {
-      display: none;
-    }
-
-    .line-through {
-      text-decoration: line-through;
-    }
-
-    .color {
-      color: red;
+    .grid-products__color{
+      @extend .text--red-bold;
+      margin-left: 3px;
     }
   }
 
   &--width-slide {
     @extend .bg--gray;
-    padding: 45px 0 19px;
+    padding: 46px 0 20px;
     
     .grid-products__list {
       overflow: hidden;
+      padding: 0;
+      margin: 0;
     }
 
     .slick-list {
@@ -288,6 +194,9 @@
       padding: 0 10px;
       width: auto;
       background: none;
+      margin: 0;
+      min-height: inherit;
+      margin-bottom: 29px;
 
       @media only screen and (min-width: 1024px) {
         padding: 0 14.5px;
@@ -305,11 +214,26 @@
 
     .grid-products__title {
       @extend .h4--small;
+      padding: 3px 0 4px 0;
+
+      @media only screen and (min-width: 768px) {
+        padding: 4px 0 0 5px;
+      }
     }
 
     .grid-products__content {
+      padding: 0;
+
       @media only screen and (min-width: 768px) {
         padding: 0 0 0 6px;
+      }
+    }
+
+    .grid-products__image {
+      img {
+        width: 100%;
+        height: auto;
+        max-width: inherit;
       }
     }
 
