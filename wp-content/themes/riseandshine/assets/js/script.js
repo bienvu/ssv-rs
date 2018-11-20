@@ -19,10 +19,25 @@
     // Remove attr title.
     $('a').removeAttr('title');
 
-    // console.log($('.box-icon__title').matchHeight());
-
     // Add placeholder to quiz.
     $('.wpcf7-quiz').attr('placeholder', 'text here');
+
+    // Faq Accordion.
+    // Color accordion
+    $('.box-faq__question').each(function() {
+      $(this).on('click', function (e) {
+        if ($(this).hasClass('is-show')) {
+          $('.box-faq__question').removeClass('is-show');
+          $('.box-faq__answer').slideUp();
+          $(this).next().slideUp();
+        } else {
+          $('.box-faq__question').removeClass('is-show');
+          $(this).addClass('is-show');
+          $('.box-faq__answer').slideUp();
+          $(this).next().slideDown();
+        }
+    });
+  });
 
     //toggle class
     $('.menu-bars').click(function(event) {
