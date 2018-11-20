@@ -47,7 +47,7 @@ $color = get_field('color', $term);
 					</div>
 				</div>
 
-				<div class="best-advice hidden-on-mobile"><?php  _e( 'best advice. never beaten on price: ', 'ssvtheme' ); ?></div>
+				<div class="best-advice hidden-on-mobile"><?php  _e( 'best advice. never beaten on price', 'ssvtheme' ); ?></div>
 			</div>
 		</div>
 	</div>
@@ -138,7 +138,7 @@ $color = get_field('color', $term);
 
 		<?php
 		if(($term->slug != "bed-in-a-bag") || ($term->term_id != 157) ) {
-			print('<div class="container">');
+			print('<div class="grid-products"> <div class="container">');
 			if ( woocommerce_product_loop() ) {
 			/**
 			 * Hook: woocommerce_before_shop_loop.
@@ -149,8 +149,8 @@ $color = get_field('color', $term);
 			 */
 			do_action( 'woocommerce_before_shop_loop' );
 
-			woocommerce_product_loop_start();
-
+			// woocommerce_product_loop_start();
+			print "<div class='grid-products__list'>";
 			if ( wc_get_loop_prop( 'total' ) ) {
 				while ( have_posts() ) {
 					the_post();
@@ -161,12 +161,11 @@ $color = get_field('color', $term);
 					 * @hooked WC_Structured_Data::generate_product_data() - 10
 					 */
 					do_action( 'woocommerce_shop_loop' );
-
 					wc_get_template_part( 'content', 'product' );
 				}
 			}
-
-			woocommerce_product_loop_end();
+			print "</div>";
+			// woocommerce_product_loop_end();
 
 			/**
 			 * Hook: woocommerce_after_shop_loop.
@@ -189,7 +188,7 @@ $color = get_field('color', $term);
 		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
 		 */
 		do_action( 'woocommerce_after_main_content' );
-		print('</div>');
+		print('</div></div>');
 	}
 	?>
 

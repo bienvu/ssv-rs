@@ -99,8 +99,8 @@
       slidesToShow: 1,
       slidesToScroll: 1,
       mobileFirst: true,
-      rows: 2,
-      slidesPerRow: 2,
+      // rows: 2,
+      // slidesPerRow: 2,
       arrows: false,
       responsive: [
         {
@@ -108,13 +108,18 @@
           settings: {
             slidesToScroll: 4,
             slidesToShow: 4,
-            rows: 1,
-            slidesPerRow: 1,
+            // rows: 1,
+            // slidesPerRow: 1,
             arrows: true
           }
         }
       ]
     });
+
+    // $('.js-product').slick({
+    //   slidesToScroll: 4,
+    //   slidesToShow: 4
+    // });
 
     // Arrow slider
     function autoHeight(object) {
