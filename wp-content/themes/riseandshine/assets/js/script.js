@@ -73,6 +73,11 @@
       adaptiveHeight: true
     });
 
+    $('.is-show').click(function(){
+      $('.is-show').next('.show').removeClass('active');
+      $(this).next('.show').addClass('active');
+    });
+
     $('.js-product').slick({
       prevArrow: '<span class="slick-prev"></span>',
       nextArrow: '<span class="slick-next"></span>',
@@ -122,6 +127,7 @@
       $(this).parents('.show')[0].classList.remove('active');
     });
 
+>>>>>>> master
   });
 
 }(this, this.document, this.jQuery));
