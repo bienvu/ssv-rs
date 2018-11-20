@@ -76,16 +76,21 @@
     $('.js-product').slick({
       prevArrow: '<span class="slick-prev"></span>',
       nextArrow: '<span class="slick-next"></span>',
-      slidesToShow: 4,
-      slidesToScroll: 4,
-      rows: 1,
-      slidesPerRow: 1,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      mobileFirst: true,
+      rows: 2,
+      slidesPerRow: 2,
+      arrows: false,
       responsive: [
         {
-          breakpoint: 768,
+          breakpoint: 767,
           settings: {
-            slidesToScroll: 2,
-            slidesToShow: 2
+            slidesToScroll: 4,
+            slidesToShow: 4,
+            rows: 1,
+            slidesPerRow: 1,
+            arrows: true
           }
         }
       ]
@@ -99,22 +104,9 @@
 
     $(window).load(function() {
       autoHeight($('.grid-products--width-slide'));
-      // if($(window)[0].outerWidth < 768) {
-      //   $('.js-product').slick({
-      //     rows: 2,
-      //     slidesPerRow: 2,
-      //     slidesToShow: 2,
-      //     slidesToScroll: 2,
-      //     arrows: false
-      //   });
-      // } else {
-        
-      // }
 
       $(window).resize(function() {
         autoHeight($('.grid-products--width-slide'));
-
-
       });
     });
   });
