@@ -1,8 +1,12 @@
 <?php get_header(); ?>
 	<main role="main" class="main">
-		<?php if( have_rows('components') ): ?>
-			<?php get_template_part('components'); ?>
-		<?php else: ?>
+		<?php if( have_rows('components') ):
+	     // loop through the rows of data
+	     while ( have_rows('components') ) : the_row();
+				 get_template_part('templates/components');
+			 endwhile;
+		 else:
+		 ?>
 		<div class="container">
 			<h1><?php the_title(); ?></h1>
 

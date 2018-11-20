@@ -79,6 +79,15 @@
     }
   }
 
+  &--violet {
+    background: $violet;
+
+    &:active,
+    &:hover {
+      background: lighten($purple, 5%);
+    }
+  }
+
   &--red {
     background: $red;
 
