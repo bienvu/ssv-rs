@@ -134,6 +134,7 @@ textarea {
   @extend %form-text;
   height: auto;
   min-height: 80px;
+  resize: none;
 }
 
 .form-item,
@@ -384,4 +385,10 @@ input[type="checkbox"] {
       }
     }
   }
+}
+
+// Contact form 7.
+div.wpcf7-validation-errors,
+div.wpcf7-acceptance-missing {
+  display: none !important;
 }
