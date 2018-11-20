@@ -21,8 +21,8 @@ if( function_exists('acf_add_options_page') ) {
 	));
 
 	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Sitewide Settings',
-		'menu_title'	=> 'Sitewide',
+		'page_title' 	=> 'Product Single Setting',
+		'menu_title'	=> 'Product Single',
 		'parent_slug'	=> 'theme-general-settings',
 	));
 }
@@ -115,6 +115,10 @@ function wp_add_scripts() {
 			// Slick js.
 			wp_register_script('slick', get_template_directory_uri() . '/assets/js/lib/slick.min.js', array(), '1.0.0');
 			wp_enqueue_script('slick');
+
+			// Media-match js.
+			wp_register_script('matchHeight', get_template_directory_uri() . '/assets/js/lib/jquery.matchHeight.js', array(), '1.0.0');
+			wp_enqueue_script('matchHeight');
 
       // Script.
       wp_register_script('script', get_template_directory_uri() . '/assets/js/script.js', array(), '1.0.0'); // Custom scripts

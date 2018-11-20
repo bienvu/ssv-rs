@@ -58,6 +58,15 @@ h2,
     }
   }
 
+  &--no-change {
+    margin-bottom: 32px;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 28px;
+      margin-bottom: 28px;
+    }
+  }
+
   @media only screen and (min-width: 768px) {
     font-size: 37px;
     line-height: 1.0811;
@@ -73,7 +82,7 @@ h3,
 
   @media only screen and (min-width: 768px) {
     font-size: 28px;
-    line-height: 0.857;
+    // line-height: 0.857;
     margin-bottom: 18px;
   }
 }
@@ -83,6 +92,22 @@ h4,
   font-size: 14px;
   line-height: normal;
   margin-bottom: 0;
+
+  &--small {
+    font-size: 14px;
+    line-height: normal;
+    margin-bottom: 0;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+  }
+
+  &--no-change {
+    font-size: 21px;
+    line-height: 1.333;
+  }
 
   @media only screen and (min-width: 768px) {
     font-size: 21px;
@@ -94,12 +119,13 @@ h4,
 h5,
 .h5 {
   font-size: 14px;
+  margin-bottom: 0;
 }
 
 h6,
 .h6 {
   font-size: 12px;
-  margin-bottom: 8px;
+  margin-bottom: 9px;
 
   @media only screen and (min-width: 768px) {
     margin-bottom: 24px;
@@ -112,23 +138,34 @@ h6,
   text-decoration: none;
   transition: all .3s ease;
   cursor: pointer;
-  font-size: 14px;
-  line-height: normal;
-  letter-spacing: 0;
   display: inline-block;
+
+  &--normal {
+    font-size: 14px;
+  }
 
   &--small {
     font-size: 12px;
   }
 
+  &--small-desktop {
+    @media only screen and (min-width: 1024px) {
+      font-size: 12px;
+    }
+  }
+
+  &--large {
+    font-size: 16px;
+  }
+
   &--large-mobile {
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 1024px) {
       font-size: 16px;
     }
   }
 
   &--largest-mobile {
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 1024px) {
       font-size: 21px;
     }
   }
@@ -188,7 +225,12 @@ li {
 }
 
 a {
-  @extend %link;
+  // @extend %link;
+
+  color: $link-color;
+  text-decoration: none;
+  transition: all .3s ease;
+  cursor: pointer;
 }
 
 label {
@@ -215,4 +257,8 @@ iframe {
 
 figure {
   line-height: 0;
+}
+
+.main-space {
+  padding: 50px 0;
 }
