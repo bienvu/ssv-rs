@@ -1,7 +1,23 @@
 button,
 input[type='submit'],
+input[type='reset'],
 .woocommerce button.button {
   @extend .btn;
+}
+
+input[type="reset"] {
+  @extend .text--tiny;
+  padding: 0;
+  background: none;
+  color: $blue;
+  cursor: pointer;
+  width: auto;
+
+  &:hover,
+  &:active {
+    background: inherit;
+    color: inherit;
+  }
 }
 
 .form,
@@ -83,13 +99,13 @@ input[type='submit'],
   &--small {
     font-size: 12px;
     line-height: 1;
-    padding: 6px 5px 6px 32px;
+    padding: 6px 5px 9px 32px;
   }
 
   &--smallest {
     font-size: 12px;
     line-height: normal;
-    padding: 16px 14px;
+    padding: 13px 14px 19px;
 
     @media only screen and (min-width: 768px) {
       padding: 7px 12px 8px 15px;
@@ -249,6 +265,16 @@ input[type="radio"] {
       transition: opacity .3s ease;
       left: 0;
     }
+
+    &.reverse:before {
+      left: inherit;
+      right: 0;
+    }
+
+    &.reverse:after {
+      left: inherit;
+      right: 0;
+    }
   }
 
   &:checked {
@@ -324,6 +350,8 @@ input[type="checkbox"] {
     padding: 0;
     background: transparent;
     left: 11px;
+    font-size: 0;
+    color: transparent;
 
     @media only screen and (max-width: 1023px) {
       left: 19px;
@@ -355,7 +383,9 @@ input[type="checkbox"] {
   }
 
   &:hover {
-    background: $gray;
+    @media only screen and (max-width: 767px) {
+      background: $gray;
+    }
   }
 
   &--mobile {
@@ -382,6 +412,76 @@ input[type="checkbox"] {
 
       .form-search__input {
         width: 100%;
+      }
+    }
+  }
+}
+
+.form-list {
+  margin: 0 0 15px;
+
+  &.form-2col {
+    display: flex;
+
+    .form-item {
+      width: 50%;
+      margin-right: 15px;
+
+      &:last-child {
+        margin: 0;
+      }
+
+      .btn {
+        @extend .btn--depend;
+        @extend .btn--lost-icon;
+      }
+    }
+  }
+
+  &.form-caption {
+    margin: 0 0 5px;
+
+    .form-item {
+      background: none;
+    }
+  }
+
+  &.form-top {
+    margin: 0 0 5px;
+    padding: 10px 0;
+    @extend .text--tiny;
+    border-bottom: 1px solid rgba($blue, .5);
+
+    .form-item {
+      background: none;
+    }
+  }
+
+  .form-item {
+    @extend .bg--white;
+    margin: 0 0 1px;
+
+    input[type='reset'] {
+      float: right;
+      width: auto;
+      @extend .bg--none;
+    }
+
+    input[type="checkbox"] ~ label {
+      padding: 10px 15px;
+
+      &:before {
+        border-radius: 0;
+        border-width: 2px;
+        margin: 0;
+        transform: translateY(-50%);
+        right: 15px;
+      }
+
+      &:after {
+        right: 11px;
+        font-weight: bold;
+        top: 17px;
       }
     }
   }

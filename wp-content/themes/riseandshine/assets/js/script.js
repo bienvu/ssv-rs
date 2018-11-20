@@ -44,7 +44,7 @@
 
       $('.header').toggleClass('active');
     });;
-
+    // show menu
     $('.js-show-menu').click(function(event) {
       var that = $(this).parent().parent();
       var sums = $('.js-show-menu').parent().parent();
@@ -56,7 +56,7 @@
         that.addClass('active');
       }
     });
-
+    // detect click outside element
     $(window).click(function(e) {
       if($('.js-detect').has(e.target).length == 0 && !$('.js-detect').is(e.target)) {
         $('.js-detect').removeClass('active');
@@ -64,13 +64,58 @@
          $('.js-detect').addClass('active');
       }
     });
-
+    // slick
     $('.js-slide').slick({
       fade: true,
-      prevArrow: '<span class="slick-prev"></span>',
-      nextArrow: '<span class="slick-next"></span>',
+      prevArrow: '<span class="slick-prev">prev</span>',
+      nextArrow: '<span class="slick-next">next</span>',
       dots: true,
       adaptiveHeight: true
+    });
+
+    // js show
+    $('.js-show').click(function(){
+      $(this).next('.show').toggleClass('active');
+    });
+
+    $('.js-back').click(function(){
+      $(this).parents('.show')[0].classList.remove('active');
+    });
+    // js show
+    $('.js-show').click(function(e) {
+      $(this).parents('.is-hidden').children('.is-hidden').addClass('active');
+    });
+
+    $('.js-type').click(function(e) {
+      $('.come-back').removeClass('active');
+      $('.is-type').addClass('active');
+    });
+
+    $('.js-size').click(function(e) {
+      $('.come-back').removeClass('active');
+      $('.is-size').addClass('active');
+    });
+
+    $('.js-comfort').click(function(e) {
+      $('.come-back').removeClass('active');
+      $('.is-comfort').addClass('active');
+    });
+
+    $('.js-colour').click(function(e) {
+      $('.come-back').removeClass('active');
+      $('.is-colour').addClass('active');
+    });
+
+    $('.js-back').click(function(e) {
+      $('.come-back').removeClass('active');
+    });
+
+    $('.js-back-home').click(function(e) {
+      $(this).parents('.is-hidden').removeClass('active');
+    });
+
+    $('.js-sort').click(function(e) {
+      $(this).next().addClass('active');
     });
   });
 
