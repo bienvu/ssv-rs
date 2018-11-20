@@ -116,6 +116,10 @@ function wp_add_scripts() {
 			wp_register_script('slick', get_template_directory_uri() . '/assets/js/lib/slick.min.js', array(), '1.0.0');
 			wp_enqueue_script('slick');
 
+			// Media-match js.
+			wp_register_script('matchHeight', get_template_directory_uri() . '/assets/js/lib/jquery.matchHeight.js', array(), '1.0.0');
+			wp_enqueue_script('matchHeight');
+
       // Script.
       wp_register_script('script', get_template_directory_uri() . '/assets/js/script.js', array(), '1.0.0'); // Custom scripts
 			wp_enqueue_script('script');

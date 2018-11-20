@@ -116,7 +116,9 @@
     });
 
     // matchHeight
-    $('.grid-products__title').matchHeight();
+    if(('.grid-products__title').length) {
+      $('.grid-products__title').matchHeight();
+    }
 
     // js show
     $('.js-show').click(function(){
@@ -127,7 +129,6 @@
       $(this).parents('.show')[0].classList.remove('active');
     });
 
->>>>>>> master
   });
 
 }(this, this.document, this.jQuery));

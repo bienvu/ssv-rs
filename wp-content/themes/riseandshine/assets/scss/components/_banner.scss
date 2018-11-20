@@ -151,10 +151,8 @@
       }
 
       .best-advice {
-        a {
-          @extend .text--large;
-          padding: 10px 5px 10px 30px;
-        }
+        @extend .text--large;
+        padding: 10px 5px 10px 30px;
       }
     }
 
