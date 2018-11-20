@@ -1,6 +1,19 @@
 .box-icon {
   padding: 50px 0;
 
+  @media only screen and (min-width: 768px) {
+    padding: 90px 0 63px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 25px;
+
+    @media only screen and (min-width: 768px) {
+      text-align: center;
+    }
+  }
+
   &__content {
     display: flex;
     flex-wrap: wrap;
@@ -20,6 +33,16 @@
     text-align: center;
     padding: 0 16px;
 
+    &:nth-of-type(3) {
+      .box-icon__title {
+        margin-left: -4px;
+
+        @media only screen and (min-width: 768px) {
+          margin-left: 0;
+        }
+      }
+    }
+
     &:nth-of-type(4) {
       padding: 0;
 
@@ -31,8 +54,21 @@
     &:nth-of-type(5) {
       padding: 0;
 
+      .box-icon__title {
+        margin-left: 4px;
+
+        @media only screen and (min-width: 768px) {
+          margin-left: 0;
+        }
+      }
+
       @media only screen and (min-width: 768px) {
         padding: 0 16px;
+        margin-top: 10px;
+
+        .box-icon__image {
+          margin-bottom: 8px;
+        }
       }
     }
 
@@ -46,10 +82,10 @@
   }
 
   &__image {
-    margin-bottom: 3px;
+    margin-bottom: 4px;
 
     @media only screen and (min-width: 768px) {
-      margin-bottom: 8px;
+      margin-bottom: 18px;
     }
 
     img {

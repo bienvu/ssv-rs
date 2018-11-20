@@ -182,13 +182,145 @@ if( have_rows('components') ):
         <div class="box-form">
           <?php echo do_shortcode('[contact-form-7 id="' . $boxForm->ID . '" title="' . $boxForm->post_title . '"]')?>
         </div>
+
+      <!-- Box Image -->
+      <?php elseif( get_row_layout() == 'box_image' ):
+        $count = count(get_sub_field("box_image_item")); ?>
+        <div class="box-image <?php if($count > 1):?>box-image--width-2cols<?php endif; ?>">
+          <div class="container">
+            <div class="box-image__wrap">
+              <?php if( have_rows('box_image_item') ):
+                // loop through the rows of data
+                while ( have_rows('box_image_item') ) : the_row();
+                  $image = get_sub_field("image");
+                  $title = get_sub_field("title");
+                  $subtitle = get_sub_field("subtitle");
+                  $link = get_sub_field("link");
+                ?>
+                  <div class="box-image__item">
+                    <div class="box-image__content">
+                      <h2 class="box-image__title"><?php print $title; ?></h2>
+                      <?php if($subtitle): ?>
+                        <div class="box-image__description"><?php print $subtitle; ?></div>
+                      <?php endif; ?>
+                      <div class="box-image__link">
+                        <a href="<?php print $link['url']; ?>" class="btn btn--red"><span>discover</span></a>
+                      </div>
+                    </div>
+                    <div class="box-image__image"><?php echo wp_get_attachment_image( $image['ID'], 'full' ); ?></div>
+                  </div>
+                <?php endwhile;
+              endif;
+              ?>
+            </div>
+          </div>
+        </div>
+
+      <!-- Box Video -->
+      <?php elseif( get_row_layout() == 'box_video' ):
+        $title = get_sub_field("title");
+        $videoUrl = get_sub_field("video_url");
+        $videoPoster = get_sub_field("video_poster");
+        $link = get_sub_field("link"); ?>
+        <div class="box-video">
+          <div class="container">
+            <div class="box-video__wrap">
+              <div class="box-video__content">
+                <h3 class="box-video__title"><?php print $title; ?></h3>
+
+                <div class="box-video__video">
+                  <video width="795" height="445" poster="<?php print $videoPoster; ?>" controls loop and muted and preload="auto">
+                    <source src="../../../../videos/Trawla_Website_Video.MOV" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+
+              <div class="box-video__link">
+                <a class="btn btn--blue btn--large" href="<?php print $link['url']; ?>"><span>buy now</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- Box Trial -->
+      <?php elseif( get_row_layout() == 'box_trial' ):
+        $imageBottom = get_sub_field("image_bottom"); ?>
+        <div class="box-trial">
+          <div class="container">
+            <div class="box-trial__list">
+              <?php if( have_rows('box_trial_item') ):
+                // loop through the rows of data
+                while ( have_rows('box_trial_item') ) : the_row();
+                  $image = get_sub_field("image");
+                  $title = get_sub_field("title");
+                  $body = get_sub_field("body"); ?>
+                  <div class="box-trial__item">
+                    <div class="box-trial__image"><?php echo wp_get_attachment_image( $image['ID'], 'full' ); ?></div>
+                    <h4 class="box-trial__title"><?php print $title; ?></h4>
+                    <div class="box-trial__content"><?php print $body; ?></div>
+                  </div>
+                <?php endwhile;
+              endif;
+              ?>
+            </div>
+            <?php if($imageBottom): ?>
+              <div class="box-trial__bottom"><?php echo wp_get_attachment_image( $imageBottom['ID'], 'full' ); ?></div>
+            <?php endif; ?>
+          </div>
+        </div>
+
+      <!-- Box Image Text -->
+      <?php elseif( get_row_layout() == 'box_image_text' ):
+        $body = get_sub_field("body");
+        $image = get_sub_field("image");
+        $type = get_sub_field("type"); ?>
+        <div class="box-image-text <?php print $type; ?>">
+          <div class="container">
+            <div class="box-image-text__wrap">
+              <div class="box-image-text__body"><?php print $body; ?></div>
+              <div class="box-image-text__image"><?php echo wp_get_attachment_image( $image['ID'], 'full' ); ?></div>
+            </div>
+          </div>
+        </div>
+
+      <!-- Box Category -->
+      <?php elseif( get_row_layout() == 'product_category' ):
+        $categoryData = get_sub_field('category');
+          if( $categoryData ): ?>
+            <div class="grid-image">
+              <div class="container">
+                <div class="grid-image__wrap">
+                  <?php foreach( $categoryData as $term ): ?>
+                    <?php
+
+                    $termId = $term->term_id;
+                    $catName = $term->name;
+                    $catUrl = $term->slug;
+                    $catDescription = $term->description;
+                    $catImage = get_field('banner_image', 'product_cat_' . $termId);
+                    $thumb_id = get_woocommerce_term_meta( $term->term_id, 'thumbnail_id', true );
+                    $catImg = wp_get_attachment_image( $thumb_id, 'full', true );?>
+                      <div class="grid-image__item">
+                        <div class="grid-image__content">
+                          <a href="<?php print $catUrl; ?>">
+                            <h3 class="grid-image__title"><?php print $catName; ?></h3>
+                            <div class="grid-image__body"><?php print $catDescription; ?></div>
+                          </a>
+                        </div>
+                        <div class="grid-image__image"><?php echo $catImg; ?></div>
+                      </div>
+                  <?php endforeach; ?>
+                </div>
+              </div>
+            </div>
+          <?php endif; ?>
       <?php endif; ?>
     <?php endwhile;?>
     </div>
 <?php else: ?>
   <article>
     <div class="container">
-      <h2><?php _e( 'Sorry, nothing to display.', 'sentiustheme' ); ?></h2>
+      <h2><?php _e( 'Sorry, nothing to display.', 'ssvtheme' ); ?></h2>
     </div>
   </article>
 <?php endif; ?>
