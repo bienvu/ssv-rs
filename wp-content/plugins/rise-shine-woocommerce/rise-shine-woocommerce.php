@@ -15,6 +15,23 @@ add_filter('woocommerce_csv_product_import_mapping_options', 'rise_shine_woocomm
 add_filter('woocommerce_csv_product_import_mapping_default_columns', 'rise_shine_woocommerce_add_column_to_mapping_screen');
 add_filter('woocommerce_product_import_inserted_product_object', 'rise_shine_woocommerce_product_import_inserted_product_object', 10, 2);
 add_action('woocommerce_product_options_general_product_data', 'rise_shine_woocommerce_product_options_general_product_data');
+add_filter('woocommerce_product_importer_pre_expand_data', 'rise_shine_woocommerce_product_importer_pre_expand_data');
+
+/**
+ * Hooked to woocommerce_product_importer_before_set_parsed_data.
+ * Modify image data before set parsed data.
+ * @param $data
+ */
+function rise_shine_woocommerce_product_importer_pre_expand_data($data) {
+  if (!empty($data['images'])) {
+    foreach ($data['images'] as $key => $image) {
+      if (strpos($image, '://') === false) {
+        $data['images'][$key] = 'http://' . $_SERVER['HTTP_HOST'] . '/wp-content/uploads/product-image-migrate/' . $image;
+      }
+    }
+  }
+  return $data;
+}
 
 /**
  * Hooked woocommerce_product_options_general_product_data
