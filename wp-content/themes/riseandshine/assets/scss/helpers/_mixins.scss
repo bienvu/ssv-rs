@@ -122,4 +122,8 @@
       background-color: lighten($color, 5%);
     }
   }
+
+  &.grid-image__item:hover .grid-image__content {
+    background: rgba($color, .9);
+  }
 }
