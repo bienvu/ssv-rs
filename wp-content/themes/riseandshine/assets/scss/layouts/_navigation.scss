@@ -269,7 +269,7 @@
 }
 
 .menu-basic {
-  padding: 22px 0 18px;
+  padding: 6px 0 16px;
 
   @media only screen and (min-width: 768px) {
     padding: 0;
@@ -287,19 +287,19 @@
       a {
         @extend %link--small;
         display: block;
-        padding: 5px 0 6px;
+        padding: 5px 0 7px;
 
         @media only screen and (min-width: 768px) {
-          padding: 6px;
+          padding: 7px 0 4px;
         }
       }
 
       &:nth-of-type(2n) {
         a {
-          padding: 5px 0 6px 10px;
+          padding: 5px 0 7px 11px;
 
           @media only screen and (min-width: 768px) {
-            padding: 6px;
+            padding: 7px 0 4px 4px;
           }
         }
       }

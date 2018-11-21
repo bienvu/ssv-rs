@@ -1,13 +1,17 @@
 .footer {
   @extend .text--tiny;
 
+  @media only screen and (min-width: 768px) {
+    border-top: 1px solid $gray;
+  }
+
   &__icons {
     margin-bottom: 26px;
 
     @media only screen and (min-width: 768px) {
       margin-bottom: 0;
-      width: 24%;
-      padding: 7px 0 0 1px;
+      width: 26%;
+      padding: 7px 0 0 7px;
     }
 
     .list-icons {
@@ -18,7 +22,7 @@
   &__form {
     @media only screen and (min-width: 768px) {
       width: 23%;
-      padding: 7px 0 0 8px;
+      padding: 7px 0 0 3px;
 
       .footer__title {
         margin-bottom: 16px;
@@ -58,13 +62,20 @@
     text-align: center;
 
     @media only screen and (min-width: 768px) {
-      margin: 3px 0 0;
+      margin: 5px 1px 0 0;
+    }
+
+    + .footer__copyright {
+      @media only screen and (min-width: 1024px) {
+        display: none;
+      }
     }
 
     a {
       line-height: 0;
       vertical-align: middle;
-      margin-right: 11px;
+      margin-right: 14px;
+      display: inline-block;
 
       &:last-of-type {
         margin-right: 0;
@@ -72,7 +83,12 @@
     }
 
     span {
-      margin-right: 8px;
+      margin-right: 10.5px;
+
+      @media only screen and (min-width: 768px) {
+        margin-right: 10px;
+      }
+
     }
   }
 
@@ -80,7 +96,7 @@
     margin-bottom: 30px;
 
     @media only screen and (min-width: 768px) {
-      padding: 41px 0 51px;
+      padding: 40px 39px;
       margin: 0;
     }
   }
@@ -125,9 +141,16 @@
       justify-content: space-between;
     }
 
+    .footer__copyright:first-of-type {
+      @media only screen and (max-width: 1023px) {
+        display: none;
+      }
+    }
+
     .menu-basic {
       @media only screen and (min-width: 768px) {
-        width: calc(51% + 3px);
+        width: 51%;
+        padding: 0 3px 0 0;
       }
     }
   }
