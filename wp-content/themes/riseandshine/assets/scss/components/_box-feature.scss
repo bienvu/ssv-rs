@@ -1,15 +1,23 @@
 .box-feature {
-  padding: 40px 0;
+  padding: 65px 0 102px;
   text-align: center;
   color: #fff;
   background: #6eb0b5;
 
   &__title {
     margin-bottom: 10px;
+    line-height: normal;
   }
 
   &__sub-title {
-    margin-bottom: 30px;
+    margin-bottom: 32px;
+    font-size: 16px;
+    line-height: normal;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 21px;
+      margin-bottom: 39px;
+    }
   }
   
   &__content {
@@ -20,21 +28,43 @@
       justify-content: space-between;
     }
 
+    .box-feature__title {
+      margin-bottom: 12px;
+
+      @media only screen and (min-width: 768px) {
+        font-size: 21px;
+        margin-bottom: 16px;
+      }
+    }
+
     p {
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+      line-height: normal;
+
+      @media only screen and (min-width: 768px) {
+        margin-bottom: 14px;
+        line-height: 1.5;
+      }
     }
 
     &__left {
       width: 100%;
-      margin-bottom: 30px;
+      margin-bottom: 31px;
+      margin-left: 6px;
 
       @media only screen and (min-width: 768px) {
         width: 50%;
+        margin-left: 2px
       }
     }
 
     &__right {
       width: 100%;
+      margin-bottom: 36px;
+
+      .box-feature__title {
+        margin-bottom: 16px;
+      }
 
       @media only screen and (min-width: 768px) {
         width: 50%;
@@ -47,6 +77,14 @@
 
     @media only screen and (min-width: 768px) {
       display: none;
+    }
+  }
+
+  .break--bottom {
+    display: none;
+
+    @media only screen and (min-width: 768px) {
+      display: block;
     }
   }
 

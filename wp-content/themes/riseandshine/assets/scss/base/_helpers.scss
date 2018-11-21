@@ -22,6 +22,10 @@
     color: $white;
   }
 
+  &--purple {
+    color: $purple;
+  }
+
   &--light-gray {
     color: $light-gray;
   }
@@ -88,7 +92,7 @@
 
   &--small {
     font-size: 14px;
-    line-height: normal;
+    line-height: 1.5;
   }
 
   &--tiny {
@@ -109,11 +113,16 @@
       font-size: 21px;
     }
   }
+
+  &--red-bold {
+    color: $red-bold;
+  }
 }
 
 // Backgrounds
 .bg {
   // Dark backgrounds
+
   &--primary {
     background-color: $primary-color;
   }
@@ -151,16 +160,35 @@
     background: $orange;
     color: $white;
   }
+
+  &--crown {
+    background: $crown;
+    color: $white;
+  }
+
+  &--purple {
+    background: $purple;
+    color: $white;
+  }
+
+  &--dark-red {
+    background: $dark-red;
+    color: $white;
+  }
+
+  &--none {
+    background: none;
+  }
 }
 
 .hidden-on-desktop {
-  @media only screen and (min-width: 1024px) {
+  @media only screen and (max-width: 1024px) {
     display: none;
   }
 }
 
 .hidden-on-tablet {
-  @media only screen and (min-width: 768px) {
+  @media only screen and (max-width: 1023px) {
     display: none;
   }
 }
@@ -250,10 +278,59 @@
       align-items: center;
       justify-content: center;
       padding: 0 8px;
+      font-size: 0;
 
-      &:hover {
-        background: $gray;
-      }
+      // &:hover {
+      //   background: $gray;
+      // }
     }
+  }
+}
+
+// Color style.
+.orange {
+  @include color($orange);
+}
+
+.violet {
+  @include color($violet);
+}
+
+.red {
+  @include color($dark-red);
+}
+
+.brown {
+  @include color($crown);
+}
+
+.green {
+  @include color($green);
+}
+
+.dark-blue {
+  @include color($dark-blue);
+}
+
+.blue {
+  @include color($light-blue);
+}
+
+.light-blue {
+  @include color($light-indigo);
+}
+
+.page-search {
+  article {
+    margin-bottom: 20px;
+  }
+}
+
+.search-wrap {
+  margin-bottom: 30px;
+  
+  input[type="search"] {
+    width: 250px;
+    padding: 10px 32px;
   }
 }

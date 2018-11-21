@@ -1,0 +1,19 @@
+.box-text {
+  padding: 50px 0 38px;
+
+  @media only screen and (min-width: 768px) {
+    padding: 70px 0 58px;
+  }
+
+  &__item {
+    margin-bottom: 20px;
+
+    @media only screen and (min-width: 768px) {
+      margin-bottom: 31px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 15px;
+  }
+}

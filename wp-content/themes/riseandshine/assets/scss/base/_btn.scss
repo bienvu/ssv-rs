@@ -26,33 +26,60 @@
 
   span {
     position: relative;
-  }
+    @extend .icon-arrow;
 
-  i {
-    position: absolute;
-    right: -23px;
-    top: calc( 50% + 1px );
-    transform: translateY(-50%);
+    &:before {
+      @extend %icons;
+      position: absolute;
+      right: -21px;
+      top: 5px;
+    }
   }
 
   &--only-icon {
     padding: 0;
     width: 61px;
     height: 61px;
+    font-size: 0;
+
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      &:before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 17px;
+        transform: translate(-50%, -50%);
+
+        @media only screen and (min-width: 768px) {
+          font-size: 13px;
+        }
+      }
+    }
 
     @media only screen and (min-width: 768px) {
       width: 39px;
       height: 39px;
     }
+  }
 
-    i {
-      position: static;
+  &--lost-icon {
+    span {
+      &:before {
+        display: none;
+      }
     }
   }
-  
+
   &:active,
   &:hover {
     background: lighten($btn-bg, 5%);
+    color: $white;
   }
 
   &--blue {
@@ -70,6 +97,15 @@
     &:active,
     &:hover {
       background: lighten($orange, 5%);
+    }
+  }
+
+  &--violet {
+    background: $violet;
+
+    &:active,
+    &:hover {
+      background: lighten($purple, 5%);
     }
   }
 
@@ -91,6 +127,40 @@
     }
   }
 
+  &--dark-blue {
+    background: $dark-blue;
+
+    &:active,
+    &:hover {
+      background: lighten($dark-blue, 5%);
+    }
+  }
+
+  &--no-bg {
+    background: none;
+    color: $blue;
+
+    &:active,
+    &:hover {
+      background: none;
+    }
+  }
+
+  &--white {
+    background: $white;
+    color: $blue;
+  }
+
+  &--cyan {
+    background: $cyan;
+    color: $white;
+
+    &:active,
+    &:hover {
+      background: lighten($cyan, 5%);
+    }
+  }
+
   // modifier size
   &--full {
     width: 100%;
@@ -98,5 +168,31 @@
 
   &--large {
     min-width: 209px;
+  }
+
+  &--small {
+    padding: 11px 33px 14px 16px;
+  }
+
+  &--depend {
+    width: 100%;
+    text-align: left;
+
+    span {
+      width: 100%;
+      display: inline-block;
+    }
+  }
+
+  &--depend-mobile {
+    @media only screen and (max-width: 767px) {
+      width: 100%;
+      text-align: left;
+
+      span {
+        width: 100%;
+        display: inline-block;
+      }
+    }
   }
 }

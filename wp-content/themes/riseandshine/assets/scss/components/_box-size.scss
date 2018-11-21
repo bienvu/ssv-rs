@@ -1,6 +1,4 @@
 .box-size {
-  padding: 70px 0;
-
   &__wrap {
     @media only screen and (min-width: 768px) {
       display: flex;
@@ -14,6 +12,12 @@
     @media only screen and (min-width: 768px) {
       width: 50%;
     }
+
+    p {
+      @media only screen and (min-width: 768px) {
+        margin-bottom: 12px;
+      }
+    }
   }
 
   &__title {
@@ -25,7 +29,21 @@
 
     @media only screen and (min-width: 768px) {
       width: 50%;
-      padding-left: 32px;
+      padding-left: 17px;
+      margin-top: -4px;
+    }
+
+    table {
+      width: 100%;
+
+      td,th {
+        font-size: 14px;
+
+        @media only screen and (min-width: 768px) {
+          min-width: 120px;
+          font-size: 16px;
+        }
+      }
     }
   }
 }

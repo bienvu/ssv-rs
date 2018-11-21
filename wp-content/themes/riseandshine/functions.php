@@ -1,20 +1,31 @@
 <?php
 /*
  *  Author: Sentius Group
- *  URL: sentiustdigital.com | @sentiustheme
+ *  URL: sentiustdigital.com | @ssvtheme
  *  Custom functions, support, custom post types and more.
  */
 
- // Add theme options.
- if( function_exists('acf_add_options_page') ) {
- 	acf_add_options_page(array(
- 		'page_title' 	=> 'Theme General Settings',
- 		'menu_title'	=> 'Theme Options',
- 		'menu_slug' 	=> 'theme-general-settings',
- 		'capability'	=> 'edit_posts',
- 		'redirect'		=> false
- 	));
- }
+require get_template_directory() . '/inc/init.php';
+
+// Woocommerce support theme.
+add_theme_support( 'woocommerce' );
+
+// Add theme options.
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page(array(
+		'page_title' 	=> 'Theme General Settings',
+		'menu_title'	=> 'Theme Settings',
+		'menu_slug' 	=> 'theme-general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Product Single Setting',
+		'menu_title'	=> 'Product Single',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+}
 
 /*------------------------------------*\
 	Theme Support
@@ -35,35 +46,42 @@ if (function_exists('add_theme_support')) {
 	Functions
 \*------------------------------------*/
 
+// Allow SVG through WordPress Media Uploader
+function cc_mime_types($mimes) {
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter('upload_mimes', 'cc_mime_types');
+
 // Register sentius Blank Navigation
-function register_french_table_menu()
+function register_rs_menu()
 {
     register_nav_menus(array( // Using array to specify more menus if needed
-        'header-menu' => __('Header Menu', 'sentiustheme'), // Main Navigation
-        'sidebar-menu' => __('Sidebar Menu', 'sentiustheme'), // Sidebar Navigation
-        'extra-menu' => __('Extra Menu', 'sentiustheme') // Extra Navigation if needed (duplicate as many as you need!)
+        'header-menu' => __('Header Menu', 'ssvtheme'), // Main Navigation
+        'sidebar-menu' => __('Sidebar Menu', 'ssvtheme'), // Sidebar Navigation
+        'extra-menu' => __('Extra Menu', 'ssvtheme') // Extra Navigation if needed (duplicate as many as you need!)
   ));
 }
-add_action('init', 'register_french_table_menu');
+add_action('init', 'register_rs_menu');
 
 // Navigation
-function french_table_nav($menuclass, $name) {
+function rs_nav($menuclass, $name) {
 	wp_nav_menu(
 	array(
 		'theme_location'  => 'header-menu',
 		'menu'            => $name,
 		'container'       => '',
-		'container_class' => '',
+		'container_class' => '$menuclass',
 		'container_id'    => '',
-		'menu_class'      => '',
+		'menu_class'      => $menuclass,
 		'menu_id'         => '',
 		'echo'            => true,
 		'fallback_cb'     => 'wp_page_menu',
 		'before'          => '',
 		'after'           => '',
-		'link_before'     => '<span>',
-		'link_after'      => '</span>',
-		'items_wrap'      => '<ul class="'.$menuclass.'">%3$s</ul>',
+		'link_before'     => '',
+		'link_after'      => '',
+		'items_wrap'      => '<ul>%3$s</ul>',
 		'depth'           => 0,
 		'walker'          => ''
 		)
@@ -94,8 +112,17 @@ function wp_add_styles() {
 function wp_add_scripts() {
     global $wp_query;
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
-        // Script.
-        wp_register_script('script', get_template_directory_uri() . '/assets/js/script.js', array('jquery', 'masonry', 'slick'), 'asdsad'); // Custom scripts
+			// Slick js.
+			wp_register_script('slick', get_template_directory_uri() . '/assets/js/lib/slick.min.js', array(), '1.0.0');
+			wp_enqueue_script('slick');
+
+			// Media-match js.
+			wp_register_script('matchHeight', get_template_directory_uri() . '/assets/js/lib/jquery.matchHeight.js', array(), '1.0.0');
+			wp_enqueue_script('matchHeight');
+
+      // Script.
+      wp_register_script('script', get_template_directory_uri() . '/assets/js/script.js', array(), '1.0.0'); // Custom scripts
+			wp_enqueue_script('script');
     }
 }
 
@@ -167,6 +194,65 @@ function sentiusvn_excerpt($length_callback = '', $more_callback = '')
     echo $output;
 }
 
+/**
+ * Hooked pre_get_posts to alter query category product page.
+ * @param $query.
+ */
+function riseandshine_pre_get_posts($query) {
+    if ($query->is_main_query() && is_product_category()) {
+        // Filter by price
+        $price_from = isset($_GET['_price_from']) ? $_GET['_price_from'] : '';
+        $price_to = isset($_GET['_price_to']) ? $_GET['_price_to'] : '';
+        if (empty($price_from) || !is_numeric($price_from)) {
+            $price_from = 0;
+        }
+        if (empty($price_to) || !is_numeric($price_to)) {
+            $price_to = 999999999;
+        }
+        $price_meta_query = array(
+            'key' => '_price',
+            'value' => array($price_from, $price_to),
+            'compare' => 'BETWEEN',
+            'type' => 'NUMERIC',
+        );
+        $query->set('meta_query', array($price_meta_query));
+        $tax_query = array();
+        // Filter by size
+        $sizes = isset($_GET['sizes']) ? $_GET['sizes'] : array();
+        if (!empty($sizes)) {
+            $size_tax_query = array(
+                'taxonomy' => 'pa_size',
+                'field' => 'slug',
+                'terms' => $sizes,
+            );
+            $tax_query[] = $size_tax_query;
+        }
+        //Filter by type 'subcaregory' taxonomy.
+        $sub_product_cats = isset($_GET['types']) ? $_GET['types'] : array();
+        if (!empty($sub_product_cats)) {
+            $sub_product_cats_tax_query = array(
+                'taxonomy' => 'product_cat',
+                'field' => 'slug',
+                'terms' => $sub_product_cats,
+            );
+            $tax_query[] = $sub_product_cats_tax_query;
+        }
+        //Filter by type 'Comfort' taxonomy.
+        $comforts = isset($_GET['comforts']) ? $_GET['comforts'] : array();
+        if (!empty($comforts)) {
+            $comforts_tax_query = array(
+                'taxonomy' => 'pa_comfort',
+                'field' => 'slug',
+                'terms' => $comforts,
+            );
+            $tax_query[] = $comforts_tax_query;
+        }
+        if (!empty($tax_query)) {
+            $query->set('tax_query', $tax_query);
+        }
+    }
+}
+
 // Remove 'text/css' from our enqueued stylesheet
 function ssv_style_remove($tag)
 {
@@ -190,7 +276,7 @@ function ssv_remove_thumbnail_dimensions( $html )
 add_action('wp_enqueue_scripts', 'wp_add_styles'); // Add Theme Stylesheet
 add_action('init', 'ssv_pagination'); // Add our sentius Pagination
 add_action('wp_footer', 'wp_add_scripts'); // Add Custom Scripts to wp_head
-
+add_action('pre_get_posts', 'riseandshine_pre_get_posts');
 // Remove Actions
 remove_action('wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds
 remove_action('wp_head', 'feed_links', 2); // Display the links to the general feeds: Post and Comment Feed
