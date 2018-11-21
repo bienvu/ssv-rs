@@ -141,7 +141,7 @@
                                     "key": "field_5bef9a5f6404c",
                                     "label": "Type",
                                     "name": "type",
-                                    "type": "taxonomy",
+                                    "type": "select",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
@@ -150,14 +150,25 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "taxonomy": "product_cat",
-                                    "field_type": "checkbox",
-                                    "add_term": 1,
-                                    "save_terms": 0,
-                                    "load_terms": 0,
-                                    "return_format": "id",
+                                    "choices": {
+                                        "light-blue": "Light Blue",
+                                        "blue": "Blue",
+                                        "dark-blue": "Dark blue",
+                                        "red": "Red",
+                                        "violet": "Violet",
+                                        "orange": "Orange",
+                                        "green": "Green",
+                                        "brown": "Brown"
+                                    },
+                                    "default_value": [
+                                        "green"
+                                    ],
+                                    "allow_null": 0,
                                     "multiple": 0,
-                                    "allow_null": 0
+                                    "ui": 0,
+                                    "return_format": "value",
+                                    "ajax": 0,
+                                    "placeholder": ""
                                 }
                             ]
                         },
@@ -1274,6 +1285,38 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_5bf28aca0a74f": {
+                    "key": "layout_5bf28aca0a74f",
+                    "name": "product_category",
+                    "label": "Product category",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5bf28ad60a750",
+                            "label": "Category",
+                            "name": "category",
+                            "type": "taxonomy",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "taxonomy": "product_cat",
+                            "field_type": "multi_select",
+                            "allow_null": 0,
+                            "add_term": 1,
+                            "save_terms": 0,
+                            "load_terms": 0,
+                            "return_format": "object",
+                            "multiple": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add component",
@@ -1302,8 +1345,10 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content"
+    ],
     "active": 1,
     "description": "",
-    "modified": 1542617936
+    "modified": 1542685557
 }
