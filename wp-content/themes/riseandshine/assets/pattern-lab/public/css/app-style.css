@@ -1,0 +1,29 @@
+.icomoon {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.icomoon ul li {
+  list-style: none;
+  width: 33.33%;
+  float: left;
+  margin-bottom: 15px;
+}
+
+.icomoon__icon {
+  padding-right: 5px;
+  min-width: 30px;
+  display: inline-block;
+}
+
+.sg-colors li {
+  flex: 18%;
+}
+
+h3.sg-pattern-title {
+  font-size: 24px !important;
+}
+
+.patternLink {
+  text-transform: capitalize;
+}
