@@ -267,13 +267,17 @@ input[type="radio"] {
     }
 
     &.reverse:before {
-      left: inherit;
-      right: 0;
+      @media only screen and (max-width: 767px) {
+        left: inherit;
+        right: 0;
+      }
     }
 
     &.reverse:after {
-      left: inherit;
-      right: 0;
+      @media only screen and (max-width: 767px) {
+        left: inherit;
+        right: 0;
+      }
     }
   }
 
@@ -457,6 +461,10 @@ input[type="checkbox"] {
     @extend .bg--white;
     margin: 0 0 1px;
 
+    &.form-hidden {
+      @extend .hidden-on-desktop;
+    }
+
     input[type='reset'] {
       float: right;
       width: auto;
@@ -464,20 +472,25 @@ input[type="checkbox"] {
     }
 
     input[type="checkbox"] ~ label {
-      padding: 10px 15px;
+      @media only screen and (max-width: 767px) {
+        padding: 10px 15px;
+      }
 
       &:before {
-        border-radius: 0;
-        border-width: 2px;
-        margin: 0;
-        transform: translateY(-50%);
-        right: 15px;
+        @media only screen and (max-width: 767px) {
+          border-radius: 0;
+          border-width: 2px;
+          margin: 0;
+          transform: translateY(-50%);
+          right: 15px;
+        }
       }
 
       &:after {
-        right: 11px;
-        font-weight: bold;
-        top: 17px;
+        @media only screen and (max-width: 767px) {
+          right: 11px;
+          bottom: 1px;
+        }
       }
     }
   }
