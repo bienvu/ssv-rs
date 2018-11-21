@@ -75,7 +75,10 @@
 
     // js show
     $('.js-show').click(function(){
-      $(this).toggleClass('active');
+      if($(window)[0].outerWidth > 1024) {
+        $(this).toggleClass('active');
+      }
+      
       $(this).next('.show').toggleClass('active');
     });
 
