@@ -9,6 +9,18 @@
     tablet = "(min-width:48em)"; // 768px.
   // Add  functionality here.
 
+  // Handle submit function on contact form.
+  document.addEventListener( 'wpcf7mailsent', function( event ) {
+    if ( '5' == event.detail.contactFormId ) {
+        window.location.href = window.location.protocol + '//' + window.location.hostname + '/thank-you-subscribe/';
+    }else if('204' == event.detail.contactFormId){
+        window.location.href = window.location.protocol + '//' + window.location.hostname + '/thank-you-contact/';
+    }else if('210' == event.detail.contactFormId) {
+        window.location.href = window.location.protocol + '//' + window.location.hostname + '/thank-you-request/';
+    }
+
+  }, false );
+
   $(document).ready(function() {
     // Table responsive
     var $table = $('table');
@@ -19,10 +31,25 @@
     // Remove attr title.
     $('a').removeAttr('title');
 
-    // console.log($('.box-icon__title').matchHeight());
-
     // Add placeholder to quiz.
     $('.wpcf7-quiz').attr('placeholder', 'text here');
+
+    // Faq Accordion.
+    // Color accordion
+    $('.box-faq__question').each(function() {
+      $(this).on('click', function (e) {
+        if ($(this).hasClass('is-show')) {
+          $('.box-faq__question').removeClass('is-show');
+          $('.box-faq__answer').slideUp();
+          $(this).next().slideUp();
+        } else {
+          $('.box-faq__question').removeClass('is-show');
+          $(this).addClass('is-show');
+          $('.box-faq__answer').slideUp();
+          $(this).next().slideDown();
+        }
+    });
+  });
 
     //toggle class
     $('.menu-bars').click(function(event) {
@@ -85,6 +112,58 @@
     $('.js-back').click(function(){
       $(this).parents('.show')[0].classList.remove('active');
     });
+
+    $('.is-show').click(function(){
+      $('.is-show').next('.show').removeClass('active');
+      $(this).next('.show').addClass('active');
+    });
+
+    $('.js-product').slick({
+      prevArrow: '<span class="slick-prev"></span>',
+      nextArrow: '<span class="slick-next"></span>',
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      mobileFirst: true,
+      rows: 2,
+      slidesPerRow: 2,
+      arrows: false,
+      responsive: [
+        {
+          breakpoint: 767,
+          settings: {
+            slidesToScroll: 4,
+            slidesToShow: 4,
+            rows: 1,
+            slidesPerRow: 1,
+            arrows: true
+          }
+        }
+      ]
+    });
+
+    // $('.js-product').slick({
+    //   slidesToScroll: 4,
+    //   slidesToShow: 4
+    // });
+
+    // Arrow slider
+    function autoHeight(object) {
+      var $heightSlide = object.find('img').height();
+      object.find('.slick-arrow').css('top', $heightSlide/2);
+    }
+
+    $(window).load(function() {
+      autoHeight($('.grid-products--width-slide'));
+
+      $(window).resize(function() {
+        autoHeight($('.grid-products--width-slide'));
+      });
+    });
+
+    // matchHeight
+    if(('.grid-products__title').length) {
+      $('.grid-products__title').matchHeight();
+    }
   });
 
 }(this, this.document, this.jQuery));

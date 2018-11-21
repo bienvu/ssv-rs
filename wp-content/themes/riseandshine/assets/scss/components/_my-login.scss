@@ -1,6 +1,8 @@
 .my-login {
   text-align: center;
   width: 100%;
+  display: flex;
+  align-items: center;
 
   @media only screen and (min-width: 1024px) {
     width: auto;
@@ -8,24 +10,20 @@
 
   a {
     color: $white;
-    padding:  0 40px 0 25px;
     @extend %link--small;
-    position: relative;
-    border-left: 1px solid $light-gray;
-    margin-bottom: 4px;
+    
+    &.account {
+      border-left: 1px solid $light-gray;
+      padding:  0 10px 0 25px;
 
-    @media only screen and (max-width: 1023px) {
-      font-size: 16px;
-      padding: 5px 0 12px;
-      border: 0;
+      @media only screen and (max-width: 1023px) {
+        font-size: 16px;
+        padding: 5px 0 12px;
+        border: 0;
+      }
     }
 
-    i {
-      position: absolute;
-      top: calc(50% + 2px);
-      transform: translateY(-50%);
-      right: 0;
-
+    .cart {
       @media only screen and (max-width: 1023px) {
         display: none;
       }

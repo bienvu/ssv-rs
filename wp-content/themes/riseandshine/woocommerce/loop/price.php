@@ -1,8 +1,8 @@
 <?php
 /**
- * The Template for displaying products in a product tag. Simply includes the archive template
+ * Loop Price
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/taxonomy-product_tag.php.
+ * This template can be overridden by copying it to yourtheme/woocommerce/loop/price.php.
  *
  * HOWEVER, on occasion WooCommerce will need to update template files and you
  * (the theme developer) will need to copy the new files to your theme to
@@ -11,6 +11,7 @@
  * the readme will list any important changes.
  *
  * @see 	    https://docs.woocommerce.com/document/template-structure/
+ * @author 		WooThemes
  * @package 	WooCommerce/Templates
  * @version     1.6.4
  */
@@ -18,4 +19,13 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
-wc_get_template( 'archive-product.php' );
+
+global $product;
+?>
+<div class="grid-products__content">
+	<?php if ( $price_html = $product->get_price_html() ) : ?>
+		<div class="grid-products__body"><?php echo $price_html; ?></div>
+	<?php endif; ?>
+
+	<span class="btn"><span>view product</span></span>
+</div>

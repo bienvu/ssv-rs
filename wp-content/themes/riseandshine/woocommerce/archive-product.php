@@ -14,7 +14,7 @@
  * @package WooCommerce/Templates
  * @version 3.4.0
  */
-
+global $wp_query;
 defined( 'ABSPATH' ) || exit;
 
 get_header( 'shop' );
@@ -47,18 +47,99 @@ $color = get_field('color', $term);
 					</div>
 				</div>
 
-				<div class="best-advice hidden-on-mobile"><?php  _e( 'best advice. never beaten on price: ', 'ssvtheme' ); ?></div>
+				<div class="best-advice hidden-on-mobile"><?php  _e( 'best advice. never beaten on price', 'ssvtheme' ); ?></div>
 			</div>
 		</div>
 	</div>
 </div>
 <main class="main">
+		<form class="riseandshine-product-category-filter-form" action="" method="get">
+		  <ul class="product-category">
+		    <?php
+		      $product_categories = get_terms('product_cat', array(
+		        'hide_empty' => 0,
+		        'parent' => 0,
+		      ));
+		    ?>
+		    <?php foreach ($product_categories as $key => $product_category): ?>
+		    	<li class="<?php if($term->term_id == $product_category->term_id) print 'active'; ?>">
+		    		<a href="<?php print get_term_link($product_category); ?>">
+		    			<?php print $product_category->name; ?>
+		    		</a>
+		    	</li>
+		    <?php endforeach ?>
+		  </ul>
+		  <div class="product-attributes">
+		  	<div class="sub-categories">
+		  		Type
+		  		<?php
+		  			$sub_categories =  get_terms('product_cat', array(
+			        'hide_empty' => 0,
+			        'parent' => $term->term_id,
+			      ));
+		  		?>
+		  		<?php $default_sub_categories = isset($_GET['types']) ? (array) $_GET['types'] : array(); ?>
+		  		<?php foreach ($sub_categories as $key => $sub_category): ?>
+	  			<div class="form-item form-type-checkbox">
+	  				<input id="edit-type-<?php print $sub_category->slug; ?>" type="checkbox" name="types[]" value="<?php print $sub_category->slug; ?>" <?php checked(in_array($sub_category->slug, $default_sub_categories), 1); ?> />
+	  				<label for="edit-type-<?php print $sub_category->slug; ?>" class="option">
+	  					<?php print $sub_category->name; ?>
+	  				</label>
+	  			</div>
+		  		<?php endforeach; ?>
+		  	</div>
+		  	<div class="product-attribute--size">
+		  		Size
+			  	<?php
+		  			$attribute_sizes =  get_terms('pa_size', array(
+			        'hide_empty' => 0,
+			      ));
+		  		?>
+		  		<?php $default_attribute_sizes = isset($_GET['sizes']) ? (array) $_GET['sizes'] : array(); ?>
+	  			<?php foreach ($attribute_sizes as $key => $attribute_size): ?>
+	  				<div class="form-item form-type-checkbox">
+		  				<input id="edit-size-<?php print $attribute_size->slug; ?>" type="checkbox" name="sizes[]" value="<?php print $attribute_size->slug; ?>" <?php checked(in_array($attr_size->slug, $default_attribute_sizes), 1); ?> />
+		  				<label for="edit-size-<?php print $attribute_size->slug; ?>" class="option">
+		  					<?php print $attribute_size->name; ?>
+		  				</label>
+		  			</div>
+	  			<?php endforeach; ?>
+		  	</div>
+		  	<div class="product-attribute--comfort">
+		  		Comfort
+			  	<?php
+		  			$attribute_comforts =  get_terms('pa_comfort', array(
+			        'hide_empty' => 0,
+			      ));
+		  		?>
+		  		<?php $default_attribute_comforts = isset($_GET['comforts']) ? (array) $_GET['comforts'] : array(); ?>
+	  			<?php foreach ($attribute_comforts as $key => $attribute_comfort): ?>
+	  				<div class="form-item form-type-checkbox">
+		  				<input id="edit-comfort-<?php print $attribute_comfort->slug; ?>" type="checkbox" name="comforts[]" value="<?php print $attribute_comfort->slug; ?>" <?php checked(in_array($attribute_comfort->slug, $default_attribute_comforts), 1); ?> />
+		  				<label for="edit-comfort-<?php print $attribute_comfort->slug; ?>" class="option">
+		  					<?php print $attribute_comfort->name; ?>
+		  				</label>
+		  			</div>
+	  			<?php endforeach; ?>
+		  	</div>
+		  	<div class="product-price--range">
+		  		<div class="form-item form-type-text">
+		  			<input type="text" name="_price_from" placeholder="<?php print __('$ min', 'riseandshine'); ?>" value="<?php if(isset($_GET['_price_from'])) print $_GET['_price_from']; ?>" />
+		  		</div>
+		  		<div class="form-item form-type-text">
+		  			<input type="text" name="_price_to" placeholder="<?php print __('$ max', 'riseandshine'); ?>" value="<?php if(isset($_GET['_price_to'])) print $_GET['_price_to']; ?>" />
+		  		</div>
+		  	</div>
+		  	<div class="form-submit">
+		  		<input type="submit" name="submit-filter" value="Go">
+		  	</div>
+		  </div>
+		</form>
 
-	<?php
-	if(($term->slug != "bed-in-a-bag") || ($term->term_id != 157) ) {
-		print('<div class="container">');
-		if ( woocommerce_product_loop() ) {
-
+		<?php
+		if(($term->slug != "bed-in-a-bag") || ($term->term_id != 157) ) {
+			print('<div class="grid-products"> <div class="container">');
+			if ( woocommerce_product_loop() ) {
 			/**
 			 * Hook: woocommerce_before_shop_loop.
 			 *
@@ -68,8 +149,8 @@ $color = get_field('color', $term);
 			 */
 			do_action( 'woocommerce_before_shop_loop' );
 
-			woocommerce_product_loop_start();
-
+			// woocommerce_product_loop_start();
+			print "<div class='grid-products__list'>";
 			if ( wc_get_loop_prop( 'total' ) ) {
 				while ( have_posts() ) {
 					the_post();
@@ -80,12 +161,11 @@ $color = get_field('color', $term);
 					 * @hooked WC_Structured_Data::generate_product_data() - 10
 					 */
 					do_action( 'woocommerce_shop_loop' );
-
 					wc_get_template_part( 'content', 'product' );
 				}
 			}
-
-			woocommerce_product_loop_end();
+			print "</div>";
+			// woocommerce_product_loop_end();
 
 			/**
 			 * Hook: woocommerce_after_shop_loop.
@@ -108,7 +188,7 @@ $color = get_field('color', $term);
 		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
 		 */
 		do_action( 'woocommerce_after_main_content' );
-		print('</div>');
+		print('</div></div>');
 	}
 	?>
 

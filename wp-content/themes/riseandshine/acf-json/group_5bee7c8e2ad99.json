@@ -1085,8 +1085,65 @@
                                         "id": ""
                                     },
                                     "return_format": "array"
+                                },
+                                {
+                                    "key": "field_5bf42a86f4deb",
+                                    "label": "Color",
+                                    "name": "color",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "light-blue": "Light Blue",
+                                        "blue": "Blue",
+                                        "dark-blue": "Dark blue",
+                                        "red": "Red",
+                                        "violet": "Violet",
+                                        "orange": "Orange",
+                                        "green": "Green",
+                                        "brown": "Brown"
+                                    },
+                                    "default_value": [
+                                        "dark-blue"
+                                    ],
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "ui": 0,
+                                    "return_format": "value",
+                                    "ajax": 0,
+                                    "placeholder": ""
                                 }
                             ]
+                        },
+                        {
+                            "key": "field_5bf42d8cbb785",
+                            "label": "Background Image",
+                            "name": "background_image",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "url",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
                         }
                     ],
                     "min": "",
@@ -1272,7 +1329,8 @@
                                 "id": ""
                             },
                             "choices": {
-                                "image-left": "Image Left"
+                                "box-image-text--image-left": "Image Left",
+                                "box-image-text--70-30": "Content lager Image"
                             },
                             "default_value": [],
                             "allow_null": 0,
@@ -1350,5 +1408,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1542685557
+    "modified": 1542730109
 }
