@@ -103,22 +103,22 @@ if ( ! function_exists( 'ssv_woocommerce_product_size' ) ) {
 	function ssv_woocommerce_product_size() {
 		?>
 		<?php
-			$attribute_sizes =  get_terms('pa_size', array(
-				'hide_empty' => 0,
-			));
-			?>
-			<?php if($attribute_sizes): ?>
-				<h5 class="grid-products__sub-title">
-					<?php foreach ($attribute_sizes as $key => $attribute_size): print $attribute_size->name; endforeach; ?>
-				</h5>
-			<?php endif; ?>
+			global $product;
+			$sizes = $product->get_attribute('pa_size');
+		?>
+		<?php if(!empty($sizes)): ?>
+			<h5 class="grid-products__sub-title">
+				<?php print $sizes; ?>
+			</h5>
+		<?php endif; ?>
 		<?php
 	}
 }
 
-add_filter( 'woocommerce_get_price_html', 'ssv_woocommerce_price_html', 100, 2 );
-function ssv_woocommerce_price_html( $price, $product ){
-    return 'was ' . str_replace( '<ins>', '  <ins>now ', $price );
+add_filter( 'woocommerce_format_sale_price', 'ssv_woocommerce_format_sale_price', 99, 3);
+function ssv_woocommerce_format_sale_price($price, $regular_price, $sale_price){
+	$price = '<del>was ' . ( is_numeric( $regular_price ) ? wc_price( $regular_price ) : $regular_price ) . '</del> <ins> now' . ( is_numeric( $sale_price ) ? wc_price( $sale_price ) : $sale_price ) . '</ins>';
+	return $price;
 }
 
 /**

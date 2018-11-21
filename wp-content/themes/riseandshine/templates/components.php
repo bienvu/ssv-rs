@@ -26,12 +26,18 @@ if( get_row_layout() == 'banner' ):
               <div class="container">
                 <div class="banner__body">
                   <?php if($subtitle): ?>
-                    <h1 class="banner__subtitle"><?php print $subtitle; ?></h1>
+                    <h2 class="banner__subtitle"><?php print $subtitle; ?></h2>
                   <?php endif; ?>
 
                   <div class="banner__content">
-                    <?php if($title): ?>
-                      <h2 class="banner__title"><?php print $title; ?></h2>
+                    <?php if($count > 1): ?>
+                      <?php if($title): ?>
+                        <h2 class="banner__title"><?php print $title; ?></h2>
+                      <?php endif; ?>
+                    <?php else: ?>
+                      <?php if($title): ?>
+                        <h1 class="banner__title"><?php print $title; ?></h1>
+                      <?php endif; ?>
                     <?php endif; ?>
                     <div class="banner__description text--large"><?php print $body; ?></div>
                     <?php if($link): ?>
@@ -303,16 +309,21 @@ if( get_row_layout() == 'banner' ):
               $catUrl = $term->slug;
               $catDescription = $term->description;
               $catImage = get_field('banner_image', 'product_cat_' . $termId);
+              $color = get_field('color', 'product_cat_' . $termId);
               $thumb_id = get_woocommerce_term_meta( $term->term_id, 'thumbnail_id', true );
               $catImg = wp_get_attachment_image( $thumb_id, 'full', true );?>
-                <div class="grid-image__item">
-                  <div class="grid-image__content">
-                    <a href="<?php print $catUrl; ?>">
-                      <h3 class="grid-image__title"><?php print $catName; ?></h3>
-                      <div class="grid-image__body"><?php print $catDescription; ?></div>
-                    </a>
-                  </div>
-                  <div class="grid-image__image"><?php echo $catImg; ?></div>
+                <div class="grid-image__item <?php print $color; ?>">
+                  <a href="/<?php print $catUrl; ?>">
+                    <?php if($catUrl != 'sale'): ?>
+                      <div class="grid-image__content">
+                        <h3 class="grid-image__title"><?php print $catName; ?></h3>
+                        <div class="grid-image__body"><?php print $catDescription; ?></div>
+                      </div>
+                      <div class="grid-image__image"><?php echo $catImg; ?></div>
+                    <?php else: ?>
+                      <div class="grid-image__image"><?php echo $catImg; ?></div>
+                    <?php endif; ?>
+                  </a>
                 </div>
             <?php endforeach; ?>
           </div>
