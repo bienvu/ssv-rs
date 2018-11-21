@@ -1,9 +1,8 @@
 .box-intro {
-  padding: 66px 0 34px;
-  @extend .bg--gray;
+  padding: 71px 0 80px;
 
-  @media only screen and (min-width: 1024px) {
-    background: none;
+  @media only screen and (max-width: 1023px) {
+    background: $gray;;
   }
 
   &__wrap {
@@ -16,7 +15,6 @@
     display: none;
 
     @media only screen and (min-width: 1024px) {
-      // margin-left: -125px;
       display: block;
       line-height: 0;
       margin-left: -125px;
@@ -36,7 +34,6 @@
   }
 
   &__top {
-    // padding: 0;
     margin-bottom: 15px;
 
     @media only screen and (min-width: 1024px) {
@@ -47,33 +44,23 @@
   }
 
   &__title {
-    // margin: 0;
-    // width: 100%;
-    // margin-bottom: 20px;
-
     @media only screen and (min-width: 1024px) {
-      // width: 20%;
       width: 26%;
     }
   }
 
   &__body {
-    // width: 100%;
     padding: 0;
     font-size: 16px;
 
     @media only screen and (min-width: 1024px) {
-      // padding-left: 90px;
-      // width: 80%;
       width: 74%;
-      padding: 8px 0 0 14px;
+      padding: 8px 0 0 12px;
       margin-bottom: 52px;
     }
   }
 
   &__multilink {
-    // padding: 0;
-
     @media only screen and (min-width: 1024px) {
       display: inline-block;
       margin-right: 22%;
@@ -85,7 +72,7 @@
   }
 
   &__item {
-    margin-bottom: 15px;
+    margin-bottom: 15px;ßß
 
     .btn {
       @extend .btn--depend;

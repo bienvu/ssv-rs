@@ -113,7 +113,7 @@ function wp_add_scripts() {
     global $wp_query;
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 			// Slick js.
-			wp_register_script('slick', get_template_directory_uri() . '/assets/js/lib/slick.min.js', array(), '1.0.0');
+			wp_register_script('slick', get_template_directory_uri() . '/assets/js/lib/slick.js', array(), '1.0.0');
 			wp_enqueue_script('slick');
 
 			// Media-match js.

@@ -109,6 +109,10 @@
     }
   }
 
+  &__title {
+    @extend .h1;
+  }
+
   &__item {
     position: relative;
 
