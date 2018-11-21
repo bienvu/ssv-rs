@@ -9,6 +9,18 @@
     tablet = "(min-width:48em)"; // 768px.
   // Add  functionality here.
 
+  // Handle submit function on contact form.
+  document.addEventListener( 'wpcf7mailsent', function( event ) {
+    if ( '5' == event.detail.contactFormId ) {
+        window.location.href = window.location.protocol + '//' + window.location.hostname + '/thank-you-subscribe/';
+    }else if('204' == event.detail.contactFormId){
+        window.location.href = window.location.protocol + '//' + window.location.hostname + '/thank-you-contact/';
+    }else if('210' == event.detail.contactFormId) {
+        window.location.href = window.location.protocol + '//' + window.location.hostname + '/thank-you-request/';
+    }
+
+  }, false );
+
   $(document).ready(function() {
     // Table responsive
     var $table = $('table');
@@ -99,8 +111,8 @@
       slidesToShow: 1,
       slidesToScroll: 1,
       mobileFirst: true,
-      // rows: 2,
-      // slidesPerRow: 2,
+      rows: 2,
+      slidesPerRow: 2,
       arrows: false,
       responsive: [
         {
@@ -108,8 +120,8 @@
           settings: {
             slidesToScroll: 4,
             slidesToShow: 4,
-            // rows: 1,
-            // slidesPerRow: 1,
+            rows: 1,
+            slidesPerRow: 1,
             arrows: true
           }
         }
