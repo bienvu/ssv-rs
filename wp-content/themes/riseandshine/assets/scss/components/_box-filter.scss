@@ -1,20 +1,36 @@
 .box-filter {
   @extend .bg--gray;
   overflow: hidden;
-  padding: 20px 0 20px;
+  background: $dark-green;
+
+  @media only screen and (min-width: 1024px) {
+    overflow: visible;
+    position: relative;
+    background: $light-green;
+  }
+
+  &__wrap {
+    padding: 26px 0 30px 0;
+
+    @media only screen and (min-width: 1024px) {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 0;
+      position: relative;
+    }
+  }
 
   &__aside {
-    @extend .bg--gray;
-
-    @media only screen and (max-width: 767px) {
+    @media only screen and (max-width: 1023px) {
       position: absolute;
       left: 100%;
-      top: 0;
+      top: 1px;
       width: 100%;
       height: 100vh;
       transition: .5s;
       overflow: hidden;
       z-index: 9;
+      background: $gray;
     }
 
     &.active {
@@ -23,7 +39,11 @@
   }
 
   &__top {
-    margin-bottom: 10px;
+    margin-bottom: 16px;
+
+    @media only screen and (min-width: 1024px) {
+      margin: 0;
+    }
 
     ul {
       display: flex;
@@ -31,23 +51,36 @@
       li {
         margin-right: 5px;
         margin-bottom: 10px;
+        width: 25%;
 
-        @media only screen and (min-width: 460px) {
-          width: 25%;
+        &:nth-last-of-type(2) {
+          margin-right: 0;
         }
-        &:last-child {
-          margin: 0;
+
+        @media only screen and (min-width: 1024px) {
+          margin: 0 10px 0 0;
+          width: auto;
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          &:nth-last-of-type(2) {
+            margin-right: 5px;
+          }
         }
 
         a {
           display: flex;
           align-items: center;
+          justify-content: center;
           text-align: center;
           height: 100%;
           padding: 10px;
           @extend %link--small;
           line-height: 1.1667;
           background: $white;
+          padding: 7px 16px 8px 15px; 
 
           &.active {
             @extend .bg--dark-blue;
@@ -58,7 +91,7 @@
   }
 
   &__bottom {
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 1024px) {
       // display: none;
     }
 
@@ -68,17 +101,278 @@
   }
 
   &__sort {
+    @extend .text--tiny;
+
+    @media only screen and (min-width: 1024px) {
+      position: relative;
+    }
+
+    > span {
+      &.btn {
+        @extend .text--tiny;
+        @extend .btn--depend;
+        padding-top: 12px;
+        padding-bottom: 16px;
+
+        @media only screen and (min-width: 1024px) {
+          min-width: 213px;          
+        }
+      }
+
+      span:before {
+        transform: rotate(90deg);
+      }
+
+      &.active {
+        span:before {
+          transform: rotate(270deg);
+        }
+      }
+    }
 
     ul {
       display: none;
+      background: $white;
+
+      @media only screen and (min-width: 1024px) {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+      }
 
       &.active {
         display: block;
       }
+
       li {
         a {
-          
+          padding: 12px 38px 16px 16px;
+          display: block;
+          border-top: 1px solid $light-green;
         }
+      }
+    }
+  }
+
+  
+
+  &__body {
+    @media only screen and (min-width: 1024px) {
+      // position: relative;
+    }
+
+    > .btn {
+      @extend .btn--white;
+      @extend .btn--full;
+      @extend .btn--depend;
+      margin-bottom: 10px;
+
+      @media only screen and (min-width: 1024px) {
+        display: none;
+      }
+
+      span:before {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  &__item {
+    form {
+      @media only screen and (min-width: 1024px) {
+        display: flex;
+      }
+    }
+    
+    .form-list {
+      @media only screen and (min-width: 1024px) {
+        margin: 0;
+      }
+
+      &.form-top {
+        @media only screen and (min-width: 1024px) {
+          display: none;
+        }
+      }
+
+      &.form-2col {
+        @media only screen and (min-width: 1024px) {
+          margin: 0 10px 0 0;
+        }
+
+        .form-item {
+          @media only screen and (min-width: 1024px) {
+            width: auto;
+            margin: 0 10px 0 0;
+
+            &:last-of-type {
+              margin: 0;
+            }
+
+            .btn {
+              padding: 11px 16px 12px 14px;
+            }
+          }
+
+          &.form-hidden {
+            @media only screen and (max-width: 1023px) {
+              display: block;
+            }
+          }
+        }
+      }
+
+      &:nth-of-type(2) {
+        @media only screen and (min-width: 1024px) {
+          display: none;
+        }
+      }
+
+      &:nth-of-type(3) {
+        @media only screen and (min-width: 1024px) {
+          display: flex;
+        }
+
+        .form-item {
+          @media only screen and (min-width: 1024px) {
+            margin: 0 10px 0 0;
+          }
+        }
+      }
+
+      &:last-of-type {
+        .form-item {
+          @media only screen and (min-width: 1024px) {
+            background: none;
+          }
+        }
+      }
+
+      .form-item {
+        @media only screen and (min-width: 1024px) {
+          margin: 0;
+          position: relative;
+        }
+
+        .btn {
+          @extend .btn--white;
+          @extend .btn--depend-mobile;
+          @extend .text--tiny;
+          line-height: 1.6667;
+          width: 100%;
+          display: inline-block;
+
+          @media only screen and (min-width: 1024px) {
+            width: auto;
+            padding: 11px 44px 12px 16px;
+          }
+
+          span {
+            text-align: left;
+            display: inline-block;
+            width: 100%;
+
+            &:before {
+              transform: rotate(90deg);
+              font-size: 11px;
+              right: -25px;
+            }
+          }
+        }
+
+        input[type="submit"],
+        button[type='submit'] {
+          @extend .btn--cyan;
+
+          span {
+            text-align: center;
+          }
+          
+
+          @media only screen and (min-width: 1024px) {
+            padding: 11px 16px 12px 14px;
+          }
+        }
+
+        input[type="reset"] {
+          width: auto;
+          background: none;
+        }
+
+        > span {
+          @media only screen and (min-width: 1024px) {
+            transition: none;
+          }
+
+          &.active {
+            @media only screen and (min-width: 1024px) {
+              // box-shadow: 0px 1px 4px 1px rgba($black, .5);
+              position: relative;
+              z-index: 10;
+
+              &:after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 20px;
+                top: 100%;
+                background: $white;
+                left: 0;
+                z-index: 1;
+              }
+
+              &:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: calc(100% + 7px);
+                box-shadow: 0px 1px 4px 1px rgba($black, .5);
+              }
+            }
+
+            span {
+              &:before {
+                transform: rotate(270deg);
+              }
+            }
+          }
+        }
+
+        input[type="checkbox"] ~ label {
+          @media only screen and (max-width: 1023px) {
+            padding: 10px 15px;
+          }
+
+          &:before {
+            @media only screen and (max-width: 1023px) {
+              border-radius: 0;
+              border-width: 2px;
+              margin: 0;
+              transform: translateY(-50%);
+              right: 15px;
+              left: inherit;
+            }
+          }
+
+          &:after {
+            @media only screen and (max-width: 1023px) {
+              right: 11px;
+              bottom: 1px;
+              left: inherit;
+            }
+          }
+        }
+      }
+    }
+
+    .container {
+      @media only screen and (min-width: 1024px) {
+        width: 100%;
+        margin: 0;
+        padding: 0;
       }
     }
   }
@@ -87,123 +381,93 @@
     @extend .bg--gray;
     position: absolute;
     left: 100%;
-    top: 0;
+    top: 1px;
     width: 100%;
     height: 100vh;
     transition: .5s;
     z-index: 9;
 
+    @media only screen and (min-width: 1024px) {
+      top: calc(100% + 10px);
+      left: 0;
+      height: auto;
+      min-width: 230px;
+      background: $white;
+      box-shadow: 0px 1px 4px 1px rgba($black, .5);
+      display: none;
+      padding: 9px 0px 16px 20px;
+    }
+
     &.active {
       left: 0;
+
+      @media only screen and (min-width: 1024px) {
+        display: block;
+      }
     }
     
     .form-list {
+      &:nth-of-type(2n),
+      &:nth-of-type(2n+1) {
+        @media only screen and (min-width: 1024px) {
+          display: block;
+
+          .form-item {
+            margin: 0;
+          }
+        }
+      }
+
+      &.form-top,
+      &.form-caption {
+        @media only screen and (min-width: 1024px) {
+          display: none;
+
+          & ~ .form-list {
+            .form-item {
+              margin-bottom: 10px;
+
+              &:last-of-type {
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+
       .form-item {
         button[type="submit"],
         input[type="submit"] {
           background: #579080;
           color: $white;
-        }
-      }
-    }
-  }
 
-  &__body {
-    > .btn {
-      @extend .btn--white;
-      @extend .btn--full;
-      @extend .btn--depend;
-      margin-bottom: 15px;
-
-      @media only screen and (min-width: 768px) {
-        display: none;
-      }
-    }
-  }
-
-  &__item {
-    form {
-      @media only screen and (min-width: 768px) {
-        display: flex;
-      }
-    }
-    
-    .form-list {
-      @media only screen and (min-width: 768px) {
-        margin: 0;
-      }
-
-      &.form-top {
-        @media only screen and (min-width: 768px) {
-          display: none;
-        }
-      }
-
-      &.form-2col {
-        .form-item {
-          @media only screen and (min-width: 768px) {
-            width: auto;
+          @media only screen and (min-width: 1024px) {
+            display: none;
           }
-        }
-      }
-
-      &:nth-of-type(2) {
-        @media only screen and (min-width: 768px) {
-          display: none;
-        }
-      }
-
-      &:nth-of-type(3) {
-        @media only screen and (min-width: 768px) {
-          display: flex;
-        }
-
-        .form-item {
-          @media only screen and (min-width: 768px) {
-            margin: 0 15px 0 0;
-          }
-        }
-      }
-
-      &:last-of-type {
-        .form-item {
-          @media only screen and (min-width: 768px) {
-            background: none;
-          }
-        }
-      }
-
-      .form-item {
-        .btn {
-          @extend .btn--white;
-          @extend .btn--depend-mobile;
-
-          @media only screen and (max-width: 767px) {
-            width: 100%;
-          }
-        }
-
-        input[type="submit"],
-        button[type='submit'] {
-          @extend .btn--cyan;
-        }
-
-        input[type="reset"] {
-          width: auto;
         }
       }
     }
   }
 
   &__sort {
+    @media only screen and (min-width: 1024px) {
+      position: absolute;
+      top: 100%;
+      right: 0;
+    }
+
     > .btn {
       @extend .btn--white;
       @extend .btn--depend-mobile;
 
-      @media only screen and (max-width: 767px) {
+      @media only screen and (max-width: 1023px) {
         width: 100%;
       }
     }
+  }
+
+  &__title {
+    margin-bottom: 7px;
   }
 
   .come-back {
