@@ -1,4 +1,7 @@
 .box-image {
+  margin-top: 90px;
+  margin-bottom: 115px;
+
   &__item {
     position: relative;
     width: 100%;
@@ -75,9 +78,9 @@
   }
 
   &--width-bg {
-    background: url('/pattern-lab/source/images/theme_image_bg_01.jpg');
     margin-top: 200px;
     padding: 44px 0 41px;
+    margin-bottom: 193px;
 
     @media only screen and (min-width: 768px) {
       padding: 82px 0;

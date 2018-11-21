@@ -9,6 +9,18 @@
     tablet = "(min-width:48em)"; // 768px.
   // Add  functionality here.
 
+  // Handle submit function on contact form.
+  document.addEventListener( 'wpcf7mailsent', function( event ) {
+    if ( '5' == event.detail.contactFormId ) {
+        window.location.href = window.location.protocol + '//' + window.location.hostname + '/thank-you-subscribe/';
+    }else if('204' == event.detail.contactFormId){
+        window.location.href = window.location.protocol + '//' + window.location.hostname + '/thank-you-contact/';
+    }else if('210' == event.detail.contactFormId) {
+        window.location.href = window.location.protocol + '//' + window.location.hostname + '/thank-you-request/';
+    }
+
+  }, false );
+
   $(document).ready(function() {
     // Table responsive
     var $table = $('table');
@@ -88,6 +100,19 @@
       adaptiveHeight: true
     });
 
+    // js show
+    $('.js-show').click(function(){
+      if($(window)[0].outerWidth > 1024) {
+        $(this).toggleClass('active');
+      }
+      
+      $(this).next('.show').toggleClass('active');
+    });
+
+    $('.js-back').click(function(){
+      $(this).parents('.show')[0].classList.remove('active');
+    });
+
     $('.is-show').click(function(){
       $('.is-show').next('.show').removeClass('active');
       $(this).next('.show').addClass('active');
@@ -99,8 +124,8 @@
       slidesToShow: 1,
       slidesToScroll: 1,
       mobileFirst: true,
-      // rows: 2,
-      // slidesPerRow: 2,
+      rows: 2,
+      slidesPerRow: 2,
       arrows: false,
       responsive: [
         {
@@ -108,8 +133,8 @@
           settings: {
             slidesToScroll: 4,
             slidesToShow: 4,
-            // rows: 1,
-            // slidesPerRow: 1,
+            rows: 1,
+            slidesPerRow: 1,
             arrows: true
           }
         }
@@ -139,16 +164,6 @@
     if(('.grid-products__title').length) {
       $('.grid-products__title').matchHeight();
     }
-
-    // js show
-    $('.js-show').click(function(){
-      $(this).next('.show').toggleClass('active');
-    });
-
-    $('.js-back').click(function(){
-      $(this).parents('.show')[0].classList.remove('active');
-    });
-
   });
 
 }(this, this.document, this.jQuery));
