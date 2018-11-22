@@ -196,7 +196,7 @@ if( get_row_layout() == 'banner' ):
   $count = count(get_sub_field("box_image_item"));
   ?>
 
-  <div class="box-image <?php if($count > 1):?>box-image--width-2cols<?php endif; ?><?php if($bgImage): ?>box-image--width-bg<?php endif; ?>" style="background-image: url(<?php if($bgImage){ print $bgImage; } ?>)">
+  <div class="box-image <?php if($count > 1):?>box-image--width-2cols<?php endif; ?><?php if($bgImage): ?>box-image--width-bg<?php endif; ?>" <?php if($bgImage): ?> style="background-image: url(<?php if($bgImage){ print $bgImage; } ?>)"<?php endif; ?>>
     <div class="container">
       <div class="box-image__wrap">
         <?php if( have_rows('box_image_item') ):

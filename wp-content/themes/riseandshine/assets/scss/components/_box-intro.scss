@@ -72,10 +72,11 @@
   }
 
   &__item {
-    margin-bottom: 15px;ßß
+    margin-bottom: 15px;
 
     .btn {
       @extend .btn--depend;
+      min-width: 193px;
     }
   }
 }
