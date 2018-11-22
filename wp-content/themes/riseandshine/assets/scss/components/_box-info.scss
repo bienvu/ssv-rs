@@ -1,10 +1,12 @@
 .box-info {
-  padding: 42px 0 0;
+  padding: 42px 0 1px;
   background-size: cover !important;
   background-position: center !important;
+  margin-bottom: 15px;
 
   @media only screen and (min-width: 768px) {
     padding: 58px 0 50px;
+    margin: 0;
   }
 
   &__title {
@@ -18,7 +20,7 @@
   }
 
   &__sub-title {
-    margin-bottom: 22px;
+    margin-bottom: 13px;
 
     @media only screen and (min-width: 768px) {
       color: $bg-indigo;
@@ -35,6 +37,7 @@
 
   &__content {
     color: $dark-cyan;
+    width: 100%;
     font-size: 16px;
 
     @media only screen and (min-width: 768px) {
@@ -50,7 +53,7 @@
     }
 
     p {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
 
       &:last-child {
         margin-bottom: 0;
@@ -63,6 +66,10 @@
     margin-bottom: 20px;
     background: $white;
     padding: 30px 0 23px;
+    min-height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
     @media only screen and (min-width: 768px) {
       width: calc((100% - 41px)  / 3);
@@ -81,10 +88,6 @@
   }
 
   .btn {
-    margin-top: 25px;
-
-    @media only screen and (min-width: 768px) {
-      margin-top: 16px;
-    }
+    margin-top: auto;
   }
 }

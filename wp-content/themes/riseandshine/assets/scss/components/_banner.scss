@@ -140,7 +140,7 @@
 
     .banner__content {
       min-height: inherit;
-      padding: 4px 0 0;
+      padding: 0;
 
       @media only screen and (min-width: 768px) {
         padding: 21px 26px 27px 30px;
@@ -168,10 +168,16 @@
         top: calc(50% + 2px);
       }
     }
+
+    .banner__subtitle {
+      @media only screen and (max-width: 767px) {
+        margin-bottom: 3px;
+      }
+    }
   }
 
   &--only-link {
-    .banner__image {
+    .banner__im3pxage {
       margin: 0;
 
       img {

@@ -164,6 +164,9 @@
     if(('.grid-products__title').length) {
       $('.grid-products__title').matchHeight();
     }
+
+    // placeholder contact page
+    document.querySelector('.contact-form .form-row:last-of-type .form-item input').placeholder = "what is the first letter of rise?";
   });
 
 }(this, this.document, this.jQuery));
