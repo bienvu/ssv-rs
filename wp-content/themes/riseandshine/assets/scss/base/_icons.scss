@@ -37,7 +37,7 @@
   content: "\e912";
 }
 .icon-zoom-in:before {
-  content: "\e913";
+  content: "\e910";
 }
 .icon-close:before {
   content: "\e911";
@@ -81,8 +81,8 @@
 .icon-instagram:before {
   content: "\e901";
 }
-.icon-pinterest-p:before {
-  content: "\e902";
+.icon-pinterest:before {
+  content: "\e911";
 }
 .icon-google-plus:before {
   content: "\e910";
@@ -115,4 +115,8 @@
 .icon-location:before {
   content: "\e902";
   font-size: 21px;
+}
+
+.icon-lock:before {
+  content: "\e912";
 }

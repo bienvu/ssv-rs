@@ -1,0 +1,17 @@
+.box-gallery {
+  &__caption {
+    @extend .text--normal;
+  }
+
+  &__description {
+
+  }
+
+  &__content {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+}

@@ -166,7 +166,18 @@
     }
 
     // placeholder contact page
-    document.querySelector('.contact-form .form-row:last-of-type .form-item input').placeholder = "what is the first letter of rise?";
+    if(document.querySelector('.contact-form .form-row:last-of-type .form-item input')) {
+      document.querySelector('.contact-form .form-row:last-of-type .form-item input').placeholder = "what is the first letter of rise?";
+    }
+
+    // js load
+    if($('.js-load').length) {
+      $('.js-load').click(function() {
+        var id = '.' + $(this).attr('data-id');
+        $('.load').removeClass('active');
+        $(id).addClass('active');
+      });
+    }
   });
 
 }(this, this.document, this.jQuery));
