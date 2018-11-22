@@ -1,9 +1,9 @@
 .request-form {
   background: $dark-blue;
-  padding: 33px 0;
+  padding: 33px 0 19px;
 
   @media only screen and (min-width: 768px) {
-    padding: 60px 0;
+    padding: 60px 0 36px;
   }
 
   form {
@@ -39,6 +39,7 @@
 
   .form-item {
     margin: 0 0 10px;
+    background: none;
 
     @media only screen and (min-width: 768px) {
       width: 100%;

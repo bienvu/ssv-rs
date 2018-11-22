@@ -1,14 +1,18 @@
 .contact-maps {
-  margin-bottom: 70px;
+  background: $gray;
 
-  @media only screen and (max-width: 767px) {
-    display: none;
+  @media only screen and (min-width: 768px) {
+    margin-bottom: 70px;
+    background: none;    
   }
 
+
   &__item {
-    display: flex;
-    margin-bottom: 30px;
-    min-height: 300px;
+    @media only screen and (min-width: 768px) {
+      display: flex;
+      margin-bottom: 30px;
+      min-height: 300px;
+    }
 
     &:last-of-type {
       margin: 0;
@@ -25,7 +29,9 @@
   }
 
   &__image {
-    width: 70%;
+    @media only screen and (min-width: 768px) {
+      width: 70%;
+    }
 
     iframe {
       width: 100%;
@@ -34,15 +40,20 @@
   }
 
   &__content {
-    background: #f2f6f5;
-    width: 30%;
-    padding: 24px 30px 23px 30px;
-    display: flex;
-    flex-wrap: wrap;
-    min-width: 288px;
+
+    @media only screen and (min-width: 768px) {
+      background: #gray;
+      width: 30%;
+      padding: 24px 30px 23px 30px;
+      display: flex;
+      flex-wrap: wrap;
+      min-width: 288px;
+    }
 
     p {
-      margin-bottom: 10px;
+      @media only screen and (min-width: 768px) {
+        margin-bottom: 10px;
+      }
 
       &:last-of-type {
         margin: 0;

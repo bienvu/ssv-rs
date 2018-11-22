@@ -163,15 +163,22 @@ if( get_row_layout() == 'banner' ):
           ?>
           <div class="contact-maps__item">
             <div class="contact-maps__content">
-              <div class="contact-maps__body">
-                <h3 class="contact-maps__title"><?php print $title; ?></h3>
-                <div class="contact-maps__description"><?php print $body; ?></div>
+              <?php if(have_rows('body')): 
+                //loop though the rows of data
+                while (have_rows('body')): the_row();
+                  $content = get_sub_field("content");
+              ?>
+              <div class="contact-maps__child">
+                <div class="contact-maps__body">
+                  <h3 class="contact-maps__title"><?php print $title; ?></h3>
+                  <div class="contact-maps__description"><?php print $body; ?></div>
+                </div>
+                <?php if($link): ?>
+                  <div class="contact-maps__link">
+                    <a href="<?php print $link['url']; ?>" class="btn"><span>get directions</span></a>
+                  </div>
+                <?php endif; ?>
               </div>
-              <?php if($link): ?>
-              <div class="contact-maps__link">
-                <a href="<?php print $link['url']; ?>" class="btn"><span>get directions</span></a>
-              </div>
-            <?php endif; ?>
             </div>
             <div class="contact-maps__image"><?php print $map_url; ?></div>
           </div>

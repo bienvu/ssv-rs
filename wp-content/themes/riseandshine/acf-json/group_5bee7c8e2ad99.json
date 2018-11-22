@@ -668,7 +668,7 @@
                                     "key": "field_5bef9e40355e8",
                                     "label": "Body",
                                     "name": "body",
-                                    "type": "wysiwyg",
+                                    "type": "repeater",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
@@ -677,11 +677,32 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "default_value": "",
-                                    "tabs": "all",
-                                    "toolbar": "full",
-                                    "media_upload": 1,
-                                    "delay": 0
+                                    "collapsed": "",
+                                    "min": 0,
+                                    "max": 0,
+                                    "layout": "table",
+                                    "button_label": "",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_5bf685b97a23e",
+                                            "label": "content",
+                                            "name": "content",
+                                            "type": "textarea",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "maxlength": "",
+                                            "rows": 1,
+                                            "new_lines": ""
+                                        }
+                                    ]
                                 },
                                 {
                                     "key": "field_5bef9e44355e9",
@@ -1085,65 +1106,8 @@
                                         "id": ""
                                     },
                                     "return_format": "array"
-                                },
-                                {
-                                    "key": "field_5bf42a86f4deb",
-                                    "label": "Color",
-                                    "name": "color",
-                                    "type": "select",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "choices": {
-                                        "light-blue": "Light Blue",
-                                        "blue": "Blue",
-                                        "dark-blue": "Dark blue",
-                                        "red": "Red",
-                                        "violet": "Violet",
-                                        "orange": "Orange",
-                                        "green": "Green",
-                                        "brown": "Brown"
-                                    },
-                                    "default_value": [
-                                        "dark-blue"
-                                    ],
-                                    "allow_null": 0,
-                                    "multiple": 0,
-                                    "ui": 0,
-                                    "return_format": "value",
-                                    "ajax": 0,
-                                    "placeholder": ""
                                 }
                             ]
-                        },
-                        {
-                            "key": "field_5bf42d8cbb785",
-                            "label": "Background Image",
-                            "name": "background_image",
-                            "type": "image",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "url",
-                            "preview_size": "thumbnail",
-                            "library": "all",
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": ""
                         }
                     ],
                     "min": "",
@@ -1329,8 +1293,7 @@
                                 "id": ""
                             },
                             "choices": {
-                                "box-image-text--image-left": "Image Left",
-                                "box-image-text--70-30": "Content lager Image"
+                                "image-left": "Image Left"
                             },
                             "default_value": [],
                             "allow_null": 0,
@@ -1408,5 +1371,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1542730109
+    "modified": 1542882811
 }

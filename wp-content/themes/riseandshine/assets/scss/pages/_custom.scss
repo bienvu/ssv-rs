@@ -17,3 +17,20 @@
 main {
   box-shadow: inset 0px 20px 20px -20px rgba($black, .2);
 }
+
+.contact {
+	.contact-maps {
+		@media only screen and (max-width: 767px) {
+			display: none;
+		}
+	}
+}
+
+.section-title {
+	margin-bottom: 25px;
+	text-align: center;
+
+	@media only screen and (min-width: 768px) {
+		margin-bottom: 37px;
+	}
+}

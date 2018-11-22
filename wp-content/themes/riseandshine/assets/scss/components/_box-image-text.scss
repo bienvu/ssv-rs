@@ -1,8 +1,13 @@
 .box-image-text {
-  padding: 50px 0;
+  padding: 34px 0 0;
+
+  @media only screen and (min-width: 768px) {
+    padding: 60px 0 51px;   
+  }
+
 
   h2 {
-    margin-bottom: 6px;
+    margin-bottom: 10px;
 
     @media only screen and (min-width: 768px) {
       margin-bottom: 28px;
@@ -14,50 +19,86 @@
     flex-direction: column-reverse;
 
     @media only screen and (min-width: 768px) {
-      align-items: center;
+      align-items: flex-start;
       flex-direction: row;
     }
   }
 
   &__body {
-    width: 100%;
-    font-size: 16px;
-    line-height: normal;
+    padding: 0 20px 0 0;
+    width: 50%;
 
-    p{
-      margin-bottom: 8px;
-
-      @media only screen and (min-width: 768px) {
-        margin-bottom: 12px;
-      }
-    }
-
-    @media only screen and (min-width: 768px) {
-      width: 50%;
-      padding-right: 20px;
+    @media only screen and (max-width: 767px) {
+      font-size: 16px;
+      line-height: 1.2;
+      padding: 20px 0 28px 0;
+      width: 100%;
     }
   }
 
   &__image {
     width: 100%;
     margin-bottom: 15px;
+    overflow: hidden;
+    line-height: 0;
+    display: none;
+
+    @media only screen and (min-width: 768px) {
+      display: block;
+    }
+
+    &--mobile {
+      line-height: 0;
+      min-height: 231px;
+      overflow: hidden;
+      height: 1px;
+      
+      @media only screen and (min-width: 486px) {
+        height: auto;
+      }
+
+      @media only screen and (min-width: 768px) {
+        display: none;
+      }
+
+      img {
+        height: 100%;
+        max-width: inherit;
+
+        @media only screen and (min-width: 486px) {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
 
     img {
       width: 100%;
-      height: 100%;
+      height: auto;
+      max-width: inherit;
+
+      @media only screen and (min-width: 768px) {
+        height: 100%;
+        width: auto;
+      }
+
+      @media only screen and (min-width: 1024px) {
+        width: 100%;
+        height: auto;
+      }
     }
 
     @media only screen and (min-width: 768px) {
       width: 50%;
-      padding-left: 15px;
-      margin-top: 18px;
+      padding: 9px 0 0 15px;
+      margin: 0;
+      min-height: 220px;
     }
   }
 
   &--70-30 {
     .box-image-text__body {
       width: 100%;
-      line-height: 1.25;
 
       @media only screen and (min-width: 768px) {
         width: 75%;
@@ -137,8 +178,8 @@
         width: 100%;
 
         img {
-          width: 100%;
-          height: 100%;
+          // width: 100%;
+          // height: 100%;
 
           @media only screen and (min-width: 768px) {
             max-width: inherit;
@@ -160,49 +201,6 @@
 
     .box-image-text__link {
       margin-top: 20px;
-    }
-  }
-
-  &--50-50 {
-    padding: 70px 0;
-
-    .box-image-text__wrap {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: column-reverse;
-
-      @media only screen and (min-width: 768px) {
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row;
-      }
-    }
-
-    .box-image-text__image {
-      width: 100%;
-      padding: 0 0 20px 0;
-
-      @media only screen and (min-width: 768px) {
-        padding-left: 40px;
-        width: 50%;
-      }
-
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-
-    .box-image-text__title {
-      margin-bottom: 10px;
-    }
-
-    .box-image-text__content-left {
-      width: 100%;
-
-      @media only screen and (min-width: 768px) {
-        width: 50%
-      }
     }
   }
 }
