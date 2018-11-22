@@ -10,12 +10,30 @@
  * @package         Rise_Shine_Woocommerce
  */
 
-
+add_action('init', 'rise_shine_woocommerce_init');
 add_filter('woocommerce_csv_product_import_mapping_options', 'rise_shine_woocommerce_add_column_to_importer');
 add_filter('woocommerce_csv_product_import_mapping_default_columns', 'rise_shine_woocommerce_add_column_to_mapping_screen');
 add_filter('woocommerce_product_import_inserted_product_object', 'rise_shine_woocommerce_product_import_inserted_product_object', 10, 2);
 add_action('woocommerce_product_options_general_product_data', 'rise_shine_woocommerce_product_options_general_product_data');
 add_filter('woocommerce_product_importer_pre_expand_data', 'rise_shine_woocommerce_product_importer_pre_expand_data');
+add_filter('woocommerce_shipping_methods', 'rise_shine_woocommerce_shipping_methods');
+
+
+/**
+ * Hooked init.
+ */
+function rise_shine_woocommerce_init() {
+  include_once dirname( __FILE__ ) . '/includes/shipping/rs-shipping-postcode/class-rs-wc-shipping-postcode.php';
+}
+
+/**
+ * Hooked woocommerce_shipping_methods.
+ * Register new shipping method.
+ */
+function rise_shine_woocommerce_shipping_methods($shipping_methods) {
+  $shipping_methods['rs_shipping_postcode'] = 'RS_WC_Shipping_PostCode';
+  return $shipping_methods;
+}
 
 /**
  * Hooked to woocommerce_product_importer_before_set_parsed_data.
