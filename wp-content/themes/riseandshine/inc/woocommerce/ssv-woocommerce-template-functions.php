@@ -5,6 +5,73 @@
  * @package ssvtheme
  */
 
+
+
+
+/**
+ * Hooked woocommerce_product_tabs alter product tabs.
+ */
+function riseandshine_default_product_tabs($tabs = array()) {
+	global $post, $product;
+  // We remove review and addition information tabs.
+  unset($tabs['reviews']);
+  unset($tabs['additional_information']);
+  // We add 2 custom tabs: Shipping and specification.
+  if ($product_specification = get_field('_product_specification', $post->ID)) {
+    if (!empty($product_specification)) {
+      $tabs['specification'] = array(
+        'title' => __('features & specifications', 'riseandshine-theme'),
+        'priority' => 40,
+        'callback' => 'riseandshine_product_specification_tab',
+      );
+    }
+  }
+  $tabs['shipping'] = array(
+    'title' => __('Delivery & Returns', 'riseandshine-theme'),
+    'priority' => 50,
+    'callback' => 'riseandshine_product_shipping_tab',
+  );
+  return $tabs;
+}
+
+/**
+ * Render specification tab of product.
+ */
+function riseandshine_product_specification_tab() {
+	global $post, $product;
+	$product_specification = get_field('_product_specification', $post->ID);
+	print $product_specification;
+}
+
+/**
+ * Render shipping tab of product.
+ */
+function riseandshine_product_shipping_tab() {
+	print '<p>Aenean aliquam diam quis arcu volutpat, et pulvinar mauris molestie. Nunc risus quam, facilisis in ullamcorper sed, vestibulum non augue. Curabitur vel arcu ante. Integer vehicula dapibus interdum. Nam lacus arcu, porta eu condimentum vitae, egestas vitae lectus. Aliquam lobortis, orci ut pulvinar aliquam, ipsum mi posuere lectus, vel pellentesque urna orci in eros. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>';
+}
+
+/**
+ * Hooked
+ */
+function riseandshine_product_description_heading($heading) {
+	return '';
+}
+
+/**
+ * Hooked woocommerce_single_product_summary.
+ * Render size information in single product summary.
+ */
+function riseandshine_single_product_size_information() {
+	wc_get_template('single-product/size-information.php');
+}
+
+/**
+ * Hooked woocommerce_share.
+ */
+function riseandshine_product_share_buttons_payment_brands() {
+	wc_get_template('single-product/share-buttons-payment-brands.php');
+}
+
 if ( ! function_exists( 'ssv_before_content' ) ) {
 	/**
 	 * Before Content

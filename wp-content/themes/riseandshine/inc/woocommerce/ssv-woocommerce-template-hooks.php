@@ -2,17 +2,16 @@
 /**
  * SSV WooCommerce hooks
  *
- * @package ssvtheme
+ * @package riseandshine
  */
 
-/**
- * Layout
- *
- * @see  storefront_before_content()
- * @see  storefront_after_content()
- * @see  woocommerce_breadcrumb()
- * @see  storefront_shop_messages()
- */
+add_filter('woocommerce_product_tabs', 'riseandshine_default_product_tabs');
+add_filter('woocommerce_product_description_heading', 'riseandshine_product_description_heading');
+add_action('woocommerce_single_product_summary', 'riseandshine_single_product_size_information', 15);
+add_action('woocommerce_single_product_summary', 'riseandshine_product_share_buttons_payment_brands', 35);
+
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50);
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb',    20 );
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper',    10 );
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
@@ -42,3 +41,6 @@ add_action( 'woocommerce_shop_loop_item_title', 'ssv_woocommerce_product_size', 
 // Price
 remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
 remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+
+
+
