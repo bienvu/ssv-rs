@@ -1,5 +1,10 @@
 .contact-form {
-  padding: 50px 0;
+  padding: 6px 0 24px;
+
+  @media only screen and (min-width: 768px) {
+    padding: 61px 0 35px;   
+  }
+
 
   &__wrap {
     @media only screen and (min-width: 768px) {
@@ -14,81 +19,85 @@
 
     @media only screen and (min-width: 768px) {
       width: 30%;
+      margin: 0;
     }
 
     br {
-      display: none;
-
-      @media only screen and (min-width: 768px) {
-        display: block;
-      }
+      @extend .hidden-on-mobile;
     }
   }
 
   &__form {
-    padding: 7px 0 0 13px;
+
     @media only screen and (min-width: 768px) {
       width: 70%;
-    }
-  }
-
-  .form-row {
-    &:nth-of-type(3) {
-      margin-bottom: -5px;
+      padding: 9px 0 0 13px;
     }
 
-    &:nth-of-type(4) {
-      .form-item {
-        input {
-          padding: 8px 12px 11px;
+    .form-list {
+      .form-row {
+        margin: 0 0 10px 0;
+
+        &-2cols {
+          @media only screen and (min-width: 768px) {
+            display: flex;
+          }
         }
-      }
-    }
-
-    @media only screen and (min-width: 768px) {
-      display: flex;
-      flex-wrap: wrap;
-      margin: 0 -5px;
-
-      &:nth-of-type(3) {
-        width: 100%;
-        margin: 0 0 -3px 0;
 
         .form-item {
-          width: 100%;
-          padding: 0;
+          margin: 0 0 10px 0;
+
+          @media only screen and (min-width: 768px) {
+            margin: 0 10px 0 0;          
+          }
+
+
+          &:last-of-type {
+            margin: 0;
+          }
+
+          textarea {
+            height: 80px;
+          }
+
+          > span {
+            display: block;
+            line-height: 0;
+          }
         }
-      }
 
-      &:nth-of-type(4) {
-        .form-item {
-          width: 84%;
+        &:last-of-type {
+          @media only screen and (min-width: 768px) {
+            display: flex;          
+          }
 
-          &:nth-of-type(2) {
-            width: 16%;
+
+          .form-item {
+            &:first-of-type {
+              @media only screen and (min-width: 768px) {
+                width: 100%;              
+              }
+            }
+
+            input[type="submit"],
+            button[type="submit"] {
+              @media only screen and (max-width: 767px) {
+                width: 100%;
+              }
+            }
+
+            label {
+              span {
+                display: none;
+              }
+            }
+
+            .ajax-loader {
+              display: none;
+            }
           }
         }
       }
-    }
-  }
-
-  .form-item {
-    width: 100%;
-    margin: 0 0 10px;
-
-    @media only screen and (min-width: 768px) {
-      width: 50%;
-      padding: 0 5px;
-      margin: 0 0 10px;
-    }
-  }
-
-  .btn {
-    display: block;
-    width: 100%;
-
-    @media only screen and (min-width: 768px) {
-      margin-left: 2px;
     }
   }
 }

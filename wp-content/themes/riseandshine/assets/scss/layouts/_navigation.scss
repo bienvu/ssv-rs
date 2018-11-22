@@ -6,7 +6,7 @@
     padding: 0;
   }
 
-  >ul {
+  > ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -32,6 +32,7 @@
         color: $white;
         padding: 9px 10px 8px 12px;
         display: block;
+        text-transform: lowercase;
 
         @media only screen and (max-width: 1023px) {
           border-bottom: 2px solid $gray;
@@ -87,7 +88,7 @@
           border-bottom: 2px solid $light-blue;
           background: $light-blue;
         }
-      } 
+      }
 
       &:nth-of-type(2n) {
         .sub-menu {
@@ -113,7 +114,7 @@
           }
         }
       }
-      
+
       @media only screen and (min-width: 1024px) {
         &:hover {
           a {
@@ -160,6 +161,7 @@
         position: relative;
         padding: 6px 0 11px 19px;
         display: block;
+        text-transform: lowercase;
 
         @media only screen and (min-width: 1024px) {
           padding: 34px 14.5px 38px;
@@ -206,6 +208,7 @@
           a {
             @extend %link--large;
             padding: 2px 19px 5px;
+            text-transform: lowercase;
 
             @media only screen and (min-width: 1024px) {
               padding: 0px 0 4px;
@@ -269,7 +272,7 @@
 }
 
 .menu-basic {
-  padding: 22px 0 18px;
+  padding: 6px 0 16px;
 
   @media only screen and (min-width: 768px) {
     padding: 0;
@@ -287,19 +290,19 @@
       a {
         @extend %link--small;
         display: block;
-        padding: 5px 0 6px;
+        padding: 5px 0 7px;
 
         @media only screen and (min-width: 768px) {
-          padding: 6px;
+          padding: 7px 0 4px;
         }
       }
 
       &:nth-of-type(2n) {
         a {
-          padding: 5px 0 6px 10px;
+          padding: 5px 0 7px 11px;
 
           @media only screen and (min-width: 768px) {
-            padding: 6px;
+            padding: 7px 0 4px 4px;
           }
         }
       }

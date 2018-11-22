@@ -1,3 +1,19 @@
 .box-html {
   padding: 70px 0;
 }
+
+.contact {
+  .box-info {
+    @media only screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+}
+
+.tax-product_cat .box-icon {
+  background: $white;
+}
+
+main {
+  box-shadow: inset 0px 20px 20px -20px rgba($black, .2);
+}
