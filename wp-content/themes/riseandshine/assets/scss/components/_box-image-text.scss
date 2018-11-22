@@ -11,7 +11,7 @@
 
   &__wrap {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
 
     @media only screen and (min-width: 768px) {
       align-items: center;
@@ -21,7 +21,6 @@
   
   &__body {
     width: 100%;
-    font-size: 16px;
     line-height: normal;
 
     p{
@@ -55,14 +54,22 @@
   }
 
   &--70-30 {
+    padding-bottom: 14px;
+
+    @media only screen and (min-width: 768px) {
+      padding: 52px 0;
+    }
+
     .box-image-text__body {
       width: 100%;
-      line-height: 1.25;
+      line-height: 1.5;
+      margin-bottom: 17px;
 
       @media only screen and (min-width: 768px) {
         width: 75%;
-        padding-right: 30px;
-        margin-top: -12px;
+        padding-right: 20px;
+        margin-top: 18px;
+        margin-bottom: 0;
       }
 
       @media only screen and (min-width: 769px) and (max-width: 1279px) {
@@ -90,8 +97,7 @@
       @media only screen and (min-width: 768px) {
         width: 25%;
         line-height: 0;
-        margin-right: 142px;
-        padding-top: 14px;
+        margin-right: 156px;
       }
 
       @media only screen and (min-width: 769px) and (max-width: 1279px) {
