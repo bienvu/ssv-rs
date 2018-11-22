@@ -1,5 +1,6 @@
 .banner {
   position: relative;
+  overflow: hidden;
 
   @media only screen and (min-width: 768px) {
     height: 487px;
@@ -103,6 +104,8 @@
     display: inline-block;
     margin-bottom: 9px;
     color: $white;
+    @extend .h2;
+    text-transform: lowercase;
 
     @media only screen and (max-width: 767px) {
       padding: 13px 19px 19px 19px;
