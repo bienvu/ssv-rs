@@ -62,100 +62,221 @@ $color = get_field('color', $term);
  */
 do_action('woocommerce_before_main_content');
 ?>
-	<form class="riseandshine-product-category-filter-form" action="" method="get">
-	  <ul class="product-category">
-	    <?php
-	      $product_categories = get_terms('product_cat', array(
-	        'hide_empty' => 0,
-	        'parent' => 0,
-	      ));
-	    ?>
-	    <?php foreach ($product_categories as $key => $product_category): ?>
-	    	<li class="<?php if($term->term_id == $product_category->term_id) print 'active'; ?>">
-	    		<a href="<?php print get_term_link($product_category); ?>">
-	    			<?php print $product_category->name; ?>
-	    		</a>
-	    	</li>
-	    <?php endforeach ?>
-	  </ul>
-	  <div class="product-attributes">
-	  	<div class="sub-categories">
-	  		Type
-	  		<?php
-	  			$sub_categories =  get_terms('product_cat', array(
-		        'hide_empty' => 0,
-		        'parent' => $term->term_id,
-		      ));
-	  		?>
-	  		<?php $default_sub_categories = isset($_GET['types']) ? (array) $_GET['types'] : array(); ?>
-	  		<?php foreach ($sub_categories as $key => $sub_category): ?>
-  			<div class="form-item form-type-checkbox">
-  				<input id="edit-type-<?php print $sub_category->slug; ?>" type="checkbox" name="types[]" value="<?php print $sub_category->slug; ?>" <?php checked(in_array($sub_category->slug, $default_sub_categories), 1); ?> />
-  				<label for="edit-type-<?php print $sub_category->slug; ?>" class="option">
-  					<?php print $sub_category->name; ?>
-  				</label>
-  			</div>
-	  		<?php endforeach; ?>
-	  	</div>
-	  	<div class="product-attribute--size">
-	  		Size
-		  	<?php
-	  			$attribute_sizes =  get_terms('pa_size', array(
-		        'hide_empty' => 0,
-		      ));
-	  		?>
-	  		<?php $default_attribute_sizes = isset($_GET['sizes']) ? (array) $_GET['sizes'] : array(); ?>
-  			<?php foreach ($attribute_sizes as $key => $attribute_size): ?>
-  				<div class="form-item form-type-checkbox">
-	  				<input id="edit-size-<?php print $attribute_size->slug; ?>" type="checkbox" name="sizes[]" value="<?php print $attribute_size->slug; ?>" <?php checked(in_array($attr_size->slug, $default_attribute_sizes), 1); ?> />
-	  				<label for="edit-size-<?php print $attribute_size->slug; ?>" class="option">
-	  					<?php print $attribute_size->name; ?>
-	  				</label>
-	  			</div>
-  			<?php endforeach; ?>
-	  	</div>
-	  	<div class="product-attribute--comfort">
-	  		Comfort
-		  	<?php
-	  			$attribute_comforts =  get_terms('pa_comfort', array(
-		        'hide_empty' => 0,
-		      ));
-	  		?>
-	  		<?php $default_attribute_comforts = isset($_GET['comforts']) ? (array) $_GET['comforts'] : array(); ?>
-  			<?php foreach ($attribute_comforts as $key => $attribute_comfort): ?>
-  				<div class="form-item form-type-checkbox">
-	  				<input id="edit-comfort-<?php print $attribute_comfort->slug; ?>" type="checkbox" name="comforts[]" value="<?php print $attribute_comfort->slug; ?>" <?php checked(in_array($attribute_comfort->slug, $default_attribute_comforts), 1); ?> />
-	  				<label for="edit-comfort-<?php print $attribute_comfort->slug; ?>" class="option">
-	  					<?php print $attribute_comfort->name; ?>
-	  				</label>
-	  			</div>
-  			<?php endforeach; ?>
-	  	</div>
-	  	<div class="product-price--range">
-	  		<div class="form-item form-type-text">
-	  			<input type="text" name="_price_from" placeholder="<?php print __('$ min', 'riseandshine'); ?>" value="<?php if(isset($_GET['_price_from'])) print $_GET['_price_from']; ?>" />
-	  		</div>
-	  		<div class="form-item form-type-text">
-	  			<input type="text" name="_price_to" placeholder="<?php print __('$ max', 'riseandshine'); ?>" value="<?php if(isset($_GET['_price_to'])) print $_GET['_price_to']; ?>" />
-	  		</div>
-	  	</div>
-	  	<div class="form-submit">
-	  		<input type="submit" name="submit-filter" value="Go">
-	  	</div>
-	  </div>
-	</form>
+	<div class="box-filter is-hidden">
+		<div class="container">
+			<form class="box-filter__wrap riseandshine-product-category-filter-form" action="" method="get">
+				<div class="box-filter__top">
+					<h5 class="box-filter__title">Category</h5>
+				  <ul>
+				    <?php
+				      $product_categories = get_terms('product_cat', array(
+				        'hide_empty' => 0,
+				        'parent' => 0,
+								'orderby' => 'term_id',
+                'order'   => 'ASC',
+								'exclude' => array( 275, 15 ),
+				      ));
+				    ?>
+				    <?php foreach ($product_categories as $key => $product_category): ?>
+				    	<li class="<?php if($term->term_id == $product_category->term_id) print 'active'; ?>">
+				    		<a href="<?php print get_term_link($product_category); ?>">
+				    			<?php print $product_category->name; ?>
+				    		</a>
+				    	</li>
+				    <?php endforeach ?>
+				  </ul>
+				</div>
+				<div class="box-filter__bottom">
+					<h5 class="box-filter__title">Filters</h5>
+					<div class="box-filter__body">
+						<span class="js-show btn"><span>more filters</span></span>
+					  <div class="box-filter__aside show">
+							<div class="box-filter__item">
+	              <div class="container">
+									<div class="form-wrap">
+										<div class="form-list form-top">
+	                    <div class="form-item">
+	                      <span class="js-back come-back"><i class="icon-arrow"></i>back</span>
+	                      <input type="reset" name="" value="clear all">
+	                    </div>
+	                  </div>
+										<div class="form-list">
+	                    <div class="form-item">
+	                      <input type="checkbox" name="" id="sale">
+	                      <label class="reverse" for="sale">sale</label>
+	                    </div>
+	                  </div>
+										<div class="form-list">
+											<!-- Type -->
+											<div class="form-item">
+	                      <span class="btn js-show"><span>type</span></span>
+	                      <div class="box-filter__child form-show show">
+	                        <div class="container">
+	                          <div class="form-list form-top">
+	                            <div class="form-item">
+	                              <span class="js-back come-back"> <i class="icon-arrow"></i>back</span>
+	                              <input type="reset" name="" value="clear all">
+	                            </div>
+	                          </div>
+	                          <div class="form-list form-caption">
+	                            <div class="form-item">
+	                              <span>type</span>
+	                            </div>
+	                          </div>
+	                          <div class="form-list">
+															<?php
+												  			$sub_categories =  get_terms('product_cat', array(
+													        'hide_empty' => 0,
+													        'parent' => $term->term_id,
+													      ));
+												  		?>
+												  		<?php $default_sub_categories = isset($_GET['types']) ? (array) $_GET['types'] : array(); ?>
+															<?php foreach ($sub_categories as $key => $sub_category): ?>
+												  			<div class="form-item form-type-checkbox">
+												  				<input id="edit-type-<?php print $sub_category->slug; ?>" type="checkbox" name="types[]" value="<?php print $sub_category->slug; ?>" <?php checked(in_array($sub_category->slug, $default_sub_categories), 1); ?> />
+												  				<label for="edit-type-<?php print $sub_category->slug; ?>" class="option"> <?php print $sub_category->name; ?></label>
+												  			</div>
+												  		<?php endforeach; ?>
+	                          </div>
+	                          <div class="form-list">
+	                            <div class="form-item">
+	                              <button type="submit" class=" btn btn--lost-icon"><span>go</span></button>
+	                            </div>
+	                          </div>
+	                        </div>
+	                      </div>
+	                    </div>
+											<!-- End type -->
+											<!-- Size -->
+	                    <div class="form-item">
+	                      <span class="btn js-show"><span>size</span></span>
+	                      <div class="box-filter__child form-show show">
+	                        <div class="container">
+	                          <div class="form-list form-top">
+	                            <div class="form-item">
+	                              <span class="js-back come-back"> <i class="icon-arrow"></i>back</span>
+	                              <input type="reset" name="" value="clear all">
+	                            </div>
+	                          </div>
+	                          <div class="form-list form-caption">
+	                            <div class="form-item">
+	                              <span>size</span>
+	                            </div>
+	                          </div>
+	                          <div class="form-list">
+															<?php
+												  			$attribute_sizes =  get_terms('pa_size', array(
+													        'hide_empty' => 0,
+													      ));
+												  		?>
+												  		<?php $default_attribute_sizes = isset($_GET['sizes']) ? (array) $_GET['sizes'] : array(); ?>
+															<?php foreach ($attribute_sizes as $key => $attribute_size): ?>
+											  				<div class="form-item form-type-checkbox">
+												  				<input id="edit-size-<?php print $attribute_size->slug; ?>" type="checkbox" name="sizes[]" value="<?php print $attribute_size->slug; ?>" <?php checked(in_array($attr_size->slug, $default_attribute_sizes), 1); ?> />
+												  				<label for="edit-size-<?php print $attribute_size->slug; ?>" class="option">
+												  					<?php print $attribute_size->name; ?>
+												  				</label>
+												  			</div>
+											  			<?php endforeach; ?>
+	                          </div>
+	                          <div class="form-list">
+	                            <div class="form-item">
+	                              <button type="submit" class=" btn btn--lost-icon"><span>go</span></button>
+	                            </div>
+	                          </div>
+	                        </div>
+	                      </div>
+	                    </div>
+											<!-- End Size -->
+											<!-- comfort -->
+	                    <div class="form-item">
+	                      <span class="btn js-show"><span>comfort</span></span>
+												<div class="box-filter__child form-show show">
+	                        <div class="container">
+	                          <div class="form-list form-top">
+	                            <div class="form-item">
+	                              <span class="js-back come-back"> <i class="icon-arrow"></i>back</span>
+	                              <input type="reset" name="" value="clear all">
+	                            </div>
+	                          </div>
+	                          <div class="form-list form-caption">
+	                            <div class="form-item">
+	                              <span>size</span>
+	                            </div>
+	                          </div>
+	                          <div class="form-list">
+															<?php
+												  			$attribute_comforts =  get_terms('pa_comfort', array(
+													        'hide_empty' => 0,
+													      ));
+												  		?>
+												  		<?php $default_attribute_comforts = isset($_GET['comforts']) ? (array) $_GET['comforts'] : array(); ?>
+											  			<?php foreach ($attribute_comforts as $key => $attribute_comfort): ?>
+											  				<div class="form-item form-type-checkbox">
+												  				<input id="edit-comfort-<?php print $attribute_comfort->slug; ?>" type="checkbox" name="comforts[]" value="<?php print $attribute_comfort->slug; ?>" <?php checked(in_array($attribute_comfort->slug, $default_attribute_comforts), 1); ?> />
+												  				<label for="edit-comfort-<?php print $attribute_comfort->slug; ?>" class="option">
+												  					<?php print $attribute_comfort->name; ?>
+												  				</label>
+												  			</div>
+											  			<?php endforeach; ?>
+	                          </div>
+	                          <div class="form-list">
+	                            <div class="form-item">
+	                              <button type="submit" class=" btn btn--lost-icon"><span>go</span></button>
+	                            </div>
+	                          </div>
+	                        </div>
+	                      </div>
+	                    </div>
+											<!-- End comfort -->
+										</div>
+								  	<div class="product-price--range form-list form-2col">
+								  		<div class="form-item form-type-text">
+								  			<input type="text" name="_price_from" placeholder="<?php print __('$ min', 'riseandshine'); ?>" value="<?php if(isset($_GET['_price_from'])) print $_GET['_price_from']; ?>" />
+								  		</div>
+								  		<div class="form-item form-type-text">
+								  			<input type="text" name="_price_to" placeholder="<?php print __('$ max', 'riseandshine'); ?>" value="<?php if(isset($_GET['_price_to'])) print $_GET['_price_to']; ?>" />
+								  		</div>
+								  	</div>
+										<div class="form-list">
+									  	<div class="form-submit form-item">
+									  		<input type="submit" name="submit-filter" value="Go" class="btn btn--lost-icon">
+									  	</div>
+									  </div>
+								  </div>
+							  </div>
+						  </div>
+					  </div>
+						<!-- <div class="box-filter__sort">
+	            <span class="js-show btn"><span>sort: recommended</span></span>
+
+	            <ul class="show">
+	              <li><a href="#">1</a></li>
+	              <li><a href="#">2</a></li>
+	              <li><a href="#">3</a></li>
+	            </ul>
+	          </div> -->
+				  </div>
+				</div>
+			</form>
+			<div class="box-filter__sort">
+				<?php
+				/**
+				 * Hook: woocommerce_before_shop_loop.
+				 *
+				 * @hooked woocommerce_output_all_notices - 10
+				 * @hooked woocommerce_result_count - 20
+				 * @hooked woocommerce_catalog_ordering - 30
+				 */
+				do_action( 'woocommerce_before_shop_loop' );
+				?>
+			</div>
+		</div>
+	</div>
 
 	<?php
 		print '<div class="grid-products"><div class="container">';
 		if ( woocommerce_product_loop() ) {
-			/**
-			 * Hook: woocommerce_before_shop_loop.
-			 *
-			 * @hooked woocommerce_output_all_notices - 10
-			 * @hooked woocommerce_result_count - 20
-			 * @hooked woocommerce_catalog_ordering - 30
-			 */
-			do_action( 'woocommerce_before_shop_loop' );
 
 			woocommerce_product_loop_start();
 

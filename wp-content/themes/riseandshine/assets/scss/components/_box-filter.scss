@@ -9,6 +9,12 @@
     background: $light-green;
   }
 
+  .container {
+    @media only screen and (min-width: 1024px) {
+      position: relative;
+    }
+  }
+
   &__wrap {
     padding: 26px 0 30px 0;
 
@@ -48,14 +54,18 @@
     ul {
       display: flex;
 
+      @media only screen and (min-width: 1024px) {
+        max-width: 415px;
+      }
+
       li {
         margin-right: 5px;
         margin-bottom: 10px;
         width: 25%;
 
-        &:nth-last-of-type(2) {
-          margin-right: 0;
-        }
+        // &:nth-last-of-type(2) {
+        //   margin-right: 0;
+        // }
 
         @media only screen and (min-width: 1024px) {
           margin: 0 10px 0 0;
@@ -66,7 +76,7 @@
           }
 
           &:nth-last-of-type(2) {
-            margin-right: 5px;
+            margin-right: 10px;
           }
         }
 
@@ -80,11 +90,16 @@
           @extend %link--small;
           line-height: 1.1667;
           background: $white;
-          padding: 7px 16px 8px 15px; 
+          padding: 7px 16px 8px 15px;
+          text-transform: lowercase;
 
           &.active {
             @extend .bg--dark-blue;
           }
+        }
+
+        &.active a {
+          @extend .bg--dark-blue;
         }
       }
     }
@@ -107,6 +122,14 @@
       position: relative;
     }
 
+    .woocommerce-ordering {
+      float: none;
+    }
+
+    select {
+      width: 100%;
+    }
+
     > span {
       &.btn {
         @extend .text--tiny;
@@ -115,7 +138,7 @@
         padding-bottom: 16px;
 
         @media only screen and (min-width: 1024px) {
-          min-width: 213px;          
+          min-width: 213px;
         }
       }
 
@@ -155,7 +178,7 @@
     }
   }
 
-  
+
 
   &__body {
     @media only screen and (min-width: 1024px) {
@@ -179,12 +202,13 @@
   }
 
   &__item {
-    form {
+    form,
+    .form-wrap {
       @media only screen and (min-width: 1024px) {
         display: flex;
       }
     }
-    
+
     .form-list {
       @media only screen and (min-width: 1024px) {
         margin: 0;
@@ -219,6 +243,16 @@
             @media only screen and (max-width: 1023px) {
               display: block;
             }
+          }
+        }
+
+        .form-type-text {
+          width: 60px;
+
+          input {
+            background: $white;
+            font-size: 12px;
+            padding: 12px 10px;
           }
         }
       }
@@ -288,7 +322,7 @@
           span {
             text-align: center;
           }
-          
+
 
           @media only screen and (min-width: 1024px) {
             padding: 11px 16px 12px 14px;
@@ -405,7 +439,7 @@
         display: block;
       }
     }
-    
+
     .form-list {
       &:nth-of-type(2n),
       &:nth-of-type(2n+1) {
