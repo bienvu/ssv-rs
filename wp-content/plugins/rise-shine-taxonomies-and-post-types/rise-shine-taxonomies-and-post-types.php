@@ -14,3 +14,4 @@ define('RISEANDSHINE_TPT_PLUGIN_PATH', plugin_dir_path(__FILE__));
 
 include(RISEANDSHINE_TPT_PLUGIN_PATH. 'taxonomies/fabric.php');
 include(RISEANDSHINE_TPT_PLUGIN_PATH. 'taxonomies/product-brand.php');
+include(RISEANDSHINE_TPT_PLUGIN_PATH. 'taxonomies/rs-postcode.php');
