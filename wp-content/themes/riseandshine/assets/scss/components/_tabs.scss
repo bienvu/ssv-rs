@@ -1,4 +1,7 @@
 .rs-tabs {
+  margin-top: 26px;
+  margin-bottom: 33px;
+
   .container {
     @media only screen and (max-width: 767px) {
       width: 100%;
@@ -22,6 +25,8 @@
       }
 
       li {
+        text-transform: lowercase;
+        
         @media only screen and (min-width: 768px) {
           padding: 0 32px 0 0;
         }
@@ -108,7 +113,7 @@
     background: $gray;
     display: none;
     padding: 16px 20px 27px;
-    
+
 
     @media only screen and (min-width: 768px) {
       padding: 14px 16px;
