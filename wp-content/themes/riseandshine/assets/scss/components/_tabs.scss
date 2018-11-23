@@ -1,3 +1,126 @@
-.woocommerce-tabs {
+.rs-tabs {
+  .container {
+    @media only screen and (max-width: 767px) {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+  }
 
+  &__wrap {
+    @media only screen and (min-width: 768px) {
+      padding: 0 67px;
+    }
+
+    > ul {
+      display: none;
+
+      @media only screen and (min-width: 768px) {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      li {
+        @media only screen and (min-width: 768px) {
+          padding: 0 32px 0 0;
+        }
+
+        &.active {
+          span {
+            @media only screen and (min-width: 768px) {
+              border-bottom: 2px solid $blue;
+            }
+          }
+        }
+
+        span {
+          @extend .text--normal;
+          padding: 16px 16px 16px 15px;
+          display: inline-block;
+          border-bottom: 2px solid transparent;
+        }
+      }
+    }
+  }
+
+  &__body {
+    @media only screen and (min-width: 768px) {
+      margin-top: -1px;
+      border-top: 1px solid $gray;
+    }
+
+    ul {
+      li {
+        border-top: 2px solid $gray;
+
+        @media only screen and (min-width: 768px) {
+          display: none;
+        }
+
+        &:last-of-type {
+          border-bottom: 2px solid $gray;
+
+          @media only screen and (min-width: 768px) {
+            border-bottom: 0;
+          }
+        }
+
+        &.active {
+          @media only screen and (min-width: 768px) {
+            display: block;
+
+            .rs-tabs__content {
+              display: block;
+            }
+          }
+        }
+
+        span {
+          @extend .text--normal;
+          display: inline-block;
+          width: 100%;
+          position: relative;
+          padding: 14px 20px 17px;
+
+          @media only screen and (min-width: 768px) {
+            display: none;
+          }
+
+          &.active {
+            i {
+              transform: rotate(270deg);
+            }
+          }
+
+          i {
+            position: absolute;
+            right: 29px;
+            transform: rotate(90deg);
+          }
+        }
+      }
+    }
+  }
+
+  &__content {
+    @extend .text--small;
+    background: $gray;
+    display: none;
+    padding: 16px 20px 27px;
+    
+
+    @media only screen and (min-width: 768px) {
+      padding: 14px 16px;
+      max-width: 482px;
+    }
+
+    &.active {
+      display: block;
+    }
+
+    @media only screen and (min-width: 768px) {
+      background: none;
+    }
+  }
 }

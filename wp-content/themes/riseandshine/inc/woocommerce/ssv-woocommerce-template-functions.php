@@ -243,3 +243,10 @@ function ssv_woocommerce_format_sale_price($price, $regular_price, $sale_price){
 
  	return '<div data-thumb="' . esc_url( $thumbnail_src[0] ) . '" class="product__thumnail__item">' . $image . '</div>';
  }
+
+//Change the breadcrumb separator
+function wcc_change_breadcrumb_delimiter( $defaults ) {
+    // Change the breadcrumb delimeter from '/' to '>'
+    $defaults['delimiter'] = '<span> &gt; </span>';
+    return $defaults;
+}
