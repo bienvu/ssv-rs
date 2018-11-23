@@ -143,8 +143,9 @@ if( get_row_layout() == 'banner' ):
 
 <!-- Box HTML code -->
 <?php elseif( get_row_layout() == 'box_html' ):
-  $htmlCode = get_sub_field("html_code"); ?>
-  <div class="box-html">
+  $htmlCode = get_sub_field("html_code"); 
+  $noSpace = get_sub_field("no_space"); ?>
+  <div class="box-html <?php echo $noSpace[0]; ?>">
     <?php print $htmlCode; ?>
   </div>
 
