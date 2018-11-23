@@ -4,7 +4,7 @@
   }
 
   &__gallery {
-    width: 45%;
+    width: 37%;
     display: flex;
 
     .woocommerce-product-gallery__image {
@@ -57,6 +57,10 @@
         color: $text-color;
       }
 
+      &.slick-prev {
+        display: none;
+      }
+
       &.slick-next {
         bottom: -10px;
         left: 0;
@@ -80,6 +84,13 @@
       line-height: 0;
       background: #f2f6f5;
       margin-bottom: 10px;
+      height: 60px;
+      overflow: hidden;
+
+      img {
+        height: 100%;
+        width: auto;
+      }
     }
 
     img {
@@ -89,17 +100,45 @@
 
   &__content-right {
     @media only screen and (min-width: 768px) {
-      width: 55%;
-      padding: 0 0 0 17px;
+      width: 63%;
+      padding: 0 0 0 21px;
     }
 
     @media only screen and (min-width: 1024px) {
-      width: 55%;
-      padding: 0 59px 0 17px;
+      padding: 0 0 0 21px;
     }
 
     .price {
       margin-bottom: 20px;
+
+      del,
+      ins {
+        font-size: 15px;
+        display: block !important;
+        text-decoration: none;
+        font-weight: normal !important;
+        opacity: 1 !important;
+
+
+      }
+
+      del {
+        color: $blue;
+
+        span {
+          text-decoration: line-through;
+          font-size: 14px;
+        }
+      }
+
+      ins {
+        color: $red;
+        margin-top: -11px;
+
+        span {
+          font-size: 21px;
+        }
+      }
     }
 
     form {
@@ -197,6 +236,17 @@
   &__multilink {
     display: flex;
     justify-content: space-between;
+    max-width: 403px;
+
+    h5 {
+      margin-bottom: 8px;
+      font-weight: 500;
+
+      i {
+        margin-right: 3px;
+        line-height: 1;
+      }
+    }
   }
 
   &__row {
@@ -255,5 +305,50 @@
 
   .btn--cart {
     @extend .btn--full;
+  }
+
+  .cart {
+    display: flex;
+    margin-bottom: 23px !important;
+  }
+
+  .list-icons a:before {
+    font-size: 22px;
+  }
+}
+
+.size-information {
+  margin-bottom: 25px;
+
+  &__title {
+    font-size: 14px;
+    margin-bottom: 5px;
+
+    a {
+      color: #396682;
+    }
+  }
+
+  .item-size {
+    font-weight: 600;
+    color: $blue;
+    display: inline-block;
+    background: $gray;
+    padding: 11px 15px;
+    margin-right: 10px;
+    font-size: 14px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.quantity-group {
+  min-width: 68px;
+  margin-right: 6px;
+
+  .btn {
+    max-width: 325px;
   }
 }

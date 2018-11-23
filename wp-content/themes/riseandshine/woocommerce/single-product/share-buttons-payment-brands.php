@@ -13,6 +13,6 @@
 
   <div class="product__payment">
     <h5 class="product__name text--tiny"><i class="icon-lock"></i>secure checkout with:</h5>
-    <span class="payment-brands">Interest Free, Mastercard, Visa, Zip, Paypal</span>
+    <span class="payment-brands"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/secure-checkout.png"/ alt="Interest Free, Mastercard, Visa, Zip, Paypal"></span>
   </div>
 </div>
