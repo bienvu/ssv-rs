@@ -192,12 +192,6 @@
 
     .slick-list {
       width: 100%;
-      // margin: 0 -10px;
-      //
-      //
-      // @media only screen and (min-width: 768px) {
-      //   margin: 0 -14.5px;
-      // }
     }
 
     @media only screen and (min-width: 768px) {
@@ -207,7 +201,6 @@
 
     .grid-products__item {
       padding: 0 10px;
-      // width: auto;
       background: none;
       margin: 0;
       min-height: inherit;
@@ -250,6 +243,11 @@
         height: auto;
         max-width: inherit;
       }
+    }
+
+    .grid-products__sub-title,
+    .grid-products__content .btn {
+      display: none;
     }
 
     .slick-prev,
