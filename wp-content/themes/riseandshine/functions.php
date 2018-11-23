@@ -12,23 +12,23 @@ add_theme_support( 'woocommerce' );
 
 // Add theme options.
 if( function_exists('acf_add_options_page') ) {
-	acf_add_options_page(array(
-		'page_title' 	=> 'Theme General Settings',
-		'menu_title'	=> 'Theme Settings',
-		'menu_slug' 	=> 'theme-general-settings',
-		'capability'	=> 'edit_posts',
-		'redirect'		=> false
-	));
+  acf_add_options_page(array(
+    'page_title'  => 'Theme General Settings',
+    'menu_title'  => 'Theme Settings',
+    'menu_slug'   => 'theme-general-settings',
+    'capability'  => 'edit_posts',
+    'redirect'    => false
+  ));
 
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Product Single Setting',
-		'menu_title'	=> 'Product Single',
-		'parent_slug'	=> 'theme-general-settings',
-	));
+  acf_add_options_sub_page(array(
+    'page_title'  => 'Product Single Setting',
+    'menu_title'  => 'Product Single',
+    'parent_slug' => 'theme-general-settings',
+  ));
 }
 
 /*------------------------------------*\
-	Theme Support
+  Theme Support
 \*------------------------------------*/
 
 if (function_exists('add_theme_support')) {
@@ -43,7 +43,7 @@ if (function_exists('add_theme_support')) {
 }
 
 /*------------------------------------*\
-	Functions
+  Functions
 \*------------------------------------*/
 
 // Allow SVG through WordPress Media Uploader
@@ -66,26 +66,26 @@ add_action('init', 'register_rs_menu');
 
 // Navigation
 function rs_nav($menuclass, $name) {
-	wp_nav_menu(
-	array(
-		'theme_location'  => 'header-menu',
-		'menu'            => $name,
-		'container'       => '',
-		'container_class' => '$menuclass',
-		'container_id'    => '',
-		'menu_class'      => $menuclass,
-		'menu_id'         => '',
-		'echo'            => true,
-		'fallback_cb'     => 'wp_page_menu',
-		'before'          => '',
-		'after'           => '',
-		'link_before'     => '',
-		'link_after'      => '',
-		'items_wrap'      => '<ul>%3$s</ul>',
-		'depth'           => 0,
-		'walker'          => ''
-		)
-	);
+  wp_nav_menu(
+  array(
+    'theme_location'  => 'header-menu',
+    'menu'            => $name,
+    'container'       => '',
+    'container_class' => '$menuclass',
+    'container_id'    => '',
+    'menu_class'      => $menuclass,
+    'menu_id'         => '',
+    'echo'            => true,
+    'fallback_cb'     => 'wp_page_menu',
+    'before'          => '',
+    'after'           => '',
+    'link_before'     => '',
+    'link_after'      => '',
+    'items_wrap'      => '<ul>%3$s</ul>',
+    'depth'           => 0,
+    'walker'          => ''
+    )
+  );
 }
 // Set class for menu dropdown
 function menu_set_dropdown( $sorted_menu_items, $args ) {
@@ -115,25 +115,25 @@ function wp_add_styles() {
 function wp_add_scripts() {
     global $wp_query;
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
-			// Slick js.
-			wp_register_script('slick', get_template_directory_uri() . '/assets/js/lib/slick.js', array(), '1.0.0');
-			wp_enqueue_script('slick');
+      // Slick js.
+      wp_register_script('slick', get_template_directory_uri() . '/assets/js/lib/slick.js', array(), '1.0.0');
+      wp_enqueue_script('slick');
 
-			// Media-match js.
-			wp_register_script('matchHeight', get_template_directory_uri() . '/assets/js/lib/jquery.matchHeight.js', array(), '1.0.0');
-			wp_enqueue_script('matchHeight');
+      // Media-match js.
+      wp_register_script('matchHeight', get_template_directory_uri() . '/assets/js/lib/jquery.matchHeight.js', array(), '1.0.0');
+      wp_enqueue_script('matchHeight');
 
-			// froogaloop2 js.
-			wp_register_script('froogaloop2', get_template_directory_uri() . '/assets/js/lib/froogaloop2.min.js', array(), '1.0.0');
-			wp_enqueue_script('froogaloop2');
+      // froogaloop2 js.
+      wp_register_script('froogaloop2', get_template_directory_uri() . '/assets/js/lib/froogaloop2.min.js', array(), '1.0.0');
+      wp_enqueue_script('froogaloop2');
 
-			// froogaloop2 js.
-			wp_register_script('easyzoom', get_template_directory_uri() . '/assets/js/lib/easyzoom.js', array(), '1.0.0');
-			wp_enqueue_script('easyzoom');
+      // froogaloop2 js.
+      wp_register_script('easyzoom', get_template_directory_uri() . '/assets/js/lib/easyzoom.js', array(), '1.0.0');
+      wp_enqueue_script('easyzoom');
 
       // Script.
       wp_register_script('script', get_template_directory_uri() . '/assets/js/script.js', array(), '1.0.0'); // Custom scripts
-			wp_enqueue_script('script');
+      wp_enqueue_script('script');
     }
 }
 
