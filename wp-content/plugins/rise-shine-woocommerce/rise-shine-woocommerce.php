@@ -11,6 +11,8 @@
  */
 
 add_action('init', 'rise_shine_woocommerce_init');
+add_action('woocommerce_cart_calculate_fees','rise_shine_woocommerce_cart_calculate_installation_fee');
+add_action('woocommerce_admin_process_product_object', 'rise_shine_woocommerce_admin_process_product_object');
 add_filter('woocommerce_csv_product_import_mapping_options', 'rise_shine_woocommerce_add_column_to_importer');
 add_filter('woocommerce_csv_product_import_mapping_default_columns', 'rise_shine_woocommerce_add_column_to_mapping_screen');
 add_filter('woocommerce_product_import_inserted_product_object', 'rise_shine_woocommerce_product_import_inserted_product_object', 10, 2);
@@ -18,6 +20,30 @@ add_action('woocommerce_product_options_general_product_data', 'rise_shine_wooco
 add_filter('woocommerce_product_importer_pre_expand_data', 'rise_shine_woocommerce_product_importer_pre_expand_data');
 add_filter('woocommerce_shipping_methods', 'rise_shine_woocommerce_shipping_methods');
 
+
+/**
+ * Add a 1% surcharge to your cart / checkout
+ * change the $percentage to set the surcharge to a value to suit
+ */
+
+function rise_shine_woocommerce_cart_calculate_installation_fee() {
+  global $woocommerce;
+  if ( is_admin() && ! defined( 'DOING_AJAX' ) )
+    return;
+  $items = $woocommerce->cart->get_cart();
+  $installation_fee = 0;
+  foreach ($items as $key => $item) {
+    $quantity = $item['quantity'];
+    $product = $item['data'];
+    $installation_fee_item = get_post_meta($product->get_id(), '_assembly_fee', true);
+    if (!empty($installation_fee_item)) {
+      $installation_fee = $installation_fee + (float)$installation_fee_item*$quantity;
+    }
+  }
+  if ($installation_fee !== 0) {
+    $woocommerce->cart->add_fee( 'Installation Fee', $installation_fee, true, '' );
+  }
+}
 
 /**
  * Hooked init.
@@ -68,6 +94,16 @@ function rise_shine_woocommerce_product_options_general_product_data() {
       'type'              => 'number',
     )
   );
+}
+
+/**
+ * Hooked woocommerce_process_product_meta
+ * Save product data.
+ */
+function rise_shine_woocommerce_admin_process_product_object($product) {
+  if (isset($_POST['_assembly_fee'])) {
+    $product->update_meta_data('_assembly_fee', sanitize_text_field($_POST['_assembly_fee']));
+  }
 }
 
 /**
