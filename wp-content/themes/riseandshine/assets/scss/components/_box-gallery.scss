@@ -6,7 +6,6 @@
   &__gallery {
     width: 45%;
     display: flex;
-    align-items: center;
 
     .woocommerce-product-gallery__image {
       position: relative;
@@ -14,17 +13,40 @@
     }
 
     .easyzoom-flyout {
-      position: relative;
-      z-index: 2;
+      z-index: 999;
+      width: 100%;
+      display: inline-block;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+
+      img {
+        max-width: inherit;
+        width: auto;
+      }
     }
   }
 
   &__images {
-    width: 80%;
+    width: calc(100% - 83px);
+
+    .slick-track {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slick-slide {
+      line-height: 0;
+      width: 100%;
+    }
   }
 
   &__thumnail {
-    width: 20%;
+    width: 73px;
+    padding-bottom: 10px;
+    margin-right: 10px;
 
     .slick-arrow {
       position: absolute;
@@ -36,17 +58,32 @@
       }
 
       &.slick-next {
-        bottom: 0;
+        bottom: -10px;
         left: 0;
         top: inherit;
         right: 0;
         text-align: center;
         width: 100%;
+        height: 20px;
+        min-height: inherit;
 
         &:before {
           transform: rotate(90deg);
+          top: 50%;
+          margin-top: -6px;
         }
       }
+    }
+
+    .slick-slide {
+      border: 0;
+      line-height: 0;
+      background: #f2f6f5;
+      margin-bottom: 10px;
+    }
+
+    img {
+      margin-right: 0;
     }
   }
 
