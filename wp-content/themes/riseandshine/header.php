@@ -21,7 +21,6 @@
 
 		<!-- wrapper -->
 		<div class="wrapper">
-			<!-- <?php rs_nav($class,'Main Menu'); ?> -->
 			<header class="header">
 			  <div class="header__logo">
 			    <div class="container">

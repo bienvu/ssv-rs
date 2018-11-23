@@ -120,6 +120,10 @@ function wp_add_scripts() {
 			wp_register_script('matchHeight', get_template_directory_uri() . '/assets/js/lib/jquery.matchHeight.js', array(), '1.0.0');
 			wp_enqueue_script('matchHeight');
 
+			// froogaloop2 js.
+			wp_register_script('froogaloop2', get_template_directory_uri() . '/assets/js/lib/froogaloop2.min.js', array(), '1.0.0');
+			wp_enqueue_script('froogaloop2');
+
       // Script.
       wp_register_script('script', get_template_directory_uri() . '/assets/js/script.js', array(), '1.0.0'); // Custom scripts
 			wp_enqueue_script('script');

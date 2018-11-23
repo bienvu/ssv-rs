@@ -240,9 +240,15 @@ if( get_row_layout() == 'banner' ):
           <h3 class="box-video__title"><?php print $title; ?></h3>
 
           <div class="box-video__video">
-            <video width="795" height="445" poster="<?php print $videoPoster; ?>" controls loop and muted and preload="auto">
-              <source src="../../../../videos/Trawla_Website_Video.MOV" type="video/mp4">
-            </video>
+            <div class="video-wrap js-play-video">
+              <iframe class="youtube-embed" width="960" height="540" allowfullscreen="allowfullscreen" src="https://www.youtube.com/embed/<?php print $videoUrl; ?>?autoplay=0&amp;start=0&amp;rel=0&amp;version=3&amp;loop=1&amp;enablejsapi=1">
+              </iframe>
+
+              <div class="video-wrap__poster bg--dark-black--overlay">
+                <span class="video-wrap__icon icon-play"></span>
+                <?php echo wp_get_attachment_image( $videoPoster['ID'], 'full' ); ?>
+              </div>
+            </div>
           </div>
         </div>
 
