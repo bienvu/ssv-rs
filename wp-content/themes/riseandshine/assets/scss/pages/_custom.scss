@@ -21,3 +21,61 @@
 main {
   box-shadow: inset 0px 20px 20px -20px rgba($black, .2);
 }
+
+.breadcrumb {
+  @extend .text--tiny;
+  @extend .text--regular;
+  color: $blue;
+  padding: 7px 0 8px;
+  text-transform: lowercase;
+  margin-top: 35px;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 14px;
+    padding: 26px 0;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    margin: 0;
+  }
+
+  a {
+    @extend .text--tiny;
+    @extend .text--regular;
+    color: $blue;
+    line-height: 1;
+    display: inline-block;
+    text-transform: lowercase;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 14px;
+    }
+  }
+
+  span {
+    margin: 0 2px 0 4px;
+
+    @media only screen and (min-width: 768px) {
+      margin: 0 4px;
+    }
+  }
+
+  .breadcrumb-back {
+    position: relative;
+    border-right: 2px solid $light-indigo;
+    padding: 0 11px 0 14px;
+    margin-right: 9px;
+
+    @media only screen and (min-width: 768px) {
+      padding: 0 16px 0 14px;
+      margin-right: 16px;
+    }
+
+    i {
+      position: absolute;
+      transform: rotate(180deg);
+      left: 0;
+      top: 1px;
+    }
+  }
+}

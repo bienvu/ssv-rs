@@ -104,6 +104,9 @@ function menu_set_dropdown( $sorted_menu_items, $args ) {
 
 // Add style to header.
 function wp_add_styles() {
+    wp_register_style('easyzoom', get_template_directory_uri() . '/assets/css/easyzoom.css', array(), '1.0', 'all');
+    wp_enqueue_style('easyzoom');
+		
     wp_register_style('styles', get_template_directory_uri() . '/assets/css/styles.css', array(), '1.0', 'all');
     wp_enqueue_style('styles');
 }
@@ -123,6 +126,10 @@ function wp_add_scripts() {
 			// froogaloop2 js.
 			wp_register_script('froogaloop2', get_template_directory_uri() . '/assets/js/lib/froogaloop2.min.js', array(), '1.0.0');
 			wp_enqueue_script('froogaloop2');
+
+			// froogaloop2 js.
+			wp_register_script('easyzoom', get_template_directory_uri() . '/assets/js/lib/easyzoom.js', array(), '1.0.0');
+			wp_enqueue_script('easyzoom');
 
       // Script.
       wp_register_script('script', get_template_directory_uri() . '/assets/js/script.js', array(), '1.0.0'); // Custom scripts
@@ -270,6 +277,13 @@ function ssv_remove_thumbnail_dimensions( $html )
     return $html;
 }
 
+//Change the breadcrumb separator
+function wcc_change_breadcrumb_delimiter( $defaults ) {
+    // Change the breadcrumb delimeter from '/' to '>'
+    $defaults['delimiter'] = '<span> &gt; </span>';
+    return $defaults;
+}
+
 /*------------------------------------*\
     Actions + Filters + ShortCodes
 \*------------------------------------*/
@@ -310,6 +324,7 @@ add_filter('the_excerpt', 'do_shortcode'); // Allows Shortcodes to be executed i
 add_filter('style_loader_tag', 'ssv_style_remove'); // Remove 'text/css' from enqueued stylesheet
 add_filter('post_thumbnail_html', 'ssv_remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
 add_filter('image_send_to_editor', 'ssv_remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to post images
+add_filter( 'woocommerce_breadcrumb_defaults', 'wcc_change_breadcrumb_delimiter', 20 );
 
 // Remove Filters
 remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altogether

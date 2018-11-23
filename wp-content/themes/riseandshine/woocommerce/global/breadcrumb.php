@@ -24,14 +24,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! empty( $breadcrumb ) ) {
   if (isset($breadcrumb[count($breadcrumb)-2])) {
     $second_last_crumb = $breadcrumb[count($breadcrumb)-2];
-    print '<a href="'.esc_url($second_last_crumb[1]).'">' . __('Back') . '</a>';
+    print '<a href="'.esc_url($second_last_crumb[1]).'" class="breadcrumb-back"><i class="icon-arrow"></i>' . __('Back') . '</a>';
   }
 
   if (count($breadcrumb) >= 2) {
     unset($breadcrumb[count($breadcrumb)-1]);
   }
 
-  echo $wrap_before;
+  // echo $wrap_before;
 
   foreach ( $breadcrumb as $key => $crumb ) {
 
@@ -50,6 +50,6 @@ if ( ! empty( $breadcrumb ) ) {
     }
   }
 
-  echo $wrap_after;
+  // echo $wrap_after;
 
 }

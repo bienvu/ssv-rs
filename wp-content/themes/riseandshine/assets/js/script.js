@@ -132,34 +132,44 @@
     });
 
     //js product
-    $('.js-product').slick({
+    $('.js-gallery').slick({
       slidesToShow: 1,
       slidesToScroll: 1,
-      arrows: false
-    });
-
-    $('.js-product').slick({
-      prevArrow: '<span class="slick-prev"></span>',
-      nextArrow: '<span class="slick-next"></span>',
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      mobileFirst: true,
-      rows: 2,
-      slidesPerRow: 2,
+      infinite: false,
       arrows: false,
-      responsive: [
-        {
-          breakpoint: 767,
-          settings: {
-            slidesToScroll: 4,
-            slidesToShow: 4,
-            rows: 1,
-            slidesPerRow: 1,
-            arrows: true
-          }
-        }
-      ]
+      asNavFor: '.js-gallery-thumbnail',
     });
+    $('.js-gallery-thumbnail').slick({
+      asNavFor: '.js-gallery',
+      slidesToShow: 5,
+      slidesToScroll: 1,
+      infinite: false,
+      vertical:true,
+      focusOnSelect: true,
+    });
+    //
+    // $('.js-product').slick({
+    //   prevArrow: '<span class="slick-prev"></span>',
+    //   nextArrow: '<span class="slick-next"></span>',
+    //   slidesToShow: 1,
+    //   slidesToScroll: 1,
+    //   mobileFirst: true,
+    //   rows: 2,
+    //   slidesPerRow: 2,
+    //   arrows: false,
+    //   responsive: [
+    //     {
+    //       breakpoint: 767,
+    //       settings: {
+    //         slidesToScroll: 4,
+    //         slidesToShow: 4,
+    //         rows: 1,
+    //         slidesPerRow: 1,
+    //         arrows: true
+    //       }
+    //     }
+    //   ]
+    // });
 
     // Arrow slider
     function autoHeight(object) {
@@ -211,6 +221,10 @@
         }
       });
     });
+    
+    // Product zoom.
+    // Instantiate EasyZoom instances
+		var $easyzoom = $('.easyzoom').easyZoom();
   });
 
 }(this, this.document, this.jQuery));
