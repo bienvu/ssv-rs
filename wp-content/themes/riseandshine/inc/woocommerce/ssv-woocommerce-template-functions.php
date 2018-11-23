@@ -184,7 +184,7 @@ if ( ! function_exists( 'ssv_woocommerce_product_size' ) ) {
 
 add_filter( 'woocommerce_format_sale_price', 'ssv_woocommerce_format_sale_price', 99, 3);
 function ssv_woocommerce_format_sale_price($price, $regular_price, $sale_price){
-	$price = '<del>was ' . ( is_numeric( $regular_price ) ? wc_price( $regular_price ) : $regular_price ) . '</del> <ins> now' . ( is_numeric( $sale_price ) ? wc_price( $sale_price ) : $sale_price ) . '</ins>';
+	$price = '<del>was ' . ( is_numeric( $regular_price ) ? wc_price( $regular_price ) : $regular_price ) . '</del> <ins>now ' . ( is_numeric( $sale_price ) ? wc_price( $sale_price ) : $sale_price ) . '</ins>';
 	return $price;
 }
 

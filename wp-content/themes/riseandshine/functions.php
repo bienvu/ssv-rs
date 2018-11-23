@@ -106,7 +106,7 @@ function menu_set_dropdown( $sorted_menu_items, $args ) {
 function wp_add_styles() {
     wp_register_style('easyzoom', get_template_directory_uri() . '/assets/css/easyzoom.css', array(), '1.0', 'all');
     wp_enqueue_style('easyzoom');
-    
+
     wp_register_style('styles', get_template_directory_uri() . '/assets/css/styles.css', array(), '1.0', 'all');
     wp_enqueue_style('styles');
 }
