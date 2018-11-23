@@ -277,13 +277,6 @@ function ssv_remove_thumbnail_dimensions( $html )
     return $html;
 }
 
-//Change the breadcrumb separator
-function wcc_change_breadcrumb_delimiter( $defaults ) {
-    // Change the breadcrumb delimeter from '/' to '>'
-    $defaults['delimiter'] = '<span> &gt; </span>';
-    return $defaults;
-}
-
 /*------------------------------------*\
     Actions + Filters + ShortCodes
 \*------------------------------------*/
@@ -324,8 +317,6 @@ add_filter('the_excerpt', 'do_shortcode'); // Allows Shortcodes to be executed i
 add_filter('style_loader_tag', 'ssv_style_remove'); // Remove 'text/css' from enqueued stylesheet
 add_filter('post_thumbnail_html', 'ssv_remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
 add_filter('image_send_to_editor', 'ssv_remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to post images
-add_filter( 'woocommerce_breadcrumb_defaults', 'wcc_change_breadcrumb_delimiter', 20 );
-
 // Remove Filters
 remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altogether
 
