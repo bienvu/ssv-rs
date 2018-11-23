@@ -331,7 +331,7 @@
 }
 
 .search-wrap {
-  margin-bottom: 30px;
+  margin-bottom: 29px;
 
   input[type="search"] {
     width: 250px;
@@ -368,7 +368,7 @@
 .video-wrap {
   height: 0;
   overflow: hidden;
-  padding-bottom: 56.25%;
+  padding-bottom: 55.9%;
   position: relative;
   margin-bottom: rem(20px);
 
@@ -408,13 +408,17 @@
 
   &__icon {
     color: $white;
-    font-size: rem(50px);
+
     left: 50%;
     line-height: 0;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 3;
+
+    &:before {
+      font-size: rem(102px);
+    }
   }
 
   &__title {
