@@ -775,7 +775,7 @@
                                 "id": ""
                             },
                             "choices": {
-                                "no-space: No Space": "no-space: No Space"
+                                "no-space": "No Space"
                             },
                             "allow_custom": 0,
                             "default_value": [],
@@ -1431,5 +1431,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1542972022
+    "modified": 1542973666
 }
