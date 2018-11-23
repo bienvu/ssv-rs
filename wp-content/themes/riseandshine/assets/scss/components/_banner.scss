@@ -239,4 +239,22 @@
       }
     }
   }
+
+  &--sale {
+    height: auto;
+
+    .banner__image {
+      height: 487px;
+    }
+
+    .banner__wrap {
+      top: 0;
+      position: relative;
+      transform: none;
+    }
+
+    .banner__body {
+      max-width: inherit;
+    }
+  }
 }

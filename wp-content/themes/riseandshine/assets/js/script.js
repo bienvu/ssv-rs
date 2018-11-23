@@ -32,10 +32,9 @@
     $('a').removeAttr('title');
 
     // Add placeholder to quiz.
-    $('.wpcf7-quiz').attr('placeholder', 'text here');
+    $('.wpcf7-quiz').attr('placeholder', 'what is the first letter of rise?');
 
     // Faq Accordion.
-    // Color accordion
     $('.box-faq__question').each(function() {
       $(this).on('click', function (e) {
         if ($(this).hasClass('is-show')) {
@@ -105,7 +104,7 @@
       if($(window)[0].outerWidth > 1024) {
         $(this).toggleClass('active');
       }
-      
+
       $(this).next('.show').toggleClass('active');
     });
 
@@ -172,9 +171,22 @@
       $('.grid-products__title').matchHeight();
     }
 
-    // placeholder contact page
-    if(document.querySelector('.contact-form .form-row:last-of-type .form-item input')) {
-      document.querySelector('.contact-form .form-row:last-of-type .form-item input').placeholder = "what is the first letter of rise?";
+    // js-play-video
+    var $jsPlayVideo = $('.js-play-video'),
+        playVideo = function (e) {
+      var $iframeVimeo = $(this).find('.vimeo-embed'),
+          $iframeYoutube = $(this).find('.youtube-embed');
+      $(this).addClass("play-video");
+      if ($iframeVimeo.length) {
+        var player = Froogaloop($iframeVimeo[0]);
+        player.api('play');
+      }
+      if ($iframeYoutube.length) {
+        $iframeYoutube[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+      }
+    };
+    if ($jsPlayVideo.length) {
+      $jsPlayVideo.on('click', playVideo);
     }
   });
 
