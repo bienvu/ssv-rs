@@ -94,6 +94,10 @@
     font-weight: 300;
   }
 
+  &--regular {
+    font-weight: 400;
+  }
+
   &--small {
     font-size: 14px;
     line-height: 1.5;
@@ -332,6 +336,32 @@
   input[type="search"] {
     width: 250px;
     padding: 10px 32px;
+  }
+}
+
+
+.price {
+  &__was {
+    font-size: 15px;
+    @extend .text--tall;
+
+    span {
+      @extend .text--small;
+      @extend .text--regular;
+      text-decoration: line-through;
+    }
+  }
+
+  &__now {
+    color: $light-red;
+    @extend .text--small;
+    @extend .text--tall;
+    margin-top: -11px;
+
+    span {
+      @extend .text--regular;
+      font-size: 21px;
+    }
   }
 }
 

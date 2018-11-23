@@ -32,10 +32,9 @@
     $('a').removeAttr('title');
 
     // Add placeholder to quiz.
-    $('.wpcf7-quiz').attr('placeholder', 'text here');
+    $('.wpcf7-quiz').attr('placeholder', 'what is the first letter of rise?');
 
     // Faq Accordion.
-    // Color accordion
     $('.box-faq__question').each(function() {
       $(this).on('click', function (e) {
         if ($(this).hasClass('is-show')) {
@@ -118,6 +117,13 @@
       $(this).next('.show').addClass('active');
     });
 
+    //js product
+    $('.js-product').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false
+    });
+
     $('.js-product').slick({
       prevArrow: '<span class="slick-prev"></span>',
       nextArrow: '<span class="slick-next"></span>',
@@ -163,20 +169,6 @@
     // matchHeight
     if(('.grid-products__title').length) {
       $('.grid-products__title').matchHeight();
-    }
-
-    // placeholder contact page
-    if(document.querySelector('.contact-form .form-row:last-of-type .form-item input')) {
-      document.querySelector('.contact-form .form-row:last-of-type .form-item input').placeholder = "what is the first letter of rise?";
-    }
-
-    // js load
-    if($('.js-load').length) {
-      $('.js-load').click(function() {
-        var id = '.' + $(this).attr('data-id');
-        $('.load').removeClass('active');
-        $(id).addClass('active');
-      });
     }
 
     // js-play-video

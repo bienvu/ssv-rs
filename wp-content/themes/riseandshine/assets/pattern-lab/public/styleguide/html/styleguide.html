@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <meta name="format-detection" content="telephone=no">
-    <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1542933149" media="all" />
-    <link rel="stylesheet" href="../../css/app-style.css?1542933149" media="all" />
+    <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1542938803" media="all" />
+    <link rel="stylesheet" href="../../css/app-style.css?1542938803" media="all" />
     <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
     <!-- never cache patterns -->
 <meta http-equiv="cache-control" content="max-age=0" />
@@ -15,19 +15,19 @@
 <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
 <meta http-equiv="pragma" content="no-cache" />
 
-<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1542933149" media="all">
-<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1542933149" media="all" />
+<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1542938803" media="all">
+<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1542938803" media="all" />
     <!-- End Pattern Lab -->
     <!-- Css from theme -->
-    <link rel="stylesheet" href="../../../../css/styles.css?1542933149" media="all" />
+    <link rel="stylesheet" href="../../../../css/styles.css?1542938803" media="all" />
     <!-- Css from theme -->
     <!-- Base js drupal 8 -->
-    <script src="../../js/drupal/jquery.min.js?1542933149"></script>
-    <script src="../../js/drupal/ready.min.js?1542933149"></script>
-    <script src="../../js/drupal/jquery.once.min.js?1542933149"></script>
-    <script src="../../js/drupal/drupal.js?1542933149"></script>
-    <script src="../../js/drupal/picturefill.min.js?1542933149"></script>
-    <script src="../../js/drupal/modernizr.min.js?1542933149"></script>
+    <script src="../../js/drupal/jquery.min.js?1542938803"></script>
+    <script src="../../js/drupal/ready.min.js?1542938803"></script>
+    <script src="../../js/drupal/jquery.once.min.js?1542938803"></script>
+    <script src="../../js/drupal/drupal.js?1542938803"></script>
+    <script src="../../js/drupal/picturefill.min.js?1542938803"></script>
+    <script src="../../js/drupal/modernizr.min.js?1542938803"></script>
     <!-- Base js drupal 8 -->
   </head>
   <body class="">
@@ -2146,13 +2146,13 @@
   <div class="sg-pattern-example">
     <div class="box-gallery">
   <div class="container">
-    <div class="box-gallery__wrap">
-      <div class="box-gallery__aside">
+    <div class="box-gallery__wrap" style="display: flex">
+      <div class="box-gallery__aside" style="width: 8.5%">
         
       </div>
 
       <div class="box-gallery__body">
-        <div class="box-gallery__left">
+        <div class="box-gallery__left js-product">
           <div class="box-gallery__left__image">
             <img src="../../../source/images/riseandshine-product_01.jpg" alt="">
           </div>
@@ -2182,38 +2182,41 @@
           </div>
 
           <form action="">
-            <div class="form-list">
-              <h5 class="box-gallery__name">Select a size: <span>Size guide</span></h5>
-
-              <div class="form-item">
-                <label for="single">single</label>
-                <input type="checkbox" id="single" name="">
-              </div>
-              <div class="form-item">
-                <label for="single">king single</label>
-                <input type="checkbox" id="single" name="">
-              </div>
-              <div class="form-item">
-                <label for="single">double</label>
-                <input type="checkbox" id="single" name="">
-              </div>
-              <div class="form-item">
-                <label for="single">queen</label>
-                <input type="checkbox" id="single" name="">
-              </div>
-              <div class="form-item">
-                <label for="single">king</label>
-                <input type="checkbox" id="single" name="">
+            <div class="box-gallery__row">
+              <h5 class="box-gallery__name">Select a size: <a href="#">Size guide</a></h5>
+              <div class="form-list">
+                <div class="form-item">
+                  <label for="single">single</label>
+                  <input type="checkbox" id="single" name="">
+                </div>
+                <div class="form-item">
+                  <label for="single">king single</label>
+                  <input type="checkbox" id="single" name="">
+                </div>
+                <div class="form-item">
+                  <label for="single">double</label>
+                  <input type="checkbox" id="single" name="">
+                </div>
+                <div class="form-item">
+                  <label for="single">queen</label>
+                  <input type="checkbox" id="single" name="">
+                </div>
+                <div class="form-item">
+                  <label for="single">king</label>
+                  <input type="checkbox" id="single" name="">
+                </div>
               </div>
             </div>
 
-            <div class="form-list">
+            <div class="box-gallery__row">
               <h5 class="box-gallery__name">Quantity</h5>
-              <div class="form-item">
-                <label class="btn"><span>1</span></label>
-              </div>
-              <div class="form-item">
-                <button class="btn btn-reverse"><span>add to cart</span></button>
+              <div class="form-list">
+                <div class="form-item form-select">
+                  <span class="btn"><span >1</span></span>
+                </div>
+                <div class="form-item form-cart">
+                  <button class="btn btn--reverse btn--cart"><span>add to cart</span></button>
+                </div>
               </div>
             </div>
           </form>
@@ -2232,31 +2235,11 @@
             </div>
 
             <div class="box-gallery__payment">
-              <h5 class="box-gallery__name"><i class="icon-lock"></i>secure checkout with:</h5>
+              <h5 class="box-gallery__name text--tiny"><i class="icon-lock"></i>secure checkout with:</h5>
               <a href="#"><img src="../../../source/images/footer_image_01.png"></a>
               <a href="#"><img src="../../../source/images/footer_image_02.png" alt=""></a>
             </div>
           </div>
-        </div>
-
-        <div class="box-gallery__description">
-          <ul>
-            <li><span class="js-load" data-id="box-gallery__content--description">description</span></li>
-            <li><span class="js-load" data-id="box-gallery__content--feature">features &amp; specifications</span></li>
-            <li><span class="js-load" data-id="box-gallery__content--delivery">delivery &amp; returns</span></li>
-          </ul>
-          
-          <div class="box-gallery__content box-gallery__content--description active load">
-            <p>The SensorFlex Platinum mattress range was awarded the Best Sleep Set at the prestigious Furniture Industry Association (FIA) national annual awards for 3 years in a row! (2011, 2012 and 2013). This independent association represents all major mattress and furniture manufacturers in Australia and is the furniture industries equivalent to the Oscars!</p>
-          </div> 
-          
-          <div class="box-gallery__content box-gallery__content--feature load">
-            <p>Here is feature</p>
-          </div> 
-          
-          <div class="box-gallery__content box-gallery__content--delivery load">
-            <p>here is delivery</p>
-          </div> 
         </div>
       </div>
     </div>
@@ -4501,10 +4484,10 @@
   }
 </script>
 
-<script id="pl-js-polyfill-insert-1542933149">
+<script id="pl-js-polyfill-insert-1542938803">
   (function() {
     if (self != top) {
-      var cb = '1542933149';
+      var cb = '1542938803';
       var js = [];
       if (typeof document !== 'undefined' && !('classList' in document.documentElement)) {
         js.push('styleguide/bower_components/classList.min.js');
@@ -4514,17 +4497,17 @@
   })();
 </script>
 
-<script id="pl-js-insert-1542933149">
+<script id="pl-js-insert-1542938803">
   (function() {
     if (self != top) {
-      var cb = '1542933149';
+      var cb = '1542938803';
       var js = [ { 'src': 'styleguide/bower_components/jwerty.min.js', 'dep': [ 'styleguide/js/patternlab-pattern.min.js' ] } ];
       scriptLoader.run(js,cb,'pl-js-insert');
     }
   })();
 </script>
-  <script src="../../../../js/lib/slick.js?1542933149"></script>
-  <script src="../../../../js/script.js?1542933149"></script>
-  <script src="../../../../js/lib/jquery.matchHeight.js?1542933149" type="text/javascript"></script>
+  <script src="../../../../js/lib/slick.js?1542938803"></script>
+  <script src="../../../../js/script.js?1542938803"></script>
+  <script src="../../../../js/lib/jquery.matchHeight.js?1542938803" type="text/javascript"></script>
   </body>
 </html>

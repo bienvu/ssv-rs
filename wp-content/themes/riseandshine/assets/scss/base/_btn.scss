@@ -69,6 +69,8 @@
   }
 
   &--lost-icon {
+    padding: 11px 16px 11px 16px;
+
     span {
       &:before {
         display: none;
@@ -80,6 +82,23 @@
   &:hover {
     background: lighten($btn-bg, 5%);
     color: $white;
+  }
+
+  &--reverse {
+    span {
+      &:before {
+        right: inherit;
+        left: -39px;
+        top: 2px;
+      }
+    }
+  }
+
+  &--cart {
+    span {
+      position: relative;
+      @extend .icon-cart;
+    }
   }
 
   &--blue {
@@ -161,9 +180,21 @@
     }
   }
 
+  &--gray {
+    background: $gray;
+    color: $blue;
+
+    &:active,
+    &:hover {
+      background: $gray;
+      color: $blue;
+    }
+  }
+
   // modifier size
   &--full {
     width: 100%;
+    padding: 11px 16px 14px 16px;
   }
 
   &--large {
