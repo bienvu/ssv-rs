@@ -11,7 +11,7 @@
 
   &__wrap {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
 
     @media only screen and (min-width: 768px) {
       align-items: center;
@@ -21,7 +21,6 @@
 
   &__body {
     width: 100%;
-    font-size: 16px;
     line-height: normal;
 
     p{
@@ -55,14 +54,22 @@
   }
 
   &--70-30 {
+    padding-bottom: 14px;
+
+    @media only screen and (min-width: 768px) {
+      padding: 52px 0;
+    }
+
     .box-image-text__body {
       width: 100%;
-      line-height: 1.25;
+      line-height: 1.5;
+      margin-bottom: 17px;
 
       @media only screen and (min-width: 768px) {
         width: 75%;
-        padding-right: 30px;
-        margin-top: -12px;
+        padding-right: 20px;
+        margin-top: 18px;
+        margin-bottom: 0;
       }
 
       @media only screen and (min-width: 769px) and (max-width: 1279px) {
@@ -90,8 +97,7 @@
       @media only screen and (min-width: 768px) {
         width: 25%;
         line-height: 0;
-        margin-right: 142px;
-        padding-top: 14px;
+        margin-right: 156px;
       }
 
       @media only screen and (min-width: 769px) and (max-width: 1279px) {
@@ -160,6 +166,49 @@
 
     .box-image-text__link {
       margin-top: 20px;
+    }
+  }
+
+  &--50-50 {
+    padding: 70px 0;
+
+    .box-image-text__wrap {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column-reverse;
+
+      @media only screen and (min-width: 768px) {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+      }
+    }
+
+    .box-image-text__image {
+      width: 100%;
+      padding: 0 0 20px 0;
+
+      @media only screen and (min-width: 768px) {
+        padding-left: 40px;
+        width: 50%;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .box-image-text__title {
+      margin-bottom: 10px;
+    }
+
+    .box-image-text__content-left {
+      width: 100%;
+
+      @media only screen and (min-width: 768px) {
+        width: 50%
+      }
     }
   }
 }

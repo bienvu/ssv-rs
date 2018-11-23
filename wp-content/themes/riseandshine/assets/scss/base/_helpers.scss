@@ -78,6 +78,10 @@
     color: $orange;
   }
 
+  &--red-bold {
+    color: $red-bold;
+  }
+
   &--bold {
     font-weight: 500;
   }
@@ -88,6 +92,10 @@
 
   &--tall {
     font-weight: 300;
+  }
+
+  &--regular {
+    font-weight: 400;
   }
 
   &--small {
@@ -112,10 +120,6 @@
     @media only screen and (min-width: 768px) {
       font-size: 21px;
     }
-  }
-
-  &--red-bold {
-    color: $red-bold;
   }
 }
 
@@ -327,10 +331,121 @@
 }
 
 .search-wrap {
-  margin-bottom: 30px;
-  
+  margin-bottom: 29px;
+
   input[type="search"] {
     width: 250px;
     padding: 10px 32px;
+  }
+}
+
+
+.price {
+  &__was {
+    font-size: 15px;
+    @extend .text--tall;
+
+    span {
+      @extend .text--small;
+      @extend .text--regular;
+      text-decoration: line-through;
+    }
+  }
+
+  &__now {
+    color: $light-red;
+    @extend .text--small;
+    @extend .text--tall;
+    margin-top: -11px;
+
+    span {
+      @extend .text--regular;
+      font-size: 21px;
+    }
+  }
+}
+
+.video-wrap {
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 55.9%;
+  position: relative;
+  margin-bottom: rem(20px);
+
+  video,
+  iframe {
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &__poster {
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: translateY(0);
+    transition: transform .8s ease;
+    width: 100%;
+    overflow: hidden;
+
+    &:after {
+      z-index: 2;
+    }
+
+    img {
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+    }
+  }
+
+  &__icon {
+    color: $white;
+
+    left: 50%;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+
+    &:before {
+      font-size: rem(102px);
+    }
+  }
+
+  &__title {
+    font-size: rem(24px);
+    line-height: rem(29px);
+    margin: rem(0 0 3px);
+  }
+
+  &__description {
+    margin-bottom: rem(20px);
+  }
+
+  &.play-video {
+    .video-wrap__poster {
+      transform: translateY(-100%);
+    }
+
+    video,
+    iframe {
+      opacity: 1;
+    }
+  }
+
+  &.is-iframe-embed {
+    video,
+    iframe {
+      opacity: 1;
+    }
   }
 }

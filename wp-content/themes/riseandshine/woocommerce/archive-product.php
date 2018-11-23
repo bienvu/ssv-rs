@@ -23,15 +23,18 @@ get_header( 'shop' );
 $term = get_queried_object();
 $image = get_field('banner_image', $term);
 $color = get_field('color', $term);
+$termSlug = $term->slug;
 ?>
 
-<div class="banner banner--width-content <?php print $color; ?>">
+<div class="banner banner--width-content <?php print $color; ?> <?php if($termSlug == 'sale'): ?>banner--sale<?php endif; ?>">
 	<div class="banner__image"><?php echo wp_get_attachment_image( $image['ID'], 'full' ); ?></div>
 	<div class="banner__wrap">
 		<div class="container">
 			<div class="banner__body">
-				<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-					<h1 class="banner__subtitle"><?php woocommerce_page_title(); ?></h1>
+				<?php if($termSlug != 'sale'): ?>
+					<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
+						<h1 class="banner__subtitle"><?php woocommerce_page_title(); ?></h1>
+					<?php endif; ?>
 				<?php endif; ?>
 				<div class="banner__content">
 					<div class="banner__description text--large">
@@ -46,7 +49,9 @@ $color = get_field('color', $term);
 						?>
 					</div>
 				</div>
-				<div class="best-advice hidden-on-mobile"><?php  _e( 'best advice. never beaten on price', 'ssvtheme' ); ?></div>
+				<?php if($termSlug != 'sale'): ?>
+					<div class="best-advice hidden-on-mobile"><?php  _e( 'best advice. never beaten on price', 'ssvtheme' ); ?></div>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>
@@ -62,6 +67,7 @@ $color = get_field('color', $term);
  */
 do_action('woocommerce_before_main_content');
 ?>
+<?php if($term->slug != 'bed-in-a-bag'): ?>
 	<div class="box-filter is-hidden">
 		<div class="container">
 			<form class="box-filter__wrap riseandshine-product-category-filter-form" action="" method="get">
@@ -312,7 +318,7 @@ do_action('woocommerce_before_main_content');
 		}
 		print '</div></div>';
 	?>
-
+<?php endif; ?>
 	<!-- Get component data -->
 	<?php
 	$term = get_queried_object();

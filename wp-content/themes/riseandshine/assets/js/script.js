@@ -32,10 +32,9 @@
     $('a').removeAttr('title');
 
     // Add placeholder to quiz.
-    $('.wpcf7-quiz').attr('placeholder', 'text here');
+    $('.wpcf7-quiz').attr('placeholder', 'what is the first letter of rise?');
 
     // Faq Accordion.
-    // Color accordion
     $('.box-faq__question').each(function() {
       $(this).on('click', function (e) {
         if ($(this).hasClass('is-show')) {
@@ -102,11 +101,25 @@
 
     // js show
     $('.js-show').click(function(){
-      if($(window)[0].outerWidth > 1024) {
+      if($(window)[0].innerWidth > 1024) {
+        if($(this).hasClass('active')) {
+          $(this).removeClass('active');
+        } else {
+          $('.js-show').removeClass('active');
+          $(this).addClass('active');
+        }
+      }
+
+      if($(this).hasClass('is-focus')) {
         $(this).toggleClass('active');
       }
-      
-      $(this).next('.show').toggleClass('active');
+
+      if($(this).next('.show').hasClass('active')) {
+        $(this).next('.show').removeClass('active');
+      } else {
+        $('.js-show').next('.show').removeClass('active');
+        $(this).next('.show').addClass('active');
+      }
     });
 
     $('.js-back').click(function(){
@@ -118,32 +131,44 @@
       $(this).next('.show').addClass('active');
     });
 
-    $('.js-product').slick({
-      prevArrow: '<span class="slick-prev"></span>',
-      nextArrow: '<span class="slick-next"></span>',
+    //js product
+    $('.js-gallery').slick({
       slidesToShow: 1,
       slidesToScroll: 1,
-      mobileFirst: true,
-      rows: 2,
-      slidesPerRow: 2,
+      infinite: false,
       arrows: false,
-      responsive: [
-        {
-          breakpoint: 767,
-          settings: {
-            slidesToScroll: 4,
-            slidesToShow: 4,
-            rows: 1,
-            slidesPerRow: 1,
-            arrows: true
-          }
-        }
-      ]
+      asNavFor: '.js-gallery-thumbnail',
     });
-
+    $('.js-gallery-thumbnail').slick({
+      asNavFor: '.js-gallery',
+      slidesToShow: 5,
+      slidesToScroll: 1,
+      infinite: false,
+      vertical:true,
+      focusOnSelect: true,
+    });
+    //
     // $('.js-product').slick({
-    //   slidesToScroll: 4,
-    //   slidesToShow: 4
+    //   prevArrow: '<span class="slick-prev"></span>',
+    //   nextArrow: '<span class="slick-next"></span>',
+    //   slidesToShow: 1,
+    //   slidesToScroll: 1,
+    //   mobileFirst: true,
+    //   rows: 2,
+    //   slidesPerRow: 2,
+    //   arrows: false,
+    //   responsive: [
+    //     {
+    //       breakpoint: 767,
+    //       settings: {
+    //         slidesToScroll: 4,
+    //         slidesToShow: 4,
+    //         rows: 1,
+    //         slidesPerRow: 1,
+    //         arrows: true
+    //       }
+    //     }
+    //   ]
     // });
 
     // Arrow slider
@@ -164,6 +189,42 @@
     if(('.grid-products__title').length) {
       $('.grid-products__title').matchHeight();
     }
+
+    // js-play-video
+    var $jsPlayVideo = $('.js-play-video'),
+        playVideo = function (e) {
+      var $iframeVimeo = $(this).find('.vimeo-embed'),
+          $iframeYoutube = $(this).find('.youtube-embed');
+      $(this).addClass("play-video");
+      if ($iframeVimeo.length) {
+        var player = Froogaloop($iframeVimeo[0]);
+        player.api('play');
+      }
+      if ($iframeYoutube.length) {
+        $iframeYoutube[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+      }
+    };
+    if ($jsPlayVideo.length) {
+      $jsPlayVideo.on('click', playVideo);
+    }
+
+    // js index
+    ($('.js-index')).click(function(e) {
+      var index = $(this).index();
+      $('.js-index').removeClass('active');
+      $(this).addClass('active');
+
+      $('.is-index').each(function() {
+        if($(this).index() == index) {
+          $('.is-index').removeClass('active');
+          $(this).addClass('active');
+        }
+      });
+    });
+    
+    // Product zoom.
+    // Instantiate EasyZoom instances
+		var $easyzoom = $('.easyzoom').easyZoom();
   });
 
 }(this, this.document, this.jQuery));

@@ -78,7 +78,7 @@
   }
 
   &--width-bg {
-    margin-top: 200px;
+    margin-top: 100px;
     padding: 44px 0 41px;
     margin-bottom: 193px;
 
@@ -153,6 +153,7 @@
 
   &--width-2cols {
     overflow: hidden;
+    margin-bottom: 100px;
 
     .box-image__item {
       text-align: center;
@@ -165,11 +166,9 @@
         margin: 0;
       }
 
-      &:last-child {
-        margin: 0;
-      }
-
       &:nth-child(2n) {
+        margin-top: 7px;
+
         .box-image__image {
           text-align: right;
 
@@ -188,10 +187,6 @@
 
           @media only screen and (min-width: 375px) {
             right: 35px;
-          }
-
-          @media only screen and (min-width: 1024px) {
-            right: 25px;
           }
         }
       }
@@ -215,6 +210,7 @@
     .box-image__image {
       overflow: inherit;
       margin: 0;
+      height: auto;
 
       img {
         position: static;
@@ -237,12 +233,16 @@
         font-size: 30px;
         margin-bottom: 14px;
       }
+
+      @media only screen and (min-width: 1024px) {
+        margin-bottom: 23px;
+      }
     }
 
     .box-image__content {
       text-align: left;
       position: absolute;
-      top: 0;
+      top: -8px;
       z-index: 1;
     }
   }
