@@ -4,57 +4,62 @@ if( get_row_layout() == 'banner' ):
   $count = count(get_sub_field("banner_item"));
   $bannerLabel = get_sub_field("label");?>
 
-  <div class="banner <?php if($count > 1): ?>js-slide banner--width-slide<?php endif; ?>">
-    <?php if (have_rows('banner_item')):
-      while (have_rows('banner_item')): the_row();
-      $title = get_sub_field('title');
-      $subtitle = get_sub_field('subtitle');
-      $link = get_sub_field('link');
-      $images = get_sub_field('image');
-      $body = get_sub_field('body');
-      $type = get_sub_field('type');
-      $size = 'full';
-      ?>
-        <div class="banner__item <?php if(!$link): ?>banner--lost-link<?php endif; ?> <?php print $type; ?>">
-          <?php if( $images ): ?>
-            <div class="banner__image">
-              <?php echo wp_get_attachment_image( $images['ID'], $size ); ?>
-            </div>
-          <?php endif; ?>
-          <?php if($body): ?>
-            <div class="banner__wrap">
-              <div class="container">
-                <div class="banner__body">
-                  <?php if($subtitle): ?>
-                    <h2 class="banner__subtitle"><?php print $subtitle; ?></h2>
-                  <?php endif; ?>
-
-                  <div class="banner__content">
-                    <?php if($count > 1): ?>
-                      <?php if($title): ?>
-                        <h2 class="banner__title"><?php print $title; ?></h2>
-                      <?php endif; ?>
-                    <?php else: ?>
-                      <?php if($title): ?>
-                        <h1 class="banner__title"><?php print $title; ?></h1>
-                      <?php endif; ?>
+  <div class="banner-wrap">
+    <div class="banner <?php if($count > 1): ?>js-slide banner--width-slide<?php endif; ?>">
+      <?php if (have_rows('banner_item')):
+        while (have_rows('banner_item')): the_row();
+        $title = get_sub_field('title');
+        $subtitle = get_sub_field('subtitle');
+        $link = get_sub_field('link');
+        $images = get_sub_field('image');
+        $body = get_sub_field('body');
+        $type = get_sub_field('type');
+        $size = 'full';
+        ?>
+          <div class="banner__item <?php if(!$link): ?>banner--lost-link<?php endif; ?> <?php print $type; ?>">
+            <?php if( $images ): ?>
+              <div class="banner__image">
+                <?php echo wp_get_attachment_image( $images['ID'], $size ); ?>
+              </div>
+            <?php endif; ?>
+            <?php if($body): ?>
+              <div class="banner__wrap">
+                <div class="container">
+                  <div class="banner__body">
+                    <?php if($subtitle): ?>
+                      <h2 class="banner__subtitle"><?php print $subtitle; ?></h2>
                     <?php endif; ?>
-                    <div class="banner__description text--large"><?php print $body; ?></div>
-                    <?php if($link): ?>
-                      <div class="banner__link">
-                        <a href="<?php print $link['url']; ?>" class="btn"><span><?php print('discover'); ?></span></a>
-                      </div>
-                    <?php endif;?>
-                  </div>
 
-                  <div class="best-advice hidden-on-mobile"><?php print $bannerLabel; ?></div>
+                    <div class="banner__content">
+                      <?php if($count > 1): ?>
+                        <?php if($title): ?>
+                          <h2 class="banner__title"><?php print $title; ?></h2>
+                        <?php endif; ?>
+                      <?php else: ?>
+                        <?php if($title): ?>
+                          <h1 class="banner__title"><?php print $title; ?></h1>
+                        <?php endif; ?>
+                      <?php endif; ?>
+                      <div class="banner__description text--large"><?php print $body; ?></div>
+                      <?php if($link): ?>
+                        <div class="banner__link">
+                          <a href="<?php print $link['url']; ?>" class="btn"><span><?php print('discover'); ?></span></a>
+                        </div>
+                      <?php endif;?>
+                    </div>
+
+                    <div class="best-advice hidden-on-mobile"><?php print $bannerLabel; ?></div>
+                  </div>
                 </div>
               </div>
-            </div>
-          <?php endif;?>
-        </div>
-      <?php endwhile;
-    endif;?>
+            <?php endif;?>
+          </div>
+        <?php endwhile;
+      endif;?>
+    </div>
+    <div class="scroll-element">
+      <i class="icon-icon-arrow-down js-scroll-down"></i>
+    </div>
   </div>
 
 <!-- Box Intro -->
@@ -143,7 +148,7 @@ if( get_row_layout() == 'banner' ):
 
 <!-- Box HTML code -->
 <?php elseif( get_row_layout() == 'box_html' ):
-  $htmlCode = get_sub_field("html_code"); 
+  $htmlCode = get_sub_field("html_code");
   $noSpace = get_sub_field("no_space"); ?>
   <div class="box-html <?php echo $noSpace[0]; ?>">
     <?php print $htmlCode; ?>

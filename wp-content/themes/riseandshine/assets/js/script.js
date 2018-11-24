@@ -221,10 +221,18 @@
         }
       });
     });
-    
+
     // Product zoom.
-    // Instantiate EasyZoom instances
 		var $easyzoom = $('.easyzoom').easyZoom();
+
+    //scroll an element
+    $('.js-scroll-down').click(function() {
+      var $temp = $('.header').height();
+      var $next = $(this).parents('.banner-wrap').next().offset().top;
+      $('html, body').animate({
+        scrollTop: $next
+      }, 'slow');
+    });
   });
 
 }(this, this.document, this.jQuery));
