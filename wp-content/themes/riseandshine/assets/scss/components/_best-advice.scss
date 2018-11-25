@@ -5,6 +5,7 @@
   color: $white;
   padding: 0 22px 0 25px;
   position: relative;
+  z-index: 2;
 
   &:before {
     position: absolute;

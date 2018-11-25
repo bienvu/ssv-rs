@@ -1,5 +1,9 @@
 .box-image-text {
-  padding: 50px 0 30px;
+  padding: 27px 0 18px;
+
+  @media only screen and (min-width: 768px) {
+    padding: 50px 0 30px;
+  }
 
   h2 {
     margin-bottom: 6px;
@@ -24,7 +28,7 @@
     line-height: normal;
 
     p {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
 
       @media only screen and (min-width: 768px) {
         margin-bottom: 12px;
@@ -55,6 +59,7 @@
 
   &--70-30 {
     padding-bottom: 14px;
+    padding-top: 0;
 
     @media only screen and (min-width: 768px) {
       padding: 52px 0;
@@ -62,14 +67,16 @@
 
     .box-image-text__body {
       width: 100%;
-      line-height: 1.5;
-      margin-bottom: 17px;
+      line-height: 1.275;
+      margin-bottom: 15px;
 
       @media only screen and (min-width: 768px) {
         width: 75%;
         padding-right: 20px;
         margin-top: 18px;
         margin-bottom: 0;
+        line-height: 1.5;
+        margin-bottom: 17px;
       }
 
       @media only screen and (min-width: 769px) and (max-width: 1279px) {
@@ -109,11 +116,12 @@
   }
 
   &--image-left {
-    padding-top: 35px;
+    padding-top: 38px;
     @extend .bg--orange;
 
     @media only screen and (min-width: 768px) {
       padding: 20px 0 0 0;
+      padding-top: 35px;
     }
 
     h2 {
@@ -138,13 +146,19 @@
 
     .box-image-text__body {
       width: 100%;
+      font-size: 21px;
 
       @media only screen and (min-width: 768px) {
         width: 37%;
         order: 2;
         padding: 0 0 0 49px;
         margin: 0;
-        font-size: 21px;
+      }
+
+      br {
+        @media only screen and (max-width: 767px) {
+          display: none;
+        }
       }
     }
 
@@ -215,6 +229,37 @@
 
       @media only screen and (min-width: 768px) {
         width: 50%
+      }
+    }
+  }
+
+  &.none {
+    .box-image-text__body {
+      @media only screen and (max-width: 767px) {
+        order: 2;
+        font-size: 16px;
+      }
+    }
+
+    .box-image-text__image {
+      @media only screen and (max-width: 767px) {
+        width: auto;
+        margin-bottom: 15px;
+        order: 1;
+        margin-left: -20px;
+        margin-right: -20px;
+      }
+
+      img {
+        @media only screen and (max-width: 767px) {
+          width: auto;
+          height: auto;
+          min-height: 238px;
+          max-width: inherit;
+          position: relative;
+          left: 50%;
+          transform: translate(-50%, 0);
+        }
       }
     }
   }

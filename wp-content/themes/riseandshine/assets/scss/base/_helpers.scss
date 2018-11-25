@@ -185,13 +185,13 @@
   }
 }
 
-.hidden-on-desktop {
+.hidden-on-tablet {
   @media only screen and (min-width: 768px) {
-    display: none;
+    display: none !important;
   }
 }
 
-.hidden-on-tablet {
+.hidden-on-mobile-tablet {
   @media only screen and (max-width: 1023px) {
     display: none;
   }
@@ -388,8 +388,6 @@
     left: 0;
     position: absolute;
     top: 0;
-    transform: translateY(0);
-    transition: transform .8s ease;
     width: 100%;
     overflow: hidden;
 
@@ -433,7 +431,8 @@
 
   &.play-video {
     .video-wrap__poster {
-      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
     }
 
     video,

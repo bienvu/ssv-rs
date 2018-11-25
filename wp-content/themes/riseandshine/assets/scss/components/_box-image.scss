@@ -1,6 +1,11 @@
 .box-image {
-  margin-top: 90px;
-  margin-bottom: 115px;
+  margin-top: 43px;
+  margin-bottom: 52px;
+
+  @media only screen and (min-width: 768px) {
+    margin-top: 90px;
+    margin-bottom: 115px;
+  }
 
   &__item {
     position: relative;
@@ -9,7 +14,7 @@
 
   &__image {
     line-height: 0;
-    height: 336px;
+    height: 221px;
     width: 100%;
     overflow: hidden;
     position: relative;
@@ -66,6 +71,18 @@
 
   &__title {
     @extend .h2--small;
+
+    br {
+      @media only screen and (max-width: 767px) {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    @media only screen and (max-width: 767px) {
+      margin-top: 18px;
+    }
   }
 
   &__description {
@@ -78,12 +95,13 @@
   }
 
   &--width-bg {
-    margin-top: 100px;
+    margin-top: 8px;
     padding: 44px 0 41px;
-    margin-bottom: 193px;
 
     @media only screen and (min-width: 768px) {
       padding: 82px 0;
+      margin-top: 100px;
+      margin-bottom: 193px;
     }
 
     @media only screen and (min-width: 1280px) {
@@ -153,7 +171,11 @@
 
   &--width-2cols {
     overflow: hidden;
-    margin-bottom: 100px;
+    margin-bottom: 8px;
+
+    @media only screen and (min-width: 768px) {
+      margin-bottom: 100px;
+    }
 
     .box-image__item {
       text-align: center;
@@ -179,6 +201,10 @@
             @media only screen and (min-width: 1024px) {
               height: 377px;
             }
+
+            @media only screen and (min-width: 1440px) {
+              height: 450px;
+            }
           }
         }
 
@@ -201,6 +227,10 @@
 
             @media only screen and (min-width: 1024px) {
               height: 383px;
+            }
+
+            @media only screen and (min-width: 1440px) {
+              height: 450px;
             }
           }
         }
@@ -236,6 +266,12 @@
 
       @media only screen and (min-width: 1024px) {
         margin-bottom: 23px;
+      }
+
+      br {
+        @media only screen and (max-width: 767px) {
+          display: inline;
+        }
       }
     }
 

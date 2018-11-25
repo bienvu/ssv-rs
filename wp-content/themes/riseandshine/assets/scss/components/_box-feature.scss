@@ -7,6 +7,11 @@
 
   &__title {
     margin-bottom: 14px;
+
+    @media only screen and (max-width: 767px) {
+      line-height: 1.275;
+      margin-bottom: 8px;
+    }
   }
 
   &__sub-title {
@@ -16,6 +21,10 @@
 
     @media only screen and (min-width: 768px) {
       margin-bottom: 42px;
+    }
+
+    @media only screen and (max-width: 767px) {
+      font-size: 16px;
     }
   }
 
@@ -34,13 +43,18 @@
       @media only screen and (min-width: 768px) {
         margin-bottom: 16px;
       }
+
+      @media only screen and (max-width: 767px) {
+        font-size: 21px;
+      }
     }
 
     p {
       margin-bottom: 14px;
 
       @media only screen and (max-width: 767px) {
-        margin-bottom: 8px;
+        margin-bottom: 7px;
+        line-height: 1.5;
       }
     }
 
@@ -51,6 +65,10 @@
       @media only screen and (min-width: 768px) {
         width: 50%;
         margin-left: 2px
+      }
+
+      @media only screen and (max-width: 767px) {
+        margin-bottom: 30px;
       }
     }
 
@@ -64,6 +82,12 @@
       @media only screen and (min-width: 768px) {
         width: 50%;
       }
+    }
+  }
+
+  &__link {
+    @media only screen and (max-width: 767px) {
+      margin-top: 34px;
     }
   }
 

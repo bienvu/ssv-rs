@@ -1,13 +1,17 @@
 .box-trial {
-  padding: 71px 0 0;
+  padding: 41px 0 0;
   background: #f2f6f5;
-  
+
+  @media only screen and (min-width: 768px) {
+    padding: 71px 0 0;
+  }
+
   &__list {
     @media only screen and (min-width: 768px) {
       display: flex;
       margin: 0 -16px;
       position: relative;
-      z-index: 2;     
+      z-index: 2;
     }
   }
 
@@ -31,10 +35,12 @@
   &__item {
     width: 100%;
     padding: 0;
+    margin-bottom: 37px;
 
     @media only screen and (min-width: 768px) {
       width: calc(100% / 4);
       padding: 0 16px;
+      margin-bottom: 0;
     }
   }
 
@@ -43,6 +49,11 @@
     background: transparent;
     margin-top: -36px;
     line-height: 0;
+
+    @media only screen and (max-width: 767px) {
+      margin-left: -20px;
+      margin-right: -20px;
+    }
   }
 
   &__content {

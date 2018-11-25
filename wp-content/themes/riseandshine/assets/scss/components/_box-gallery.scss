@@ -1,6 +1,8 @@
 .product {
   &__wrap {
-    display: flex;
+    @media only screen and (min-width: 768px) {
+      display: flex;
+    }
   }
 
   &__thumnail,
@@ -13,9 +15,11 @@
   }
 
   &__gallery {
-    width: 50%;
-    display: flex;
-    padding-right: 15px;
+    @media only screen and (min-width: 768px) {
+      width: 50%;
+      display: flex;
+      padding-right: 15px;
+    }
 
     .woocommerce-product-gallery__image {
       position: relative;
@@ -49,6 +53,10 @@
       bottom: 0;
       min-width: 382px;
 
+      @media only screen and (max-width: 767px) {
+        display: none !important; 
+      }
+
       img {
         max-width: inherit;
         width: auto;
@@ -57,12 +65,16 @@
   }
 
   &__images {
-    width: calc(100% - 83px);
+    @media only screen and (min-width: 768px) {
+      width: calc(100% - 83px);
+    }
 
     .slick-track {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @media only screen and (min-width: 768px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
 
     .slick-slide {
@@ -75,6 +87,10 @@
     width: 73px;
     padding-bottom: 10px;
     margin-right: 10px;
+
+    @media only screen and (max-width: 767px) {
+      display: none;
+    }
 
     @media only screen and (min-width: 1440px) {
       width: 83px;

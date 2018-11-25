@@ -5,6 +5,10 @@
     position: relative;
   }
 
+  @media only screen and (max-width: 1023px) {
+    padding-bottom: 34px;
+  }
+
   &__image {
     @media only screen and (min-width: 1024px) {
       position: absolute;
@@ -72,6 +76,12 @@
           width: 40px;
           height: 40px;
         }
+
+        &:before {
+          @media only screen and (max-width: 1023px) {
+            font-size: 22px;
+          }
+        }
       }
     }
   }
@@ -118,6 +128,7 @@
 
   &__body {
     position: relative;
+    z-index: 9;
     display: none;
 
     &.active {

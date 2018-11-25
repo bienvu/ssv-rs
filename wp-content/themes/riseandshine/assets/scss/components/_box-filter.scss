@@ -3,6 +3,10 @@
   overflow: hidden;
   background: $dark-green;
 
+  @media only screen and (max-width: 1023px) {
+    padding-bottom: 17px;
+  }
+
   @media only screen and (min-width: 1024px) {
     overflow: visible;
     position: relative;
@@ -16,7 +20,7 @@
   }
 
   &__wrap {
-    padding: 26px 0 30px 0;
+    padding: 26px 0 0 0;
 
     @media only screen and (min-width: 1024px) {
       display: flex;
@@ -28,9 +32,9 @@
 
   &__aside {
     @media only screen and (max-width: 1023px) {
-      position: absolute;
+      position: fixed;
       left: 100%;
-      top: 1px;
+      top: 0;
       width: 100%;
       height: 100vh;
       transition: .5s;
@@ -53,6 +57,10 @@
 
     ul {
       display: flex;
+
+      @media only screen and (max-width: 1023px) {
+        overflow: auto;
+      }
 
       @media only screen and (min-width: 1024px) {
         max-width: 415px;
@@ -88,6 +96,10 @@
           background: $white;
           padding: 7px 16px 8px 15px;
           text-transform: lowercase;
+
+          @media only screen and (max-width: 1023px) {
+            padding: 7px 17px 8px;
+          }
 
           &.active {
             @extend .bg--dark-blue;
@@ -186,6 +198,11 @@
 
       span:before {
         transform: rotate(90deg);
+
+        @media only screen and (max-width: 1023px) {
+          right: 2px;
+          transform: rotate(0deg);
+        }
       }
     }
   }

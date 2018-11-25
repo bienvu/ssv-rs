@@ -19,7 +19,7 @@ if( get_row_layout() == 'banner' ):
           <div class="banner__item <?php if(!$link): ?>banner--lost-link<?php endif; ?> <?php print $type; ?>">
             <?php if( $images ): ?>
               <div class="banner__image">
-                <?php echo wp_get_attachment_image( $images['ID'], $size ); ?>
+                <a href="<?php print $link['url']; ?>"><?php echo wp_get_attachment_image( $images['ID'], $size ); ?></a>
               </div>
             <?php endif; ?>
             <?php if($body): ?>

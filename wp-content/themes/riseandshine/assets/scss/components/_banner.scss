@@ -6,8 +6,13 @@
     height: 487px;
   }
 
+  @media only screen and (min-width: 1920px) {
+    height: 650px;
+  }
+
   &__image {
     overflow: hidden;
+    // height: 265px;
     height: 230px;
     position: relative;
 
@@ -22,6 +27,12 @@
       position: absolute;
       top: 0;
       right: 0;
+
+      @media only screen and (max-width: 1023px) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
 
       @media only screen and (min-width: 646px) {
         width: 100%;
@@ -117,6 +128,12 @@
 
   &__title {
     @extend .h1;
+
+    br {
+      @media only screen and (max-width: 767px) {
+        display: none;
+      }
+    }
   }
 
   &__item {
@@ -124,6 +141,10 @@
 
     @media only screen and (min-width: 768px) {
       height: 487px;
+    }
+
+    @media only screen and (min-width: 1920px) {
+      height: 650px;
     }
   }
 
@@ -133,6 +154,12 @@
     img {
       width: 406px;
       height: auto;
+    }
+  }
+
+  .slick-dots {
+    @media only screen and (max-width: 767px) {
+      display: none !important;
     }
   }
 
@@ -156,8 +183,10 @@
 
       @media only screen and (max-width: 767px) {
         position: relative;
-        top: -31px;
+        // top: -31px;
+        margin-top: -31px;
         max-width: inherit;
+        margin-bottom: 30px;
       }
 
       .best-advice {
@@ -174,7 +203,7 @@
 
     .banner__subtitle {
       @media only screen and (max-width: 767px) {
-        margin-bottom: 3px;
+        margin-bottom: 15px;
       }
     }
   }
@@ -243,11 +272,25 @@
     }
   }
 
+  &--width-slide {
+    @media only screen and (max-width: 767px) {
+      margin-bottom: -20px;
+
+      .banner__content {
+        background-color: transparent;
+      }
+    }
+  }
+
   &--sale {
     height: auto;
 
     .banner__image {
       height: 487px;
+
+      @media only screen and (min-width: 1920px) {
+        height: 650px;
+      }
     }
 
     .banner__wrap {
@@ -280,6 +323,10 @@
   bottom: -44px;
   left: 0;
   right: 0;
+
+  @media only screen and (max-width: 767px) {
+    display: none;
+  }
 
   i {
     cursor: pointer;

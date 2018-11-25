@@ -1,5 +1,5 @@
 .grid-image {
-  padding: 40px 0 30px;
+  padding: 50px 0 30px;
 
   @media only screen and (min-width: 1024px) {
     padding: 60px 0 30px;
@@ -47,6 +47,7 @@
       .grid-image__body {
         @media only screen and (min-width: 768px) {
           display: flex;
+          flex-wrap: wrap;
         }
       }
 
@@ -79,6 +80,7 @@
     img {
       min-height: 173px;
       height: auto;
+      width: 100%;
     }
   }
 
@@ -124,6 +126,10 @@
     @media only screen and (min-width: 1024px) {
       margin-top: 26px;
       max-height: inherit;
+    }
+
+    b {
+      margin-bottom: 10px;
     }
   }
 
