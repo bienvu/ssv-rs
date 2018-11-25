@@ -57,12 +57,15 @@
     }
 
     .best-advice {
-      border: 0;
       font-size: 19.5px;
       padding: 10px 5px 10px 31px;
 
       @media only screen and (min-width: 768px) {
         display: block;
+      }
+
+      &:before {
+        display: none;
       }
     }
   }
@@ -100,7 +103,7 @@
   }
 
   &__subtitle {
-    padding: 21px 34px 28px 30px;
+    padding: 21px 30px 28px 30px;
     display: inline-block;
     margin-bottom: 9px;
     color: $white;
@@ -255,6 +258,34 @@
 
     .banner__body {
       max-width: inherit;
+    }
+
+    .banner__content {
+      @media only screen and (min-width: 1280px) {
+        padding: 26px 83px;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.banner-wrap {
+  position: relative;
+}
+
+.scroll-element {
+  text-align: center;
+  padding: 10px 0;
+  position: absolute;
+  bottom: -44px;
+  left: 0;
+  right: 0;
+
+  i {
+    cursor: pointer;
+
+    &:before {
+      font-size: 18px;
     }
   }
 }

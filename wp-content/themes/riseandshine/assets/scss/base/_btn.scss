@@ -26,13 +26,14 @@
 
   span {
     position: relative;
-    @extend .icon-arrow;
+    @extend .icon-arrow-right;
 
     &:before {
       @extend %icons;
       position: absolute;
       right: -21px;
       top: 5px;
+      font-size: 14px;
     }
   }
 

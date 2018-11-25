@@ -11,15 +11,29 @@
   a {
     color: $white;
     @extend %link--small;
-    
+
     &.account {
-      border-left: 1px solid $light-gray;
-      padding:  0 10px 0 25px;
+      padding:  0 15px 0 25px;
+      position: relative;
+
+      &:before {
+        position: absolute;
+        border-left: 1px solid $light-gray;
+        content: '';
+        left: 0;
+        top: 50%;
+        height: 12px;
+        width: 1px;
+        margin-top: -6px;
+
+        @media only screen and (max-width: 1023px) {
+          display: none;
+        }
+      }
 
       @media only screen and (max-width: 1023px) {
         font-size: 16px;
         padding: 5px 0 12px;
-        border: 0;
       }
     }
 

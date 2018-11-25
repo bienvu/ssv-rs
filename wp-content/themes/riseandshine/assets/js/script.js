@@ -228,7 +228,7 @@
     //scroll an element
     $('.js-scroll-down').click(function() {
       var $temp = $('.header').height();
-      var $next = $(this).parents('.banner-wrap').next().offset().top;
+      var $next = $(this).parent().parent().next().offset().top;
       $('html, body').animate({
         scrollTop: $next
       }, 'slow');

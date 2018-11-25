@@ -1296,6 +1296,32 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_5bf275290c3e3",
+                            "label": "Type",
+                            "name": "type",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "none": "Defaullt",
+                                "box-image-text--image-left": "Image Left",
+                                "box-image-text--70-30": "Content lager Image"
+                            },
+                            "default_value": [],
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
                             "key": "field_5bf275140c3e1",
                             "label": "Body",
                             "name": "body",
@@ -1337,31 +1363,6 @@
                             "max_height": "",
                             "max_size": "",
                             "mime_types": ""
-                        },
-                        {
-                            "key": "field_5bf275290c3e3",
-                            "label": "Type",
-                            "name": "type",
-                            "type": "select",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "box-image-text--image-left": "Image Left",
-                                "box-image-text--70-30": "Content lager Image"
-                            },
-                            "default_value": [],
-                            "allow_null": 0,
-                            "multiple": 0,
-                            "ui": 0,
-                            "return_format": "value",
-                            "ajax": 0,
-                            "placeholder": ""
                         }
                     ],
                     "min": "",
@@ -1431,5 +1432,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1542973666
+    "modified": 1543071198
 }

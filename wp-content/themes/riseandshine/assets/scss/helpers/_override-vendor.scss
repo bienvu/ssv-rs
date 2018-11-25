@@ -1,7 +1,5 @@
 .slick-prev,
 .slick-next {
-  @extend %icons;
-  @extend .icon-arrow;
   min-width: 43px;
   min-height: 43px;
   position: absolute;
@@ -16,11 +14,14 @@
   }
 
   &:before {
+    @extend %icons;
+    @extend .icon-arrow-right:before;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: $white;
+    font-size: 14px;
   }
 }
 
@@ -46,7 +47,7 @@
 
    li {
     cursor: pointer;
-    
+
     button {
       font-size: 0;
       background: $dark-blue;
@@ -75,4 +76,3 @@
     }
   }
 }
-

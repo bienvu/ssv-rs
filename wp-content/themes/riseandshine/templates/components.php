@@ -58,7 +58,7 @@ if( get_row_layout() == 'banner' ):
       endif;?>
     </div>
     <div class="scroll-element">
-      <i class="icon-icon-arrow-down js-scroll-down"></i>
+      <i class="icon-arrow-down js-scroll-down"></i>
     </div>
   </div>
 
@@ -170,7 +170,7 @@ if( get_row_layout() == 'banner' ):
           <div class="contact-maps__item">
             <div class="contact-maps__content">
               <div class="contact-maps__body">
-                <h3 class="contact-maps__title"><?php print $title; ?></h3>
+                <?php if($title): ?><h3 class="contact-maps__title"><?php print $title; ?></h3><?php endif; ?>
                 <div class="contact-maps__description"><?php print $body; ?></div>
               </div>
               <?php if($link): ?>

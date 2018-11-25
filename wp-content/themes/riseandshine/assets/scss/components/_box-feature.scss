@@ -1,5 +1,5 @@
 .box-feature {
-  padding: 68px 0 102px;
+  padding: 68px 0 40px;
   text-align: center;
   color: #fff;
   background: #6eb0b5;
@@ -18,9 +18,10 @@
       margin-bottom: 42px;
     }
   }
-  
+
   &__content {
     text-align: center;
+    margin-bottom: 11px;
 
     @media only screen and (min-width: 768px) {
       display: flex;

@@ -16,6 +16,10 @@
 
     .list-icons {
       margin-left: -8px;
+
+      a:before {
+        font-size: 26px;
+      }
     }
   }
 
@@ -88,7 +92,6 @@
       @media only screen and (min-width: 768px) {
         margin-right: 10px;
       }
-
     }
   }
 

@@ -10,7 +10,7 @@
 
     &:before {
       @extend %icons;
-      @extend .icon-arrow;
+      @extend .icon-arrow-right;
       transform: rotate(89deg);
       position: absolute;
       transition: .5s;

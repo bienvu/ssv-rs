@@ -21,7 +21,7 @@
     @media only screen and (min-width: 1024px) {
       display: flex;
       justify-content: space-between;
-      padding: 20px 0;
+      padding: 15px 0 20px;
       position: relative;
     }
   }
@@ -63,10 +63,6 @@
         margin-bottom: 10px;
         width: 25%;
 
-        // &:nth-last-of-type(2) {
-        //   margin-right: 0;
-        // }
-
         @media only screen and (min-width: 1024px) {
           margin: 0 10px 0 0;
           width: auto;
@@ -106,10 +102,6 @@
   }
 
   &__bottom {
-    @media only screen and (min-width: 1024px) {
-      // display: none;
-    }
-
     > span {
       margin-bottom: 10px;
     }
@@ -181,9 +173,6 @@
 
 
   &__body {
-    @media only screen and (min-width: 1024px) {
-      // position: relative;
-    }
 
     > .btn {
       @extend .btn--white;
@@ -255,6 +244,7 @@
             background: $white;
             font-size: 12px;
             padding: 12px 10px;
+            text-align: center;
           }
         }
       }
