@@ -325,7 +325,7 @@ input[type="checkbox"] {
       &:after {
         opacity: 1;
         @extend %icons;
-        @extend .icon-checkmark:before;
+        @extend .icon-check:before;
         color: $blue;
         font-size: 18px;
       }
@@ -470,7 +470,7 @@ input[type="checkbox"] {
     margin: 0 0 1px;
 
     &.form-hidden {
-      @extend .hidden-on-desktop;
+      @extend .hidden-on-tablet;
     }
 
     input[type='reset'] {

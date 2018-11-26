@@ -33,7 +33,7 @@
 								<?php get_template_part('searchform'); ?>
 
 			          <ul class="list-icons">
-			            <li><a href="#" class="icon-location"></a></li>
+			            <li><a href="#" class="icon-location-pin"></a></li>
 			            <li><a href="#" class="icon-cart"></a></li>
 			          </ul>
 
@@ -45,9 +45,7 @@
 			        </div>
 
 			        <div class="best-advice best-advice--mobile">
-			          <div class="container">
-			            <a href="#"><?php $sitewideData = get_field('sitewide','option'); print $sitewideData['header_text']; ?></a>
-			          </div>
+			          <div class="container"><?php $sitewideData = get_field('sitewide','option'); print $sitewideData['header_text']; ?></div>
 			        </div>
 			      </div>
 			    </div>

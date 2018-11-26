@@ -115,11 +115,18 @@
       }
 
       if($(this).next('.show').hasClass('active')) {
-        $(this).next('.show').removeClass('active');
+        $(this).next('.show');
       } else {
-        $('.js-show').next('.show').removeClass('active');
+        $('.js-show').next('.show')
         $(this).next('.show').addClass('active');
       }
+
+      // if($(this).next('.show').hasClass('active')) {
+      //   $(this).next('.show');
+      // } else {
+      //   $('.js-show').next('.show');
+      //   $(this).next('.show').addClass('active');
+      // }
     });
 
     $('.js-back').click(function(){
@@ -148,28 +155,28 @@
       focusOnSelect: true,
     });
     //
-    // $('.js-product').slick({
-    //   prevArrow: '<span class="slick-prev"></span>',
-    //   nextArrow: '<span class="slick-next"></span>',
-    //   slidesToShow: 1,
-    //   slidesToScroll: 1,
-    //   mobileFirst: true,
-    //   rows: 2,
-    //   slidesPerRow: 2,
-    //   arrows: false,
-    //   responsive: [
-    //     {
-    //       breakpoint: 767,
-    //       settings: {
-    //         slidesToScroll: 4,
-    //         slidesToShow: 4,
-    //         rows: 1,
-    //         slidesPerRow: 1,
-    //         arrows: true
-    //       }
-    //     }
-    //   ]
-    // });
+    $('.js-product-like').slick({
+      prevArrow: '<span class="slick-prev"></span>',
+      nextArrow: '<span class="slick-next"></span>',
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      mobileFirst: true,
+      rows: 2,
+      slidesPerRow: 2,
+      arrows: false,
+      responsive: [
+        {
+          breakpoint: 767,
+          settings: {
+            slidesToScroll: 4,
+            slidesToShow: 4,
+            rows: 1,
+            slidesPerRow: 1,
+            arrows: true
+          }
+        }
+      ]
+    });
 
     // Arrow slider
     function autoHeight(object) {
@@ -221,10 +228,18 @@
         }
       });
     });
-    
+
     // Product zoom.
-    // Instantiate EasyZoom instances
 		var $easyzoom = $('.easyzoom').easyZoom();
+
+    //scroll an element
+    $('.js-scroll-down').click(function() {
+      var $temp = $('.header').height();
+      var $next = $(this).parent().parent().next().offset().top;
+      $('html, body').animate({
+        scrollTop: $next
+      }, 'slow');
+    });
   });
 
 }(this, this.document, this.jQuery));

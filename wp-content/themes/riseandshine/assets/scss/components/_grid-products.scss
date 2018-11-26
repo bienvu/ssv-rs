@@ -3,12 +3,13 @@
   background: #f2f6f5;
 
   @media only screen and (min-width: 768px) {
-    padding: 55px 0 50px;
+    padding: 42px 0 38px;
   }
 
   &__image {
     line-height: 0;
     text-align: center;
+    padding: 20px;
 
     @media only screen and (min-width: 1440px) {
       img {
@@ -138,14 +139,19 @@
 
     del,
     ins {
+      text-decoration: none;
+
       span {
         font-size: 16px;
       }
     }
 
     ins {
-      text-decoration: none;
       @extend .text--red-bold;
+    }
+
+    del span {
+      text-decoration: line-through;
     }
   }
 
@@ -160,10 +166,12 @@
       @extend .btn--no-bg;
       padding: 0 12px 0 0;
       margin-top: 2px;
+      min-width: 92px;
 
       span {
         &:before {
           right: -12px;
+          font-size: 12px;
         }
       }
     }
@@ -187,7 +195,6 @@
     .grid-products__list {
       overflow: hidden;
       padding: 0;
-      margin: 0;
     }
 
     .slick-list {
@@ -238,6 +245,8 @@
     }
 
     .grid-products__image {
+      padding: 0;
+
       img {
         width: 100%;
         height: auto;
@@ -260,7 +269,11 @@
     }
 
     .slick-next {
-      right: -1px;
+      right: 12px;
+    }
+
+    .slick-prev {
+      left: 15px;
     }
   }
 }

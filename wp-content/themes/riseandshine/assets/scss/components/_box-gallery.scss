@@ -1,12 +1,25 @@
 .product {
   &__wrap {
-    display: flex;
+    @media only screen and (min-width: 768px) {
+      display: flex;
+    }
+  }
+
+  &__thumnail,
+  &__images {
+    opacity: 0;
+
+    &.slick-slider {
+      opacity: 1;
+    }
   }
 
   &__gallery {
-    width: 50%;
-    display: flex;
-    padding-right: 15px;
+    @media only screen and (min-width: 768px) {
+      width: 50%;
+      display: flex;
+      padding-right: 15px;
+    }
 
     .woocommerce-product-gallery__image {
       position: relative;
@@ -15,15 +28,18 @@
 
     .easyzoom {
       height: 360px;
+      display: flex !important;
+      align-items: center;
 
       @media only screen and (min-width: 1440px) {
         height: 445px;
       }
 
       a img {
-        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
         width: auto;
-        max-width: inherit;
+        height: auto;
       }
     }
 
@@ -37,6 +53,10 @@
       bottom: 0;
       min-width: 382px;
 
+      @media only screen and (max-width: 767px) {
+        display: none !important; 
+      }
+
       img {
         max-width: inherit;
         width: auto;
@@ -45,12 +65,16 @@
   }
 
   &__images {
-    width: calc(100% - 83px);
+    @media only screen and (min-width: 768px) {
+      width: calc(100% - 83px);
+    }
 
     .slick-track {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @media only screen and (min-width: 768px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
 
     .slick-slide {
@@ -63,6 +87,10 @@
     width: 73px;
     padding-bottom: 10px;
     margin-right: 10px;
+
+    @media only screen and (max-width: 767px) {
+      display: none;
+    }
 
     @media only screen and (min-width: 1440px) {
       width: 83px;
@@ -94,7 +122,8 @@
         &:before {
           transform: rotate(90deg);
           top: 50%;
-          margin-top: -6px;
+          margin-top: -3px;
+          margin-left: -3px;
         }
       }
     }
@@ -126,7 +155,7 @@
   &__content-right {
     @media only screen and (min-width: 768px) {
       width: 63%;
-      padding: 0 0 0 21px;
+      padding: 0 0 0 15px;
     }
 
     @media only screen and (min-width: 1024px) {
@@ -271,8 +300,15 @@
     margin-bottom: 23px !important;
   }
 
-  .list-icons a:before {
-    font-size: 22px;
+  .list-icons {
+    a {
+      padding: 0 10px 0 0;
+      opacity: .5;
+
+      &:before {
+        font-size: 22px;
+      }
+    }
   }
 }
 
@@ -310,4 +346,12 @@
   .btn {
     max-width: 325px;
   }
+}
+
+.woocommerce div.product form.cart div.quantity  {
+  margin-right: 10px;
+}
+
+.woocommerce .quantity .qty {
+  width: 68px;
 }

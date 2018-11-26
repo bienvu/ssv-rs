@@ -1,16 +1,24 @@
 .box-faq {
-  padding: 65px 0 70px;
+  padding: 0 0 30px;
+
+  @media only screen and (min-width: 768px) {
+    padding: 65px 0 70px;
+  }
 
   &__question {
     border-top: 1px solid #e6ebe9;
-    padding: 14px 0 15px 17px;
+    padding: 14px 15px 15px 0;
     margin-bottom: 0;
     position: relative;
     cursor: pointer;
 
+    @media only screen and (min-width: 768px) {
+      padding: 14px 15px 15px 17px;
+    }
+
     &:before {
       @extend %icons;
-      @extend .icon-arrow;
+      @extend .icon-arrow-right;
       transform: rotate(89deg);
       position: absolute;
       transition: .5s;

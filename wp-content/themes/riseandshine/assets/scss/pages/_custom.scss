@@ -4,6 +4,56 @@
   @media only screen and (min-width: 768px) {
     padding: 63px 0 70px;
   }
+
+  &.no-space {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.delivery-services,
+.privacy-policy {
+  .box-html p {
+    margin-bottom: 26px;
+  }
+}
+
+.privacy-policy {
+  .box-html {
+    @media only screen and (min-width: 1024px) {
+      padding: 63px 0 40px;
+    }
+  }
+}
+
+.highpoint,
+.thomastown,
+.nunawading {
+  .contact-maps {
+    @media only screen and (min-width: 768px) {
+      margin-bottom: 50px;
+    }
+  }
+
+  .contact-maps__content {
+    @media only screen and (min-width: 768px) {
+      min-width: 330px;
+    }
+  }
+
+  .box-image-text__body p {
+    @media only screen and (min-width: 768px) {
+      line-height: 1.5;
+    }
+  }
+}
+
+.measurements {
+  .box-html {
+    @media only screen and (min-width: 1024px) {
+      padding: 72px 0 54px;
+    }
+  }
 }
 
 .contact {
@@ -14,8 +64,15 @@
   }
 }
 
-.tax-product_cat .box-icon {
-  background: $white;
+.tax-product_cat {
+  .scroll-element {
+    bottom: 16px;
+    color: $white;
+  }
+
+  .box-icon {
+    background: $white;
+  }
 }
 
 .breadcrumb {
@@ -72,6 +129,11 @@
       transform: rotate(180deg);
       left: 0;
       top: 1px;
+
+
+      &:before {
+        font-size: 12px;
+      }
     }
   }
 }
@@ -83,11 +145,85 @@
     }
   }
 }
- .section-title {
+
+.section-title {
   margin-bottom: 25px;
   text-align: center;
-  
+
   @media only screen and (min-width: 768px) {
     margin-bottom: 37px;
+  }
+}
+
+.about-us {
+  .box-info {
+    margin-top: 11px;
+  }
+
+  .grid-image {
+    @media only screen and (max-width: 767px) {
+      padding: 40px 0 20px;
+    }
+  }
+}
+
+.term-bed-in-a-bag {
+  .banner .banner__wrap {
+    top: calc(50% - 4px);
+
+    b {
+      font-weight: 500;
+    }
+  }
+  .banner__description {
+    margin-bottom: 20px;
+
+    @media only screen and (max-width: 767px) {
+      margin-bottom: 16px;
+    }
+  }
+
+  .btn {
+    @media only screen and (max-width: 767px) {
+      width: 100%;
+    }
+  }
+
+  .box-info {
+    @media only screen and (min-width: 768px) {
+      display: none !important;
+    }
+  }
+}
+
+.custom-design {
+  .box-image-text--70-30 {
+    .box-image-text__body {
+      @media only screen and (max-width: 767px) {
+        order: 2;
+      }
+    }
+
+    .box-image-text__image {
+      @media only screen and (max-width: 767px) {
+        order: 1;
+      }
+    }
+  }
+
+  .box-image-text--image-left .box-image-text__link {
+    @media only screen and (max-width: 767px) {
+      margin-top: 17px;
+    }
+  }
+
+  .box-image-text--image-left .box-image-text__image {
+    @media only screen and (max-width: 767px) {
+      margin-bottom: 0;
+    }
+  }
+
+  .box-image-text__content {
+    margin-top: 11px;
   }
 }

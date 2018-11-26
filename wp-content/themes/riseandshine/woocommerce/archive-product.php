@@ -25,38 +25,55 @@ $image = get_field('banner_image', $term);
 $color = get_field('color', $term);
 $termSlug = $term->slug;
 ?>
-
-<div class="banner banner--width-content <?php print $color; ?> <?php if($termSlug == 'sale'): ?>banner--sale<?php endif; ?>">
-	<div class="banner__image"><?php echo wp_get_attachment_image( $image['ID'], 'full' ); ?></div>
-	<div class="banner__wrap">
-		<div class="container">
-			<div class="banner__body">
-				<?php if($termSlug != 'sale'): ?>
-					<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-						<h1 class="banner__subtitle"><?php woocommerce_page_title(); ?></h1>
-					<?php endif; ?>
-				<?php endif; ?>
-				<div class="banner__content">
-					<div class="banner__description text--large">
-						<?php
-						/**
-						 * Hook: woocommerce_archive_description.
-						 *
-						 * @hooked woocommerce_taxonomy_archive_description - 10
-						 * @hooked woocommerce_product_archive_description - 10
-						 */
-						do_action( 'woocommerce_archive_description' );
-						?>
-					</div>
+<div class="banner-wrap">
+	<div class="banner banner--width-content <?php print $color; ?> <?php if($termSlug == 'sale'): ?>banner--sale<?php endif; ?>">
+		<div class="banner__image">
+			<?php echo wp_get_attachment_image( $image['ID'], 'full' ); ?>
+			<?php if($termSlug == 'sale'): ?>
+				<div class="scroll-element">
+					<i class="icon-arrow-down js-scroll-down"></i>
 				</div>
-				<?php if($termSlug != 'sale'): ?>
-					<div class="best-advice hidden-on-mobile"><?php  _e( 'best advice. never beaten on price', 'ssvtheme' ); ?></div>
-				<?php endif; ?>
+			<?php endif; ?>
+		</div>
+		<div class="banner__wrap">
+			<div class="container">
+				<div class="banner__body">
+					<?php if($termSlug != 'sale'): ?>
+						<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
+							<h1 class="banner__subtitle"><?php woocommerce_page_title(); ?></h1>
+						<?php endif; ?>
+					<?php endif; ?>
+					<div class="banner__content">
+						<div class="banner__description text--large">
+							<?php
+							/**
+							 * Hook: woocommerce_archive_description.
+							 *
+							 * @hooked woocommerce_taxonomy_archive_description - 10
+							 * @hooked woocommerce_product_archive_description - 10
+							 */
+							do_action( 'woocommerce_archive_description' );
+							?>
+						</div>
+						<?php if($termSlug == 'bed-in-a-bag'): ?>
+							<div class="banner__link">
+	              <a href="/sale" class="btn" tabindex="0"><span>discover</span></a>
+	            </div>
+						<?php endif; ?>
+					</div>
+					<?php if($termSlug != 'sale' && $termSlug != 'bed-in-a-bag'): ?>
+						<div class="best-advice hidden-on-mobile"><?php  _e( 'best advice. never beaten on price', 'ssvtheme' ); ?></div>
+					<?php endif; ?>
+				</div>
 			</div>
 		</div>
 	</div>
+	<?php if($termSlug != 'bed-in-a-bag'): ?>
+		<div class="scroll-element">
+			<i class="icon-arrow-down js-scroll-down"></i>
+		</div>
+	<?php endif; ?>
 </div>
-
 <?php
 /**
  * Hook: woocommerce_before_main_content.
@@ -102,7 +119,7 @@ do_action('woocommerce_before_main_content');
 									<div class="form-wrap">
 										<div class="form-list form-top">
 	                    <div class="form-item">
-	                      <span class="js-back come-back"><i class="icon-arrow"></i>back</span>
+	                      <span class="js-back come-back"><i class="icon-arrow-right"></i>back</span>
 	                      <input type="reset" name="" value="clear all">
 	                    </div>
 	                  </div>
@@ -120,7 +137,7 @@ do_action('woocommerce_before_main_content');
 	                        <div class="container">
 	                          <div class="form-list form-top">
 	                            <div class="form-item">
-	                              <span class="js-back come-back"> <i class="icon-arrow"></i>back</span>
+	                              <span class="js-back come-back"> <i class="icon-arrow-right"></i>back</span>
 	                              <input type="reset" name="" value="clear all">
 	                            </div>
 	                          </div>
@@ -160,7 +177,7 @@ do_action('woocommerce_before_main_content');
 	                        <div class="container">
 	                          <div class="form-list form-top">
 	                            <div class="form-item">
-	                              <span class="js-back come-back"> <i class="icon-arrow"></i>back</span>
+	                              <span class="js-back come-back"> <i class="icon-arrow-right"></i>back</span>
 	                              <input type="reset" name="" value="clear all">
 	                            </div>
 	                          </div>
@@ -201,7 +218,7 @@ do_action('woocommerce_before_main_content');
 	                        <div class="container">
 	                          <div class="form-list form-top">
 	                            <div class="form-item">
-	                              <span class="js-back come-back"> <i class="icon-arrow"></i>back</span>
+	                              <span class="js-back come-back"> <i class="icon-arrow-right"></i>back</span>
 	                              <input type="reset" name="" value="clear all">
 	                            </div>
 	                          </div>

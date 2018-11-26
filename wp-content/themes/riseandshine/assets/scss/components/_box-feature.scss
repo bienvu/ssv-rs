@@ -1,27 +1,36 @@
 .box-feature {
-  padding: 65px 0 102px;
+  padding: 68px 0 40px;
   text-align: center;
   color: #fff;
   background: #6eb0b5;
+  margin-top: -45px;
 
   &__title {
-    margin-bottom: 10px;
-    line-height: normal;
+    margin-bottom: 14px;
+
+    @media only screen and (max-width: 767px) {
+      line-height: 1.275;
+      margin-bottom: 8px;
+    }
   }
 
   &__sub-title {
     margin-bottom: 32px;
-    font-size: 16px;
-    line-height: normal;
+    @extend .text--regular;
+    @extend .h4--no-change;
 
     @media only screen and (min-width: 768px) {
-      font-size: 21px;
-      margin-bottom: 39px;
+      margin-bottom: 42px;
+    }
+
+    @media only screen and (max-width: 767px) {
+      font-size: 16px;
     }
   }
-  
+
   &__content {
     text-align: center;
+    margin-bottom: 11px;
 
     @media only screen and (min-width: 768px) {
       display: flex;
@@ -32,35 +41,39 @@
       margin-bottom: 12px;
 
       @media only screen and (min-width: 768px) {
-        font-size: 21px;
         margin-bottom: 16px;
+      }
+
+      @media only screen and (max-width: 767px) {
+        font-size: 21px;
       }
     }
 
     p {
-      margin-bottom: 8px;
-      line-height: normal;
+      margin-bottom: 14px;
 
-      @media only screen and (min-width: 768px) {
-        margin-bottom: 14px;
+      @media only screen and (max-width: 767px) {
+        margin-bottom: 7px;
         line-height: 1.5;
       }
     }
 
     &__left {
       width: 100%;
-      margin-bottom: 31px;
       margin-left: 6px;
 
       @media only screen and (min-width: 768px) {
         width: 50%;
         margin-left: 2px
       }
+
+      @media only screen and (max-width: 767px) {
+        margin-bottom: 30px;
+      }
     }
 
     &__right {
       width: 100%;
-      margin-bottom: 36px;
 
       .box-feature__title {
         margin-bottom: 16px;
@@ -69,6 +82,12 @@
       @media only screen and (min-width: 768px) {
         width: 50%;
       }
+    }
+  }
+
+  &__link {
+    @media only screen and (max-width: 767px) {
+      margin-top: 34px;
     }
   }
 
@@ -89,10 +108,6 @@
   }
 
   .btn {
-    width: 100%;
-
-    @media only screen and (min-width: 768px) {
-      width: 209px;
-    }
+    @extend .btn--large;
   }
 }

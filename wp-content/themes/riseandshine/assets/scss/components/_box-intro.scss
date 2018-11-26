@@ -2,6 +2,7 @@
   padding: 71px 0 80px;
 
   @media only screen and (max-width: 1023px) {
+    padding: 63px 0 35px;
     background: $gray;;
   }
 
@@ -77,6 +78,10 @@
     .btn {
       @extend .btn--depend;
       min-width: 193px;
+
+      @media only screen and (max-width: 767px) {
+        width: auto;
+      }
     }
   }
 }

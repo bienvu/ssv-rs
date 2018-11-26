@@ -6,8 +6,13 @@
     height: 487px;
   }
 
+  @media only screen and (min-width: 1920px) {
+    height: 650px;
+  }
+
   &__image {
     overflow: hidden;
+    // height: 265px;
     height: 230px;
     position: relative;
 
@@ -20,8 +25,12 @@
       height: 100%;
       width: auto;
       position: absolute;
-      top: 0;
-      right: 0;
+
+      @media only screen and (max-width: 1365px) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
 
       @media only screen and (min-width: 646px) {
         width: 100%;
@@ -36,6 +45,9 @@
       @media only screen and (min-width: 1366px) {
         width: 100%;
         height: auto;
+        top: 0;
+        right: 0;
+        transform: none;
       }
     }
   }
@@ -57,12 +69,15 @@
     }
 
     .best-advice {
-      border: 0;
       font-size: 19.5px;
       padding: 10px 5px 10px 31px;
 
       @media only screen and (min-width: 768px) {
         display: block;
+      }
+
+      &:before {
+        display: none;
       }
     }
   }
@@ -100,7 +115,7 @@
   }
 
   &__subtitle {
-    padding: 21px 34px 28px 30px;
+    padding: 21px 30px 28px 30px;
     display: inline-block;
     margin-bottom: 9px;
     color: $white;
@@ -114,6 +129,12 @@
 
   &__title {
     @extend .h1;
+
+    br {
+      @media only screen and (max-width: 767px) {
+        display: none;
+      }
+    }
   }
 
   &__item {
@@ -121,6 +142,10 @@
 
     @media only screen and (min-width: 768px) {
       height: 487px;
+    }
+
+    @media only screen and (min-width: 1920px) {
+      height: 650px;
     }
   }
 
@@ -130,6 +155,12 @@
     img {
       width: 406px;
       height: auto;
+    }
+  }
+
+  .slick-dots {
+    @media only screen and (max-width: 767px) {
+      display: none !important;
     }
   }
 
@@ -153,8 +184,10 @@
 
       @media only screen and (max-width: 767px) {
         position: relative;
-        top: -31px;
+        // top: -31px;
+        margin-top: -31px;
         max-width: inherit;
+        margin-bottom: 30px;
       }
 
       .best-advice {
@@ -171,7 +204,7 @@
 
     .banner__subtitle {
       @media only screen and (max-width: 767px) {
-        margin-bottom: 3px;
+        margin-bottom: 15px;
       }
     }
   }
@@ -240,11 +273,25 @@
     }
   }
 
+  &--width-slide {
+    @media only screen and (max-width: 767px) {
+      margin-bottom: -20px;
+
+      .banner__content {
+        background-color: transparent;
+      }
+    }
+  }
+
   &--sale {
     height: auto;
 
     .banner__image {
       height: 487px;
+
+      @media only screen and (min-width: 1920px) {
+        height: 650px;
+      }
     }
 
     .banner__wrap {
@@ -255,6 +302,43 @@
 
     .banner__body {
       max-width: inherit;
+
+      @media only screen and (max-width: 767px) {
+        padding: 10px 0 20px;
+        top: 0;
+      }
+    }
+
+    .banner__content {
+      @media only screen and (min-width: 1280px) {
+        padding: 26px 83px;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.banner-wrap {
+  position: relative;
+}
+
+.scroll-element {
+  text-align: center;
+  padding: 10px 0;
+  position: absolute;
+  bottom: -44px;
+  left: 0;
+  right: 0;
+
+  @media only screen and (max-width: 767px) {
+    display: none;
+  }
+
+  i {
+    cursor: pointer;
+
+    &:before {
+      font-size: 18px;
     }
   }
 }

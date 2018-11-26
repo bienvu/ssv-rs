@@ -1,6 +1,15 @@
 .box-video {
   text-align: center;
-  padding: 44px 0 34px;
+
+  @media only screen and (min-width: 768px) {
+    padding: 44px 0 34px;
+  }
+
+  .container {
+    @media only screen and (max-width: 767px) {
+      margin: 0 auto;
+    }
+  }
 
   &__wrap {
     display: flex;
@@ -25,16 +34,22 @@
     }
   }
 
+  .video-wrap {
+    @media only screen and (max-width: 767px) {
+      margin-bottom: 0;
+    }
+  }
+
   &__title {
     margin-bottom: 20px;
   }
 
-  &__icon {
-
-  }
-
   .btn {
     width: 100%;
+
+    @media only screen and (max-width: 767px) {
+      display: none;
+    }
 
     @media only screen and (min-width: 768px) {
       width: 209px;

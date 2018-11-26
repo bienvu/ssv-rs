@@ -1,7 +1,7 @@
 // Navigation.
 .second-menu {
   padding: 0 3px 0 0;
-  @media only screen and (max-width: 1023px) {
+  @media only screen and (max-width: 1024px) {
     width: 100%;
     padding: 0;
   }
@@ -11,7 +11,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
 
-    @media only screen and (min-width: 1023px) {
+    @media only screen and (min-width: 1024px) {
       display: flex;
       justify-content: flex-end;
       align-items: center;
@@ -22,7 +22,7 @@
       position: relative;
       width: 50%;
 
-      @media only screen and (min-width: 1024px) {
+      @media only screen and (min-width: 1025px) {
         width: auto;
       }
 
@@ -34,7 +34,7 @@
         display: block;
         text-transform: lowercase;
 
-        @media only screen and (max-width: 1023px) {
+        @media only screen and (max-width: 1024px) {
           border-bottom: 2px solid $gray;
           border-right: 2px solid $gray;
           position: relative;
@@ -54,7 +54,7 @@
         display: none;
         padding: 5px 0 13px;
 
-        @media only screen and (min-width: 1024px) {
+        @media only screen and (min-width: 1025px) {
           position: absolute;
           top: 100%;
           left: 0;
@@ -71,7 +71,7 @@
             color: $white;
             display: block;
 
-            @media only screen and (max-width: 1023px) {
+            @media only screen and (max-width: 1024px) {
               font-size: 14px;
               padding: 5px 19px 3px;
             }
@@ -92,13 +92,13 @@
 
       &:nth-of-type(2n) {
         .sub-menu {
-          @media only screen and (max-width: 1023px) {
+          @media only screen and (max-width: 1024px) {
             margin-left: -100%;
           }
 
           li {
             a {
-              @media only screen and (max-width: 1023px) {
+              @media only screen and (max-width: 1024px) {
                 width: 50%;
                 margin-left: auto;
               }
@@ -109,13 +109,13 @@
 
       &:nth-of-type(2n + 1) {
         .sub-menu {
-          @media only screen and (max-width: 1023px) {
+          @media only screen and (max-width: 1024px) {
             margin-right: -100%;
           }
         }
       }
 
-      @media only screen and (min-width: 1024px) {
+      @media only screen and (min-width: 1025px) {
         &:hover {
           a {
             background: $light-blue;
@@ -133,20 +133,20 @@
 .primary-menu {
   padding: 0 23px 0 0;
 
-  @media only screen and (max-width: 1023px) {
+  @media only screen and (max-width: 1024px) {
     width: 100%;
     padding: 0;
   }
 
   > ul {
-    @media only screen and (min-width: 1024px) {
+    @media only screen and (min-width: 1025px) {
       display: flex;
     }
 
     > li {
       position: relative;
 
-      @media only screen and (max-width: 1023px) {
+      @media only screen and (max-width: 1024px) {
         margin-top: 2px;
         background: $white;
       }
@@ -163,7 +163,7 @@
         display: block;
         text-transform: lowercase;
 
-        @media only screen and (min-width: 1024px) {
+        @media only screen and (min-width: 1025px) {
           padding: 34px 14.5px 38px;
         }
       }
@@ -178,7 +178,7 @@
         display: none;
         padding: 8px 0 10px;
 
-        @media only screen and (min-width: 1024px) {
+        @media only screen and (min-width: 1025px) {
           position: absolute;
           top: 100%;
           left: 0;
@@ -191,7 +191,7 @@
         > li {
           width: 50%;
 
-          @media only screen and (min-width: 1024px) {
+          @media only screen and (min-width: 1025px) {
             min-width: 191px;
             padding: 0 0 0 27px;
           }
@@ -199,7 +199,7 @@
           span {
             @extend %link--normal;
 
-            @media only screen and (min-width: 1024px) {
+            @media only screen and (min-width: 1025px) {
               padding: 0;
               color: $light-blue;
             }
@@ -210,13 +210,13 @@
             padding: 2px 19px 5px;
             text-transform: lowercase;
 
-            @media only screen and (min-width: 1024px) {
+            @media only screen and (min-width: 1025px) {
               padding: 0px 0 4px;
             }
           }
 
           .sub-menu {
-            @media only screen and (min-width: 1024px) {
+            @media only screen and (min-width: 1025px) {
               flex-wrap: wrap;
               padding: 5px 0 0 0;
               box-shadow: none;
@@ -229,7 +229,7 @@
         display: flex;
       }
 
-      @media only screen and (min-width: 1024px) {
+      @media only screen and (min-width: 1025px) {
         &:hover a {
           background: $gray;
         }
@@ -254,7 +254,7 @@
           font-size: 13px;
           transform: translateY(-50%) rotate(90deg);
 
-          @media only screen and (min-width: 1024px) {
+          @media only screen and (min-width: 1025px) {
             display: none;
           }
         }
@@ -272,10 +272,8 @@
 }
 
 .menu-basic {
-  padding: 6px 0 16px;
-
-  @media only screen and (min-width: 768px) {
-    padding: 0;
+  @media only screen and (max-width: 767px) {
+    padding: 20px 0 16px;
   }
 
   ul {

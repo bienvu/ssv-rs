@@ -762,6 +762,29 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_5bf7e24a3b769",
+                            "label": "No Space",
+                            "name": "no_space",
+                            "type": "checkbox",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "no-space": "No Space"
+                            },
+                            "allow_custom": 0,
+                            "default_value": [],
+                            "layout": "vertical",
+                            "toggle": 0,
+                            "return_format": "value",
+                            "save_custom": 0
+                        },
+                        {
                             "key": "field_5bef9fa43408e",
                             "label": "Html Code",
                             "name": "html_code",
@@ -1273,6 +1296,32 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_5bf275290c3e3",
+                            "label": "Type",
+                            "name": "type",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "none": "Defaullt",
+                                "box-image-text--image-left": "Image Left",
+                                "box-image-text--70-30": "Content lager Image"
+                            },
+                            "default_value": [],
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
                             "key": "field_5bf275140c3e1",
                             "label": "Body",
                             "name": "body",
@@ -1314,31 +1363,6 @@
                             "max_height": "",
                             "max_size": "",
                             "mime_types": ""
-                        },
-                        {
-                            "key": "field_5bf275290c3e3",
-                            "label": "Type",
-                            "name": "type",
-                            "type": "select",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "box-image-text--image-left": "Image Left",
-                                "box-image-text--70-30": "Content lager Image"
-                            },
-                            "default_value": [],
-                            "allow_null": 0,
-                            "multiple": 0,
-                            "ui": 0,
-                            "return_format": "value",
-                            "ajax": 0,
-                            "placeholder": ""
                         }
                     ],
                     "min": "",
@@ -1408,5 +1432,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1542730109
+    "modified": 1543071198
 }

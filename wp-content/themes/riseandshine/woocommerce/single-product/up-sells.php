@@ -26,7 +26,7 @@ if ( $upsells ) : ?>
 		<div class="container">
 			<h2 class="h2--no-change text--center"><?php esc_html_e( 'you might also like', 'woocommerce' ) ?></h2>
 
-			<div class="grid-products__list js-product">
+			<div class="grid-products__list js-product-like">
 				<?php foreach ( $upsells as $upsell ) : ?>
 
 					<?php
