@@ -11,8 +11,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
 
-    @media only screen and (min-width: 1024px) {
-      display: flex;
+    @media only screen and (min-width: 1025px) {
       justify-content: flex-end;
       align-items: center;
       padding: 0 10px;
@@ -34,11 +33,16 @@
         display: block;
         text-transform: lowercase;
 
-        @media only screen and (max-width: 1024px) {
+
+        @media only screen and (max-width: 1025px) {
           border-bottom: 2px solid $gray;
           border-right: 2px solid $gray;
           position: relative;
           padding: 7px 19px 10px;
+        }
+
+        @media only screen and (max-width: 360px) {
+          padding: 7px 10px 10px;
         }
       }
 
@@ -176,7 +180,7 @@
       > .sub-menu {
         background: $gray;
         display: none;
-        padding: 8px 0 10px;
+        padding: 10px 0 10px;
 
         @media only screen and (min-width: 1025px) {
           position: absolute;
@@ -196,7 +200,8 @@
             padding: 0 0 0 27px;
           }
 
-          span {
+          span,
+          &.nolink > a {
             @extend %link--normal;
 
             @media only screen and (min-width: 1025px) {
@@ -209,6 +214,7 @@
             @extend %link--large;
             padding: 2px 19px 5px;
             text-transform: lowercase;
+            display: block;
 
             @media only screen and (min-width: 1025px) {
               padding: 0px 0 4px;
@@ -272,7 +278,7 @@
       &.menu-expend {
         > a + i {
           position: absolute;
-          right: 30px;
+          right: 24px;
           top: 10px;
           font-size: 13px;
           transform: rotate(90deg);
@@ -285,6 +291,10 @@
 
           @media only screen and (min-width: 1025px) {
             display: none;
+          }
+
+          &:before {
+            font-size: 12px;
           }
         }
 
@@ -300,6 +310,10 @@
   right: 10px;
   top: 5px;
   color: $white;
+
+  @media only screen and (max-width: 360px) {
+      right: 2px;
+  }
 }
 
 .menu-basic {

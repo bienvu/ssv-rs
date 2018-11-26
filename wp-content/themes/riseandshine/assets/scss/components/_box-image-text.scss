@@ -234,6 +234,10 @@
   }
 
   &.none {
+    @media only screen and (max-width: 767px) {
+      padding-top: 0;
+    }
+
     .box-image-text__body {
       @media only screen and (max-width: 767px) {
         order: 2;

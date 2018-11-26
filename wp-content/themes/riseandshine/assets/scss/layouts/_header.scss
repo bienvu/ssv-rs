@@ -37,10 +37,11 @@
   &__logo {
     padding: 10px 0 5px;
     position: relative;
-    z-index: 10;
+    z-index: 9;
 
     @media only screen and (min-width: 1025px) {
       padding: 0;
+      z-index: 11;
     }
 
     .best-advice--mobile {
@@ -67,6 +68,10 @@
         margin: 0;
       }
 
+      @media only screen and (max-width: 1024px) {
+        margin-right: 11px;
+      }
+
       li a {
         width: 54px;
         height: 54px;
@@ -78,9 +83,19 @@
           height: 40px;
         }
 
+        @media only screen and (max-width: 1024px) {
+          right: 0;
+        }
+
         &:before {
           @media only screen and (max-width: 1024px) {
-            font-size: 22px;
+            font-size: 21px;
+          }
+        }
+
+        &.icon-cart:before {
+          @media only screen and (max-width: 1024px) {
+            font-size: 18px;
           }
         }
       }
@@ -107,6 +122,7 @@
         width: 100%;
         margin: 0;
         padding: 0;
+        max-width: inherit;
       }
     }
   }
@@ -123,6 +139,7 @@
         width: 100%;
         margin: 0;
         padding: 0;
+        max-width: inherit;
       }
     }
   }
@@ -135,6 +152,14 @@
     &.active {
       max-height: calc(100% - 90px);
       overflow-y: auto;
+
+      @media only screen and (max-width: 1024px) {
+        top: 112px;
+      }
+
+      @media only screen and (max-width: 767px) {
+        top: 90px;
+      }
     }
 
     @media only screen and (min-width: 1025px) {
@@ -144,6 +169,11 @@
 
     @media only screen and (max-width: 1024px) {
       position: fixed;
+      width: 100%;
+
+      .form-search {
+        display: none !important;
+      }
     }
   }
 }

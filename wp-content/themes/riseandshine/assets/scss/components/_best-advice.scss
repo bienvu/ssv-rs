@@ -17,12 +17,12 @@
     width: 1px;
     margin-top: -6px;
 
-    @media only screen and (max-width: 1023px) {
+    @media only screen and (max-width: 1024px) {
       display: none;
     }
   }
 
-  @media only screen and (max-width: 1023px) {
+  @media only screen and (max-width: 1024px) {
     padding: 6px 0 8px 0;
     display: none;
   }
@@ -32,7 +32,7 @@
     background: $dark-blue;
     text-align: center;
 
-    @media only screen and (min-width: 1024px) {
+    @media only screen and (min-width: 1025px) {
       display: none;
     }
   }

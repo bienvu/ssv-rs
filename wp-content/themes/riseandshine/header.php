@@ -46,8 +46,8 @@
 			        <div class="header__right">
 								<?php get_template_part('templates/searchform'); ?>
 			          <ul class="list-icons">
-			            <li><a href="#" class="icon-location-pin"></a></li>
-			            <li><a href="#" class="icon-cart"></a></li>
+			            <li><a href="/stores" class="icon-location-pin"></a></li>
+			            <li><a href="/cart" class="icon-cart"></a></li>
 			          </ul>
 
 			          <div class="menu-bars">

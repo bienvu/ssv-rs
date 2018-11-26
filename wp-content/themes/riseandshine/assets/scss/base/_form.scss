@@ -340,6 +340,7 @@ input[type="checkbox"] {
     display: none;
     position: absolute;
     right: 100%;
+    top: 0;
   }
 
   input[type="search"] {
@@ -361,7 +362,7 @@ input[type="checkbox"] {
     font-size: 0;
     color: transparent;
 
-    @media only screen and (max-width: 1023px) {
+    @media only screen and (max-width: 1024px) {
       left: 19px;
       height: 100%;
       pointer-events: none;
@@ -400,7 +401,7 @@ input[type="checkbox"] {
     display: block;
     padding: 13.5px 9.5px;
 
-    @media only screen and (min-width: 1024px) {
+    @media only screen and (min-width: 1025px) {
       display: none;
     }
 
@@ -413,13 +414,15 @@ input[type="checkbox"] {
     }
 
     &.active {
-      z-index: 9;
-      background: $gray;
-      left: -54px;
-      width: calc(100% + 54px);
+      @media only screen and (max-width: 1023px) {
+        z-index: 9;
+        background: $gray;
+        left: -54px;
+        width: calc(100% + 54px);
 
-      .form-search__input {
-        width: 100%;
+        .form-search__input {
+          width: 100%;
+        }
       }
     }
   }

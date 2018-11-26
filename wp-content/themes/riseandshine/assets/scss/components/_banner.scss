@@ -287,7 +287,10 @@
     height: auto;
 
     .banner__image {
-      height: 487px;
+
+      @media only screen and (min-width: 375px) {
+        height: 487px;
+      }
 
       @media only screen and (min-width: 1920px) {
         height: 650px;

@@ -4,12 +4,14 @@
   display: flex;
   align-items: center;
 
-  @media only screen and (min-width: 1024px) {
+  @media only screen and (min-width: 1025px) {
     width: auto;
   }
 
-  @media only screen and (max-width: 1023px) {
+  @media only screen and (max-width: 1024px) {
     padding: 0 20px;
+    text-align: center;
+    justify-content: center;
   }
 
   a {
@@ -30,19 +32,19 @@
         width: 1px;
         margin-top: -6px;
 
-        @media only screen and (max-width: 1023px) {
+        @media only screen and (max-width: 1024px) {
           display: none;
         }
       }
 
-      @media only screen and (max-width: 1023px) {
+      @media only screen and (max-width: 1024px) {
         font-size: 16px;
         padding: 5px 0 12px;
       }
     }
 
-    .cart {
-      @media only screen and (max-width: 1023px) {
+    &.cart {
+      @media only screen and (max-width: 1025px) {
         display: none;
       }
     }
