@@ -37,6 +37,10 @@ function rise_shine_woocommerce_shipping_method_add_rate_args($args_rate, $objec
   // We have defaut shipping rate [fee min_fee=100];
   global $post;
   $package = $args_rate['package'];
+  // IF not in Australia, we dont adjust.
+  if ($package['destination']['country'] != 'AU') {
+    return $args_rate;
+  }
   $postcode = $package['destination']['postcode'];
   $args = array(
     'post_type'   => 'rs_shipping_fee',
