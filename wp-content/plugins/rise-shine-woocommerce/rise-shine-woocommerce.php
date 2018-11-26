@@ -36,11 +36,13 @@ add_filter('woocommerce_shipping_methods', 'rise_shine_woocommerce_shipping_meth
 function rise_shine_woocommerce_shipping_method_add_rate_args($args_rate, $object_shipping) {
   // We have defaut shipping rate [fee min_fee=100];
   global $post;
-  $postcode = '001';
-  $store_id = 175;
+  $package = $args_rate['package'];
+  $postcode = $package['destination']['postcode'];
   $args = array(
     'post_type'   => 'rs_shipping_fee',
-    'post_status' => 'any',
+    'post_status' => 'publish',
+    'meta_key' => 'shipping_fee',
+    'posts_per_page' => 1,
     'meta_query'     => array(
       array(
         'key'     => 'postcode',
@@ -49,14 +51,8 @@ function rise_shine_woocommerce_shipping_method_add_rate_args($args_rate, $objec
         'compare' => '=',
       ),
     ),
-    'tax_query' => array(
-      array(
-        'taxonomy'         => 'rs_store',
-        'field'            => 'id',
-        'terms'            => array($store_id),
-        'include_children' => true,
-        'operator'         => 'IN',
-      )
+    'orderby' => array(
+      'meta_value_num' => 'ASC',
     ),
   );
   $query = new WP_Query($args);
