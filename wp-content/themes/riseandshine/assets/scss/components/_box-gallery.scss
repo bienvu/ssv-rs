@@ -113,6 +113,10 @@
     .slick-dots {
       bottom: 18px;
     }
+
+    .slick-arrow {
+      text-shadow: 0 0 10px rgba($black, .75);
+    }
   }
 
   &__thumnail {
