@@ -41,9 +41,6 @@ class RS_WC_Shipping_PostCode extends WC_Shipping_Method {
     $this->title                = $this->get_option( 'title' );
     $this->tax_status           = $this->get_option( 'tax_status' );
     $this->cost                 = $this->get_option( 'cost' );
-
-    // Actions.
-    add_action( 'woocommerce_update_options_shipping_' . $this->id, array( $this, 'process_admin_options' ) );
   }
 
   /**
@@ -189,13 +186,9 @@ class RS_WC_Shipping_PostCode extends WC_Shipping_Method {
         )
       );
     }
-
     // Base on postcode;
     $postcode = $package['destination']['postcode'];
-    $cost = $this->get_shipping_cost_by_postcode($postcode);
-    if (!empty($cost)) {
-      $rate['cost'] = $cost;
-    }
+    $cost = $this->get_shipping_cost_by_postcode($postcode, $store_id);
     if ( $has_costs ) {
       $this->add_rate( $rate );
     }
@@ -206,13 +199,47 @@ class RS_WC_Shipping_PostCode extends WC_Shipping_Method {
    * @param string $postcode PostCode.
    * @return int.
    */
-  public function get_shipping_cost_by_postcode($postcode) {
-    $postcode_terms = array('123', '456', '789');
-    if (!in_array($postcode, $postcode_terms)) {
-      return '';
+  public function get_shipping_cost_by_postcode($postcode, $store_id) {
+    global $post;
+    $postcode = '001';
+    $store_id = 175;
+    $args = array(
+      'post_type'   => 'rs_shipping_fee',
+      'post_status' => 'any',
+      'meta_query'     => array(
+        array(
+          'key'     => 'postcode',
+          'value'   => $postcode,
+          'type'    => 'CHAR',
+          'compare' => '=',
+        ),
+      ),
+      'tax_query' => array(
+        array(
+          'taxonomy'         => 'rs_store',
+          'field'            => 'id',
+          'terms'            => array($store_id),
+          'include_children' => true,
+          'operator'         => 'IN',
+        )
+      ),
+    );
+    $query = new WP_Query($args);
+    $shipping_fees = array();
+    if (!empty($query->posts)) {
+      foreach ($query->posts as $key => $post) {
+        $shipping_fee = get_field('shipping_fee');
+        if (!empty($shipping_fee)) {
+          $shipping_fees[] = (float) $shipping_fee;
+        }
+      }
     }
-    $cost = 15;
-    return $cost;
+    // Return min shipping frees
+    if (empty($shipping_fees)) {
+      return 0;
+    }else {
+      return min($shipping_fees);
+    }
   }
 
 

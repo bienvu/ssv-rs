@@ -10,9 +10,15 @@
  * @package         Rise_Shine_Woocommerce
  */
 
+
+include_once dirname( __FILE__ ) . '/post-types/rs_shipping_fee.php';
+include_once dirname( __FILE__ ) . '/taxonomies/rs_store.php';
+
+
 add_action('init', 'rise_shine_woocommerce_init');
 add_action('woocommerce_cart_calculate_fees','rise_shine_woocommerce_cart_calculate_installation_fee');
 add_action('woocommerce_admin_process_product_object', 'rise_shine_woocommerce_admin_process_product_object');
+add_filter('woocommerce_shipping_method_add_rate_args', 'rise_shine_woocommerce_shipping_method_add_rate_args',10, 2);
 add_filter('woocommerce_csv_product_import_mapping_options', 'rise_shine_woocommerce_add_column_to_importer');
 add_filter('woocommerce_csv_product_import_mapping_default_columns', 'rise_shine_woocommerce_add_column_to_mapping_screen');
 add_filter('woocommerce_product_import_inserted_product_object', 'rise_shine_woocommerce_product_import_inserted_product_object', 10, 2);
@@ -20,6 +26,55 @@ add_action('woocommerce_product_options_general_product_data', 'rise_shine_wooco
 add_filter('woocommerce_product_importer_pre_expand_data', 'rise_shine_woocommerce_product_importer_pre_expand_data');
 add_filter('woocommerce_shipping_methods', 'rise_shine_woocommerce_shipping_methods');
 
+/**
+ * Hooked woocommerce_shipping_method_add_rate_args.
+ * Adjust $args_rate before saveing to alter shipping cost.
+ * @param array $args_rate.
+ * @param object $object_shipping.
+ * @return $args_rate.
+ */
+function rise_shine_woocommerce_shipping_method_add_rate_args($args_rate, $object_shipping) {
+  // We have defaut shipping rate [fee min_fee=100];
+  global $post;
+  $package = $args_rate['package'];
+  // IF not in Australia, we dont adjust.
+  if ($package['destination']['country'] != 'AU') {
+    return $args_rate;
+  }
+  $postcode = $package['destination']['postcode'];
+  $args = array(
+    'post_type'   => 'rs_shipping_fee',
+    'post_status' => 'publish',
+    'meta_key' => 'shipping_fee',
+    'posts_per_page' => 1,
+    'meta_query'     => array(
+      array(
+        'key'     => 'postcode',
+        'value'   => $postcode,
+        'type'    => 'CHAR',
+        'compare' => '=',
+      ),
+    ),
+    'orderby' => array(
+      'meta_value_num' => 'ASC',
+    ),
+  );
+  $query = new WP_Query($args);
+  $shipping_fees = array();
+  if (!empty($query->posts)) {
+    foreach ($query->posts as $key => $post) {
+      $shipping_fee = get_field('shipping_fee');
+      if (!empty($shipping_fee)) {
+        $shipping_fees[] = (float) $shipping_fee;
+      }
+    }
+  }
+  // Adjust cost here.
+  if(!empty($shipping_fees)) {
+    $args_rate['cost'] = min($shipping_fees);
+  }
+  return $args_rate;
+}
 
 /**
  * Add a 1% surcharge to your cart / checkout
@@ -37,11 +92,11 @@ function rise_shine_woocommerce_cart_calculate_installation_fee() {
     $product = $item['data'];
     $installation_fee_item = get_post_meta($product->get_id(), '_assembly_fee', true);
     if (!empty($installation_fee_item)) {
-      $installation_fee = $installation_fee + (float)$installation_fee_item*$quantity;
+      $installation_fee = (float)$installation_fee_item*$quantity;
+      if ($installation_fee !== 0) {
+        $woocommerce->cart->add_fee( 'Installation fee for ' . $product->get_title() . ': '. get_woocommerce_currency_symbol() . (float)$installation_fee_item  .  ' x ' . $quantity, $installation_fee, true, '' );
+      }
     }
-  }
-  if ($installation_fee !== 0) {
-    $woocommerce->cart->add_fee( 'Installation Fee', $installation_fee, true, '' );
   }
 }
 
