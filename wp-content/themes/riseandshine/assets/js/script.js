@@ -115,9 +115,9 @@
       }
 
       if($(this).next('.show').hasClass('active')) {
-        $(this).next('.show').removeClass('active');
+        $(this).next('.show');
       } else {
-        $('.js-show').next('.show').removeClass('active');
+        $('.js-show').next('.show')
         $(this).next('.show').addClass('active');
       }
 
