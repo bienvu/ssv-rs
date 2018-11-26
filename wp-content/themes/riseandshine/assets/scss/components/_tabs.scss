@@ -1,6 +1,10 @@
 .rs-tabs {
-  margin-top: 26px;
+  margin-top: 55px;
   margin-bottom: 33px;
+
+  @media only screen and (min-width: 768px) {
+    margin-top: 26px;
+  }
 
   .container {
     @media only screen and (max-width: 767px) {
@@ -41,9 +45,9 @@
 
         span {
           @extend .text--normal;
-          padding: 16px 16px 16px 15px;
           display: inline-block;
           border-bottom: 2px solid transparent;
+          padding: 16px 16px 16px 15px
         }
       }
     }
@@ -86,10 +90,11 @@
           display: inline-block;
           width: 100%;
           position: relative;
-          padding: 14px 20px 17px;
+          padding: 12px 20px 17px;
 
           @media only screen and (min-width: 768px) {
             display: none;
+            padding: 14px 20px 17px;
           }
 
           &.active {

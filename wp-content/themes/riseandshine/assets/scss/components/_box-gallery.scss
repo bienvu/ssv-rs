@@ -5,6 +5,16 @@
     }
   }
 
+  &__payment {
+    @media only screen and (max-width: 767px) {
+      padding: 2px 0 0 23px;
+
+      .product__name {
+        margin-bottom: 9px;
+      }
+    }
+  }
+
   &__thumnail,
   &__images {
     opacity: 0;
@@ -15,10 +25,14 @@
   }
 
   &__gallery {
+    margin: 0 -20px 16px;
+    background: $gray;
+
     @media only screen and (min-width: 768px) {
       width: 50%;
       display: flex;
       padding-right: 15px;
+      margin: 0;
     }
 
     .woocommerce-product-gallery__image {
@@ -27,20 +41,34 @@
     }
 
     .easyzoom {
-      height: 360px;
+
+      height: 355px;
       display: flex !important;
       align-items: center;
+      justify-content: center;
+
+      @media only screen and (min-width: 768px) {
+        height: 360px; 
+      }
 
       @media only screen and (min-width: 1440px) {
         height: 445px;
       }
 
-      a img {
-        max-width: 100%;
-        max-height: 100%;
-        width: auto;
-        height: auto;
-      }
+      a {
+        @media only screen and (max-width: 767px) {
+          height: 100%;
+          display: flex;
+          align-items: center;
+        }
+
+        img {
+          max-width: 100%;
+          max-height: 100%;
+          width: auto;
+          height: auto;
+        }
+      } 
     }
 
     .easyzoom-flyout {
@@ -80,6 +108,17 @@
     .slick-slide {
       line-height: 0;
       width: 100%;
+    }
+
+    .slick-arrow {
+
+      &:before {
+        color: black;
+      }
+    }
+
+    .slick-dots {
+      bottom: 18px;
     }
   }
 
@@ -260,7 +299,11 @@
 
   &__name {
     @extend .text--small;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+
+    @media only screen and (min-width: 768px) {
+      margin-bottom: 4px;
+    }
 
     .icon-lock {
       vertical-align: middle;
@@ -278,15 +321,26 @@
   &__multilink {
     display: flex;
     justify-content: space-between;
-    max-width: 403px;
+
+    @media only screen and (min-width: 768px) {
+      max-width: 403px;
+    }
 
     h5 {
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       font-weight: 500;
 
+      @media only screen and (min-width: 768px) {
+        margin-bottom: 8px;
+      }
+
       i {
-        margin-right: 3px;
+        margin-right: 5px;
         line-height: 1;
+
+        @media only screen and (min-width: 768px) {
+          margin-right: 3px;
+        }
       }
     }
   }
@@ -297,23 +351,35 @@
 
   .cart {
     display: flex;
-    margin-bottom: 23px !important;
+    margin-bottom: 25px !important;
+
+    @media only screen and (min-width: 768px) {
+      margin-bottom: 23px !important;
+    }
   }
 
   .list-icons {
     a {
-      padding: 0 10px 0 0;
+      padding: 0 15px 0 0;
       opacity: .5;
 
+      @media only screen and (min-width: 768px) {
+        padding: 0 10px 0 0;
+      }
+
       &:before {
-        font-size: 22px;
+        font-size: 26px;
+
+        @media only screen and (min-width: 768px) {
+          font-size: 22px;
+        }
       }
     }
   }
 }
 
 .size-information {
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 
   &__title {
     font-size: 14px;
@@ -324,6 +390,11 @@
     }
   }
 
+  &__value {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   .item-size {
     font-weight: 600;
     color: $blue;
@@ -331,6 +402,7 @@
     background: $gray;
     padding: 11px 15px;
     margin-right: 10px;
+    margin-bottom: 10px;
     font-size: 14px;
 
     &:last-child {
@@ -341,10 +413,21 @@
 
 .quantity-group {
   min-width: 68px;
-  margin-right: 6px;
+  
+  @media only screen and (min-width: 768px) {
+    margin-right: 6px;
+  }
 
   .btn {
-    max-width: 325px;
+    padding: 11px 16px 14px 56px;
+
+    @media only screen and (min-width: 768px) {
+      max-width: 325px;
+    }
+
+    span:before {
+      font-size: 17px;
+    }
   }
 }
 

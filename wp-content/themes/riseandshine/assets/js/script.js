@@ -147,6 +147,15 @@
       infinite: false,
       arrows: false,
       asNavFor: '.js-gallery-thumbnail',
+      responsive: [{
+        breakpoint: 768,
+        settings: {
+          arrows: true,
+          dots: true,
+          prevArrow: '<span class="slick-prev"></span>',
+          nextArrow: '<span class="slick-next"></span>',
+        }
+      }]
     });
     $('.js-gallery-thumbnail').slick({
       asNavFor: '.js-gallery',
