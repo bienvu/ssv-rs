@@ -129,7 +129,7 @@
 
   &__body {
     position: relative;
-    z-index: 9;
+    z-index: 10;
     display: none;
 
     &.active {
@@ -140,6 +140,10 @@
     @media only screen and (min-width: 1025px) {
       display: flex !important;
       flex-direction: column-reverse;
+    }
+
+    @media only screen and (max-width: 1024px) {
+      position: fixed;
     }
   }
 }

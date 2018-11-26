@@ -246,29 +246,60 @@
 .primary-menu {
   > ul {
     > li {
-      > a {
-        i {
+      // > a {
+      //   i {
+      //     position: absolute;
+      //     right: 9%;
+      //     top: 50%;
+      //     font-size: 13px;
+      //     transform: translateY(-50%) rotate(90deg);
+      //
+      //
+      //     @media only screen and (min-width: 1025px) {
+      //       display: none;
+      //     }
+      //   }
+      // }
+      //
+      // &.active {
+      //   > a {
+      //     i {
+      //       transform: translateY(-50%) rotate(270deg);
+      //     }
+      //   }
+      // }
+
+      &.menu-expend {
+        > a + i {
           position: absolute;
-          right: 9%;
-          top: 50%;
+          right: 30px;
+          top: 10px;
           font-size: 13px;
-          transform: translateY(-50%) rotate(90deg);
+          transform: rotate(90deg);
+          width: 30px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
 
           @media only screen and (min-width: 1025px) {
             display: none;
           }
         }
-      }
 
-      &.active {
-        > a {
-          i {
-            transform: translateY(-50%) rotate(270deg);
-          }
+        &.active > a + i {
+          transform: rotate(270deg);
         }
       }
     }
   }
+}
+
+.second-menu > ul > li.menu-expend > a + i {
+  right: 10px;
+  top: 5px;
+  color: $white;
 }
 
 .menu-basic {

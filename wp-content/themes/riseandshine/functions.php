@@ -65,10 +65,10 @@ function register_rs_menu()
 add_action('init', 'register_rs_menu');
 
 // Navigation
-function rs_nav($menuclass, $name) {
+function rs_nav($menuclass, $name, $themelocaltion='') {
   wp_nav_menu(
   array(
-    'theme_location'  => 'header-menu',
+    'theme_location'  => $themelocaltion,
     'menu'            => $name,
     'container'       => '',
     'container_class' => '$menuclass',
@@ -87,6 +87,18 @@ function rs_nav($menuclass, $name) {
     )
   );
 }
+
+add_filter( 'walker_nav_menu_start_el', 'rs_add_arrow',10,4);
+function rs_add_arrow( $item_output, $item, $depth, $args ){
+    //Only add class to 'top level' items on the 'primary' menu.
+    $hasChildren = (in_array('menu-item-has-children', $item->classes));
+
+    if('has-icon' == $args->theme_location && $hasChildren && $depth == 0 ){
+        $item_output .='<i class="js-show-menu icon-arrow-right"></i>';
+    }
+    return $item_output;
+}
+
 // Set class for menu dropdown
 function menu_set_dropdown( $sorted_menu_items, $args ) {
     $last_top = 0;

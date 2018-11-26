@@ -47,8 +47,8 @@
           $('.box-faq__answer').slideUp();
           $(this).next().slideDown();
         }
+      });
     });
-  });
 
     //toggle class
     $('.menu-bars').click(function(event) {
@@ -69,11 +69,12 @@
       }
 
       $('.header').toggleClass('active');
-    });;
+    });
+
     // show menu
     $('.js-show-menu').click(function(event) {
-      var that = $(this).parent().parent();
-      var sums = $('.js-show-menu').parent().parent();
+      var that = $(this).parent();
+      var sums = $('.js-show-menu').parent();
 
       if(that.hasClass('active')) {
         that.removeClass('active');
@@ -82,6 +83,7 @@
         that.addClass('active');
       }
     });
+    
     // detect click outside element
     $(window).click(function(e) {
       if($('.js-detect').has(e.target).length == 0 && !$('.js-detect').is(e.target)) {
