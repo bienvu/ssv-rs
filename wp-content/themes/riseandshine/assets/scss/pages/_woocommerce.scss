@@ -1,0 +1,95 @@
+.woocommerce {
+  table.cart td.actions  {
+    .coupon {
+      display: flex;
+
+      input[type="text"] {
+        width: auto;
+      }
+    }
+
+    button:disabled {
+      @extend .btn;
+    }
+  }
+
+  .cart-collaterals {
+    .wc-proceed-to-checkout a.checkout-button {
+      @extend .btn;
+      @extend .btn--full;
+    }
+  }
+
+  table.shop_table tbody th,
+  label,
+  table.shop_table tfoot th,
+  table.shop_table tfoot td {
+    font-weight: 500;
+  }
+
+  input[type="radio"] + label:before {
+    border: 0;
+  }
+
+  .woocommerce-checkout #payment {
+    background: none;
+  }
+
+  .woocommerce-checkout #payment div.payment_box {
+    background: $gray;
+
+    &:before {
+      border-bottom-color: $gray;
+    }
+  }
+
+  button {
+    @extend .btn;
+  }
+
+  button.button.alt {
+    @extend .btn;
+  }
+
+  .woocommerce-terms-and-conditions-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .product-remove {
+    text-align: center;
+
+    a {
+      display: inline-block;
+      line-height: 18px;
+    }
+  }
+
+  a.button {
+    @extend .btn;
+  }
+
+  .woocommerce-info {
+    background: $gray;
+    border-top-color: $blue;
+
+    &:before {
+      cursor: pointer;
+    }
+  }
+}
+
+.woocommerce-message {
+  background: $gray;
+}
+
+.woocommerce form .form-row.woocommerce-invalid label {
+  color: $red;
+}
+
+.woocommerce-error {
+  border-top-color: $red;
+
+  &:before {
+    cursor: pointer;
+  }
+}
