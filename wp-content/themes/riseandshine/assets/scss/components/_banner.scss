@@ -26,12 +26,10 @@
       width: auto;
       position: absolute;
 
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-
-      @media only screen and (max-width: 1023px) {
-
+      @media only screen and (max-width: 1365px) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
 
       @media only screen and (min-width: 646px) {
