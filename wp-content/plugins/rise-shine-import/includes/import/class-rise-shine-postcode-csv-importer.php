@@ -144,7 +144,7 @@ class Rise_Shine_PostCode_CSV_Importer {
       );
       $result = wp_insert_post($postarr, true);
       if ( is_wp_error( $result ) ) {
-        $result->add_data( array( 'row' => $this->get_row_id( $raw_data ) ) );
+        $result->add_data( array( 'row' => $postarr['post_title']));
         $data['failed'][] = $result;
       } elseif ( $result['updated'] ) {
         $data['updated'][] = $result['id'];

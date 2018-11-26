@@ -55,7 +55,7 @@
           $this.$form.find('.rise-shine-importer-progress').val( response.data.percentage );
 
           if ( 'done' === response.data.position ) {
-            window.location = response.data.url + '&products-imported=' + parseInt( $this.imported, 10 ) + '&products-failed=' + parseInt( $this.failed, 10 ) + '&products-updated=' + parseInt( $this.updated, 10 ) + '&products-skipped=' + parseInt( $this.skipped, 10 );
+            window.location = response.data.url + '&imported=' + parseInt( $this.imported, 10 ) + '&failed=' + parseInt( $this.failed, 10 ) + '&updated=' + parseInt( $this.updated, 10 ) + '&skipped=' + parseInt( $this.skipped, 10 );
           } else {
             $this.run_import();
           }

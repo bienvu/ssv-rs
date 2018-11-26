@@ -336,11 +336,11 @@ class Rise_Shine_CSV_Importer_Controller {
    */
   protected function done() {
     // phpcs:disable WordPress.CSRF.NonceVerification.NoNonceVerification
-    $imported = isset( $_GET['products-imported'] ) ? absint( $_GET['products-imported'] ) : 0;
-    $updated  = isset( $_GET['products-updated'] ) ? absint( $_GET['products-updated'] ) : 0;
-    $failed   = isset( $_GET['products-failed'] ) ? absint( $_GET['products-failed'] ) : 0;
-    $skipped  = isset( $_GET['products-skipped'] ) ? absint( $_GET['products-skipped'] ) : 0;
-    $errors   = array_filter( (array) get_user_option( 'product_import_error_log' ) );
+    $imported = isset( $_GET['imported'] ) ? absint( $_GET['imported'] ) : 0;
+    $updated  = isset( $_GET['updated'] ) ? absint( $_GET['updated'] ) : 0;
+    $failed   = isset( $_GET['failed'] ) ? absint( $_GET['failed'] ) : 0;
+    $skipped  = isset( $_GET['skipped'] ) ? absint( $_GET['skipped'] ) : 0;
+    $errors   = array_filter( (array) get_user_option( 'rs_postcode_import_error_log' ) );
     // phpcs:enable
 
     include_once dirname( __FILE__ ) . '/views/html-csv-import-done.php';

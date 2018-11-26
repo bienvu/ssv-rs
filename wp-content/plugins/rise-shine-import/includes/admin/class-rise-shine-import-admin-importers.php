@@ -112,13 +112,17 @@ class Rise_Shine_Import_Admin_Importers {
 
     include_once RSIPATH . '/includes/import/class-rise-shine-postcode-csv-importer.php';
     $importer         = new Rise_Shine_PostCode_CSV_Importer($file, $params);
-    $results          = $importer->import();
-
+    $results = $importer->import();
+    // Log failures.
+    if ( 0 !== $params['start_pos'] ) {
+      $error_log = array_filter( (array) get_user_option( 'rs_postcode_import_error_log' ) );
+    } else {
+      $error_log = array();
+    }
 
     $percent_complete = $importer->get_percent_complete();
     $error_log        = array_merge( $error_log, $results['failed'], $results['skipped'] );
-
-
+    update_user_option( get_current_user_id(), 'rs_postcode_import_error_log', $error_log );
 
     if ( 100 === $percent_complete ) {
       // Send success.
@@ -126,7 +130,7 @@ class Rise_Shine_Import_Admin_Importers {
         array(
           'position'   => 'done',
           'percentage' => 100,
-          'url'        => add_query_arg( array( 'nonce' => wp_create_nonce( 'product-csv' ) ), admin_url( 'admin.php?import=rise_shine_term_csv&step=done' ) ),
+          'url'        => add_query_arg( array( 'nonce' => wp_create_nonce( 'rise-shine-import' ) ), admin_url( 'admin.php?import=rise_shine_postcode&step=done' ) ),
           'imported'   => count( $results['imported'] ),
           'failed'     => count( $results['failed'] ),
           'updated'    => count( $results['updated'] ),

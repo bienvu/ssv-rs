@@ -54,7 +54,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		echo wp_kses_post( __( 'Import complete!', 'woocommerce' ) . ' ' . implode( '. ', $results ) );
 		?>
 	</section>
-	<section class="wc-importer-error-log" style="display:none">
+	<section class="wc-importer-error-log" style="">
 		<table class="widefat wc-importer-error-log-table">
 			<thead>
 				<tr>
@@ -66,14 +66,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php
 				if ( count( $errors ) ) {
 					foreach ( $errors as $error ) {
-						if ( ! is_wp_error( $error ) ) {
-							continue;
-						}
-						$error_data = $error->get_error_data();
+						// if ( ! is_wp_error( $error ) ) {
+						// 	continue;
+						// }
+						// $error_data = $error->get_error_data();
 						?>
 						<tr>
-							<th><code><?php echo esc_html( $error_data['row'] ); ?></code></th>
-							<td><?php echo esc_html( $error->get_error_message() ); ?></td>
+							<th><code><?php echo esc_html( $error); ?></code></th>
+							<td><?php echo esc_html( $error); ?></td>
 						</tr>
 						<?php
 					}
