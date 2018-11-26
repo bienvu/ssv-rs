@@ -18,5 +18,8 @@
     "gulp-scss-lint": "^0.3.6",
     "gulp-sourcemaps": "^1.6.0"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "gulp-csso": "^3.0.1"
+  }
 }

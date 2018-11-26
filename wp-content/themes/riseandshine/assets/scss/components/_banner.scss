@@ -1,18 +1,25 @@
-.banner {
-  position: relative;
-  overflow: hidden;
-
+%height-banner {
   @media only screen and (min-width: 768px) {
+    height: 440px;
+  }
+
+  @media only screen and (min-width: 1024px) {
     height: 487px;
   }
 
   @media only screen and (min-width: 1920px) {
     height: 650px;
   }
+}
+
+.banner {
+  position: relative;
+  overflow: hidden;
+  @extend %height-banner;
+
 
   &__image {
     overflow: hidden;
-    // height: 265px;
     height: 230px;
     position: relative;
 
@@ -139,14 +146,7 @@
 
   &__item {
     position: relative;
-
-    @media only screen and (min-width: 768px) {
-      height: 487px;
-    }
-
-    @media only screen and (min-width: 1920px) {
-      height: 650px;
-    }
+    @extend %height-banner;
   }
 
   &__image-title {
@@ -287,14 +287,7 @@
     height: auto;
 
     .banner__image {
-
-      @media only screen and (min-width: 375px) {
-        height: 487px;
-      }
-
-      @media only screen and (min-width: 1920px) {
-        height: 650px;
-      }
+      @extend %height-banner;
     }
 
     .banner__wrap {

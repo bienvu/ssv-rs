@@ -87,15 +87,10 @@
   color: $blue;
   padding: 7px 0 8px;
   text-transform: lowercase;
-  margin-top: 35px;
 
   @media only screen and (min-width: 768px) {
     font-size: 14px;
     padding: 26px 0;
-  }
-
-  @media only screen and (min-width: 1024px) {
-    margin: 0;
   }
 
   a {
@@ -234,5 +229,13 @@
 
   .box-image-text__content {
     margin-top: 11px;
+  }
+}
+
+.single-product {
+  .box-icon {
+    @media only screen and (max-width: 767px) {
+      background: $white;
+    }
   }
 }

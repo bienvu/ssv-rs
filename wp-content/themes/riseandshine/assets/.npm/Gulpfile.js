@@ -4,6 +4,7 @@
 var gulp = require('gulp'),
   autoprefixer = require('gulp-autoprefixer'),
   sass = require('gulp-sass'),
+  csso = require('gulp-csso'),
   sourcemaps = require('gulp-sourcemaps'),
   scsslint = require('gulp-scss-lint'),
   jshint = require('gulp-jshint'),
@@ -70,10 +71,11 @@ gulp.task('sass-dev', function () {
     })
     .pipe(autoprefixer({browsers: ['safari >= 8', 'last 3 versions', '> 2%']}))
     .pipe(sourcemaps.write())
+    .pipe(csso())
     .pipe(gulp.dest(src.css))
 });
 
-// Generate pattern-lab.
+// Generate pattern-lab
 gulp.task('pl-generate', shell.task([
  'php ../pattern-lab/core/console --generate'
 ]));

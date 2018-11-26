@@ -117,10 +117,13 @@
       }
 
       if($(this).next('.show').hasClass('active')) {
+        $('.rs-tabs__content, .js-show').removeClass('active');
         $(this).next('.show');
       } else {
+        $('.rs-tabs__content, .js-show').removeClass('active');
         $('.js-show').next('.show')
         $(this).next('.show').addClass('active');
+        $(this).addClass('active');
       }
     });
 
@@ -140,6 +143,15 @@
       infinite: false,
       arrows: false,
       asNavFor: '.js-gallery-thumbnail',
+      responsive: [{
+        breakpoint: 768,
+        settings: {
+          arrows: true,
+          dots: true,
+          prevArrow: '<span class="slick-prev"></span>',
+          nextArrow: '<span class="slick-next"></span>',
+        }
+      }]
     });
 
     // Js Product thumbnail.

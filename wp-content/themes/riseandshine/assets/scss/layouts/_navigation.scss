@@ -34,7 +34,7 @@
         text-transform: lowercase;
 
 
-        @media only screen and (max-width: 1025px) {
+        @media only screen and (max-width: 1024px) {
           border-bottom: 2px solid $gray;
           border-right: 2px solid $gray;
           position: relative;
@@ -203,6 +203,7 @@
           span,
           &.nolink > a {
             @extend %link--normal;
+            pointer-events: none;
 
             @media only screen and (min-width: 1025px) {
               padding: 0;

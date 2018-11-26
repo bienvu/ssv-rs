@@ -350,6 +350,10 @@ input[type="checkbox"] {
       background: none;
       padding: 6px 5px 6px 30px;
     }
+
+    @media only screen and (max-width: 360px) {
+      padding-left: 15px;
+    }
   }
 
   &__submit {
@@ -422,6 +426,12 @@ input[type="checkbox"] {
 
         .form-search__input {
           width: 100%;
+        }
+      }
+
+      @media only screen and (max-width: 360px) {
+        .form-search__input {
+          padding-left: 30px;
         }
       }
     }
