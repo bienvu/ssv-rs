@@ -95,7 +95,7 @@ if( get_row_layout() == 'banner' ):
 
           <div class="box-intro__multilink">
             <div class="box-intro__item"><a href="<?php print $linkStore['url'] ?>" class="btn btn--dark-blue"><span><?php print $linkStore['title'] ?></span></a></div>
-            <div class="box-intro__item"><a href="<?php print $linkShop['title'] ?>" class="btn"><span><?php print $linkShop['title'] ?></span></a></div>
+            <div class="box-intro__item"><a href="<?php print $linkShop['url'] ?>" class="btn"><span><?php print $linkShop['title'] ?></span></a></div>
           </div>
         </div>
       </div>
@@ -185,7 +185,7 @@ if( get_row_layout() == 'banner' ):
               </div>
               <?php if($link): ?>
               <div class="contact-maps__link">
-                <a href="<?php print $link['url']; ?>" class="btn"><span>get directions</span></a>
+                <a href="<?php print $link['url']; ?>" class="btn"><span><?php echo ($link['title'])? $link['title'] :  _e( 'get directions', 'riseandshine' );?></span></a>
               </div>
             <?php endif; ?>
             </div>
@@ -231,7 +231,7 @@ if( get_row_layout() == 'banner' ):
                   <div class="box-image__description"><?php print $subtitle; ?></div>
                 <?php endif; ?>
                 <div class="box-image__link">
-                  <a href="<?php print $link['url']; ?>" class="btn btn--red"><span>discover</span></a>
+                  <a href="<?php print $link['url']; ?>" class="btn btn--red"><span><?php echo ($link['title'])? $link['title'] :  _e( 'discover', 'riseandshine' );?></span></a>
                 </div>
               </div>
               <div class="box-image__image"><?php echo wp_get_attachment_image( $image['ID'], 'full' ); ?></div>

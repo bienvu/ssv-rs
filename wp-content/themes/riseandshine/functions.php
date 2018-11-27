@@ -143,6 +143,10 @@ function wp_add_scripts() {
       wp_register_script('easyzoom', get_template_directory_uri() . '/assets/js/lib/easyzoom.js', array(), '1.0.0');
       wp_enqueue_script('easyzoom');
 
+      // froogaloop2 js.
+      wp_register_script('imageLoaded', 'https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js', array(), '1.0.0');
+      wp_enqueue_script('imageLoaded');
+
       // Script.
       wp_register_script('script', get_template_directory_uri() . '/assets/js/script.js', array(), '1.0.0'); // Custom scripts
       wp_enqueue_script('script');

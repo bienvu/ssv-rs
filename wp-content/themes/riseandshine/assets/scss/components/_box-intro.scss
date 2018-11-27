@@ -41,14 +41,15 @@
       display: flex;
       align-items: flex-start;
       margin: 0;
+      width: 100%;
     }
   }
 
   &__title {
     @extend .h2;
-    
+
     @media only screen and (min-width: 1024px) {
-      width: 26%;
+      width: 236px;
     }
   }
 
@@ -57,9 +58,13 @@
     font-size: 16px;
 
     @media only screen and (min-width: 1024px) {
-      width: 74%;
+      width: calc(100% - 236px);
       padding: 8px 0 0 12px;
       margin-bottom: 52px;
+    }
+
+    @media only screen and (min-width: 1366px) {
+      min-height: 200px;
     }
   }
 

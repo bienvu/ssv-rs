@@ -199,6 +199,7 @@
         $('.banner__image').css('height', $heightSlide);
       }
     }
+
     function autoHeight(object, direct) {
       var $heightSlide = object.find(direct).height();
       object.find('.slick-arrow').css('top', $heightSlide/2);

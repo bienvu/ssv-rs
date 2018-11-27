@@ -10,6 +10,11 @@
   &__item {
     position: relative;
     width: 100%;
+
+    @media only screen and (max-width: 767px) {
+      max-width: 336px;
+      margin: 0 auto;
+    }
   }
 
   &__image {
@@ -57,6 +62,9 @@
   }
 
   &__content {
+    position: relative;
+    z-index: 2;
+
     @media only screen and (min-width: 768px) {
       position: absolute;
       top: 1px;
@@ -180,12 +188,12 @@
     .box-image__item {
       text-align: center;
       margin-bottom: 50px;
-      display: inline-block;
       width: auto;
 
       @media only screen and (min-width: 768px) {
         width: 50%;
         margin: 0;
+        display: inline-block;
       }
 
       &:nth-child(2n) {
@@ -224,6 +232,14 @@
           img {
             max-width: inherit;
             height: 336px;
+
+            // @media only screen and (min-width: 376px) {
+            //   height: auto;
+            // }
+            //
+            // @media only screen and (min-width: 767px) {
+            //   height: 336px;
+            // }
 
             @media only screen and (min-width: 1024px) {
               height: 383px;
@@ -280,6 +296,16 @@
       position: absolute;
       top: -8px;
       z-index: 1;
+    }
+  }
+
+  .orange {
+    .box-image__description {
+      color: $orange;
+    }
+
+    .btn {
+      @extend .btn--dark-blue;
     }
   }
 }
