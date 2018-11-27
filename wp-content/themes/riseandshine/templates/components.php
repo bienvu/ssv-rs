@@ -23,8 +23,13 @@ if( get_row_layout() == 'banner' ):
           <div class="banner__item <?php if(!$link): ?>banner--lost-link<?php endif; ?> <?php print $type; ?>">
             <?php if( $images ): ?>
               <div class="banner__image">
-                <a href="<?php print $link['url']; ?>" class="hidden-on-mobile desktop-img"><?php echo wp_get_attachment_image( $images['ID'], $size ); ?></a>
-                <a href="<?php print $link['url']; ?>" class="hidden-on-tablet mobile-img"><?php echo wp_get_attachment_image( $imageMobile['ID'], $size ); ?></a>
+                <?php if($link): ?>
+                  <a href="<?php print $link['url']; ?>" class="hidden-on-mobile desktop-img"><?php echo wp_get_attachment_image( $images['ID'], $size ); ?></a>
+                  <a href="<?php print $link['url']; ?>" class="hidden-on-tablet mobile-img"><?php echo wp_get_attachment_image( $imageMobile['ID'], $size ); ?></a>
+                <?php else: ?>
+                  <span class="hidden-on-mobile desktop-img"><?php echo wp_get_attachment_image( $images['ID'], $size ); ?></span>
+                  <span class="hidden-on-tablet mobile-img"><?php echo wp_get_attachment_image( $imageMobile['ID'], $size ); ?></span>
+                <?php endif; ?>
               </div>
             <?php endif; ?>
             <?php if($body): ?>
