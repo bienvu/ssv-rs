@@ -26,7 +26,6 @@
 
   &__gallery {
     margin: 0 -20px 16px;
-    background: $gray;
 
     @media only screen and (min-width: 768px) {
       width: 50%;
@@ -48,7 +47,7 @@
       justify-content: center;
 
       @media only screen and (min-width: 768px) {
-        height: 360px; 
+        height: 360px;
       }
 
       @media only screen and (min-width: 1440px) {
@@ -68,7 +67,7 @@
           width: auto;
           height: auto;
         }
-      } 
+      }
     }
 
     .easyzoom-flyout {
@@ -82,7 +81,7 @@
       min-width: 382px;
 
       @media only screen and (max-width: 767px) {
-        display: none !important; 
+        display: none !important;
       }
 
       img {
@@ -410,7 +409,7 @@
 
 .quantity-group {
   min-width: 68px;
-  
+
   @media only screen and (min-width: 768px) {
     margin-right: 6px;
   }
