@@ -144,7 +144,7 @@
     $('.js-gallery').slick({
       slidesToShow: 1,
       slidesToScroll: 1,
-      infinite: false,
+      infinite: true,
       arrows: false,
       asNavFor: '.js-gallery-thumbnail',
       responsive: [{
@@ -163,7 +163,7 @@
       asNavFor: '.js-gallery',
       slidesToShow: 5,
       slidesToScroll: 1,
-      infinite: false,
+      infinite: true,
       vertical:true,
       focusOnSelect: true,
     });
