@@ -22,6 +22,7 @@ get_header( 'shop' );
 // Prepare some variable.
 $term = get_queried_object();
 $image = get_field('banner_image', $term);
+$imageMobile = get_field('banner_mobile', $term);
 $color = get_field('color', $term);
 $termSlug = $term->slug;
 ?>
@@ -31,7 +32,8 @@ $termSlug = $term->slug;
 	</div>
 	<div class="banner banner--width-content <?php print $color; ?> <?php if($termSlug == 'sale'): ?>banner--sale<?php endif; ?>">
 		<div class="banner__image">
-			<?php echo wp_get_attachment_image( $image['ID'], 'full' ); ?>
+			<span class="hidden-on-mobile desktop-img"><?php echo wp_get_attachment_image( $image['ID'], 'full' ); ?></span>
+			<span class="hidden-on-tablet mobile-img"><?php echo wp_get_attachment_image( $imageMobile['ID'], 'full' ); ?></span>
 			<?php if($termSlug == 'sale'): ?>
 				<div class="scroll-element">
 					<i class="icon-arrow-down js-scroll-down"></i>
