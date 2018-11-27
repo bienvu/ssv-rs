@@ -106,7 +106,7 @@ input[type="reset"] {
     padding: 15px 16px 17px;
 
     @media only screen and (min-width: 768px) {
-      padding: 7px 12px 8px 16px;
+      padding: 6px 12px 6px 16px;
     }
   }
 }
@@ -515,4 +515,10 @@ input[type="checkbox"] {
 div.wpcf7-validation-errors,
 div.wpcf7-acceptance-missing {
   display: none !important;
+}
+
+span.wpcf7-not-valid-tip {
+  font-size: 12px;
+  position: relative;
+  bottom: -4px;
 }

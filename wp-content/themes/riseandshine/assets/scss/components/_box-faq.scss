@@ -5,12 +5,25 @@
     padding: 65px 0 70px;
   }
 
+  &__item {
+    margin-top: -1px;
+
+    &:last-child {
+      border-bottom: 1px solid #e6ebe9;
+    }
+  }
+
   &__question {
     border-top: 1px solid #e6ebe9;
+    border-bottom: 1px solid transparent;
     padding: 14px 15px 15px 0;
     margin-bottom: 0;
     position: relative;
     cursor: pointer;
+
+    &.is-show {
+      border-color: #e6ebe9;
+    }
 
     @media only screen and (min-width: 768px) {
       padding: 14px 15px 15px 17px;
