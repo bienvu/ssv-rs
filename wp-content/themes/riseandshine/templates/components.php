@@ -15,6 +15,7 @@ if( get_row_layout() == 'banner' ):
         $subtitle = get_sub_field('subtitle');
         $link = get_sub_field('link');
         $images = get_sub_field('image');
+        $imageMobile = get_sub_field('image_mobile');
         $body = get_sub_field('body');
         $type = get_sub_field('type');
         $size = 'full';
@@ -22,7 +23,8 @@ if( get_row_layout() == 'banner' ):
           <div class="banner__item <?php if(!$link): ?>banner--lost-link<?php endif; ?> <?php print $type; ?>">
             <?php if( $images ): ?>
               <div class="banner__image">
-                <a href="<?php print $link['url']; ?>"><?php echo wp_get_attachment_image( $images['ID'], $size ); ?></a>
+                <a href="<?php print $link['url']; ?>" class="hidden-on-mobile desktop-img"><?php echo wp_get_attachment_image( $images['ID'], $size ); ?></a>
+                <a href="<?php print $link['url']; ?>" class="hidden-on-tablet mobile-img"><?php echo wp_get_attachment_image( $imageMobile['ID'], $size ); ?></a>
               </div>
             <?php endif; ?>
             <?php if($body): ?>

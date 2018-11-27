@@ -193,6 +193,12 @@
     });
 
     // Arrow slider
+    function bannerHeight() {
+      if($( window ).width() < 767) {
+        var $heightSlide = $('.banner .mobile-img').find('img').height();
+        $('.banner__image').css('height', $heightSlide);
+      }
+    }
     function autoHeight(object, direct) {
       var $heightSlide = object.find(direct).height();
       object.find('.slick-arrow').css('top', $heightSlide/2);
@@ -201,10 +207,12 @@
     $(window).load(function() {
       autoHeight($('.grid-products--width-slide'), 'img');
       autoHeight($('.js-slide'), '.banner__image');
+      bannerHeight();
 
       $(window).resize(function() {
         autoHeight($('.grid-products--width-slide'), 'img');
         autoHeight($('.js-slide'), '.banner__image');
+        bannerHeight();
       });
     });
 
