@@ -253,6 +253,22 @@
         }
       });
     });
+    //form fixed
+    $('.footer .request-form__title').click(function(){
+
+      $('.footer .form-fixed').toggleClass('is-active');
+
+    });
+    $(window).click(function (e)
+      {
+          var container = $('.footer .form-fixed');
+          if (!container.is(e.target)
+            && container.has(e.target).length === 0)
+          {
+          container.removeClass('is-active');
+      }
+    })
+
 
     // Product zoom.
 		var $easyzoom = $('.easyzoom').easyZoom();
