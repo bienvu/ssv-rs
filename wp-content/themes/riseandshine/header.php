@@ -56,10 +56,6 @@
 			            <span class="menu-bars__row"></span>
 			          </div>
 			        </div>
-
-			        <div class="best-advice best-advice--mobile">
-			          <div class="container"><?php $sitewideData = get_field('sitewide','option'); print $sitewideData['header_text']; ?></div>
-			        </div>
 			      </div>
 			    </div>
 			  </div>

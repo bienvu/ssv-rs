@@ -24,6 +24,12 @@
   text-decoration: none;
   background: $btn-bg;
 
+  &:active,
+  &:hover {
+    background: lighten($btn-bg, 5%);
+    color: $white;
+  }
+
   span {
     position: relative;
     @extend .icon-arrow-right;
@@ -77,12 +83,6 @@
         display: none;
       }
     }
-  }
-
-  &:active,
-  &:hover {
-    background: lighten($btn-bg, 5%);
-    color: $white;
   }
 
   &--reverse {

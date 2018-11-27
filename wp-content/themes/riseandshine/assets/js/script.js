@@ -94,11 +94,15 @@
 
     // banner slider
     $('.js-slide').slick({
-      fade: true,
+      // fade: true,
       prevArrow: '<span class="slick-prev">prev</span>',
       nextArrow: '<span class="slick-next">next</span>',
       dots: true,
-      adaptiveHeight: true
+      adaptiveHeight: true,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      slidesToShow: 1,
+      slidesToScroll: 1
     });
 
     // js show

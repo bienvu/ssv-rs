@@ -10,13 +10,16 @@
   @media only screen and (min-width: 1920px) {
     height: 650px;
   }
+
+  @media only screen and (min-width: 2500px) {
+    height: 850px;
+  }
 }
 
 .banner {
   position: relative;
   overflow: hidden;
   @extend %height-banner;
-
 
   &__image {
     overflow: hidden;
@@ -25,6 +28,16 @@
 
     @media only screen and (min-width: 768px) {
       height: 100%;
+    }
+
+    a:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9;
+      content: '';
     }
 
     img {
@@ -285,6 +298,10 @@
 
   &--sale {
     height: auto;
+
+    .banner__subtitle {
+      display: none;
+    }
 
     .banner__image {
       @extend %height-banner;

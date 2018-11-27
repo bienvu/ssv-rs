@@ -52,6 +52,10 @@
         }
       }
 
+      &.menu-expend > a {
+        pointer-events: none;
+      }
+
       .sub-menu {
         background: $light-blue;
         border-bottom: 2px solid $gray;

@@ -26,6 +26,9 @@ $color = get_field('color', $term);
 $termSlug = $term->slug;
 ?>
 <div class="banner-wrap">
+	<div class="best-advice best-advice--mobile">
+		<div class="container"><?php $sitewideData = get_field('sitewide','option'); print $sitewideData['header_text']; ?></div>
+	</div>
 	<div class="banner banner--width-content <?php print $color; ?> <?php if($termSlug == 'sale'): ?>banner--sale<?php endif; ?>">
 		<div class="banner__image">
 			<?php echo wp_get_attachment_image( $image['ID'], 'full' ); ?>
@@ -38,21 +41,24 @@ $termSlug = $term->slug;
 		<div class="banner__wrap">
 			<div class="container">
 				<div class="banner__body">
-					<?php if($termSlug != 'sale'): ?>
-						<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-							<h1 class="banner__subtitle"><?php woocommerce_page_title(); ?></h1>
-						<?php endif; ?>
+					<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
+						<h1 class="banner__subtitle"><?php woocommerce_page_title(); ?></h1>
 					<?php endif; ?>
 					<div class="banner__content">
 						<div class="banner__description text--large">
 							<?php
-							/**
-							 * Hook: woocommerce_archive_description.
-							 *
-							 * @hooked woocommerce_taxonomy_archive_description - 10
-							 * @hooked woocommerce_product_archive_description - 10
-							 */
-							do_action( 'woocommerce_archive_description' );
+								$term = get_queried_object();
+
+								if ( $term && ! empty( $term->description ) ) {
+									echo wc_format_content( $term->description ); // WPCS: XSS ok.
+								}
+							// /**
+							//  * Hook: woocommerce_archive_description.
+							//  *
+							//  * @hooked woocommerce_taxonomy_archive_description - 10
+							//  * @hooked woocommerce_product_archive_description - 10
+							//  */
+							// do_action( 'woocommerce_archive_description' );
 							?>
 						</div>
 						<?php if($termSlug == 'bed-in-a-bag'): ?>

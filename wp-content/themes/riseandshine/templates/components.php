@@ -5,6 +5,9 @@ if( get_row_layout() == 'banner' ):
   $bannerLabel = get_sub_field("label");?>
 
   <div class="banner-wrap">
+    <div class="best-advice best-advice--mobile">
+      <div class="container"><?php $sitewideData = get_field('sitewide','option'); print $sitewideData['header_text']; ?></div>
+    </div>
     <div class="banner <?php if($count > 1): ?>js-slide banner--width-slide<?php endif; ?>">
       <?php if (have_rows('banner_item')):
         while (have_rows('banner_item')): the_row();
@@ -27,7 +30,7 @@ if( get_row_layout() == 'banner' ):
                 <div class="container">
                   <div class="banner__body">
                     <?php if($subtitle): ?>
-                      <h2 class="banner__subtitle"><?php print $subtitle; ?></h2>
+                      <h1 class="banner__subtitle"><?php print $subtitle; ?></h1>
                     <?php endif; ?>
 
                     <div class="banner__content">
@@ -37,7 +40,7 @@ if( get_row_layout() == 'banner' ):
                         <?php endif; ?>
                       <?php else: ?>
                         <?php if($title): ?>
-                          <h1 class="banner__title"><?php print $title; ?></h1>
+                          <h2 class="banner__title"><?php print $title; ?></h2>
                         <?php endif; ?>
                       <?php endif; ?>
                       <div class="banner__description text--large"><?php print $body; ?></div>
@@ -79,7 +82,7 @@ if( get_row_layout() == 'banner' ):
 
         <div class="box-intro__content">
           <div class="box-intro__top">
-            <h2 class="box-intro__title"><?php print $title; ?></h2>
+            <h1 class="box-intro__title"><?php print $title; ?></h1>
             <div class="box-intro__body"><?php print $body; ?></div>
           </div>
 

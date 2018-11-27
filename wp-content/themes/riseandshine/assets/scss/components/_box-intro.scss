@@ -45,6 +45,8 @@
   }
 
   &__title {
+    @extend .h2;
+    
     @media only screen and (min-width: 1024px) {
       width: 26%;
     }
