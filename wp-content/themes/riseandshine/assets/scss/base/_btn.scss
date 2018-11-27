@@ -38,8 +38,9 @@
       @extend %icons;
       position: absolute;
       right: -21px;
-      top: 5px;
+      top: calc(50% + 2px);
       font-size: 12px;
+      transform: translate(0, -50%);
     }
   }
 

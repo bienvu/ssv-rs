@@ -335,7 +335,7 @@ if( get_row_layout() == 'banner' ):
               $thumb_id = get_woocommerce_term_meta( $term->term_id, 'thumbnail_id', true );
               $catImg = wp_get_attachment_image( $thumb_id, 'full', true );?>
                 <div class="grid-image__item <?php print $color; ?>">
-                  <a href="/<?php print $catUrl; ?>">
+                  <a href="/product-category/<?php print $catUrl; ?>">
                     <?php if($catUrl != 'sale'): ?>
                       <div class="grid-image__content">
                         <h3 class="grid-image__title"><?php print $catName; ?></h3>
