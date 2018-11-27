@@ -312,6 +312,7 @@ do_action('woocommerce_before_main_content');
 			woocommerce_product_loop_start();
 
 			if ( wc_get_loop_prop( 'total' ) ) {
+				$i = 0;
 				while ( have_posts() ) {
 					the_post();
 
@@ -323,6 +324,10 @@ do_action('woocommerce_before_main_content');
 					do_action( 'woocommerce_shop_loop' );
 
 					wc_get_template_part( 'content', 'product' );
+					$i++;
+					if ($i == 5 || $i == 10) {
+						include get_template_directory() . '/templates/content-promotion.php';
+					}
 				}
 			}
 

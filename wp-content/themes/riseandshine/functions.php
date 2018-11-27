@@ -223,6 +223,8 @@ function sentiusvn_excerpt($length_callback = '', $more_callback = '')
  */
 function riseandshine_pre_get_posts($query) {
     if ($query->is_main_query() && is_product_category()) {
+        // Post per page 9
+        $query->set('posts_per_page', 10);
         // Filter by price
         $price_from = isset($_GET['_price_from']) ? $_GET['_price_from'] : '';
         $price_to = isset($_GET['_price_to']) ? $_GET['_price_to'] : '';
