@@ -147,12 +147,12 @@
       }
 
       span:before {
-        transform: rotate(90deg);
+        transform: translate(0,-50%) rotate(90deg);
       }
 
       &.active {
         span:before {
-          transform: rotate(270deg);
+          transform: translate(0,-50%) rotate(270deg);
         }
       }
     }
@@ -197,11 +197,11 @@
       }
 
       span:before {
-        transform: rotate(90deg);
+        transform: translate(0,-50%)  rotate(90deg);
 
         @media only screen and (max-width: 1023px) {
           right: 2px;
-          transform: rotate(0deg);
+          transform: translate(0,-50%) rotate(0deg);
         }
       }
     }
