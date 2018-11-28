@@ -7,7 +7,7 @@
   }
 
   &__icons {
-    margin-bottom: 25px;
+    margin-bottom: 26px;
 
     @media only screen and (min-width: 768px) {
       margin-bottom: 0;
@@ -24,7 +24,17 @@
     }
   }
 
+  &__title {
+    @media only screen and (max-width: 767px) {
+      margin-bottom: 7px;
+    }
+  }
+
   &__form {
+    .footer__title {
+      margin-bottom: 8px;
+    }
+
     @media only screen and (min-width: 768px) {
       width: 23%;
       padding: 7px 0 0 3px;
@@ -41,9 +51,13 @@
     .form-item {
       position: relative;
 
+      @media only screen and (max-width: 767px) {
+        margin-bottom: 11px;
+      }
+
       button[type="submit"] {
         @extend %btn--only-icon;
-        height: 30px;
+        height: 100%;
         position: absolute;
         top: 0;
         right: 0;

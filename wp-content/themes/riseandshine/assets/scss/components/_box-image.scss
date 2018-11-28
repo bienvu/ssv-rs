@@ -105,6 +105,7 @@
   &--width-bg {
     margin-top: 8px;
     padding: 44px 0 41px;
+    margin-bottom: 0;
 
     @media only screen and (min-width: 768px) {
       padding: 82px 0;
@@ -119,8 +120,13 @@
     .box-image__title {
       @extend .text--white;
       @extend .h2;
+
       @media only screen and (min-width: 768px) {
         margin-bottom: 52px;
+      }
+
+      br {
+        display: inline;
       }
     }
 
@@ -175,11 +181,17 @@
         align-items: center;
       }
     }
+
+    .box-image__link {
+      @media only screen and (max-width: 767px) {
+        margin: 0;
+      }
+    }
   }
 
   &--width-2cols {
     overflow: hidden;
-    margin-bottom: 8px;
+    margin-bottom: 0px;
 
     @media only screen and (min-width: 768px) {
       margin-bottom: 100px;
@@ -218,6 +230,10 @@
 
         .box-image__content {
           right: 0;
+
+          @media only screen and (min-width: 375px) {
+            right: 72px;
+          }
 
           @media only screen and (min-width: 375px) {
             right: 35px;
