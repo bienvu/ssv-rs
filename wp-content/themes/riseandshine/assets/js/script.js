@@ -203,7 +203,7 @@
 
     // Arrow slider
     function bannerHeight() {
-      if($( window ).width() < 767) {
+      if($( window ).width() < 768) {
         var $heightSlide = $('.banner .mobile-img').find('img').height();
         $('.banner__image').css('height', $heightSlide);
       }
@@ -214,19 +214,20 @@
       object.find('.slick-arrow').css('top', $heightSlide/2);
     }
 
+    // Resize
+    $(window).resize(function () {
+      bannerHeight();
+    }).resize();
+
     $(window).load(function() {
       autoHeight($('.grid-products--width-slide'), 'img');
       autoHeight($('.js-slide'), '.banner__image');
 
-      // Resize
-      $(window).resize(function () {
+      $(window).resize(function() {
         autoHeight($('.grid-products--width-slide'), 'img');
         autoHeight($('.js-slide'), '.banner__image');
-        bannerHeight();
-      }).resize();
+      });
     });
-
-
 
     // matchHeight
     if(('.grid-products__title').length) {

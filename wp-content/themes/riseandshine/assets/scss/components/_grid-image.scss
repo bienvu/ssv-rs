@@ -1,8 +1,14 @@
 .grid-image {
-  padding: 50px 0 30px;
+  padding: 50px 0 38px;
+  background: $gray;
+
+  @media only screen and (min-width: 768px) {
+    background: none;
+  }
 
   @media only screen and (min-width: 1024px) {
-    padding: 70px 0 30px;
+    padding: 62px 0 30px;
+    background: none;
   }
 
   &__wrap {
@@ -66,9 +72,12 @@
     overflow: hidden;
 
     img {
-      min-height: 173px;
       height: auto;
       width: 100%;
+
+      @media only screen and (min-width: 375px) {
+        min-height: 173px;
+      }
     }
   }
 
