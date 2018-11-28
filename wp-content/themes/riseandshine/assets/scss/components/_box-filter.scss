@@ -216,11 +216,17 @@
     }
 
     .form-list {
+      margin: 0 0 10px 0;
+
       @media only screen and (min-width: 1024px) {
         margin: 0;
       }
 
       &.form-top {
+        padding: 17px 0 14px;
+        margin-bottom: 10px;
+        border-bottom-color: #cdd1d0;
+
         @media only screen and (min-width: 1024px) {
           display: none;
         }
@@ -260,8 +266,12 @@
           input {
             background: $white;
             font-size: 12px;
-            padding: 12px 10px;
+            padding: 12px 16px 13px;
             text-align: center;
+
+            @media only screen and (max-width: 1023px) {
+              text-align: left;
+            }
           }
         }
       }
@@ -298,6 +308,16 @@
           position: relative;
         }
 
+        &.form-submit {
+          @media only screen and (max-width: 1023px) {
+            input[type="submit"],
+            button[type='submit'] {
+              text-align: center;
+              padding: 9px 10px 14px;
+            }
+          }
+        }
+
         .btn {
           @extend .btn--white;
           @extend .btn--depend-mobile;
@@ -317,9 +337,13 @@
             width: 100%;
 
             &:before {
-              transform: translate(0,-50%) rotate(90deg);
+              transform: translate(0,-50%);
               font-size: 11px;
               right: -25px;
+
+              @media only screen and (min-width: 1024px) {
+                transform: translate(0,-50%) rotate(90deg);
+              }
             }
           }
         }
@@ -350,7 +374,6 @@
 
           &.active {
             @media only screen and (min-width: 1024px) {
-              // box-shadow: 0px 1px 4px 1px rgba($black, .5);
               position: relative;
               z-index: 10;
 
@@ -378,7 +401,9 @@
 
             span {
               &:before {
-                transform: translate(0,-50%) rotate(270deg);
+                @media only screen and (min-width: 1024px) {
+                  transform: translate(0,-50%) rotate(270deg);
+                }
               }
             }
           }
@@ -386,7 +411,9 @@
 
         input[type="checkbox"] ~ label {
           @media only screen and (max-width: 1023px) {
-            padding: 10px 15px;
+            padding: 11px 17px 14px;
+            font-size: 12px;
+            text-transform: lowercase;
           }
 
           &:before {
@@ -478,11 +505,25 @@
         }
       }
 
+      &.form-caption {
+        @media only screen and (max-width: 1023px) {
+          font-size: 16px;
+          margin-bottom: 5px;
+        }
+      }
+
+      &.form-top {
+        @media only screen and (max-width: 1023px) {
+          margin-bottom: 8px;
+        }
+      }
+
       .form-item {
         button[type="submit"],
         input[type="submit"] {
-          background: #579080;
+          background: $green;
           color: $white;
+          padding: 11px 38px 12px 16px;
 
           @media only screen and (min-width: 1024px) {
             display: none;
@@ -519,7 +560,7 @@
     }
 
     i {
-      margin-right: 5px;
+      margin-right: 10px;
 
       &:before {
         font-size: 11px;

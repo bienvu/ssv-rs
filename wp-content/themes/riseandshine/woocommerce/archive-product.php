@@ -234,7 +234,7 @@ do_action('woocommerce_before_main_content');
 	                          </div>
 	                          <div class="form-list form-caption">
 	                            <div class="form-item">
-	                              <span>size</span>
+	                              <span>comfort</span>
 	                            </div>
 	                          </div>
 	                          <div class="form-list">
