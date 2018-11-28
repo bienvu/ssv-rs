@@ -317,7 +317,7 @@
             width: 100%;
 
             &:before {
-              transform: rotate(90deg);
+              transform: translate(0,-50%) rotate(90deg);
               font-size: 11px;
               right: -25px;
             }
@@ -378,7 +378,7 @@
 
             span {
               &:before {
-                transform: rotate(270deg);
+                transform: translate(0,-50%) rotate(270deg);
               }
             }
           }

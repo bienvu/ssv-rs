@@ -377,6 +377,8 @@ input[type="checkbox"] {
     i {
       position: static;
       transform: none;
+      display: inline-block;
+      width: 13px;
 
       &:before {
         font-size: 12px;

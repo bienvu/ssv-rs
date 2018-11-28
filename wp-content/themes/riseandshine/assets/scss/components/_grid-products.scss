@@ -9,7 +9,7 @@
   &__image {
     line-height: 0;
     text-align: center;
-    padding: 20px;
+    padding: 14px 20px;
 
     @media only screen and (min-width: 1440px) {
       img {
@@ -48,66 +48,42 @@
       min-height: 420px;
     }
 
-    &:last-child {
-      @media only screen and (max-width: 479px) {
-        margin: 0;
-      }
-
-    }
-
-    &--only-image {
-      padding: 0;
-
-      .grid-products__image {
-        overflow: hidden;
-        position: relative;
-        height: 100%;
-
-        img {
-          height: 100%;
-          width: auto;
-          max-width: inherit;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-
-          @media only screen and (min-width: 375px) {
-            width: 100%;
-            height: auto;
-          }
-
-          @media only screen and (min-width: 480px) {
-            height: 100%;
-            width: auto;
-          }
-
-          @media only screen and (min-width: 660px) {
-            width: 100%;
-            height: auto;
-          }
-
-          @media only screen and (min-width: 768px) {
-            height: 100%;
-            width: auto;
-          }
-
-          @media only screen and (min-width: 1440px) {
-            width: 100%;
-            height: auto;
-          }
-        }
-      }
-    }
-
     @media only screen and (min-width: 480px) {
       margin: 10px;
-      width: calc((100% - 40px) / 2);
+      width: calc((100% - 41px) / 2);
     }
 
     @media only screen and (min-width: 768px) {
       margin: 15px;
-      width: calc((100% - 90px) / 3);
+      width: calc((100% - 91px) / 3);
+    }
+
+    &:last-child {
+      @media only screen and (max-width: 479px) {
+        margin: 0;
+      }
+    }
+  }
+
+  &__promotion {
+    padding: 0;
+
+    a {
+      overflow: hidden;
+      position: relative;
+      height: 100%;
+      background: $dark-blue;
+
+      img {
+        height: auto;
+        width: 100%;
+        max-width: inherit;
+        max-height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
   }
 
@@ -118,6 +94,10 @@
 
     @media only screen and (min-width: 768px) {
       padding: 8px 0px 0px 17px;
+    }
+
+    &:hover {
+      color: $cyan;
     }
   }
 
@@ -171,7 +151,7 @@
       }
 
       &:hover {
-
+        color: $cyan;
       }
     }
   }

@@ -118,7 +118,7 @@ do_action('woocommerce_before_main_content');
 				  </ul>
 				</div>
 				<div class="box-filter__bottom">
-					<h5 class="box-filter__title">Filters</h5>
+					<h5 class="box-filter__title">Filter</h5>
 					<div class="box-filter__body">
 						<span class="js-show btn"><span>more filters</span></span>
 					  <div class="box-filter__aside show">
@@ -139,7 +139,7 @@ do_action('woocommerce_before_main_content');
 	                  </div>
 										<div class="form-list">
 											<!-- Type -->
-											<div class="form-item">
+											<!-- <div class="form-item">
 	                      <span class="btn js-show"><span>type</span></span>
 	                      <div class="box-filter__child form-show show">
 	                        <div class="container">
@@ -176,7 +176,7 @@ do_action('woocommerce_before_main_content');
 	                          </div>
 	                        </div>
 	                      </div>
-	                    </div>
+	                    </div> -->
 											<!-- End type -->
 											<!-- Size -->
 	                    <div class="form-item">
@@ -263,10 +263,10 @@ do_action('woocommerce_before_main_content');
 										</div>
 								  	<div class="product-price--range form-list form-2col">
 								  		<div class="form-item form-type-text">
-								  			<input type="text" name="_price_from" placeholder="<?php print __('$ min', 'riseandshine'); ?>" value="<?php if(isset($_GET['_price_from'])) print $_GET['_price_from']; ?>" />
+								  			<input type="number" name="_price_from" placeholder="<?php print __('$ min', 'riseandshine'); ?>" value="<?php if(isset($_GET['_price_from'])) print $_GET['_price_from']; ?>" />
 								  		</div>
 								  		<div class="form-item form-type-text">
-								  			<input type="text" name="_price_to" placeholder="<?php print __('$ max', 'riseandshine'); ?>" value="<?php if(isset($_GET['_price_to'])) print $_GET['_price_to']; ?>" />
+								  			<input type="number" name="_price_to" placeholder="<?php print __('$ max', 'riseandshine'); ?>" value="<?php if(isset($_GET['_price_to'])) print $_GET['_price_to']; ?>" />
 								  		</div>
 								  	</div>
 										<div class="form-list">
@@ -278,15 +278,6 @@ do_action('woocommerce_before_main_content');
 							  </div>
 						  </div>
 					  </div>
-						<!-- <div class="box-filter__sort">
-	            <span class="js-show btn"><span>sort: recommended</span></span>
-
-	            <ul class="show">
-	              <li><a href="#">1</a></li>
-	              <li><a href="#">2</a></li>
-	              <li><a href="#">3</a></li>
-	            </ul>
-	          </div> -->
 				  </div>
 				</div>
 			</form>

@@ -148,7 +148,7 @@ if ( ! function_exists( 'ssv_woocommerce_template_loop_product_thumbnail' ) ) {
 	 * Get the product thumbnail for the loop.
 	 */
 	function ssv_woocommerce_template_loop_product_thumbnail() {
-		echo "<div class='grid-products__image'>". woocommerce_get_product_thumbnail()."</div>"; // WPCS: XSS ok.
+		echo "<div class='grid-products__image'>". woocommerce_get_product_thumbnail('product_list', 0, 0)."</div>"; // WPCS: XSS ok.
 	}
 }
 
