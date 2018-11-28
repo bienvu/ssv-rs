@@ -54,6 +54,44 @@
       display: none;
     }
 
+    .form-search--mobile{
+      @media only screen and (max-width: 1024px) {
+        position: absolute;
+        right: calc(100% + 3px);
+        top: 2px;
+      }
+
+      input[type="search"] {
+        @media only screen and (max-width: 1024px) {
+          width: 0;
+          background: 0 0;
+          padding: 8px 5px 7px 30px;
+          margin: 0;
+        }
+      }
+
+      &.active {
+        @media only screen and (max-width: 1024px) {
+          z-index: 9;
+          background: #f2f6f5;
+          left: -54px;
+          width: calc(100% + 54px);
+        }
+
+        .form-search__input {
+          @media only screen and (max-width: 1024px) {
+            width: 100%;
+          }
+        }
+      }
+
+      .form-search__submit i:before {
+        @media only screen and (max-width: 1024px) {
+          font-size: 16px;
+        }
+      }
+    }
+
     .list-icons {
       margin-bottom: 6px;
 

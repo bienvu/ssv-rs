@@ -94,6 +94,10 @@
       width: 100%;
       margin-bottom: 20px;
 
+      @media only screen and (max-width: 767px) {
+        text-align: center;
+      }
+
       img {
         height: auto;
         width: auto;
@@ -260,6 +264,7 @@
         order: 1;
         margin-left: -20px;
         margin-right: -20px;
+        overflow: hidden;
       }
 
       img {

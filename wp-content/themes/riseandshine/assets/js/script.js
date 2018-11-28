@@ -99,7 +99,7 @@
       nextArrow: '<span class="slick-next">next</span>',
       dots: true,
       adaptiveHeight: true,
-      autoplay: true,
+      autoplay: false,
       autoplaySpeed: 3000,
       slidesToShow: 1,
       slidesToScroll: 1
@@ -203,7 +203,7 @@
 
     // Arrow slider
     function bannerHeight() {
-      if($( window ).width() < 767) {
+      if($( window ).width() < 768) {
         var $heightSlide = $('.banner .mobile-img').find('img').height();
         $('.banner__image').css('height', $heightSlide);
       }

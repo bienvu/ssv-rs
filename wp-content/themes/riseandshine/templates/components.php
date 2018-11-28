@@ -166,7 +166,7 @@ if( get_row_layout() == 'banner' ):
 
 <!-- Box Contact Map -->
 <?php elseif( get_row_layout() == 'contact_map' ): ?>
-  <div class="contact-maps">
+  <div class="contact-maps" id="stores">
     <div class="container">
       <div class="contact-maps__list">
         <?php if( have_rows('map_item') ):

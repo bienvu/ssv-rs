@@ -178,12 +178,6 @@
     }
   }
 
-  .slick-dots {
-    @media only screen and (max-width: 767px) {
-      display: none !important;
-    }
-  }
-
   &--lost-link {
     .banner__image {
       margin: 0;
@@ -224,7 +218,7 @@
 
     .banner__subtitle {
       @media only screen and (max-width: 767px) {
-        margin-bottom: 15px;
+        margin-bottom: 3px;
       }
     }
   }
