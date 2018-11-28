@@ -237,3 +237,11 @@
     }
   }
 }
+
+.box-thank-you {
+  padding: 60px 0;
+
+  @media only screen and (max-width: 767px) {
+    padding: 20px 0;
+  }
+}

@@ -9,10 +9,6 @@
     position: relative;
   }
 
-  @media only screen and (max-width: 767px) {
-    padding-bottom: 34px;
-  }
-
   &__image {
     @media only screen and (min-width: 1025px) {
       position: absolute;

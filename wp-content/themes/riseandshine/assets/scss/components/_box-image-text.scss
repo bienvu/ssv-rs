@@ -96,7 +96,12 @@
 
       img {
         height: auto;
-        width: 100%;
+        width: auto;
+
+        @media only screen and (min-width: 768px) {
+          height: auto;
+          width: 100%;
+        }
 
         @media only screen and (min-width: 1280px) {
           max-width: inherit;

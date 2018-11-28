@@ -99,7 +99,7 @@
       nextArrow: '<span class="slick-next">next</span>',
       dots: true,
       adaptiveHeight: true,
-      autoplay: false,
+      autoplay: true,
       autoplaySpeed: 3000,
       slidesToShow: 1,
       slidesToScroll: 1
@@ -214,15 +214,18 @@
       object.find('.slick-arrow').css('top', $heightSlide/2);
     }
 
+    // Resize
+    $(window).resize(function () {
+      bannerHeight();
+    }).resize();
+
     $(window).load(function() {
       autoHeight($('.grid-products--width-slide'), 'img');
       autoHeight($('.js-slide'), '.banner__image');
-      bannerHeight();
 
       $(window).resize(function() {
         autoHeight($('.grid-products--width-slide'), 'img');
         autoHeight($('.js-slide'), '.banner__image');
-        bannerHeight();
       });
     });
 
