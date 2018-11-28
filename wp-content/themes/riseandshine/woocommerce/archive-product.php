@@ -111,7 +111,12 @@ do_action('woocommerce_before_main_content');
 				    <?php foreach ($product_categories as $key => $product_category): ?>
 				    	<li class="<?php if($term->term_id == $product_category->term_id) print 'active'; ?>">
 				    		<a href="<?php print get_term_link($product_category); ?>">
-				    			<?php print $product_category->name; ?>
+				    			<?php 
+				    				$str_filter = $product_category->name;
+				    				$arr_filter = explode(" ", $str_filter);
+				    				$str_filter = implode("<br />", $arr_filter);
+				    				echo $str_filter;
+				    			?>
 				    		</a>
 				    	</li>
 				    <?php endforeach ?>
