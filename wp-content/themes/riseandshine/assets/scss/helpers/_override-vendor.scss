@@ -31,6 +31,12 @@
   left: 0;
 }
 
+.slick-arrow {
+  @media only screen and (max-width: 767px) {
+    opacity: 0;
+  }
+}
+
 .slick-next {
   right: 0;
 }
@@ -38,7 +44,6 @@
 .slick-dots {
   display: flex;
   position: absolute;
-  bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
 

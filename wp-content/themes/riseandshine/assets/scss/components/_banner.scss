@@ -288,6 +288,12 @@
   }
 
   &--width-slide {
+    opacity: 0;
+
+    &.slick-slider {
+      opacity: 1;
+    }
+
     @media only screen and (max-width: 767px) {
       margin-bottom: -20px;
 

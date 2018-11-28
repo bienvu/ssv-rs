@@ -85,10 +85,11 @@
 
     // detect click outside element
     $(window).click(function(e) {
-      if($('.js-detect').has(e.target).length == 0 && !$('.js-detect').is(e.target)) {
-        $('.js-detect').removeClass('active');
+      var $jsSearch = $('.header .js-detect');
+      if($jsSearch.has(e.target).length == 0 && !$jsSearch.is(e.target)) {
+        $jsSearch.removeClass('active');
       } else {
-         $('.js-detect').addClass('active');
+         $jsSearch.addClass('active');
       }
     });
 
@@ -206,12 +207,13 @@
       if($( window ).width() < 768) {
         var $heightSlide = $('.banner .mobile-img').find('img').height();
         $('.banner__image').css('height', $heightSlide);
+        $('.banner .slick-dots').css('top', $heightSlide - 17);
       }
     }
 
     function autoHeight(object, direct) {
       var $heightSlide = object.find(direct).height();
-      object.find('.slick-arrow').css('top', $heightSlide/2);
+      object.find('.slick-arrow').css({'top': $heightSlide/2, 'opacity': 1});
     }
 
     // Resize

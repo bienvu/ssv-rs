@@ -13,6 +13,23 @@
       margin-bottom: 15px;
     }
   }
+
+  ul, ol {
+    padding-left: 20px;
+    margin-bottom: 15px;
+
+    a {
+      display: block;
+    }
+  }
+
+  ul li {
+    list-style: disc;
+  }
+
+  ol li {
+    list-style: decimal;
+  }
 }
 
 .delivery-services,
@@ -243,5 +260,16 @@
 
   @media only screen and (max-width: 767px) {
     padding: 20px 0;
+  }
+}
+
+.search-wrap {
+  .form-search {
+    display: block;
+    position: relative;
+    right: inherit;
+    width: 100%;
+    left: inherit;
+    background-color: $gray;
   }
 }

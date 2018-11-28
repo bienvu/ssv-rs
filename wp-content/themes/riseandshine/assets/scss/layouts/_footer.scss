@@ -1,9 +1,6 @@
 .footer {
   @extend .text--tiny;
-
-  @media only screen and (min-width: 768px) {
-    border-top: 1px solid $gray;
-  }
+  border-top: 1px solid $gray;
 
   &__icons {
     margin-bottom: 26px;
