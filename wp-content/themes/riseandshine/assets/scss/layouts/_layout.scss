@@ -42,9 +42,13 @@ body {
 }
 
 main {
-  min-height: 400px;
+  min-height: 300px;
 
   @media only screen and (min-width: 1024px) {
     min-height: 420px;
+  }
+
+  &.base {
+    padding: 30px 0;
   }
 }

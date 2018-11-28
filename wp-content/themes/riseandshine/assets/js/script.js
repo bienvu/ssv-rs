@@ -217,14 +217,16 @@
     $(window).load(function() {
       autoHeight($('.grid-products--width-slide'), 'img');
       autoHeight($('.js-slide'), '.banner__image');
-      bannerHeight();
 
-      $(window).resize(function() {
+      // Resize
+      $(window).resize(function () {
         autoHeight($('.grid-products--width-slide'), 'img');
         autoHeight($('.js-slide'), '.banner__image');
         bannerHeight();
-      });
+      }).resize();
     });
+
+
 
     // matchHeight
     if(('.grid-products__title').length) {

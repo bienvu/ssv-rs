@@ -205,6 +205,10 @@
 
 .no-scroll {
   overflow: hidden;
+  position: fixed;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
 }
 
 //combination width js-read-more
