@@ -5,9 +5,6 @@ if( get_row_layout() == 'banner' ):
   $bannerLabel = get_sub_field("label");?>
 
   <div class="banner-wrap">
-    <div class="best-advice best-advice--mobile">
-      <div class="container"><?php $sitewideData = get_field('sitewide','option'); print $sitewideData['header_text']; ?></div>
-    </div>
     <div class="banner <?php if($count > 1): ?>js-slide banner--width-slide<?php endif; ?>">
       <?php if (have_rows('banner_item')):
         while (have_rows('banner_item')): the_row();

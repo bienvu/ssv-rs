@@ -27,9 +27,6 @@ $color = get_field('color', $term);
 $termSlug = $term->slug;
 ?>
 <div class="banner-wrap">
-	<div class="best-advice best-advice--mobile">
-		<div class="container"><?php $sitewideData = get_field('sitewide','option'); print $sitewideData['header_text']; ?></div>
-	</div>
 	<div class="banner banner--width-content <?php print $color; ?> <?php if($termSlug == 'sale'): ?>banner--sale<?php endif; ?>">
 		<div class="banner__image">
 			<span class="hidden-on-mobile desktop-img"><?php echo wp_get_attachment_image( $image['ID'], 'full' ); ?></span>
