@@ -4,8 +4,9 @@
   z-index: 2;
 
   &.active {
-    overflow: hidden;
-    position: relative;
+    // overflow: hidden;
+    // position: relative;
+    // height: 100vh;
   }
 
   @media only screen and (max-width: 767px) {
@@ -190,8 +191,9 @@
     }
 
     @media only screen and (max-width: 767px) {
-      top: 89px;
-      height: calc(100vh - 89px);
+      top: 88px;
+      height: calc(100vh - 88px);
+      padding-bottom: 76px;
     }
 
     &.active {
