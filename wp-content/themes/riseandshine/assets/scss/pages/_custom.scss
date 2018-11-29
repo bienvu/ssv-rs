@@ -102,10 +102,12 @@
   color: $blue;
   padding: 7px 0 8px;
   text-transform: lowercase;
+  background: $white;
 
   @media only screen and (min-width: 768px) {
     font-size: 14px;
     padding: 26px 0;
+    background: none;
   }
 
   a {
@@ -249,8 +251,17 @@
 
 .single-product {
   .box-icon {
+    padding: 51px 0 54px;
+
     @media only screen and (max-width: 767px) {
       background: $white;
+      padding: 0 0 4px;
+    }
+
+    .section-title {
+      @media only screen and (min-width: 768px) {
+        display: none;
+      }
     }
   }
 }

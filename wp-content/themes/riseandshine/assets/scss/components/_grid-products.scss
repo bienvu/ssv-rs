@@ -169,6 +169,10 @@
     .grid-products__list {
       overflow: hidden;
       padding: 0;
+
+      @media only screen and (max-width: 767px) {
+        margin: 0 -10px;
+      }
     }
 
     .slick-list {
@@ -203,7 +207,7 @@
 
     .grid-products__title {
       @extend .h4--small;
-      padding: 3px 0 4px 0;
+      padding: 7px 0 0px 0;
       line-height: 1.2;
       margin-bottom: 4px;
 
@@ -256,5 +260,9 @@
 }
 
 .woocommerce-Price-amount {
-  font-size: 16px;
+  font-size: 12px;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 16px;
+  }
 }
