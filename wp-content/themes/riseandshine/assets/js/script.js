@@ -30,6 +30,9 @@
     // Remove attr title.
     $('a').removeAttr('title');
 
+    // Input number
+    $('input[type="number"], input[type="tel"]').wrap( "<div class='number-wrap'></div>" );
+
     // Add placeholder to quiz.
     $('.wpcf7-quiz').attr('placeholder', 'what is the first letter of rise?');
 

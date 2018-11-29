@@ -140,7 +140,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
   input {
     width: calc(100% + 30px);
-    padding-right: 30px;
+    padding-right: 40px !important;
   }
 }
 
@@ -368,10 +368,6 @@ input[type="checkbox"] {
       pointer-events: none;
     }
 
-    @media only screen and (max-width: 374px) {
-      left: 11px;
-    }
-
     &:hover {
       background: transparent !important;
     }
@@ -408,7 +404,7 @@ input[type="checkbox"] {
     }
 
     @media only screen and (max-width: 374px) {
-      padding: 6.5px 9.5px;
+      padding: 6.5px;
     }
 
     &:hover {
