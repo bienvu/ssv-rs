@@ -230,9 +230,9 @@
     });
 
     // matchHeight
-    if(('.grid-products__title').length) {
-      $('.grid-products__title').matchHeight();
-    }
+    // if(('.grid-products__title').length) {
+    //   $('.grid-products__title').matchHeight();
+    // }
 
     // js-play-video
     var $jsPlayVideo = $('.js-play-video'),

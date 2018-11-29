@@ -458,4 +458,10 @@
   background-color: $gray;
   background-position: calc(100% - 10px) center ;
   padding-right: 31px;
+
+  @media only screen and (max-width: 767px) {
+    text-align: left;
+    padding: 7px 18px 11px;
+    background-position: calc(100% - 15px) center ;
+  }
 }
