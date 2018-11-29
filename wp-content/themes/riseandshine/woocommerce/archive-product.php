@@ -90,7 +90,7 @@ $termSlug = $term->slug;
 do_action('woocommerce_before_main_content');
 ?>
 <?php if($term->slug != 'bed-in-a-bag'): ?>
-	<div class="box-filter is-hidden" id="box-filter">
+	<div class="box-filter is-hidden" id="filter">
 		<div class="container">
 			<form class="box-filter__wrap riseandshine-product-category-filter-form" action="" method="get">
 				<div class="box-filter__top">
@@ -107,8 +107,8 @@ do_action('woocommerce_before_main_content');
 				    ?>
 				    <?php foreach ($product_categories as $key => $product_category): ?>
 				    	<li class="<?php if($term->term_id == $product_category->term_id) print 'active'; ?>">
-				    		<a href="<?php print get_term_link($product_category); ?>">
-				    			<?php 
+				    		<a href="<?php print get_term_link($product_category); ?>#filter">
+				    			<?php
 				    				$str_filter = $product_category->name;
 				    				$arr_filter = explode(" ", $str_filter);
 				    				$str_filter = implode("<br />", $arr_filter);
