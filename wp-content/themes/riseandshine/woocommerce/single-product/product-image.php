@@ -25,17 +25,27 @@ if ( ! function_exists( 'wc_get_gallery_image_html' ) ) {
 global $product;
 
 $post_thumbnail_id = $product->get_image_id();
+$attachment_ids = $product->get_gallery_image_ids();
+$gallery_thumbnail = wc_get_image_size( 'gallery_thumbnail' );
+$thumbnail_size    = apply_filters( 'woocommerce_gallery_thumbnail_size', array( $gallery_thumbnail['width'], $gallery_thumbnail['height'] ) );
 $image = wp_get_attachment_image( $post_thumbnail_id, 'woocommerce_single' );
+$imageThumbnail = wp_get_attachment_image( $post_thumbnail_id, $thumbnail_size );
 $imageFull = wp_get_attachment_image_src( $post_thumbnail_id, 'woocommerce_product_thumbnails_large_size' );
 ?>
 
 <div class="product__thumnail js-gallery-thumbnail">
-	<?php do_action( 'woocommerce_product_thumbnails' ); ?>
+	<?php
+		if ( $attachment_ids && $product->get_image_id() ) {
+			foreach ( $attachment_ids as $attachment_id ) {
+				echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', ssv_get_gallery_image_html( $attachment_id ), $attachment_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
+			}
+		} else {
+			echo '<div class="product__thumnail__item">'. $imageThumbnail .'</div>';
+		}
+	 ?>
 </div>
 <div class="product__images js-gallery">
 	<?php
-		$attachment_ids = $product->get_gallery_image_ids();
-
 		if ( $attachment_ids && $product->get_image_id() ) {
 			foreach ( $attachment_ids as $attachment_id ) {
 				echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', ssv_get_gallery_image_product_html( $attachment_id ), $attachment_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
