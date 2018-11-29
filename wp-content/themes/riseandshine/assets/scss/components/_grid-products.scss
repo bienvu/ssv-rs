@@ -40,13 +40,8 @@
     margin: 0 0 20px 0;
     padding: 0 0 13px;
     width: 100%;
-    min-height: 315px;
     display: flex;
     flex-direction: column;
-
-    @media only screen and (min-width: 1440px) {
-      min-height: 420px;
-    }
 
     @media only screen and (min-width: 480px) {
       margin: 10px;
