@@ -30,7 +30,7 @@ if ( $total <= 1 ) {
 ?>
 <nav class="woocommerce-pagination">
 	<?php
-		echo paginate_links( apply_filters( 'woocommerce_pagination_args', array( // WPCS: XSS ok.
+		$woocommerce_pagination = paginate_links( apply_filters( 'woocommerce_pagination_args', array( // WPCS: XSS ok.
 			'base'         => $base,
 			'format'       => $format,
 			'add_args'     => false,
@@ -42,5 +42,20 @@ if ( $total <= 1 ) {
 			'end_size'     => 3,
 			'mid_size'     => 3,
 		) ) );
+
+		$woocommerce_find = array(
+			"<li><span aria-current='page' class='page-numbers current'>",
+			"<li><a class=\"prev page-numbers",
+			"<li><a class=\"next page-numbers"
+		);
+
+		$woocommerce_replace = array(
+			"<li class='current'><span aria-current='page' class='page-numbers current'>",
+			"<li class=\"custom-pager\"><a class=\"prev page-numbers",
+			"<li class=\"custom-pager\"><a class=\"next page-numbers"
+		);
+
+		$woocommerce_pagination = str_replace($woocommerce_find, $woocommerce_replace, $woocommerce_pagination);
+		echo $woocommerce_pagination;
 	?>
 </nav>
