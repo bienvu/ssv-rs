@@ -148,6 +148,7 @@ if ( ! function_exists( 'ssv_woocommerce_template_loop_product_thumbnail' ) ) {
 	 * Get the product thumbnail for the loop.
 	 */
 	function ssv_woocommerce_template_loop_product_thumbnail() {
+		// print_r(woocommerce_get_product_thumbnail('product_list', 0, 0));
 		echo "<div class='grid-products__image'>". woocommerce_get_product_thumbnail('product_list', 0, 0)."</div>"; // WPCS: XSS ok.
 	}
 }
@@ -249,4 +250,14 @@ function wcc_change_breadcrumb_delimiter( $defaults ) {
     // Change the breadcrumb delimeter from '/' to '>'
     $defaults['delimiter'] = '<span> &gt; </span>';
     return $defaults;
+}
+
+// Add filter
+add_filter( 'woocommerce_placeholder_img_src', 'riseandshine_custom_woocommerce_placeholder', 10 );
+/**
+ * Function to return new placeholder image URL.
+ */
+function riseandshine_custom_woocommerce_placeholder( $image_url ) {
+  $image_url = get_template_directory_uri() . '/assets/images/placeholder.jpg';  // change this to the URL to your custom placeholder
+  return $image_url;
 }

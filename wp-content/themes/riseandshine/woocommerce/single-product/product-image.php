@@ -25,6 +25,8 @@ if ( ! function_exists( 'wc_get_gallery_image_html' ) ) {
 global $product;
 
 $post_thumbnail_id = $product->get_image_id();
+$image = wp_get_attachment_image( $post_thumbnail_id, 'woocommerce_single' );
+$imageFull = wp_get_attachment_image_src( $post_thumbnail_id, 'woocommerce_product_thumbnails_large_size' );
 ?>
 
 <div class="product__thumnail js-gallery-thumbnail">
@@ -38,6 +40,8 @@ $post_thumbnail_id = $product->get_image_id();
 			foreach ( $attachment_ids as $attachment_id ) {
 				echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', ssv_get_gallery_image_product_html( $attachment_id ), $attachment_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
 			}
-		}
-	?>
+		} else {
+		?>
+			<div class='product__image__item easyzoom easyzoom--overlay'><a href="<?php echo $imageFull[0] ; ?>"><?php echo $image; ?></a></div>;
+		<?php } ?>
 </div>
