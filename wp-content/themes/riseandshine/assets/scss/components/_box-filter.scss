@@ -191,6 +191,8 @@
       @extend .btn--full;
       @extend .btn--depend;
       margin-bottom: 10px;
+      font-size: 12px;
+      padding: 13px 16px 16px 16px;
 
       @media only screen and (min-width: 1024px) {
         display: none;

@@ -270,7 +270,7 @@
   padding: 60px 0;
 
   @media only screen and (max-width: 767px) {
-    padding: 20px 0;
+    padding: 20px 0 30px;
   }
 }
 
@@ -292,4 +292,8 @@
   .form-fixed {
     display: none;
   }
+}
+
+.page-basic {
+  margin-top: 30px;
 }

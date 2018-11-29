@@ -23,7 +23,7 @@
   }
 
   &__title {
-    color: #6cafb2;
+    color: $cyan;
     margin-bottom: 21px;
   }
 
@@ -87,8 +87,6 @@
     }
 
     .btn {
-      background: $green;
-      
       @media only screen and (max-width: 767px) {
         margin: 12px 0 36px;
       }

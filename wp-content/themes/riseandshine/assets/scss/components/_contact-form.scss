@@ -87,8 +87,6 @@
 
             input[type="submit"],
             button[type="submit"] {
-              background: $green;
-              
               @media only screen and (max-width: 767px) {
                 width: 100%;
               }
