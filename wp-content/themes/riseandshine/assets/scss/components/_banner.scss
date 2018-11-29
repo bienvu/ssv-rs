@@ -24,6 +24,7 @@
   &__image {
     overflow: hidden;
     height: 230px;
+    min-height: 230px;
     position: relative;
 
     @media only screen and (min-width: 768px) {

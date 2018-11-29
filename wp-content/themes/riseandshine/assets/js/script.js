@@ -216,10 +216,14 @@
       object.find('.slick-arrow').css({'top': $heightSlide/2, 'opacity': 1});
     }
 
-    // Resize
-    $(window).resize(function () {
-      bannerHeight();
-    }).resize();
+    // Imageloaded.
+    $('.banner').imagesLoaded( function() {
+      // Resize
+      $(window).resize(function () {
+        bannerHeight();
+      }).resize();
+    });
+
 
     $(window).load(function() {
       autoHeight($('.grid-products--width-slide'), 'img');
