@@ -17,7 +17,7 @@ sitemap.xml.gz
 *.log
 
 # @TODO writable paths
-wp-content/cache/
+#wp-content/cache/
 wp-content/backups/
 
 # Avoid accidental modification of pantheon.upstream.yml in sites
