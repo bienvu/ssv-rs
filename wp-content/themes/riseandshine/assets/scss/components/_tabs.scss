@@ -45,6 +45,7 @@
 
         span {
           @extend .text--normal;
+          line-height: 1.35;
           display: inline-block;
           border-bottom: 2px solid transparent;
           padding: 16px 16px 16px 15px;
@@ -88,6 +89,7 @@
 
         span {
           @extend .text--normal;
+          line-height: 1.35;
           display: inline-block;
           width: 100%;
           position: relative;

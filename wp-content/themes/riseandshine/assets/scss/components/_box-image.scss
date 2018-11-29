@@ -227,7 +227,11 @@
 
           img {
             max-width: 100%;
-            height: 306px;
+            height: auto;
+
+            @media only screen and (min-width: 375px) {
+              height: 306px;
+            }
 
             @media only screen and (min-width: 1024px) {
               height: 377px;
@@ -240,7 +244,7 @@
         }
 
         .box-image__content {
-          right: 0;
+          right: 30px;
 
           @media only screen and (min-width: 375px) {
             right: 72px;
@@ -257,16 +261,13 @@
           text-align: left;
 
           img {
-            max-width: inherit;
-            height: 336px;
+            height: auto;
+            
 
-            // @media only screen and (min-width: 376px) {
-            //   height: auto;
-            // }
-            //
-            // @media only screen and (min-width: 767px) {
-            //   height: 336px;
-            // }
+            @media only screen and (min-width: 375px) {
+              height: 336px;
+              max-width: inherit;
+            }
 
             @media only screen and (min-width: 1024px) {
               height: 383px;
