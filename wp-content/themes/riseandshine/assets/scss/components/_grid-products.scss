@@ -85,10 +85,10 @@
   &__title {
     @extend .text--bold;
     @extend .h4--no-change;
-    padding: 10px 0 0 16px;
+    padding: 10px 16px 0 16px;
 
     @media only screen and (min-width: 768px) {
-      padding: 8px 0px 0px 17px;
+      padding: 8px 17px 0px 17px;
     }
 
     &:hover {
@@ -210,6 +210,7 @@
       padding: 7px 0 0px 0;
       line-height: 1.2;
       margin-bottom: 4px;
+      height: auto !important;
 
       @media only screen and (min-width: 768px) {
         padding: 4px 5px 0 5px;

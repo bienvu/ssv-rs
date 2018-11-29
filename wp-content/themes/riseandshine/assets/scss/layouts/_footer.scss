@@ -56,9 +56,9 @@
         position: absolute;
         top: 0;
         right: 0;
+        background-color: $dark-blue;
 
         @media only screen and (max-width: 767px) {
-          background-color: $dark-blue;
           height: 47px;
         }
       }
