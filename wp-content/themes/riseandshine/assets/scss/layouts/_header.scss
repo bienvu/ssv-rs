@@ -4,9 +4,12 @@
   z-index: 2;
 
   &.active {
-    height: 100vh;
     overflow: hidden;
     position: relative;
+  }
+
+  @media only screen and (max-width: 767px) {
+    padding-bottom: 34px;
   }
 
   &__image {
@@ -180,17 +183,19 @@
     z-index: 10;
     display: none;
 
+    @media only screen and (max-width: 1024px) {
+      top: 112px;
+      height: calc(100vh - 112px);
+      background: $white;
+    }
+
+    @media only screen and (max-width: 767px) {
+      top: 89px;
+      height: calc(100vh - 89px);
+    }
+
     &.active {
-      max-height: calc(100% - 90px);
       overflow-y: auto;
-
-      @media only screen and (max-width: 1024px) {
-        top: 112px;
-      }
-
-      @media only screen and (max-width: 767px) {
-        top: 90px;
-      }
     }
 
     @media only screen and (min-width: 1025px) {

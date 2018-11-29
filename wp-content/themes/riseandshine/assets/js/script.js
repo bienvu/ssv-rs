@@ -100,7 +100,7 @@
       nextArrow: '<span class="slick-next">next</span>',
       dots: true,
       adaptiveHeight: true,
-      autoplay: false,
+      autoplay: true,
       autoplaySpeed: 3000,
       slidesToShow: 1,
       slidesToScroll: 1
@@ -267,19 +267,19 @@
         }
       });
     });
+
     //form fixed
     $('.footer .request-form__title').click(function(){
-
       $('.footer .form-fixed').toggleClass('is-active');
-
     });
+
     $(window).click(function (e)
       {
-          var container = $('.footer .form-fixed');
-          if (!container.is(e.target)
-            && container.has(e.target).length === 0)
-          {
-          container.removeClass('is-active');
+        var container = $('.footer .form-fixed');
+        if (!container.is(e.target)
+          && container.has(e.target).length === 0)
+        {
+        container.removeClass('is-active');
       }
     })
 
