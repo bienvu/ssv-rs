@@ -102,7 +102,7 @@ do_action('woocommerce_before_main_content');
 				        'parent' => 0,
 								'orderby' => 'term_id',
                 'order'   => 'ASC',
-								'exclude' => array( 275, 15 ),
+								'exclude' => array( 15 ),
 				      ));
 				    ?>
 				    <?php foreach ($product_categories as $key => $product_category): ?>
