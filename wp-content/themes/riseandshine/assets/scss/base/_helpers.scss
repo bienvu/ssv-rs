@@ -209,6 +209,10 @@
   height: 100%;
   overflow: hidden;
   width: 100%;
+
+  .form-fixed {
+    display: none;
+  }
 }
 
 //combination width js-read-more
