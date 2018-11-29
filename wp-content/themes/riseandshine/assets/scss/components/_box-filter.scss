@@ -266,11 +266,12 @@
           input {
             background: $white;
             font-size: 12px;
-            padding: 12px 16px 13px;
+            padding: 12px 10px;
             text-align: center;
 
             @media only screen and (max-width: 1023px) {
               text-align: left;
+              padding: 12px 16px 13px;
             }
           }
         }
@@ -430,8 +431,9 @@
           &:after {
             @media only screen and (max-width: 1023px) {
               right: 11px;
-              bottom: 1px;
+              bottom: 6px;
               left: inherit;
+              top: inherit;
             }
           }
         }

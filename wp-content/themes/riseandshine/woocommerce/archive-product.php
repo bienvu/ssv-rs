@@ -90,7 +90,7 @@ $termSlug = $term->slug;
 do_action('woocommerce_before_main_content');
 ?>
 <?php if($term->slug != 'bed-in-a-bag'): ?>
-	<div class="box-filter is-hidden">
+	<div class="box-filter is-hidden" id="box-filter">
 		<div class="container">
 			<form class="box-filter__wrap riseandshine-product-category-filter-form" action="" method="get">
 				<div class="box-filter__top">
