@@ -61,8 +61,8 @@
       border-top: 1px solid $gray;
     }
 
-    ul {
-      li {
+    > ul {
+      > li {
         border-top: 2px solid $gray;
 
         @media only screen and (min-width: 768px) {
@@ -135,6 +135,23 @@
 
     @media only screen and (min-width: 768px) {
       background: none;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 15px;
+
+      a {
+        display: block;
+      }
+    }
+
+    ul li {
+      list-style: disc;
+    }
+
+    ol li {
+      list-style: decimal;
     }
   }
 }
