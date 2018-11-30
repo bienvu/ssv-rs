@@ -64,7 +64,6 @@
     > ul {
       > li {
         border-top: 2px solid $gray;
-        text-transform: lowercase;
 
         @media only screen and (min-width: 768px) {
           display: none;
@@ -96,6 +95,7 @@
           position: relative;
           padding: 12px 20px 17px;
           cursor: pointer;
+          text-transform: lowercase;
 
           @media only screen and (min-width: 768px) {
             display: none;
