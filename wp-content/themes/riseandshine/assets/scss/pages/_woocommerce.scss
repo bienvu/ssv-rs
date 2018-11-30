@@ -66,8 +66,10 @@
     }
   }
 
-  a.button {
+  a.button,
+  button.button {
     @extend .btn;
+    @extend .btn--lost-icon;
   }
 
   .woocommerce-info {
