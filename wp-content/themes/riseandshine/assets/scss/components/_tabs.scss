@@ -64,6 +64,7 @@
     > ul {
       > li {
         border-top: 2px solid $gray;
+        text-transform: lowercase;
 
         @media only screen and (min-width: 768px) {
           display: none;
