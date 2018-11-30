@@ -124,6 +124,7 @@ input[type="hidden"] {
 input[type="search"] {
   @extend %form-text;
   @extend %form-text--small;
+  height: 30px;
 
   @media only screen and (min-width: 768px) {
     width: 120px;
