@@ -131,8 +131,14 @@ input[type="search"] {
   }
 }
 
-input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
 }
 
 .number-wrap {
@@ -140,8 +146,8 @@ input[type="number"]::-webkit-inner-spin-button {
   width: 100%;
 
   input {
-    width: calc(100% + 30px);
-    padding-right: 40px !important;
+    width: calc(100% + 60px);
+    padding-right: 70px !important;
   }
 }
 
