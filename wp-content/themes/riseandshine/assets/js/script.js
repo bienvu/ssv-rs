@@ -242,6 +242,9 @@
     if(('.grid-products__title').length) {
       $('.grid-products__title').matchHeight();
     }
+    if(('.grid-products--width-slide .grid-products__image').length) {
+      $('.grid-products--width-slide .grid-products__image').matchHeight();
+    }
 
     // js-play-video
     var $jsPlayVideo = $('.js-play-video'),
