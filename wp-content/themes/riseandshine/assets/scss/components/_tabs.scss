@@ -87,7 +87,7 @@
           }
         }
 
-        span {
+        > span {
           @extend .text--normal;
           line-height: 1.35;
           display: inline-block;
@@ -103,14 +103,15 @@
 
           &.active {
             i {
-              transform: rotate(270deg);
+              transform: translateY(-50%) rotate(270deg);
             }
           }
 
           i {
             position: absolute;
             right: 29px;
-            transform: rotate(90deg);
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
           }
         }
       }

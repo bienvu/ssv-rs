@@ -8,6 +8,11 @@
     margin: 0;
   }
 
+  h1 {
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
   h3 {
     @media only screen and (max-width: 767px) {
       margin-bottom: 15px;
@@ -146,8 +151,8 @@
       position: absolute;
       transform: rotate(180deg);
       left: 0;
-      top: 1px;
-
+      top: 50%;
+      margin-top: -6px;
 
       &:before {
         font-size: 12px;
