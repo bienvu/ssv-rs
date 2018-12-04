@@ -149,7 +149,7 @@ if ( ! function_exists( 'ssv_woocommerce_template_loop_product_thumbnail' ) ) {
 	 */
 	function ssv_woocommerce_template_loop_product_thumbnail() {
 		// print_r(woocommerce_get_product_thumbnail('product_list', 0, 0));
-		echo "<div class='grid-products__image'>". woocommerce_get_product_thumbnail('product_list', 0, 0)."</div>"; // WPCS: XSS ok.
+		echo "<div class='grid-products__image'>". woocommerce_get_product_thumbnail('full', 0, 0)."</div>"; // WPCS: XSS ok.
 	}
 }
 
