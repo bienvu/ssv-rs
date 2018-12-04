@@ -145,7 +145,7 @@ function rise_shine_woocommerce_product_options_general_product_data() {
       'value'             => empty($assembly_fee_value) ? '' : $assembly_fee_value[0],
       'label'     => __( 'Assembly Fee', 'rise-shine-woocommerce' ) . ' (' . get_woocommerce_currency_symbol() . ')',
       'placeholder'       => __( 'Assembly Fee', 'rise-shine-woocommerce' ),
-      'description'       => __( 'Fix ammount assembly feee' ),
+      'description'       => __( 'Fix ammount assembly fee' ),
       'type'              => 'number',
     )
   );
