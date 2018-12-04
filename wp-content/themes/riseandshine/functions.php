@@ -41,7 +41,7 @@ if (function_exists('add_theme_support')) {
     // add_image_size('medium', 250, '', true); // Medium Thumbnail
     // add_image_size('small', 120, '', true); // Small Thumbnail
     add_image_size('product_list', 600, 420); // Product list Thumbnail
-    add_image_size('relate_product', 218, 178); // Product list Thumbnail
+    add_image_size('relate_product', 439, 356); // Product list Thumbnail
 }
 
 /*------------------------------------*\
