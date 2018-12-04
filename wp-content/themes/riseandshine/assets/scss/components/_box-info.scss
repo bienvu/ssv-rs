@@ -2,11 +2,9 @@
   padding: 42px 0 1px;
   background-size: cover !important;
   background-position: center !important;
-  margin-bottom: 15px;
 
   @media only screen and (min-width: 768px) {
     padding: 58px 0 50px;
-    margin: 0;
   }
 
   &__title {
@@ -21,9 +19,9 @@
 
   &__sub-title {
     margin-bottom: 13px;
+    color: $cyan;
 
     @media only screen and (min-width: 768px) {
-      color: $bg-indigo;
       margin-bottom: 15px;
     }
   }
@@ -71,17 +69,19 @@
   &__item {
     width: 100%;
     margin-bottom: 20px;
-    background: $white;
     padding: 30px 0 23px;
     min-height: 300px;
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
     justify-content: center;
+    background: $gray;
 
     @media only screen and (min-width: 768px) {
       width: calc((100% - 41px)  / 3);
       padding: 23px 0;
       margin-right: 20px;
+      background: $white;
 
       &:last-child {
         margin-right: 0;

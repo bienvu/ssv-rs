@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This config file is yours to hack on. It will work out of the box on Pantheon
  * but you may find there are a lot of neat tricks to be used here.

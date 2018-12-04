@@ -8,10 +8,32 @@
     margin: 0;
   }
 
+  h1 {
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
   h3 {
     @media only screen and (max-width: 767px) {
       margin-bottom: 15px;
     }
+  }
+
+  ul, ol {
+    padding-left: 20px;
+    margin-bottom: 15px;
+
+    a {
+      display: block;
+    }
+  }
+
+  ul li {
+    list-style: disc;
+  }
+
+  ol li {
+    list-style: decimal;
   }
 }
 
@@ -85,10 +107,12 @@
   color: $blue;
   padding: 7px 0 8px;
   text-transform: lowercase;
+  background: $white;
 
   @media only screen and (min-width: 768px) {
     font-size: 14px;
     padding: 26px 0;
+    background: none;
   }
 
   a {
@@ -127,8 +151,8 @@
       position: absolute;
       transform: rotate(180deg);
       left: 0;
-      top: 1px;
-
+      top: 50%;
+      margin-top: -6px;
 
       &:before {
         font-size: 12px;
@@ -232,8 +256,58 @@
 
 .single-product {
   .box-icon {
+    padding: 51px 0 54px;
+
     @media only screen and (max-width: 767px) {
       background: $white;
+      padding: 0 0 4px;
     }
+
+    .section-title {
+      @media only screen and (min-width: 768px) {
+        display: none;
+      }
+    }
+  }
+}
+
+.box-thank-you {
+  padding: 60px 0;
+
+  @media only screen and (max-width: 767px) {
+    padding: 20px 0 30px;
+  }
+}
+
+.search-wrap {
+  .form-search {
+    display: block;
+    position: relative;
+    right: inherit;
+    width: 100%;
+    left: inherit;
+    background-color: $gray;
+  }
+}
+
+// Thankyou page.
+.page-id-298,
+.page-id-301,
+.page-id-296 {
+  .form-fixed {
+    display: none;
+  }
+}
+
+.page-basic {
+  margin-top: 30px;
+}
+
+.woocommerce-cart,
+.woocommerce-checkout,
+.woocommerce-account {
+  .main {
+    margin-top: 30px;
+    margin-bottom: 20px;
   }
 }

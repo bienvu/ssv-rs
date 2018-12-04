@@ -148,7 +148,8 @@ if ( ! function_exists( 'ssv_woocommerce_template_loop_product_thumbnail' ) ) {
 	 * Get the product thumbnail for the loop.
 	 */
 	function ssv_woocommerce_template_loop_product_thumbnail() {
-		echo "<div class='grid-products__image'>". woocommerce_get_product_thumbnail()."</div>"; // WPCS: XSS ok.
+		// print_r(woocommerce_get_product_thumbnail('product_list', 0, 0));
+		echo "<div class='grid-products__image'>". woocommerce_get_product_thumbnail('product_list', 0, 0)."</div>"; // WPCS: XSS ok.
 	}
 }
 
@@ -249,4 +250,37 @@ function wcc_change_breadcrumb_delimiter( $defaults ) {
     // Change the breadcrumb delimeter from '/' to '>'
     $defaults['delimiter'] = '<span> &gt; </span>';
     return $defaults;
+}
+
+// Add filter
+add_filter( 'woocommerce_placeholder_img_src', 'riseandshine_custom_woocommerce_placeholder', 10 );
+/**
+ * Function to return new placeholder image URL.
+ */
+function riseandshine_custom_woocommerce_placeholder( $image_url ) {
+  $image_url = get_template_directory_uri() . '/assets/images/placeholder.jpg';  // change this to the URL to your custom placeholder
+  return $image_url;
+}
+
+// Add Shortcode [cart_count]
+function get_cart_count() {
+  if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+       global $woocommerce;
+			 if($woocommerce->cart->cart_contents_count > 0 ) {
+				 echo " <span class='cart-count'> ".$woocommerce->cart->cart_contents_count. "</span>";
+			 }
+  }
+}
+add_shortcode( 'cart_count', 'get_cart_count' );
+
+add_filter( 'woocommerce_add_to_cart_fragments', 'wc_refresh_mini_cart_count');
+function wc_refresh_mini_cart_count($fragments){
+  ob_start();
+  ?>
+  <span class="cart-count">
+      <?php echo WC()->cart->get_cart_contents_count(); ?>
+  </span>
+  <?php
+      $fragments['.cart-count'] = ob_get_clean();
+  return $fragments;
 }

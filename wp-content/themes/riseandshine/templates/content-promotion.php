@@ -1,7 +1,5 @@
-<div class="grid-products__item">
+<div class="grid-products__item grid-products__promotion">
   <a href="/product-category/sale/">
-    <div class="grid-products__image">
-      <img width="300" height="300" src="/wp-content/uploads/2018/11/sale.jpg">
-    </div>
+    <img width="300" height="315" src="<?php echo get_template_directory_uri(); ?>/assets/images/promotion.png">
   </a>
 </div>

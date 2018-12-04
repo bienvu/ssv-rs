@@ -70,7 +70,7 @@
       }
 
       @media only screen and (min-width: 1366px) {
-        width: 100%;
+        width: 102%;
         height: auto;
         top: 0;
         right: 0;
@@ -178,12 +178,6 @@
     }
   }
 
-  .slick-dots {
-    @media only screen and (max-width: 767px) {
-      display: none !important;
-    }
-  }
-
   &--lost-link {
     .banner__image {
       margin: 0;
@@ -224,7 +218,7 @@
 
     .banner__subtitle {
       @media only screen and (max-width: 767px) {
-        margin-bottom: 15px;
+        margin-bottom: 3px;
       }
     }
   }
@@ -294,6 +288,12 @@
   }
 
   &--width-slide {
+    opacity: 0;
+
+    &.slick-slider {
+      opacity: 1;
+    }
+
     @media only screen and (max-width: 767px) {
       margin-bottom: -20px;
 

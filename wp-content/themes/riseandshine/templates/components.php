@@ -5,9 +5,6 @@ if( get_row_layout() == 'banner' ):
   $bannerLabel = get_sub_field("label");?>
 
   <div class="banner-wrap">
-    <div class="best-advice best-advice--mobile">
-      <div class="container"><?php $sitewideData = get_field('sitewide','option'); print $sitewideData['header_text']; ?></div>
-    </div>
     <div class="banner <?php if($count > 1): ?>js-slide banner--width-slide<?php endif; ?>">
       <?php if (have_rows('banner_item')):
         while (have_rows('banner_item')): the_row();
@@ -166,7 +163,7 @@ if( get_row_layout() == 'banner' ):
 
 <!-- Box Contact Map -->
 <?php elseif( get_row_layout() == 'contact_map' ): ?>
-  <div class="contact-maps">
+  <div class="contact-maps" id="stores">
     <div class="container">
       <div class="contact-maps__list">
         <?php if( have_rows('map_item') ):

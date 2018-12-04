@@ -44,7 +44,7 @@ if ( ! empty( $tabs ) ) : ?>
 	        <ul>
 						<?php foreach ( $tabs as $key => $tab ) : ?>
 							<li class="is-index <?php if($key == 'description'): ?>active<?php endif; ?>">
-		            <span class="js-show is-focus"><?php echo apply_filters( 'woocommerce_product_' . $key . '_tab_title', esc_html( $tab['title'] ), $key ); ?> <i class="icon-arrow-right"></i></span>
+		            <span class="js-show"><?php echo apply_filters( 'woocommerce_product_' . $key . '_tab_title', esc_html( $tab['title'] ), $key ); ?> <i class="icon-arrow-right"></i></span>
 
 		            <div class="show rs-tabs__content">
 		              <?php if ( isset( $tab['callback'] ) ) { call_user_func( $tab['callback'], $key, $tab ); } ?>

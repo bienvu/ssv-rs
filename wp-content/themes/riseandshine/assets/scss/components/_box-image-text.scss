@@ -25,7 +25,6 @@
 
   &__body {
     width: 100%;
-    line-height: normal;
 
     p {
       margin-bottom: 10px;
@@ -94,9 +93,18 @@
       width: 100%;
       margin-bottom: 20px;
 
+      @media only screen and (max-width: 767px) {
+        text-align: center;
+      }
+
       img {
         height: auto;
-        width: 100%;
+        width: auto;
+
+        @media only screen and (min-width: 768px) {
+          height: auto;
+          width: 100%;
+        }
 
         @media only screen and (min-width: 1280px) {
           max-width: inherit;
@@ -255,6 +263,7 @@
         order: 1;
         margin-left: -20px;
         margin-right: -20px;
+        overflow: hidden;
       }
 
       img {

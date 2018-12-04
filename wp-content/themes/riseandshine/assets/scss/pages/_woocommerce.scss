@@ -8,8 +8,10 @@
       }
     }
 
-    button:disabled {
+    button:disabled,
+    button {
       @extend .btn;
+      @extend .btn--lost-icon;
     }
   }
 
@@ -64,8 +66,10 @@
     }
   }
 
-  a.button {
+  a.button,
+  button.button {
     @extend .btn;
+    @extend .btn--lost-icon;
   }
 
   .woocommerce-info {
@@ -74,6 +78,14 @@
 
     &:before {
       cursor: pointer;
+    }
+  }
+
+  .woocommerce-ordering select {
+    text-transform: lowercase;
+    
+    @media only screen and (max-width: 1023px) {
+      text-align-last: inherit;
     }
   }
 }

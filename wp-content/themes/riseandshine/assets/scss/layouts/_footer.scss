@@ -1,13 +1,9 @@
 .footer {
   @extend .text--tiny;
-
-  @media only screen and (min-width: 768px) {
-    border-top: 1px solid $gray;
-    margin: 0 10px;
-  }
+  border-top: 1px solid $gray;
 
   &__icons {
-    margin-bottom: 25px;
+    margin-bottom: 26px;
 
     @media only screen and (min-width: 768px) {
       margin-bottom: 0;
@@ -24,7 +20,17 @@
     }
   }
 
+  &__title {
+    @media only screen and (max-width: 767px) {
+      margin-bottom: 7px;
+    }
+  }
+
   &__form {
+    .footer__title {
+      margin-bottom: 8px;
+    }
+
     @media only screen and (min-width: 768px) {
       width: 23%;
       padding: 7px 0 0 3px;
@@ -41,21 +47,26 @@
     .form-item {
       position: relative;
 
+      @media only screen and (max-width: 767px) {
+        margin-bottom: 11px;
+      }
+
       button[type="submit"] {
         @extend %btn--only-icon;
-        height: 30px;
+        @extend .btn--dark-blue;
         position: absolute;
         top: 0;
         right: 0;
 
         @media only screen and (max-width: 767px) {
-          background-color: $dark-blue;
+          height: 47px;
         }
       }
 
       input[type="text"],
       input[type="email"] {
         @extend %form-text--smallest;
+        margin: 0;
       }
 
       &:last-of-type {
@@ -127,6 +138,10 @@
 
     p {
       margin: 0;
+    }
+
+    a {
+      text-decoration: underline;
     }
   }
 

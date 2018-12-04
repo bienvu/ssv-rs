@@ -159,6 +159,13 @@
         background: $white;
       }
 
+      &.current-menu-item a,
+      &.current-menu-ancestor a{
+        @media only screen and (min-width: 1025px) {
+          background: $gray;
+        }
+      }
+
       &:first-of-type {
         margin: 0;
       }
@@ -339,6 +346,7 @@
         @extend %link--small;
         display: block;
         padding: 5px 0 7px;
+        text-transform: lowercase;
 
         @media only screen and (min-width: 768px) {
           padding: 7px 0 4px;

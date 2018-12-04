@@ -27,9 +27,6 @@ $color = get_field('color', $term);
 $termSlug = $term->slug;
 ?>
 <div class="banner-wrap">
-	<div class="best-advice best-advice--mobile">
-		<div class="container"><?php $sitewideData = get_field('sitewide','option'); print $sitewideData['header_text']; ?></div>
-	</div>
 	<div class="banner banner--width-content <?php print $color; ?> <?php if($termSlug == 'sale'): ?>banner--sale<?php endif; ?>">
 		<div class="banner__image">
 			<span class="hidden-on-mobile desktop-img"><?php echo wp_get_attachment_image( $image['ID'], 'full' ); ?></span>
@@ -93,7 +90,7 @@ $termSlug = $term->slug;
 do_action('woocommerce_before_main_content');
 ?>
 <?php if($term->slug != 'bed-in-a-bag'): ?>
-	<div class="box-filter is-hidden">
+	<div class="box-filter is-hidden" id="filter">
 		<div class="container">
 			<form class="box-filter__wrap riseandshine-product-category-filter-form" action="" method="get">
 				<div class="box-filter__top">
@@ -105,20 +102,25 @@ do_action('woocommerce_before_main_content');
 				        'parent' => 0,
 								'orderby' => 'term_id',
                 'order'   => 'ASC',
-								'exclude' => array( 275, 15 ),
+								'exclude' => array( 15 ),
 				      ));
 				    ?>
 				    <?php foreach ($product_categories as $key => $product_category): ?>
 				    	<li class="<?php if($term->term_id == $product_category->term_id) print 'active'; ?>">
-				    		<a href="<?php print get_term_link($product_category); ?>">
-				    			<?php print $product_category->name; ?>
+				    		<a href="<?php print get_term_link($product_category); ?>#filter">
+				    			<?php
+				    				$str_filter = $product_category->name;
+				    				$arr_filter = explode(" ", $str_filter);
+				    				$str_filter = implode("<br />", $arr_filter);
+				    				echo $str_filter;
+				    			?>
 				    		</a>
 				    	</li>
 				    <?php endforeach ?>
 				  </ul>
 				</div>
 				<div class="box-filter__bottom">
-					<h5 class="box-filter__title">Filters</h5>
+					<h5 class="box-filter__title">Filter</h5>
 					<div class="box-filter__body">
 						<span class="js-show btn"><span>more filters</span></span>
 					  <div class="box-filter__aside show">
@@ -139,7 +141,7 @@ do_action('woocommerce_before_main_content');
 	                  </div>
 										<div class="form-list">
 											<!-- Type -->
-											<div class="form-item">
+											<!-- <div class="form-item">
 	                      <span class="btn js-show"><span>type</span></span>
 	                      <div class="box-filter__child form-show show">
 	                        <div class="container">
@@ -176,7 +178,7 @@ do_action('woocommerce_before_main_content');
 	                          </div>
 	                        </div>
 	                      </div>
-	                    </div>
+	                    </div> -->
 											<!-- End type -->
 											<!-- Size -->
 	                    <div class="form-item">
@@ -232,7 +234,7 @@ do_action('woocommerce_before_main_content');
 	                          </div>
 	                          <div class="form-list form-caption">
 	                            <div class="form-item">
-	                              <span>size</span>
+	                              <span>comfort</span>
 	                            </div>
 	                          </div>
 	                          <div class="form-list">
@@ -263,10 +265,10 @@ do_action('woocommerce_before_main_content');
 										</div>
 								  	<div class="product-price--range form-list form-2col">
 								  		<div class="form-item form-type-text">
-								  			<input type="text" name="_price_from" placeholder="<?php print __('$ min', 'riseandshine'); ?>" value="<?php if(isset($_GET['_price_from'])) print $_GET['_price_from']; ?>" />
+								  			<input type="number" name="_price_from" placeholder="<?php print __('$ min', 'riseandshine'); ?>" value="<?php if(isset($_GET['_price_from'])) print $_GET['_price_from']; ?>" />
 								  		</div>
 								  		<div class="form-item form-type-text">
-								  			<input type="text" name="_price_to" placeholder="<?php print __('$ max', 'riseandshine'); ?>" value="<?php if(isset($_GET['_price_to'])) print $_GET['_price_to']; ?>" />
+								  			<input type="number" name="_price_to" placeholder="<?php print __('$ max', 'riseandshine'); ?>" value="<?php if(isset($_GET['_price_to'])) print $_GET['_price_to']; ?>" />
 								  		</div>
 								  	</div>
 										<div class="form-list">
@@ -278,15 +280,6 @@ do_action('woocommerce_before_main_content');
 							  </div>
 						  </div>
 					  </div>
-						<!-- <div class="box-filter__sort">
-	            <span class="js-show btn"><span>sort: recommended</span></span>
-
-	            <ul class="show">
-	              <li><a href="#">1</a></li>
-	              <li><a href="#">2</a></li>
-	              <li><a href="#">3</a></li>
-	            </ul>
-	          </div> -->
 				  </div>
 				</div>
 			</form>

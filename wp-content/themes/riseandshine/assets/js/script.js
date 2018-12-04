@@ -30,6 +30,9 @@
     // Remove attr title.
     $('a').removeAttr('title');
 
+    // Input number
+    $('input[type="number"], input[type="tel"]').wrap( "<div class='number-wrap'></div>" );
+
     // Add placeholder to quiz.
     $('.wpcf7-quiz').attr('placeholder', 'what is the first letter of rise?');
 
@@ -85,10 +88,11 @@
 
     // detect click outside element
     $(window).click(function(e) {
-      if($('.js-detect').has(e.target).length == 0 && !$('.js-detect').is(e.target)) {
-        $('.js-detect').removeClass('active');
+      var $jsSearch = $('.header .js-detect');
+      if($jsSearch.has(e.target).length == 0 && !$jsSearch.is(e.target)) {
+        $jsSearch.removeClass('active');
       } else {
-         $('.js-detect').addClass('active');
+         $jsSearch.addClass('active');
       }
     });
 
@@ -99,7 +103,7 @@
       nextArrow: '<span class="slick-next">next</span>',
       dots: true,
       adaptiveHeight: true,
-      autoplay: false,
+      autoplay: true,
       autoplaySpeed: 3000,
       slidesToShow: 1,
       slidesToScroll: 1
@@ -121,13 +125,22 @@
       }
 
       if($(this).next('.show').hasClass('active')) {
-        $('.rs-tabs__content, .js-show').removeClass('active');
-        $(this).next('.show');
+        $('.rs-tabs__content, .js-show, .box-filter__child').removeClass('active');
+        // $(this).next('.show');
       } else {
-        $('.rs-tabs__content, .js-show').removeClass('active');
-        $('.js-show').next('.show')
+        $('.rs-tabs__content, .js-show, .box-filter__child').removeClass('active');
+        // $('.js-show').next('.show');
         $(this).next('.show').addClass('active');
         $(this).addClass('active');
+      }
+    });
+
+    // Click outside
+    $(document).on('click', function(e) {
+      var $item = $(".box-filter .form-item");
+
+      if (!$item.is(e.target) && $item.has(e.target).length === 0) {
+        $('.box-filter__child, .box-filter .js-show').removeClass('active');
       }
     });
 
@@ -139,6 +152,14 @@
       $('.is-show').next('.show').removeClass('active');
       $(this).next('.show').addClass('active');
     });
+
+    // matchHeight
+    if(('.grid-products__title').length) {
+      $('.grid-products__title').matchHeight();
+    }
+    // if(('.grid-products--width-slide .grid-products__image').length) {
+    //   $('.grid-products--width-slide .grid-products__image').matchHeight();
+    // }
 
     // JS Product
     $('.js-gallery').slick({
@@ -194,33 +215,36 @@
 
     // Arrow slider
     function bannerHeight() {
-      if($( window ).width() < 767) {
+      if($( window ).width() < 768) {
         var $heightSlide = $('.banner .mobile-img').find('img').height();
         $('.banner__image').css('height', $heightSlide);
+        $('.banner .slick-dots').css('top', $heightSlide - 17);
       }
     }
 
     function autoHeight(object, direct) {
       var $heightSlide = object.find(direct).height();
-      object.find('.slick-arrow').css('top', $heightSlide/2);
+      object.find('.slick-arrow').css({'top': $heightSlide/2, 'opacity': 1});
     }
+
+    // Imageloaded.
+    $('.banner').imagesLoaded( function() {
+      // Resize
+      $(window).resize(function () {
+        bannerHeight();
+      }).resize();
+    });
+
 
     $(window).load(function() {
       autoHeight($('.grid-products--width-slide'), 'img');
       autoHeight($('.js-slide'), '.banner__image');
-      bannerHeight();
 
       $(window).resize(function() {
         autoHeight($('.grid-products--width-slide'), 'img');
         autoHeight($('.js-slide'), '.banner__image');
-        bannerHeight();
       });
     });
-
-    // matchHeight
-    if(('.grid-products__title').length) {
-      $('.grid-products__title').matchHeight();
-    }
 
     // js-play-video
     var $jsPlayVideo = $('.js-play-video'),
@@ -253,6 +277,22 @@
         }
       });
     });
+
+    //form fixed
+    $('.footer .request-form__title').click(function(){
+      $('.footer .form-fixed').toggleClass('is-active');
+    });
+
+    $(window).click(function (e)
+      {
+        var container = $('.footer .form-fixed');
+        if (!container.is(e.target)
+          && container.has(e.target).length === 0)
+        {
+        container.removeClass('is-active');
+      }
+    })
+
 
     // Product zoom.
 		var $easyzoom = $('.easyzoom').easyZoom();

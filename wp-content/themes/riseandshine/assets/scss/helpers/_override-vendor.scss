@@ -6,7 +6,7 @@
   display: inline-block;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 9;
+  z-index: 1;
   font-size: 0 !important;
   cursor: pointer;
 
@@ -31,6 +31,12 @@
   left: 0;
 }
 
+.slick-arrow {
+  @media only screen and (max-width: 767px) {
+    opacity: 0;
+  }
+}
+
 .slick-next {
   right: 0;
 }
@@ -38,12 +44,12 @@
 .slick-dots {
   display: flex;
   position: absolute;
-  bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
 
   @media only screen and (min-width: 768px) {
     bottom: 20px;
+    top: inherit !important;
   }
 
    li {

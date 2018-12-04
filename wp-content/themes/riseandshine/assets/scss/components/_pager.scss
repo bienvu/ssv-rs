@@ -1,6 +1,10 @@
 .woocommerce-pagination {
   margin-top: 35px;
 
+  @media only screen and (max-width: 767px) {
+    margin-top: 28px;
+  }
+
   ul {
     border: 0 !important;
   }
@@ -8,6 +12,18 @@
   li {
     margin: 0 5px 5px 0 !important;
     border: 0 !important;
+
+    @media only screen and (max-width: 767px) {
+      margin: 0 10px 10px 0 !important;
+      display: none !important;
+    }
+
+    &.current,
+    &.custom-pager {
+      @media only screen and (max-width: 767px) {
+        display: block !important;
+      }
+    }
 
     a, span {
       width: 30px;
@@ -18,6 +34,14 @@
       border: 2px solid $white;
       font-size: 14px !important;
 
+      @media only screen and (max-width: 767px) {
+        height: 43px;
+        width: 43px;
+        display: inline-flex !important;
+        justify-content: center;
+        align-items: center;
+      }
+
       &.current {
         background: $white !important;
         border-color: $orange;
@@ -27,8 +51,17 @@
     i {
       line-height: 0;
 
+      @media only screen and (max-width: 767px) {
+        margin-left: 14px;
+        margin-top: 3px;
+      }
+
       &:before {
         font-size: 9px;
+
+        @media only screen and (max-width: 767px) {
+          font-size: 12px;
+        }
       }
     }
 
@@ -40,6 +73,10 @@
         border-color: $dark-blue;
         color: $white;
         padding: 4px !important;
+
+        @media only screen and (max-width: 767px) {
+          padding: 1px 4px 4px !important;
+        }
 
         &:hover {
           background: lighten($dark-blue, 10%)!important;
@@ -54,10 +91,14 @@
       }
     }
 
-    a.prev i {
-      transform: rotate(180deg);
-      display: inline-block;
-      position: relative;
+    a.prev {
+      i {
+        transform: rotate(180deg);
+        display: inline-block;
+        position: relative;
+        margin-left: 0;
+        margin-right: 16px;
+      }
     }
   }
 }
@@ -96,6 +137,14 @@
     display: inline-block;
     margin-right: 10px;
     margin-bottom: 10px;
+
+    @media only screen and (max-width: 767px) {
+      height: 43px;
+      width: 43px;
+      display: inline-flex !important;
+      justify-content: center;
+      align-items: center;
+    }
 
     &:last-child {
       margin-right: 0;

@@ -37,9 +37,11 @@ if (function_exists('add_theme_support')) {
 
     // Add Thumbnail Theme Support
     add_theme_support('post-thumbnails');
-    add_image_size('large', 700, '', true); // Large Thumbnail
-    add_image_size('medium', 250, '', true); // Medium Thumbnail
-    add_image_size('small', 120, '', true); // Small Thumbnail
+    // add_image_size('large', 700, '', true); // Large Thumbnail
+    // add_image_size('medium', 250, '', true); // Medium Thumbnail
+    // add_image_size('small', 120, '', true); // Small Thumbnail
+    add_image_size('product_list', 600, 420); // Product list Thumbnail
+    add_image_size('relate_product', 439, 356); // Product list Thumbnail
 }
 
 /*------------------------------------*\
@@ -143,7 +145,7 @@ function wp_add_scripts() {
       wp_register_script('easyzoom', get_template_directory_uri() . '/assets/js/lib/easyzoom.js', array(), '1.0.0');
       wp_enqueue_script('easyzoom');
 
-      // froogaloop2 js.
+      // imageLoaded.
       wp_register_script('imageLoaded', 'https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js', array(), '1.0.0');
       wp_enqueue_script('imageLoaded');
 

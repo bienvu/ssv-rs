@@ -50,3 +50,31 @@
     }
   }
 }
+
+.header {
+  .cart {
+    position: relative;
+
+    span {
+      position: absolute;
+      top: -8px;
+      right: -18px;
+      background: $red;
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100%;
+      font-size: 10px;
+      padding-bottom: 2px;
+      color: $white;
+      font-weight: 600;
+    }
+
+    &.car-mb span {
+      top: 8px;
+      right: 0;
+    }
+  }
+}

@@ -105,12 +105,10 @@
 
   &--tiny {
     font-size: 12px;
-    line-height: normal;
   }
 
   &--normal {
     font-size: 16px;
-    line-height: normal;
   }
 
   &--large {
@@ -205,6 +203,14 @@
 
 .no-scroll {
   overflow: hidden;
+  position: fixed;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+
+  .form-fixed {
+    display: none;
+  }
 }
 
 //combination width js-read-more
@@ -335,7 +341,7 @@
   margin-bottom: 29px;
 
   input[type="search"] {
-    width: 250px;
+    width: 100%;
     padding: 10px 32px;
   }
 }
