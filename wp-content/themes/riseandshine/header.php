@@ -45,9 +45,12 @@
 
 			        <div class="header__right">
 								<?php get_template_part('templates/searchform'); ?>
+								<?php global $woocommerce;
+									$count = $woocommerce->cart->cart_contents_count;
+								?>
 			          <ul class="list-icons">
 			            <li><a href="/#our-stores" class="icon-location-pin"></a></li>
-			            <li><a href="/cart" class="icon-cart"></a></li>
+			            <li><a href="/cart" class="icon-cart cart car-mb"><?php echo do_shortcode('[cart_count]'); ?></a></li>
 			          </ul>
 
 			          <div class="menu-bars">
@@ -85,7 +88,7 @@
 			          <div class="best-advice"><?php $sitewideData = get_field('sitewide','option'); print $sitewideData['header_text']; ?></div>
 			          <div class="my-login">
 			            <a href="/my-account" class="account"><?php _e( 'my account', 'ssvtheme' ); ?></a>
-			            <a href="/cart" class="cart"><i class="icon-cart"></i></a>
+			            <a href="/cart" class="cart"><i class="icon-cart"></i><?php echo do_shortcode('[cart_count]'); ?></a>
 			          </div>
 			        </div>
 			      </div>
