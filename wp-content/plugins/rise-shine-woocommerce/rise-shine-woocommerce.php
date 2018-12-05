@@ -25,6 +25,63 @@ add_filter('woocommerce_product_import_inserted_product_object', 'rise_shine_woo
 add_action('woocommerce_product_options_general_product_data', 'rise_shine_woocommerce_product_options_general_product_data');
 add_filter('woocommerce_product_importer_pre_expand_data', 'rise_shine_woocommerce_product_importer_pre_expand_data');
 add_filter('woocommerce_shipping_methods', 'rise_shine_woocommerce_shipping_methods');
+// Hook to add recipient email
+add_filter('woocommerce_email_recipient_new_order', 'rise_shine_woocommerce_email_recipient', 10, 2);
+add_filter('woocommerce_email_recipient_cancelled_order', 'rise_shine_woocommerce_email_recipient', 10, 2);
+add_filter('woocommerce_email_recipient_failed_order', 'rise_shine_woocommerce_email_recipient', 10, 2);
+
+/**
+ * Hooked rise_shine_woocommerce_email_recipient_EMAIL_ID.
+ * Add more recipinent.
+ * @param string $recipient.
+ * @param object $order.
+ * @return string $recipient.
+ */
+function rise_shine_woocommerce_email_recipient($recipient, $order) {
+  $page = $_GET['page'] = isset( $_GET['page'] ) ? $_GET['page'] : '';
+  if ('wc-settings' === $page) {
+    return $recipient;
+  }
+  // just in case
+  if (!$order instanceof WC_Order) {
+    return $recipient;
+  }
+  $items = $order->get_items();
+  // Get Shipping post code then find store
+  $postcode = $order->get_shipping_postcode();
+  $args = array(
+    'post_type'   => 'rs_shipping_fee',
+    'post_status' => 'publish',
+    'meta_key' => 'shipping_fee',
+    'posts_per_page' => 1,
+    'meta_query'     => array(
+      array(
+        'key'     => 'postcode',
+        'value'   => $postcode,
+        'type'    => 'CHAR',
+        'compare' => '=',
+      ),
+    ),
+    'orderby' => array(
+      'meta_value_num' => 'ASC',
+    ),
+  );
+  $query = new WP_Query($args);
+  if (!empty($query->posts)) {
+    // Add email.
+    $shipping_fee_post = $query->posts[0];
+    $rs_store_term = wp_get_post_terms($shipping_fee_post->ID, 'rs_store');
+    if (!empty($rs_store_term)) {
+      $rs_store_term = $rs_store_term[0];
+      $email = get_field('store_email', $rs_store_term);
+      if (!empty($email)) {
+        $recipient .= ', '. trim($email);
+      }
+    }
+  }
+  return $recipient;
+}
+
 
 /**
  * Hooked woocommerce_shipping_method_add_rate_args.

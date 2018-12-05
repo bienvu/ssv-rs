@@ -5,7 +5,7 @@
  * for use with 'rs_shipping_fee'.
  */
 function rs_store_init() {
-  register_taxonomy( 'rs_store', array( 'rs_shipping_fee' ), array(
+  register_taxonomy( 'rs_store', array( 'rs_shipping_fee'), array(
     'hierarchical'      => true,
     'public'            => true,
     'show_in_nav_menus' => true,
