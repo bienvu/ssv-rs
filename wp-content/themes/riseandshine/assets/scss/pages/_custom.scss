@@ -311,3 +311,22 @@
     margin-bottom: 20px;
   }
 }
+
+.woocommerce-checkout {
+  .form-row select {
+    background-color: $gray;
+    margin-bottom: 10px !important;
+  }
+
+  #nab_card_ccv {
+    min-width: 70px;
+  }
+
+  .nab_payment_form {
+    margin-bottom: 40px;
+
+    input.button {
+      @extend .btn;
+    }
+  }
+}
