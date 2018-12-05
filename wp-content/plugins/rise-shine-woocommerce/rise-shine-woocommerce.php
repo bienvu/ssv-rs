@@ -29,6 +29,56 @@ add_filter('woocommerce_shipping_methods', 'rise_shine_woocommerce_shipping_meth
 add_filter('woocommerce_email_recipient_new_order', 'rise_shine_woocommerce_email_recipient', 10, 2);
 add_filter('woocommerce_email_recipient_cancelled_order', 'rise_shine_woocommerce_email_recipient', 10, 2);
 add_filter('woocommerce_email_recipient_failed_order', 'rise_shine_woocommerce_email_recipient', 10, 2);
+// Hook validate
+add_filter('woocommerce_validate_postcode', 'rise_shine_woocommerce_validate_postcode', 10, 3);
+add_filter('woocommerce_add_error', 'rise_shine_woocommerce_add_error', 10);
+add_action('woocommerce_after_checkout_validation', 'rise_shine_woocommerce_after_checkout_validation', 10, 2);
+
+
+/**
+ * Hooked woocommerce_add_error
+ * Append message error for invalid postcode.
+ * @param string $message.
+ */
+function rise_shine_woocommerce_add_error($message) {
+  if ($message == __('Please enter a valid postcode / ZIP.')) {
+    $message .=  '<p>' . __('Pick-up or contact your nearest store only. Find your store <a href="/contact/">here</a>') . '</p>';
+  }
+  return $message;
+}
+
+/**
+ * Hook woocommerce_after_checkout_validation.
+ * Add one more message if postcode is not match in system.
+ * @param array $data.
+ * @param object $errors.
+ */
+function rise_shine_woocommerce_after_checkout_validation(&$data, &$errors) {
+  if (isset($data['shipping_postcode'])) {
+    $shipping_fee_posts = _rise_shine_woocommerce_get_shipping_fee_by_postcode($data['shipping_postcode']);
+    if (empty($shipping_fee_posts)) {
+      $postcode_validation_notice = __('Pick-up or contact your nearest store only. Find your store <a href="/contact/">here</a>');
+      $errors->add('validation', $postcode_validation_notice);
+    }
+  }
+}
+
+/**
+ * Hooked woocommerce_validate_postcode.
+ * Validate post code.
+ * @param boolean $valid.
+ * @param string $postcode.
+ * @param string $country.
+ * @return boolean $valid.
+ */
+function rise_shine_woocommerce_validate_postcode($valid, $postcode, $country) {
+  $shipping_fee_posts = _rise_shine_woocommerce_get_shipping_fee_by_postcode($postcode);
+  if (empty($shipping_fee_posts)) {
+    $valid = false;
+  }
+  return $valid;
+}
+
 
 /**
  * Hooked rise_shine_woocommerce_email_recipient_EMAIL_ID.
@@ -49,27 +99,10 @@ function rise_shine_woocommerce_email_recipient($recipient, $order) {
   $items = $order->get_items();
   // Get Shipping post code then find store
   $postcode = $order->get_shipping_postcode();
-  $args = array(
-    'post_type'   => 'rs_shipping_fee',
-    'post_status' => 'publish',
-    'meta_key' => 'shipping_fee',
-    'posts_per_page' => 1,
-    'meta_query'     => array(
-      array(
-        'key'     => 'postcode',
-        'value'   => $postcode,
-        'type'    => 'CHAR',
-        'compare' => '=',
-      ),
-    ),
-    'orderby' => array(
-      'meta_value_num' => 'ASC',
-    ),
-  );
-  $query = new WP_Query($args);
-  if (!empty($query->posts)) {
+  $shipping_fee_posts = _rise_shine_woocommerce_get_shipping_fee_by_postcode($postcode);
+  if (!empty($shipping_fee_posts)) {
     // Add email.
-    $shipping_fee_post = $query->posts[0];
+    $shipping_fee_post = $shipping_fee_posts[0];
     $rs_store_term = wp_get_post_terms($shipping_fee_post->ID, 'rs_store');
     if (!empty($rs_store_term)) {
       $rs_store_term = $rs_store_term[0];
@@ -99,27 +132,10 @@ function rise_shine_woocommerce_shipping_method_add_rate_args($args_rate, $objec
     return $args_rate;
   }
   $postcode = $package['destination']['postcode'];
-  $args = array(
-    'post_type'   => 'rs_shipping_fee',
-    'post_status' => 'publish',
-    'meta_key' => 'shipping_fee',
-    'posts_per_page' => 1,
-    'meta_query'     => array(
-      array(
-        'key'     => 'postcode',
-        'value'   => $postcode,
-        'type'    => 'CHAR',
-        'compare' => '=',
-      ),
-    ),
-    'orderby' => array(
-      'meta_value_num' => 'ASC',
-    ),
-  );
-  $query = new WP_Query($args);
+  $shipping_fee_posts = _rise_shine_woocommerce_get_shipping_fee_by_postcode($postcode);
   $shipping_fees = array();
-  if (!empty($query->posts)) {
-    foreach ($query->posts as $key => $post) {
+  if (!empty($shipping_fee_posts)) {
+    foreach ($shipping_fee_posts as $key => $post) {
       $shipping_fee = get_field('shipping_fee');
       if (!empty($shipping_fee)) {
         $shipping_fees[] = (float) $shipping_fee;
@@ -296,5 +312,36 @@ function rise_shine_woocommerce_product_import_inserted_product_object($object, 
     }
   }
   return $object;
+}
+
+/**
+ * Function load shipping fee post by post code.
+ * @param string $postcode.
+ * @return array $shipping_fee_posts.
+ */
+function _rise_shine_woocommerce_get_shipping_fee_by_postcode($postcode) {
+  $args = array(
+    'post_type'   => 'rs_shipping_fee',
+    'post_status' => 'publish',
+    'meta_key' => 'shipping_fee',
+    'posts_per_page' => 1,
+    'meta_query'     => array(
+      array(
+        'key'     => 'postcode',
+        'value'   => $postcode,
+        'type'    => 'CHAR',
+        'compare' => '=',
+      ),
+    ),
+    'orderby' => array(
+      'meta_value_num' => 'ASC',
+    ),
+  );
+  $query = new WP_Query($args);
+  if (empty($query->posts)) {
+    return array();
+  }else {
+    return $query->posts;
+  }
 }
 
