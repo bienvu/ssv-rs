@@ -190,7 +190,7 @@
   }
 }
 
-.term-bed-in-a-bag {
+.bed-in-a-bag {
   .banner .banner__wrap {
     top: calc(50% - 4px);
 
@@ -198,6 +198,7 @@
       font-weight: 500;
     }
   }
+  
   .banner__description {
     margin-bottom: 20px;
 
@@ -219,6 +220,10 @@
     @media only screen and (min-width: 768px) {
       display: none !important;
     }
+  }
+
+  .scroll-element {
+    display: none;
   }
 }
 
@@ -328,11 +333,5 @@
     input.button {
       @extend .btn;
     }
-  }
-}
-
-.bed-in-a-bag {
-  .scroll-element {
-    display: none;
   }
 }
