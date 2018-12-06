@@ -5,7 +5,7 @@ if( get_row_layout() == 'banner' ):
   $bannerLabel = get_sub_field("label");?>
 
   <div class="banner-wrap">
-    <div class="banner <?php if($count > 1): ?>js-slide banner--width-slide<?php endif; ?>">
+    <div class="banner  <?php if($count > 1): ?>js-slide banner--width-slide<?php endif; ?>">
       <?php if (have_rows('banner_item')):
         while (have_rows('banner_item')): the_row();
         $title = get_sub_field('title');
@@ -24,7 +24,7 @@ if( get_row_layout() == 'banner' ):
                   <a href="<?php print $link['url']; ?>" class="hidden-on-mobile desktop-img"><?php echo wp_get_attachment_image( $images['ID'], $size ); ?></a>
                   <a href="<?php print $link['url']; ?>" class="hidden-on-tablet mobile-img"><?php echo wp_get_attachment_image( $imageMobile['ID'], $size ); ?></a>
                 <?php else: ?>
-                  <span class="hidden-on-mobile desktop-img"><?php echo wp_get_attachment_image( $images['ID'], $size ); ?></span>
+                  <span class="<?php if(!empty(wp_get_attachment_image( $imageMobile['ID'], $size ))) { echo 'hidden-on-mobile'; } ?> desktop-img"><?php echo wp_get_attachment_image( $images['ID'], $size ); ?></span>
                   <span class="hidden-on-tablet mobile-img"><?php echo wp_get_attachment_image( $imageMobile['ID'], $size ); ?></span>
                 <?php endif; ?>
               </div>

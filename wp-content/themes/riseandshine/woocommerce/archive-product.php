@@ -147,8 +147,8 @@ do_action('woocommerce_before_main_content');
 									        'parent' => $term->term_id,
 									      ));
 								  		?>
-											<div class="form-item">
-	                      <span class="btn js-show <?php if (count($sub_categories) <= 1) print 'disabled'; ?>"><span>type</span></span>
+											<div class="form-item <?php if (count($sub_categories) <= 1) print 'disabled'; ?>">
+	                      <span class="btn js-show"><span>type</span></span>
 	                      <div class="box-filter__child form-show show">
 	                        <div class="container">
 	                          <div class="form-list form-top">
