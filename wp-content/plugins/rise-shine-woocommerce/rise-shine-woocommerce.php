@@ -33,7 +33,15 @@ add_filter('woocommerce_email_recipient_failed_order', 'rise_shine_woocommerce_e
 add_filter('woocommerce_validate_postcode', 'rise_shine_woocommerce_validate_postcode', 10, 3);
 add_filter('woocommerce_add_error', 'rise_shine_woocommerce_add_error', 10);
 add_action('woocommerce_after_checkout_validation', 'rise_shine_woocommerce_after_checkout_validation', 10, 2);
+add_filter('woocommerce_product_import_batch_size', 'rise_shine_woocommerce_product_import_batch_size');
 
+/**
+ * Change import batch size
+ */
+function rise_shine_woocommerce_product_import_batch_size($size) {
+  $size = 5;
+  return $size;
+}
 
 /**
  * Hooked woocommerce_add_error
