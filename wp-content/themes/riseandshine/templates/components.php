@@ -2,10 +2,11 @@
 
 if( get_row_layout() == 'banner' ):
   $count = count(get_sub_field("banner_item"));
-  $bannerLabel = get_sub_field("label");?>
+  $bannerLabel = get_sub_field("label");
+  $classModifier = get_sub_field("class_modifier");?>
 
   <div class="banner-wrap">
-    <div class="banner  <?php if($count > 1): ?>js-slide banner--width-slide<?php endif; ?>">
+    <div class="banner  <?php if($count > 1): ?>js-slide banner--width-slide<?php endif; ?> <?php echo $classModifier; ?>">
       <?php if (have_rows('banner_item')):
         while (have_rows('banner_item')): the_row();
         $title = get_sub_field('title');

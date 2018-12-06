@@ -53,6 +53,9 @@
 
     @media only screen and (min-width: 1024px) {
       margin: 0;
+      width: 100%;
+      overflow-x: auto;
+      margin-right: 10px;
     }
 
     ul {
@@ -323,7 +326,7 @@
 
         &.disabled {
           opacity: .5;
-          pointer-events: none; 
+          pointer-events: none;
         }
 
         .btn {
@@ -529,7 +532,7 @@
 
       .form-item {
         text-transform: lowercase;
-        
+
         button[type="submit"],
         input[type="submit"] {
           background: $green;

@@ -214,6 +214,25 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
+                        },
+                        {
+                            "key": "field_5c08fb567ee4c",
+                            "label": "Class modifier",
+                            "name": "class_modifier",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         }
                     ],
                     "min": "",
@@ -1456,5 +1475,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1543284376
+    "modified": 1544092515
 }

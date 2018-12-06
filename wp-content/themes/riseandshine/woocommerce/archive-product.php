@@ -89,7 +89,6 @@ $termSlug = $term->slug;
  */
 do_action('woocommerce_before_main_content');
 ?>
-<?php if($term->slug != 'bed-in-a-bag'): ?>
 	<div class="box-filter is-hidden" id="filter">
 		<div class="container">
 			<form class="box-filter__wrap riseandshine-product-category-filter-form" action="" method="get">
@@ -343,17 +342,7 @@ do_action('woocommerce_before_main_content');
 		}
 		print '</div></div>';
 	?>
-<?php endif; ?>
-	<!-- Get component data -->
-	<?php
-	$term = get_queried_object();
-		if( have_rows('components', $term) ):
-		  // loop through the rows of data
-		  while ( have_rows('components', $term) ) : the_row();
-				wc_get_template( '../templates/components.php' );
-			endwhile;
-		endif;
-	?>
+	
 <?php
 /**
  * Hook: woocommerce_after_main_content.
