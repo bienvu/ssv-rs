@@ -89,7 +89,9 @@ $termSlug = $term->slug;
  */
 do_action('woocommerce_before_main_content');
 ?>
-	<div class="box-filter is-hidden" id="filter">
+
+	<div class="box-filter is-hidden">
+		<div id="filter"></div>
 		<div class="container">
 			<form class="box-filter__wrap riseandshine-product-category-filter-form" action="" method="get">
 				<div class="box-filter__top">
@@ -342,7 +344,7 @@ do_action('woocommerce_before_main_content');
 		}
 		print '</div></div>';
 	?>
-	
+
 <?php
 /**
  * Hook: woocommerce_after_main_content.

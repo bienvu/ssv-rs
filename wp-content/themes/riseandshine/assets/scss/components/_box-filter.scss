@@ -1,3 +1,10 @@
+#filter {
+  position: absolute;
+  top: -128px;
+  left: 0;
+  width: 1px;
+  height: 128px;
+}
 .box-filter {
   @extend .bg--gray;
   overflow: hidden;
