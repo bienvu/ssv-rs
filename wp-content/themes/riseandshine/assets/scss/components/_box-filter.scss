@@ -321,6 +321,11 @@
           }
         }
 
+        &.disabled {
+          opacity: .5;
+          pointer-events: none; 
+        }
+
         .btn {
           @extend .btn--white;
           @extend .btn--depend-mobile;
@@ -523,6 +528,8 @@
       }
 
       .form-item {
+        text-transform: lowercase;
+        
         button[type="submit"],
         input[type="submit"] {
           background: $green;
