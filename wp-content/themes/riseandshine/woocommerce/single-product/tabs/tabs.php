@@ -27,6 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @see woocommerce_default_product_tabs()
  */
 $tabs = apply_filters( 'woocommerce_product_tabs', array() );
+$deliveryText = get_field('delivery_and_returns','option');
 
 if ( ! empty( $tabs ) ) : ?>
 	<div class="rs-tabs">
@@ -42,14 +43,24 @@ if ( ! empty( $tabs ) ) : ?>
 
 	      <div class="rs-tabs__body">
 	        <ul>
-						<?php foreach ( $tabs as $key => $tab ) : ?>
-							<li class="is-index <?php if($key == 'description'): ?>active<?php endif; ?>">
-		            <span class="js-show"><?php echo apply_filters( 'woocommerce_product_' . $key . '_tab_title', esc_html( $tab['title'] ), $key ); ?> <i class="icon-arrow-right"></i></span>
+						<?php foreach ( $tabs as $key => $tab ) :?>
+							<?php if($key == 'shipping'): ?>
+								<li class="is-index">
+			            <span class="js-show"><?php echo apply_filters( 'woocommerce_product_' . $key . '_tab_title', esc_html( $tab['title'] ), $key ); ?> <i class="icon-arrow-right"></i></span>
 
-		            <div class="show rs-tabs__content">
-		              <?php if ( isset( $tab['callback'] ) ) { call_user_func( $tab['callback'], $key, $tab ); } ?>
-		            </div>
-		          </li>
+			            <div class="show rs-tabs__content">
+										<?php echo $deliveryText; ?>
+			            </div>
+			          </li>
+							<?php else: ?>
+								<li class="is-index <?php if($key == 'description'): ?>active<?php endif; ?>">
+			            <span class="js-show"><?php echo apply_filters( 'woocommerce_product_' . $key . '_tab_title', esc_html( $tab['title'] ), $key ); ?> <i class="icon-arrow-right"></i></span>
+
+			            <div class="show rs-tabs__content">
+			              <?php if ( isset( $tab['callback'] ) ) { call_user_func( $tab['callback'], $key, $tab ); } ?>
+			            </div>
+			          </li>
+							<?php endif; ?>
 						<?php endforeach; ?>
 	        </ul>
 	      </div>

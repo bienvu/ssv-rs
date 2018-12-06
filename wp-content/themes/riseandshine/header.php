@@ -94,5 +94,5 @@
 			      </div>
 			    </div>
 			  </div>
-			  <div class="header-space"></div>
 			</header>
+			<div class="header-space"></div>
