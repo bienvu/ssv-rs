@@ -141,8 +141,14 @@ do_action('woocommerce_before_main_content');
 	                  </div>
 										<div class="form-list">
 											<!-- Type -->
-											<!-- <div class="form-item">
-	                      <span class="btn js-show"><span>type</span></span>
+											<?php
+								  			$sub_categories =  get_terms('product_cat', array(
+									        'hide_empty' => 1,
+									        'parent' => $term->term_id,
+									      ));
+								  		?>
+											<div class="form-item">
+	                      <span class="btn js-show <?php if (count($sub_categories) <= 1) print 'disabled'; ?>"><span>type</span></span>
 	                      <div class="box-filter__child form-show show">
 	                        <div class="container">
 	                          <div class="form-list form-top">
@@ -156,21 +162,17 @@ do_action('woocommerce_before_main_content');
 	                              <span>type</span>
 	                            </div>
 	                          </div>
-	                          <div class="form-list">
-															<?php
-												  			$sub_categories =  get_terms('product_cat', array(
-													        'hide_empty' => 0,
-													        'parent' => $term->term_id,
-													      ));
-												  		?>
-												  		<?php $default_sub_categories = isset($_GET['types']) ? (array) $_GET['types'] : array(); ?>
-															<?php foreach ($sub_categories as $key => $sub_category): ?>
-												  			<div class="form-item form-type-checkbox">
-												  				<input id="edit-type-<?php print $sub_category->slug; ?>" type="checkbox" name="types[]" value="<?php print $sub_category->slug; ?>" <?php checked(in_array($sub_category->slug, $default_sub_categories), 1); ?> />
-												  				<label for="edit-type-<?php print $sub_category->slug; ?>" class="option"> <?php print $sub_category->name; ?></label>
-												  			</div>
-												  		<?php endforeach; ?>
-	                          </div>
+	                          <?php if (count($sub_categories) >= 2): ?>
+		                          <div class="form-list">
+												  			<?php $default_sub_categories = isset($_GET['types']) ? (array) $_GET['types'] : array(); ?>
+																<?php foreach ($sub_categories as $key => $sub_category): ?>
+													  			<div class="form-item form-type-checkbox">
+													  				<input id="edit-type-<?php print $sub_category->slug; ?>" type="checkbox" name="types[]" value="<?php print $sub_category->slug; ?>" <?php checked(in_array($sub_category->slug, $default_sub_categories), 1); ?> />
+													  				<label for="edit-type-<?php print $sub_category->slug; ?>" class="option"> <?php print $sub_category->name; ?></label>
+													  			</div>
+													  		<?php endforeach; ?>
+		                          </div>
+	                          <?php endif ?>
 	                          <div class="form-list">
 	                            <div class="form-item">
 	                              <button type="submit" class=" btn btn--lost-icon"><span>go</span></button>
@@ -178,7 +180,7 @@ do_action('woocommerce_before_main_content');
 	                          </div>
 	                        </div>
 	                      </div>
-	                    </div> -->
+	                    </div>
 											<!-- End type -->
 											<!-- Size -->
 	                    <div class="form-item">
@@ -205,7 +207,7 @@ do_action('woocommerce_before_main_content');
 												  		<?php $default_attribute_sizes = isset($_GET['sizes']) ? (array) $_GET['sizes'] : array(); ?>
 															<?php foreach ($attribute_sizes as $key => $attribute_size): ?>
 											  				<div class="form-item form-type-checkbox">
-												  				<input id="edit-size-<?php print $attribute_size->slug; ?>" type="checkbox" name="sizes[]" value="<?php print $attribute_size->slug; ?>" <?php checked(in_array($attr_size->slug, $default_attribute_sizes), 1); ?> />
+												  				<input id="edit-size-<?php print $attribute_size->slug; ?>" type="checkbox" name="sizes[]" value="<?php print $attribute_size->slug; ?>" <?php checked(in_array($attribute_size->slug, $default_attribute_sizes), 1); ?> />
 												  				<label for="edit-size-<?php print $attribute_size->slug; ?>" class="option">
 												  					<?php print $attribute_size->name; ?>
 												  				</label>
