@@ -35,6 +35,10 @@
   ol li {
     list-style: decimal;
   }
+
+  a:not(.btn) {
+    text-decoration: underline;
+  }
 }
 
 .delivery-services,

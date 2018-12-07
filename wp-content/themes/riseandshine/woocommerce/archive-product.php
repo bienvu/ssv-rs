@@ -24,13 +24,34 @@ $term = get_queried_object();
 $image = get_field('banner_image', $term);
 $imageMobile = get_field('banner_mobile', $term);
 $color = get_field('color', $term);
+$categoryDescription = get_field('category_description', $term);
 $termSlug = $term->slug;
 ?>
 <div class="banner-wrap">
 	<div class="banner banner--width-content <?php print $color; ?> <?php if($termSlug == 'sale'): ?>banner--sale<?php endif; ?>">
 		<div class="banner__image">
-			<span class="hidden-on-mobile desktop-img"><?php echo wp_get_attachment_image( $image['ID'], 'full' ); ?></span>
-			<span class="hidden-on-tablet mobile-img"><?php echo wp_get_attachment_image( $imageMobile['ID'], 'full' ); ?></span>
+			<span class="hidden-on-mobile desktop-img">
+				<?php
+					if($image) {
+						echo wp_get_attachment_image( $image['ID'], 'full' );
+					} else {
+						echo '<img width="1366" height="487" src="'.get_template_directory_uri().'/assets/images/banner.jpg" alt="rise+shine image">';
+					}
+				?>
+			</span>
+			<span class="hidden-on-tablet mobile-img">
+				<?php
+					if($imageMobile) {
+						echo wp_get_attachment_image( $imageMobile['ID'], 'full' );
+					} else {
+						if($image) {
+							echo wp_get_attachment_image( $image['ID'], 'full' );
+						} else {
+							echo '<img width="1366" height="487" src="'.get_template_directory_uri().'/assets/images/banner_mobile.jpg" alt="rise+shine image">';
+						}
+					}
+				?>
+			</span>
 			<?php if($termSlug == 'sale'): ?>
 				<div class="scroll-element">
 					<i class="icon-arrow-down js-scroll-down"></i>
@@ -43,29 +64,18 @@ $termSlug = $term->slug;
 					<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 						<h1 class="banner__subtitle"><?php woocommerce_page_title(); ?></h1>
 					<?php endif; ?>
-					<div class="banner__content">
-						<div class="banner__description text--large">
-							<?php
-								$term = get_queried_object();
-
-								if ( $term && ! empty( $term->description ) ) {
-									echo wc_format_content( $term->description ); // WPCS: XSS ok.
-								}
-							// /**
-							//  * Hook: woocommerce_archive_description.
-							//  *
-							//  * @hooked woocommerce_taxonomy_archive_description - 10
-							//  * @hooked woocommerce_product_archive_description - 10
-							//  */
-							// do_action( 'woocommerce_archive_description' );
-							?>
+					<?php if($categoryDescription): ?>
+						<div class="banner__content">
+							<div class="banner__description text--large">
+								<?php echo $categoryDescription; ?>
+							</div>
+							<?php if($termSlug == 'bed-in-a-bag'): ?>
+								<div class="banner__link">
+		              <a href="/sale" class="btn" tabindex="0"><span>discover</span></a>
+		            </div>
+							<?php endif; ?>
 						</div>
-						<?php if($termSlug == 'bed-in-a-bag'): ?>
-							<div class="banner__link">
-	              <a href="/sale" class="btn" tabindex="0"><span>discover</span></a>
-	            </div>
-						<?php endif; ?>
-					</div>
+					<?php endif; ?>
 					<?php if($termSlug != 'sale' && $termSlug != 'bed-in-a-bag'): ?>
 						<div class="best-advice hidden-on-mobile"><?php  _e( 'best advice. never beaten on price', 'ssvtheme' ); ?></div>
 					<?php endif; ?>

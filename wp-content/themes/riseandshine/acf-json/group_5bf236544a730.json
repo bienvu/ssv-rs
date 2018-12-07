@@ -1,6 +1,24 @@
 {
     "key": "group_5bf236544a730",
     "title": "Product category extra",
+    "location": [
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "product_cat"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1544147647,
     "fields": [
         {
             "key": "field_5bf2366209bff",
@@ -102,23 +120,5 @@
             "media_upload": 1,
             "delay": 0
         }
-    ],
-    "location": [
-        [
-            {
-                "param": "taxonomy",
-                "operator": "==",
-                "value": "product_cat"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": 1,
-    "description": "",
-    "modified": 1544092826
+    ]
 }
